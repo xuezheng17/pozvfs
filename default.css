@@ -1,0 +1,316 @@
+html,body {
+  background-color: #ffffff;
+  font-family: "Helvetica", Geneva, Arial, Verdana, sans-serif;
+  font-size: 12px;
+  line-height: 13px;
+  list-style-type: square;
+  margin: 0;
+  padding:-10px;
+  border: 0;
+  outline: 0;
+}
+
+a,a:link,a:visited {
+  color: #0000ff;
+  font-size: 12px;
+}
+
+table,table.tr,table.td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.progressWrapper {
+  width: 418px;
+  overflow: hidden;
+}
+
+.progressContainer {
+  margin: 0px 0 9px ;
+  padding: 5px 48px 10px 16px;
+  width:348px;
+  border: solid 1px #ccc;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.progressName {
+	margin-top:3px;
+  font-size: 10pt;
+  font-weight: 400;
+  color: #000000;
+  width: 323px;
+  height: 14px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.progressBarInProgress {
+  width: 0%;
+  height: 13px;
+  background-color: green;
+  margin-top: -10px;
+  
+}
+
+.progressBarComplete {
+  font-size: 10;
+  width: 100%;
+  height: 5px;
+  background-color: red;
+  margin-top: -10px;
+}
+
+.progressBarError {
+  font-size: 0;
+  width: 50%;
+  height: 5px;
+  background-color: red;
+  margin-top: -10px;
+}
+
+.progressBarComplete {
+  width: 50%;
+  background-color: green;
+  visibility: hidden;
+}
+
+.progressBarError {
+  width: 100%;
+  background-color: red;
+  visibility: hidden;
+}
+
+.progressBarStatus {
+  margin-top: 5px;
+  width: 393px;
+  color: blue;
+  font-size: 10pt;
+  font-family: Arial;
+  text-align:right;
+  white-space: nowrap;
+}
+
+a.progressCancel {
+  font-size: 0;
+  display: block;
+  height: 14px;
+  width: 14px;
+  background-image: url(../image/cancelbutton.gif);
+  background-repeat: no-repeat;
+  background-position: -14px 0px;
+  float: right;
+}
+
+a.progressCancel:hover {
+  background-position: 0px 0px;
+}
+
+/* Popup */
+.popupBase {
+  position: absolute;
+  border: 0px solid #8c0978;
+}
+
+.popupWhite {
+  background-image: url(image/common/back.png);
+  background-repeat: repeat-x repeat-y;
+  position: absolute !important;
+  display: block !important;
+  top: 0px;
+  left: 0px;
+}
+
+.popupBlack {
+  background-image: url(image/common/back2.png);
+  background-repeat: repeat-x repeat-y;
+  position: absolute !important;
+  display: block !important;
+  top: 0px;
+  left: 0px;
+}
+.popupSimpleBase {
+  position: absolute;
+  border: 1px solid #8c0978;
+  background-color: #fff;
+}
+
+.popupSimpleWhite {
+  background-image: url(image/common/back.png);
+  background-repeat: repeat-x repeat-y;
+  position: absolute !important;
+  display: block !important;
+  top: 0px;
+  left: 0px;
+}
+
+.popupSimpleBlack {
+  background-image: url(image/common/back2.png);
+  background-repeat: repeat-x repeat-y;
+  position: absolute !important;
+  display: block !important;
+  top: 0px;
+  left: 0px;
+}
+.popupMove {
+  cursor: move;
+}
+.popupUp {
+  cursor: handle;
+}
+/* Date Selection */
+table.dateSelect {
+  border: 1px solid #8c0978;
+  font-size: small;
+  background-color: #ffffff;
+  width: 250px;
+}
+
+table.dateSelect td {
+  padding: 3px;
+}
+
+table.dateSelect .dateSelectNav {
+  text-align: center;
+  font-size: x-small;
+  font-weight: bolder;
+  border: 1px solid #005A82;
+  background-image: url(image/dateselect/dateselect_nav.jpg);
+  background-repeat: repeat-x;
+  background-color: #ae5e6d;
+  cursor: pointer;
+  padding: 3px;
+}
+
+table.dateSelect .dateSelectNav:hover {
+  color: #ffffff;
+  background-color: #eb84b0;
+}
+
+table.dateSelect .dateSelectMonth {
+  text-align: center;
+  font-weight: bold;
+  background-image: url(image/dateselect/dateselect_nav.jpg);
+  background-repeat: repeat-x;
+  background-color: #ae5e6d;
+  border: 1px solid #005A82;
+  padding: 3px;
+}
+
+table.dateSelect .dateSelectMonth a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+table.dateSelect .dateSelectMonth a:hover {
+  text-decoration: underline
+}
+
+table.dateSelect .dateSelectDayLabel {
+  text-align: center;
+  background-image: url(image/dateselect/dateselect_day.jpg);
+  background-repeat: repeat-x;
+  color: #ffffff;
+  background-color: #aa4f60;
+  width: 30px;
+  font-weight: bold
+}
+
+table.dateSelect .dateSelectCurrentLabel {
+  color: #ffffff;
+  background-image: url(image/dateselect/dateselect_day.jpg);
+  background-repeat: repeat-x;
+  background-color: #aa4f60;
+  font-weight: bold;
+}
+
+table.dateSelect .dateSelectDay {
+  color: #ae5e6d;
+  text-align: center;
+  padding: 0.2em;
+  font-size: 0.9em;
+  border: 1px solid #f7f6f3;
+  background-color: #f7f6f3;
+  cursor: pointer;
+}
+
+table.dateSelect .dateSelectDay:hover {
+  color: #ff0000;
+  text-align: center;
+  padding: 0.1em;
+  font-weight: bold;
+  font-size: 0.9em;
+  border: 1px solid #8c0978;
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
+table.dateSelect .dateSelectDayEmpty {
+  padding: 0.1em;
+  background-color: #f7f6f3;
+  border: 1px solid #f7f6f3;
+}
+
+table.dateSelect .dateSelectToday {
+  text-align: center;
+  border: 1px solid #808080;
+  padding: 0.1em;
+  color: #a3532b;
+  background-color: #f7f6f3;
+  cursor: pointer;
+}
+
+table.dateSelect .dateSelectToday:hover {
+  color: #ff0000;
+  background-color: #cccccc;
+}
+
+table.dateSelect .dateSelectSelected {
+  text-align: center;
+  background-image: url(image/dateselect/dateselect_now.jpg);
+  background-repeat: repeat-x;
+  border: 1px solid #808080;
+  background-color: #dddddd;
+  font-weight: bold;
+  padding: 0.1em;
+  color: #aa4b1d;
+  cursor: pointer;
+}
+
+table.dateSelect dateSelectSelected:hover {
+  color: #ff0000;
+}
+
+table.dateSelect .timeHeader {
+  background-image: url(image/dateselect/dateselect_day.jpg);
+  background-repeat: repeat-x;
+  color: #ffffff;
+  background-color: #c5d4ad;
+  font-weight: bold;
+  vertical-align: middle;
+  padding-right: 1em;
+}
+
+table.dateSelect select {
+  width: 4em;
+  margin: 0em 0.5em 0em 0em;
+}
+
+.lineBtn {
+  padding-top: 10px;
+  border-top: #005A82 2px solid;
+}
+
+/* Custom */
+table.gbt {
+  border-bottom: 1px solid #af9072;
+  border-right: 1px solid #af9072;
+}
+
+table.gbt td {
+  border-top: 1px solid #af9072;
+  border-left: 1px solid #af9072;
+}
