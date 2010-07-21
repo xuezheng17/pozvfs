@@ -1,0 +1,15 @@
+{{include file='include/library/json/json2.tpl'}}
+{{include file='include/common/domutils.tpl'}}
+{{include file='include/common/miscutils.tpl'}}
+{{include file='include/_constant/constant.tpl'}}
+{{include file='api/part/abstractpopupboxsimple.tpl'}}
+{{include file='gui/part/popupboxsimple.tpl'}}
+{{include file='core/part/modulepopupboxsimple.tpl'}}
+{{include file='include/library/request/request.tpl'}}
+{{include file='include/common/requestutils.tpl'}}
+{{include file='include/common/npfileutils.tpl'}}
+{{include file='api/part/abstractviewfile.tpl'}}
+{{include file='gui/part/viewfile.tpl'}}
+{{include file='core/part/moduleviewfile.tpl'}}
+{{include file='core/page/handledirectorysimple.tpl'}}
+{{include file='api/page/abstractdirectorysimple.tpl'}}
