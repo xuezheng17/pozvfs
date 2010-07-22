@@ -3,6 +3,10 @@ function AbstractVisitorExist() {
 
 AbstractVisitorExist.gui = function(unique) {
   return { title: document.getElementById(unique + '_title_label'),
+           next: document.getElementById(unique + '_next_button'),
+           back: document.getElementById(unique + '_back_button'),
+           jump: document.getElementById(unique + '_jump_button'),
+           number: document.getElementById(unique + '_number_input'),
            weddingDay: document.getElementById(unique + '_weddingDay_input'),
            brideName: document.getElementById(unique + '_brideName_input'),
            brideAddress: document.getElementById(unique + '_brideAddress_input'),
