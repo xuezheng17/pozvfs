@@ -1,4 +1,4 @@
-{{config_load file='npfile.conf'}}
+{{config_load file='pozvfs.conf'}}
 
 function DOMUtils() {
 };
