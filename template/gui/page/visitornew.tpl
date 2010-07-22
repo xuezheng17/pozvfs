@@ -1,7 +1,7 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 400px;
+    height: 420px;
     margin: 20px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
@@ -28,7 +28,43 @@
     text-align: left;
     vertical-align: bottom;
   }
-  
+  .{{$template|escape:'html'}}_td5 {
+    width: 179px;
+    height: 27px;
+    text-align: right;
+    vertical-align: middle;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .{{$template|escape:'html'}}_td6 {
+    width: 980px;
+    height: 10px;
+  }
+  .{{$template|escape:'html'}}_td7 {
+    width: 980px;
+    height: 2px;
+    background-color:#e5ecf9;
+  }
+  .{{$template|escape:'html'}}_td8 {
+    width: 290px;
+    height: 27px;
+    text-align: left;
+    vertical-align: bottom;
+  }
+  .{{$template|escape:'html'}}_td9 {
+    width: 20px;
+    height: 27px;
+    text-align: left;
+    vertical-align: bottom;
+  }
+  .{{$template|escape:'html'}}_td10 {
+    width: 975px;
+    height: 60px;
+    text-align: right;
+    vertical-align: bottom;
+  }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
     height: 21px;
@@ -37,7 +73,6 @@
     width: 155px;
     height: 21px;
   }
-  
   
   .item{margin:0;
         padding:0;
@@ -106,4 +141,151 @@
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_brideName_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-   
+    <td class="{{$template|escape:'html'}}_td5">
+      Groom Name:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_groomName_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      Address:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_brideAddress_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      Address:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_groomAddress_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      Phone:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_bridePhone_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      Phone:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_groomPhone_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      Mobile:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_brideMobile_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      Mobile:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_groomMobile_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      Email:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_brideEmail_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      Email:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_groomEmail_input" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td7">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      Culture Background:
+    </td>
+    <td class="{{$template|escape:'html'}}_td8">
+       <input type="select" id="{{$template|escape:'html'}}_culturalBackground_select" value = "Culture Background"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td9">
+      <img src="image，，，.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      Ceremony Location:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="select" id="{{$template|escape:'html'}}_ceremoneyLocation_select" value = "Culture Background"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td9">
+      <img src="image，，，.png" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      Reception Location:
+    </td>
+    <td class="{{$template|escape:'html'}}_td8">
+       <input type="select" id="{{$template|escape:'html'}}_receptionLocation_select" value = "Culture Background"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td9">
+      <img src="image，，，.png" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      Source:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="select" id="{{$template|escape:'html'}}_source_select" value = "Culture Background"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td9">
+      <img src="image，，，.png" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td7">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6">
+    </td>
+  </tr>
+   <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      First Visiting Method:
+    </td>
+    <td class="{{$template|escape:'html'}}_td8">
+       <input type="text" id="{{$template|escape:'html'}}_fristVisitingMethod_button" class="{{$template|escape:'html'}}_inputText1"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      First Visiting Date:
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_button" class="{{$template|escape:'html'}}_inputText2"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td8">
+      <input type="button" id="{{$template|escape:'html'}}_save_button" value = "Save"></input>
+    </td>
+  </tr>
+</table>
+    
