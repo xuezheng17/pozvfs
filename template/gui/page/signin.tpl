@@ -2,12 +2,12 @@
   .{{$template|escape:'html'}}_table1 {
     width: 347px;
     height: 147px;
-    border:solid 1px #ccc;
+    border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 200px;
     height: 210px;
-    border:solid 1px #ccc;
+    border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table3 {
     width: 348px;
@@ -19,8 +19,9 @@
   .{{$template|escape:'html'}}_table4 {
     width: 340px;
     height: 202px;
+    text-align: center; 
     background-color:#e8eefa;
-    border:solid 1px #ccc;
+    border:solid 0px #ccc;
   }
   
   .{{$template|escape:'html'}}_td1 {
@@ -78,6 +79,13 @@
     text-align: left;
     vertical-align: bottom;
   }
+  .{{$template|escape:'html'}}_td9 {
+    width: 348px;
+    height: 210px;
+    padding:5px;
+    text-align: right;
+    vertical-align: bottom;
+  }
   .{{$template|escape:'html'}}_inputText{
     width: 142px;
     height: 20px;
@@ -121,7 +129,7 @@
     <td class="{{$template|escape:'html'}}_td2">
       <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table3" > 
         <tr>
-          <td class="{{$template|escape:'html'}}_td2">
+          <td class="{{$template|escape:'html'}}_td9">
             <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table4">
               <tr>
                 <td class="{{$template|escape:'html'}}_td3">
@@ -146,6 +154,7 @@
                   <input type="button" id="{{$template|escape:'html'}}_login_button" value = "Login"></input>
                 </td>
               </tr>
+            </table>
           </td>
         </tr>  
       </table>
