@@ -100,12 +100,11 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractSignIn.gui('{{$template|escape:javascript}}');
-
-      new HandleSignIn(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
+      //new HandleSignIn(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
   //-->
-  
-  
+</script>
+
 <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table1" border=0>
   <tr>
     <td></td>
