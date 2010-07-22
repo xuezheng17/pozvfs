@@ -1,5 +1,5 @@
 <?php
-class Visitor {
+class visitor {
   /**
    * @orm char(64)
    */
@@ -12,6 +12,10 @@ class Visitor {
    * @orm char(64)
    */
   public $creator;
+  /**
+   * @orm date
+   */
+  public $weddingDay;
   /**
    * @orm char(64)
    */
@@ -59,27 +63,23 @@ class Visitor {
   /**
    * @orm char(64)
    */
-  public $culturalBackgroundId;
+  public $culturalBackground;
   /**
    * @orm char(64)
    */
-  public $ceremonyLocationId;
+  public $ceremonyLocation;
   /**
    * @orm char(64)
    */
-  public $receptionLoationId;
+  public $receptionLoation;
   /**
    * @orm char(64)
    */
-  public $sourceId;
+  public $source;
   /**
    * @orm char(64)
    */
   public $firstVisitMethod;
-  /**
-   * @orm date
-   */
-  public $firstVisitDate;
   /**
    * @orm date
    */

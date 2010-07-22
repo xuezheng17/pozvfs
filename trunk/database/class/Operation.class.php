@@ -1,5 +1,5 @@
 <?php
-class Visitor {
+class operation {
   /**
    * @orm char(64)
    */
@@ -7,62 +7,22 @@ class Visitor {
   /**
    * @orm char(64)
    */
-  public $brideName;
+  public $visitId;
   /**
    * @orm char(64)
    */
-  public $bridePhone;
+  public $operateType;
   /**
    * @orm char(64)
    */
-  public $brideMobile;
+  public $operator;
   /**
-   * @orm char(64)
+   * @orm date
    */
-  public $brideEmail;
+  public $operatedDate;
   /**
-   * @orm char(512)
+   * @orm char(5120)
    */
-  public $brideAddress;
-  /**
-   * @orm char(64)
-   */
-  public $groomName;
-  /**
-   * @orm char(64)
-   */
-  public $groomPhone;
-  /**
-   * @orm char(64)
-   */
-  public $groomMobile;
-  /**
-   * @orm char(64)
-   */
-  public $groomEmail;
-  /**
-   * @orm char(512)
-   */
-  public $groomAddress;
-  /**
-   * @orm char(512)
-   */
-  public $groomAddress;
-  /**
-   * @orm char(64)
-   */
-  public $culturalBackgroundId;
-  /**
-   * @orm char(64)
-   */
-  public $ceremonyLocation;
-  /**
-   * @orm char(64)
-   */
-  public $receptionLoation;
-  /**
-   * @orm char(64)
-   */
-  public $curturalBackgroundId;
+  public $content;
 }
 ?>

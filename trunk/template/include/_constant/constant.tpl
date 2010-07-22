@@ -1,11 +1,9 @@
 function Constant() {
 };
 
-Constant.DOMAIN = '192.168.1.101';
-Constant.PATH = '/npfile';
-Constant.UPDIR = 'myfile/';
+Constant.PATH = '/pozvfs';
 Constant.DATABASE = 'default';
-Constant.SESSION = 'npfile';
+Constant.SESSION = 'pozvfs';
 Constant.READ = 'jsonread.php';
 Constant.WRITE = 'jsonwrite.php';
 Constant.CUSTOM = 'myphp/jsoncustom.php';
