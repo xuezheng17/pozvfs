@@ -1,5 +1,5 @@
 {{if $w3cDoctype == $smarty.const.DOC_TYPE_STRICT}}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">{{elseif $w3cDoctype == $smarty.const.DOC_TYPE_LOOSE}}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">{{/if}}
-{{config_load file='npfile.conf'}}
+{{config_load file='pozvfs.conf'}}
 <html>
   <head>
     {{include file='gui/base.inc.tpl'}}

@@ -1,7 +1,7 @@
-function NPFileUtils() {
+function POZVFSUtils() {
 };
 
-NPFileUtils.duplicates = function(files, name) {
+POZVFSUtils.duplicates = function(files, name) {
   for (var i = 0, il = files.length; i < il; i++) {
     var tmp = files[i];
     if (tmp.name == name) {
@@ -12,7 +12,7 @@ NPFileUtils.duplicates = function(files, name) {
 };
 
 /*---------------zjx---05.24.2010-------------------*/
-NPFileUtils.diff = function(all, selected) {
+POZVFSUtils.diff = function(all, selected) {
   var i = 0;
   while( i < all.length) {
     for (var j = 0, jl = selected.length; j < jl; j++) {
@@ -30,7 +30,7 @@ NPFileUtils.diff = function(all, selected) {
 /*----------------------------------------*/
 
 /*---限制只能输入字母和数字---*/
-NPFileUtils.limitLN = function(value) {
+POZVFSUtils.limitLN = function(value) {
   var re = /^[A-Za-z0-9]*$/;
   var str = '';
   if (re.test(value)){
@@ -42,7 +42,7 @@ NPFileUtils.limitLN = function(value) {
 };
 
 /*---限制只能输入字母和数字和小数点---*/
-NPFileUtils.limitLNP = function(value) {
+POZVFSUtils.limitLNP = function(value) {
   var re = /^[A-Za-z0-9.]*$/;
   var str = '';
   if (re.test(value)){
@@ -53,7 +53,7 @@ NPFileUtils.limitLNP = function(value) {
   return str;
 };
 
-NPFileUtils.cutStr = function(str, len) {
+POZVFSUtils.cutStr = function(str, len) {
   var str_length = 0;
   var str_len = 0;
   str_cut = new String();
@@ -75,7 +75,7 @@ NPFileUtils.cutStr = function(str, len) {
   } 
 };
 
-NPFileUtils.sortFile = function(array) {
+POZVFSUtils.sortFile = function(array) {
   var i = 0;
   var files = [];
   var folders = [];
@@ -92,7 +92,7 @@ NPFileUtils.sortFile = function(array) {
   return mixed;
 };
 
-NPFileUtils.breakWord = function(str, length) {
+POZVFSUtils.breakWord = function(str, length) {
   var strContent = str; 
   var strTemp = '';
   while (strContent.length > length){
