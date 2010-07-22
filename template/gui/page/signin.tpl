@@ -108,6 +108,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractSignIn.gui('{{$template|escape:javascript}}');
+      console.log(gui);
       //new HandleSignIn(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
   //-->
