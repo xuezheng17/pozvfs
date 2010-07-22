@@ -48,35 +48,35 @@
     background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_td8 {
-    width: 290px;
+    width: 291px;
     height: 27px;
     text-align: left;
     vertical-align: bottom;
-  }
+   }
   .{{$template|escape:'html'}}_td9 {
-    width: 20px;
+    width: 19px;
     height: 27px;
     text-align: left;
     vertical-align: bottom;
-  }
+   }
   .{{$template|escape:'html'}}_td10 {
     width: 975px;
     height: 60px;
     text-align: right;
     vertical-align: bottom;
-  }
+   }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
     height: 21px;
-  }
+   }
   .{{$template|escape:'html'}}_inputText2{
     width: 155px;
     height: 21px;
-  }
+   }
   
   .item{margin:0;
         padding:0;
-  }
+   }
   .item p{border:o;
           border-left:1px solid #e5ecf9;
           border-right:1px solid #e5ecf9;
@@ -88,28 +88,45 @@
           font-weight: bold;
           color: #000000; 
           font-family: Arial;
-  }
-
+   }
   .item div{height:1px;
             overflow:hidden;
             border-left:1px solid #e5ecf9;
             border-right:1px solid #e5ecf9;
             background-color:#e5ecf9;
-   }
+    }
   .item .row1{margin:0 5px;
               background:#e5ecf9;
-   }
+    }
   .item .row2{margin:0 3px;
               border:0 2px;
-  }
+   }
   .item .row3{margin:0 2px;
-  }
+   }
   .item .row4{margin:0 1px;
               height:2px;
-  }
-  
-  
+   }
 </style>
+
+<script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
+<script type="text/javascript">
+  <!--
+    if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', init, false);
+    }
+    window.onload = init;
+
+    function init() {
+      if (!document.getElementById || !document.createElement || !arguments || arguments.callee._loaded) {
+        return;
+      }
+      arguments.callee._loaded = true;
+      
+      var gui = GuiPageCustomers.instance('{{$template|escape:'javascript'}}');
+      new HandlePageCustomers(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+    }
+  //-->
+</script>
 
 <table  class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0">
   <tr>
@@ -224,7 +241,7 @@
        <input type="select" id="{{$template|escape:'html'}}_culturalBackground_select" value = "Culture Background"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td9">
-      <img src="image¡¤¡¤¡¤.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
+      <img src="image\.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
     </td>
     <td class="{{$template|escape:'html'}}_td5">
       Ceremony Location:
