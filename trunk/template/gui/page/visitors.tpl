@@ -10,7 +10,7 @@
     width: 980px;
     height: 300px;
     margin: 20px 0 0 0;
-    border:solid 1px #ccc;
+    border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
@@ -91,7 +91,8 @@
       }
       arguments.callee._loaded = true;
       
-      var gui = GuiPageCustomers.instance('{{$template|escape:'javascript'}}');
+      var gui = AbstractVisitors.gui('{{$template|escape:'javascript'}}');
+      console.log(gui);
      // new HandlePageCustomers(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
@@ -154,8 +155,7 @@
 </table>
 <table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" >
   <tr>
-    <td class="{{$template|escape:'html'}}_td7">
-      <div id="{{$template|escape:'html'}}_visitors_table"></div>
+    <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_visitors_table">
     </td>
   </tr>
 </table>

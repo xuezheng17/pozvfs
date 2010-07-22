@@ -4,9 +4,13 @@
     height: 420px;
     margin: 20px 0 0 0;
   }
+  .{{$template|escape:'html'}}_table2 {
+    width: 310px;
+    height: 27px;
+  }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
-    height: 26px;
+    height: 36px;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
@@ -17,7 +21,7 @@
     height: 27px;
     text-align: right;
     vertical-align: middle;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -33,7 +37,7 @@
     height: 27px;
     text-align: right;
     vertical-align: middle;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -50,62 +54,74 @@
   .{{$template|escape:'html'}}_td8 {
     width: 291px;
     height: 27px;
-    text-align: left;
+    text-align: right;
     vertical-align: bottom;
-   }
+    margin-right:15px;
+  }
   .{{$template|escape:'html'}}_td9 {
     width: 19px;
     height: 27px;
     text-align: left;
     vertical-align: bottom;
-   }
+  }
   .{{$template|escape:'html'}}_td10 {
     width: 975px;
     height: 60px;
     text-align: right;
     vertical-align: bottom;
-   }
+  }
+  .{{$template|escape:'html'}}_td11 {
+    width: 291px;
+    height: 50px;
+    text-align: right;
+    vertical-align: bottom;
+    padding-right:15px;
+  }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
     height: 21px;
-   }
+  }
   .{{$template|escape:'html'}}_inputText2{
     width: 155px;
     height: 21px;
-   }
-  
-  .item{margin:0;
+  }
+  .{{$template|escape:'html'}}_select{
+    width: 291px;
+    height: 21px;
+  }
+  .{{$template|escape:'html'}}_item{margin:0;
         padding:0;
-   }
-  .item p{border:o;
-          border-left:1px solid #e5ecf9;
+  }
+  .{{$template|escape:'html'}}_item p{border-left:1px solid #e5ecf9;
           border-right:1px solid #e5ecf9;
+          height:22px;
           margin:0;
-		  background-color:#e5ecf9;
-		  text-align: left;
-          padding-left:13px;
+          background-color:#e5ecf9;
+          text-align: left;
+          padding-left:18px;
+          padding-top:6px;
           font-size: 13pt;
           font-weight: bold;
           color: #000000; 
           font-family: Arial;
-   }
-  .item div{height:1px;
+  }
+  .{{$template|escape:'html'}}_item div{height:1px;
             overflow:hidden;
             border-left:1px solid #e5ecf9;
             border-right:1px solid #e5ecf9;
             background-color:#e5ecf9;
-    }
-  .item .row1{margin:0 5px;
+  }
+  .{{$template|escape:'html'}}_item .row1{margin:0 5px;
               background:#e5ecf9;
-    }
-  .item .row2{margin:0 3px;
+   }
+  .{{$template|escape:'html'}}_item .row2{margin:0 3px;
               border:0 2px;
-   }
-  .item .row3{margin:0 2px;
-   }
-  .item .row4{margin:0 1px;
+  }
+  .{{$template|escape:'html'}}_item .row3{margin:0 2px;
+  }
+  .{{$template|escape:'html'}}_item .row4{margin:0 1px;
               height:2px;
-   }
+  }
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
@@ -122,16 +138,17 @@
       }
       arguments.callee._loaded = true;
       
-      var gui = GuiPageCustomers.instance('{{$template|escape:'javascript'}}');
-      new HandlePageCustomers(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      var gui = AbstractVisitorNew.gui('{{$template|escape:'javascript'}}');
+      console.log(gui);
+      //new HandlePageCustomers(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
 
-<table  class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0">
+<table  class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1">
-      <div class="item">
+    <td class="{{$template|escape:'html'}}_td1" colspan="5">
+      <div class="{{$template|escape:'html'}}_item">
       <div class="row1"></div>
       <div class="row2"></div>
       <div class="row3"></div>
@@ -140,7 +157,7 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td2">
+    <td class="{{$template|escape:'html'}}_td2"colspan="5">
     </td>
   </tr>
   <tr>
@@ -222,67 +239,83 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td6">
+    <td class="{{$template|escape:'html'}}_td6" colspan="5">
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td7">
+    <td class="{{$template|escape:'html'}}_td7" colspan="5">
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td6">
+    <td class="{{$template|escape:'html'}}_td6" colspan="5">
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Culture Background:
-    </td>
-    <td class="{{$template|escape:'html'}}_td8">
-       <input type="select" id="{{$template|escape:'html'}}_culturalBackground_select" value = "Culture Background"></input>
-    </td>
-    <td class="{{$template|escape:'html'}}_td9">
-      <img src="image\.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
-    </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Ceremony Location:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Culture Background:</td>
     <td class="{{$template|escape:'html'}}_td4">
-       <input type="select" id="{{$template|escape:'html'}}_ceremoneyLocation_select" value = "Culture Background"></input>
+      <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
+        <tr>
+          <td class="{{$template|escape:'html'}}_td8">
+            <input type="select" id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></input>
+          </td>
+          <td class="{{$template|escape:'html'}}_td9">
+            <img src="image/add.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
+          </td>
+        </tr>
+      </table>
     </td>
-    <td class="{{$template|escape:'html'}}_td9">
-      <img src="image，，，.png" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
-    </td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Reception Location:
-    </td>
-    <td class="{{$template|escape:'html'}}_td8">
-       <input type="select" id="{{$template|escape:'html'}}_receptionLocation_select" value = "Culture Background"></input>
-    </td>
-    <td class="{{$template|escape:'html'}}_td9">
-      <img src="image，，，.png" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
-    </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Source:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Ceremony Location:</td>
     <td class="{{$template|escape:'html'}}_td4">
-       <input type="select" id="{{$template|escape:'html'}}_source_select" value = "Culture Background"></input>
+    <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
+      <tr>
+        <td class="{{$template|escape:'html'}}_td8">
+          <input type="select" id="{{$template|escape:'html'}}_ceremoneyLocation_select" class="{{$template|escape:'html'}}_select"></input>
+        </td>
+        <td class="{{$template|escape:'html'}}_td9">
+          <img src="image/add.png" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
+        </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">Reception Location:</td>
+    <td class="{{$template|escape:'html'}}_td4">
+      <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
+        <tr>
+          <td class="{{$template|escape:'html'}}_td8">
+            <input type="select" id="{{$template|escape:'html'}}_receptionLocation_select" class="{{$template|escape:'html'}}_select"></input>
+          </td>
+          <td class="{{$template|escape:'html'}}_td9">
+            <img src="image/add.png" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
+          </td>
+        </tr>
+      </table>
     </td>
-    <td class="{{$template|escape:'html'}}_td9">
-      <img src="image，，，.png" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
+    <td class="{{$template|escape:'html'}}_td5">Source:</td>
+    <td class="{{$template|escape:'html'}}_td4">
+    <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
+      <tr>
+        <td class="{{$template|escape:'html'}}_td8">
+          <input type="select" id="{{$template|escape:'html'}}_source_select" class="{{$template|escape:'html'}}_select"></input>
+        </td>
+        <td class="{{$template|escape:'html'}}_td9">
+          <img src="image/add.png" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
+        </td>
+      </tr>
+    </table>
+  </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6" colspan="5">
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td6">
+    <td class="{{$template|escape:'html'}}_td7" colspan="5">
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td7">
-    </td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td6">
+    <td class="{{$template|escape:'html'}}_td6" colspan="5">
     </td>
   </tr>
    <tr>
@@ -300,9 +333,8 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td8">
+    <td class="{{$template|escape:'html'}}_td11" colspan="4">
       <input type="button" id="{{$template|escape:'html'}}_save_button" value = "Save"></input>
     </td>
   </tr>
 </table>
-    
