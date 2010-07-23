@@ -20,11 +20,12 @@
     width: 155px;
     height: 27px;
     text-align: right;
-    vertical-align: middle;
+    vertical-align: bottom;
     font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
+    padding: 0 0 3px 0;
   }
   .{{$template|escape:'html'}}_td4 {
     width: 310px;
@@ -36,11 +37,12 @@
     width: 179px;
     height: 27px;
     text-align: right;
-    vertical-align: middle;
+    vertical-align: bottom;
     font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
+    padding: 0 2px 4px 0;
   }
   .{{$template|escape:'html'}}_td6 {
     width: 980px;
@@ -63,6 +65,7 @@
     height: 27px;
     text-align: left;
     vertical-align: bottom;
+    cursor: pointer;
   }
   .{{$template|escape:'html'}}_td10 {
     width: 975px;
@@ -79,15 +82,15 @@
   }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
-    height: 21px;
+    height: 18px;
   }
   .{{$template|escape:'html'}}_inputText2{
     width: 155px;
-    height: 21px;
+    height: 18px;
   }
   .{{$template|escape:'html'}}_select{
     width: 291px;
-    height: 21px;
+    height: 24px;
   }
   .{{$template|escape:'html'}}_item{
     margin:0;
@@ -241,7 +244,7 @@
       <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td8">
-            <input type="select" id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></input>
+            <select id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
             <img src="image/add.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
@@ -254,7 +257,7 @@
     <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
       <tr>
         <td class="{{$template|escape:'html'}}_td8">
-          <input type="select" id="{{$template|escape:'html'}}_ceremoneyLocation_select" class="{{$template|escape:'html'}}_select"></input>
+          <select id="{{$template|escape:'html'}}_ceremoneyLocation_select" class="{{$template|escape:'html'}}_select"></select>
         </td>
         <td class="{{$template|escape:'html'}}_td9">
           <img src="image/add.png" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
@@ -269,7 +272,7 @@
       <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td8">
-            <input type="select" id="{{$template|escape:'html'}}_receptionLocation_select" class="{{$template|escape:'html'}}_select"></input>
+            <select id="{{$template|escape:'html'}}_receptionLocation_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
             <img src="image/add.png" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
@@ -282,7 +285,7 @@
     <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
       <tr>
         <td class="{{$template|escape:'html'}}_td8">
-          <input type="select" id="{{$template|escape:'html'}}_source_select" class="{{$template|escape:'html'}}_select"></input>
+          <select id="{{$template|escape:'html'}}_source_select" class="{{$template|escape:'html'}}_select"></select>
         </td>
         <td class="{{$template|escape:'html'}}_td9">
           <img src="image/add.png" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
@@ -306,11 +309,11 @@
    <tr>
     <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
     <td class="{{$template|escape:'html'}}_td8">
-       <input type="text" id="{{$template|escape:'html'}}_fristVisitingMethod_button" class="{{$template|escape:'html'}}_inputText1"></input>
+       <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select"></select>
     </td>
     <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
-       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_button" class="{{$template|escape:'html'}}_inputText2"></input>
+       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText2"></input>
     </td>
   </tr>
   <tr>
