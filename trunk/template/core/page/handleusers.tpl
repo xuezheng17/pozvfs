@@ -52,7 +52,7 @@ HandleUsers.prototype._updateElements = function() {
     var u = this._users[i];
     
     tr = this._gui.users.insertRow(-1);
-    tr.backgroundColor = (i % 2 == 0) ? '#fff' : '#f8f8f8';
+    tr.style.backgroundColor = (i % 2 == 0) ? '#fff' : '#f8f8f8';
     td = tr.insertCell(-1);
     td.align = 'left';
     td.style.height = '24px';
