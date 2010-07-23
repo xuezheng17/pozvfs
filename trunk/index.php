@@ -23,19 +23,27 @@ if ($logout === '') {
 }
 
 if (isset($_SESSION[OPERATOR])) {
-  if ($template == 'signin' || $template == 'signup') {
-    $template = 'manage';
+  $template = ($template == 'signin') ? 'visitors' : $template;
+  if ($menu == json_encode(array())) {
+    $menu = new stdClass();
+    $menu->a = 1;
+    $menu->b = 1;
+    $menu = json_encode($menu);
   }
-  $smarty->assign('user', $_SESSION[OPERATOR]);
-  $smarty->assign('operator', MiscUtils::encode($_SESSION[OPERATOR]));
+  
+  $smarty->assign('userInfo', $_SESSION[OPERATOR]->account);
+  
   $smarty->assign('template', $template);
+
+  $smarty->assign('menu', json_decode($menu));
+  
+  $smarty->assign('operator', MiscUtils::encode($_SESSION[OPERATOR]));
+  $smarty->assign('now', MiscUtils::encode(SimpleDate::create()));
+  $smarty->assign('options', urldecode($options));
   $smarty->display("gui/$base.tpl");
   return;
 } else {
-  if ($template != 'signup') {
-    $template = 'signin';
-  }
-  $smarty->assign('template', $template);
+  $smarty->assign('template', 'signin');
   $smarty->display("gui/$base.tpl");
   return; /* SignIn Required */
 }
