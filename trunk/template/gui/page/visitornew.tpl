@@ -149,8 +149,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractVisitorNew.gui('{{$template|escape:'javascript'}}');
-      console.log(gui);
-      //new HandlePageCustomers(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      new HandleVisitorNew(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>

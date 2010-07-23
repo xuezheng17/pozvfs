@@ -19,10 +19,9 @@ class ORMVisitor extends ORMBase {
     $epObject->groomMobile = isset($object->groomMobile) ? $object->groomMobile : '';
     $epObject->groomEmail = isset($object->groomEmail) ? $object->groomEmail : '';
     $epObject->groomAddress = isset($object->groomAddress) ? $object->groomAddress : '';
-    $epObject->groomAddress = isset($object->groomAddress) ? $object->groomAddress : '';
     $epObject->culturalBackground = isset($object->culturalBackground) ? $object->culturalBackground : '';
     $epObject->ceremonyLocation = isset($object->ceremonyLocation) ? $object->ceremonyLocation : '';
-    $epObject->receptionLoation = isset($object->receptionLoation) ? $object->receptionLoation : '';
+    $epObject->receptionLocation = isset($object->receptionLocation) ? $object->receptionLocation : '';
     $epObject->source = isset($object->source) ? $object->source : '';
     $epObject->firstVisitMethod = isset($object->firstVisitMethod) ? $object->firstVisitMethod : '';
     $epObject->firstVisitDate = (isset($object->firstVisitDate) && $object->firstVisitDate) ? SimpleDate::toStamp($object->firstVisitDate) : 0;
@@ -46,10 +45,9 @@ class ORMVisitor extends ORMBase {
     $object->groomMobile = $epObject->groomMobile;
     $object->groomEmail = $epObject->groomEmail;
     $object->groomAddress = $epObject->groomAddress;
-    $object->groomAddress = $epObject->groomAddress;
     $object->culturalBackground = $epObject->culturalBackground;
     $object->ceremonyLocation = $epObject->ceremonyLocation;
-    $object->receptionLoation = $epObject->receptionLoation;
+    $object->receptionLocation = $epObject->receptionLocation;
     $object->source = $epObject->source;
     $object->firstVisitMethod = $epObject->firstVisitMethod;
     $object->firstVisitDate = ($epObject->firstVisitDate != 0) ? SimpleDate::fromStamp($epObject->firstVisitDate) : 0;
