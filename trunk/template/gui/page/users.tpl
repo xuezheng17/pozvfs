@@ -6,7 +6,20 @@
   }
   .{{$template|escape:'html'}}_table2 {
     width: 430px;
-    height: 180px;
+    height: 25px;
+    font-size: 12px;
+    font-family: Arial;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+  .{{$template|escape:'html'}}_table2 td{
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    }
+  .{{$template|escape:'html'}}_table3 {
+    width: 730px;
+    height: 155px;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
@@ -74,20 +87,17 @@
   //-->
 </script>
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=1>
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0">
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colspan="2"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td1" >
-      <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=1>
+      <table class="{{$template|escape:'html'}}_table2" id="{{$template|escape:'html'}}_users_table" cellPaddiing="0" cellSpacing="0">
         <tr>
           <td class="{{$template|escape:'html'}}_td3">Account</td>
           <td class="{{$template|escape:'html'}}_td4">Password</td>
           <td class="{{$template|escape:'html'}}_td5"></td>
-        </tr>
-        <tr>
-          <td class="{{$template|escape:'html'}}_td6" colspan="3" id="{{$template|escape:'html'}}_users_table"></td>
         </tr>
       </table>
     </td>
