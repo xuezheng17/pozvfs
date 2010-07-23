@@ -60,6 +60,30 @@ MiscUtils.span = function(content) {
   span.appendChild(document.createTextNode(str));
   return span
 };
+MiscUtils.dialog1 = function(popupBox, pos, content, func1, func2, options) {
+  var table, tr, td, btn;
+  
+  table = document.createElement('table');
+  popupBox._open(table, { pos: pos });
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.appendChild(content);
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  if (func1 || func2) {
+    if (func1) {
+      btn = DOMUtils.createInput(null, null, 'button', (options && options.ok) ? options.ok : 'OK', null);
+      btn.onclick = func1;
+      td.appendChild(btn);
+    }
+    if (func2) {
+      btn = DOMUtils.createInput(null, null, 'button', (options && options.cancel) ? options.cancel : 'Cancel', null);
+      btn.onclick = func2;
+      td.appendChild(btn);
+    }
+  }
+};
+
 
 MiscUtils.dialog = function(popupBox, content, func1, func2, options) {
   var table, tr, td, btn;
@@ -90,6 +114,18 @@ MiscUtils.alert = function(popupBox, text) {
   div.appendChild(document.createTextNode(text));
   div.style.margin = '0 0 10px 0';
   MiscUtils.dialog(popupBox, div, function() { popupBox._close(); }, null);
+};
+
+MiscUtils.load1 = function(popupBox, pos, text) {
+  var div = document.createElement('div');
+  var img = document.createElement('img');
+  img.src = 'images/common/loading.gif';
+  img.style.margin = '0 0 5px 0';
+  div.appendChild(img);
+  div.appendChild(document.createElement('br'));
+  div.appendChild(document.createTextNode(text));
+  div.style.margin = '0 0 5px 0';
+  MiscUtils.dialog1(popupBox, pos, div, null, null);
 };
 
 MiscUtils.load = function(popupBox, text) {

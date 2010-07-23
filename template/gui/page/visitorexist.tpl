@@ -222,8 +222,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractVisitorExist.gui('{{$template|escape:'javascript'}}');
-      console.log(gui);
-      //new HandlePageCustomers(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      new HandleVisitorExist(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
@@ -335,7 +334,7 @@
       <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td8">
-            <input type="select" id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></input>
+            <select id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
           <img src="image/add.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
@@ -348,7 +347,7 @@
     <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
       <tr>
         <td class="{{$template|escape:'html'}}_td8">
-          <input type="select" id="{{$template|escape:'html'}}_ceremoneyLocation_select" class="{{$template|escape:'html'}}_select"></input>
+          <select id="{{$template|escape:'html'}}_ceremoneyLocation_select" class="{{$template|escape:'html'}}_select"></select>
         </td>
         <td class="{{$template|escape:'html'}}_td9">
           <img src="image/add.png" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
@@ -363,7 +362,7 @@
       <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td8">
-            <input type="select" id="{{$template|escape:'html'}}_receptionLocation_select" class="{{$template|escape:'html'}}_select"></input>
+            <select id="{{$template|escape:'html'}}_receptionLocation_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
             <img src="image/add.png" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
@@ -376,7 +375,7 @@
       <table  class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td8">
-            <input type="select" id="{{$template|escape:'html'}}_source_select" class="{{$template|escape:'html'}}_select"></input>
+            <select id="{{$template|escape:'html'}}_source_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
             <img src="image/add.png" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
@@ -400,11 +399,11 @@
   <tr>
     <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
     <td class="{{$template|escape:'html'}}_td8">
-      <input type="text" id="{{$template|escape:'html'}}_fristVisitingMethod_button" class="{{$template|escape:'html'}}_inputText1"></input>
+      <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_inputText1"></select>
     </td>
     <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
-      <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_button" class="{{$template|escape:'html'}}_inputText2"></input>
+      <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText2"></input>
     </td>
   </tr>
   <tr>

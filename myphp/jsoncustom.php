@@ -14,6 +14,9 @@ try {
     case 'login':
       login($myManager);
       break;
+   case 'addVisitor':
+      addVisitor($myManager);
+      break;
     default:
       break;
   }
@@ -37,5 +40,17 @@ function login($myManager) {
   } else {
     echo 'INCORRECT ACCOUNT OR PASSWORD';
   }
+}
+
+function addVisitor($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
+  $orm = classToOrm('visitor');
+  $epVisitor = $orm->add($myManager, $args->visitor);
+  $myManager->commit_t();
+  $myManager->start_t();
+  $visitor = $orm->__toObject($myManager, $epVisitor, new stdClass());
+  
+  echo json_encode($visitor);
 }
 ?>

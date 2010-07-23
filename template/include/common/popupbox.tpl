@@ -7,13 +7,13 @@ PopupBox3.prototype._reset = function(pos) {
   this._close();
   
   this._background = document.createElement('div');
-  this._background.className = 'popupWhite';
+  this._background.className = 'popupSimpleWhite';
   this._background.style.width = document.body.offsetWidth + 'px';
   this._background.style.height = document.body.offsetHeight + 'px';
   document.body.appendChild(this._background);
   
   this._container = document.createElement('div');
-  this._container.className = 'popupBase';
+  this._container.className = 'popupSimpleBase';
   this._container.style.top = ((this._position[1] - 60) > 0) ? (this._position[1] - 60) + 'px' : '0px';
   this._container.style.left = ((this._position[0] + 200) > window.screen.width) ? (window.screen.width - 200) + 'px' : this._position[0] + 'px';
   this._background.appendChild(this._container);

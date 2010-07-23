@@ -1,5 +1,5 @@
 <?php
-class operation {
+class Operation {
   /**
    * @orm char(64)
    */

@@ -1,5 +1,5 @@
 <?php
-class visitor {
+class Visitor {
   /**
    * @orm char(64)
    */
@@ -57,10 +57,6 @@ class visitor {
    */
   public $groomAddress;
   /**
-   * @orm char(512)
-   */
-  public $groomAddress;
-  /**
    * @orm char(64)
    */
   public $culturalBackground;
@@ -71,7 +67,7 @@ class visitor {
   /**
    * @orm char(64)
    */
-  public $receptionLoation;
+  public $receptionLocation;
   /**
    * @orm char(64)
    */
