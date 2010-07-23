@@ -21,8 +21,8 @@ AbstractVisitorNew.gui = function(unique) {
            receptionLocationAdd: document.getElementById(unique + '_receptionLocationAdd_button'),
            source: document.getElementById(unique + '_source_select'),
            sourceAdd: document.getElementById(unique + '_sourceAdd_button'),
-           firstVisitingMethod: document.getElementById(unique + '_fristVisitingMethod_button'),
-           firstVisitingDate: document.getElementById(unique + '_fristVisitingDate_button'),
+           firstVisitingMethod: document.getElementById(unique + '_fristVisitingMethod_select'),
+           firstVisitingDate: document.getElementById(unique + '_fristVisitingDate_input'),
            save: document.getElementById(unique + '_save_button')
          };
 };
