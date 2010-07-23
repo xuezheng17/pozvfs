@@ -34,6 +34,6 @@ AbstractVisitorExist.gui = function(unique) {
            drop: document.getElementById(unique + '_drop_button'),
            email: document.getElementById(unique + '_email_button'),
            call: document.getElementById(unique + '_call_button'),
-           visit:document.getElementById(unique + '_visit_button'),
+           visit:document.getElementById(unique + '_visit_button')
          };
 };
