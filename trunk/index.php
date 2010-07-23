@@ -7,6 +7,7 @@ if (isset($_COOKIE[OPERATOR])) {
 
 $template = MiscUtils::getParam('t', 'signin');
 $base = MiscUtils::getParam('b', 'base');
+$menu = MiscUtils::getParam('m', json_encode(array()));
 $options = MiscUtils::getParam('opts', MiscUtils::encode(array()));
 
 $smarty->assign('operator', MiscUtils::encode(array()));
