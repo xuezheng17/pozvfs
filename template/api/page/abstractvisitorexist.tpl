@@ -28,11 +28,12 @@ AbstractVisitorExist.gui = function(unique) {
            sourceAdd: document.getElementById(unique + '_sourceAdd_button'),
            firstVisitingMethod: document.getElementById(unique + '_fristVisitingMethod_button'),
            firstVisitingDate: document.getElementById(unique + '_fristVisitingDate_button'),
-           save: document.getElementById(unique + '_save_button'),
+           update: document.getElementById(unique + '_update_button'),
            operations: document.getElementById(unique + '_operations_table'),
            succeed: document.getElementById(unique + '_succeed_button'),
            drop: document.getElementById(unique + '_drop_button'),
            email: document.getElementById(unique + '_email_button'),
            call: document.getElementById(unique + '_call_button'),
+           visit:document.getElementById(unique + '_visit_button'),
          };
 };
