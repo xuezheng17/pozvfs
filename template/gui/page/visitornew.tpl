@@ -93,7 +93,8 @@
     margin:0;
     padding:0;
   }
-  .{{$template|escape:'html'}}_item p{border-left:1px solid #e5ecf9;
+  .{{$template|escape:'html'}}_item p{
+    border-left:1px solid #e5ecf9;
     border-right:1px solid #e5ecf9;
     height:22px;
     margin:0;
@@ -106,13 +107,15 @@
     color: #000000; 
     font-family: Arial;
   }
-  .{{$template|escape:'html'}}_item div{height:1px;
+  .{{$template|escape:'html'}}_item div{
+    height:1px;
     overflow:hidden;
     border-left:1px solid #e5ecf9;
     border-right:1px solid #e5ecf9;
     background-color:#e5ecf9;
   }
-  .{{$template|escape:'html'}}_item .row1{margin:0 5px;
+  .{{$template|escape:'html'}}_item .row1{
+    margin:0 5px;
     background:#e5ecf9;
    }
   .{{$template|escape:'html'}}_item .row2{
