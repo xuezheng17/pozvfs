@@ -89,38 +89,42 @@
     width: 291px;
     height: 21px;
   }
-  .{{$template|escape:'html'}}_item{margin:0;
-        padding:0;
+  .{{$template|escape:'html'}}_item{
+    margin:0;
+    padding:0;
   }
   .{{$template|escape:'html'}}_item p{border-left:1px solid #e5ecf9;
-          border-right:1px solid #e5ecf9;
-          height:22px;
-          margin:0;
-          background-color:#e5ecf9;
-          text-align: left;
-          padding-left:18px;
-          padding-top:6px;
-          font-size: 13pt;
-          font-weight: bold;
-          color: #000000; 
-          font-family: Arial;
+    border-right:1px solid #e5ecf9;
+    height:22px;
+    margin:0;
+    background-color:#e5ecf9;
+    text-align: left;
+    padding-left:18px;
+    padding-top:6px;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
   }
   .{{$template|escape:'html'}}_item div{height:1px;
-            overflow:hidden;
-            border-left:1px solid #e5ecf9;
-            border-right:1px solid #e5ecf9;
-            background-color:#e5ecf9;
+    overflow:hidden;
+    border-left:1px solid #e5ecf9;
+    border-right:1px solid #e5ecf9;
+    background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_item .row1{margin:0 5px;
-              background:#e5ecf9;
+    background:#e5ecf9;
    }
-  .{{$template|escape:'html'}}_item .row2{margin:0 3px;
-              border:0 2px;
+  .{{$template|escape:'html'}}_item .row2{
+    margin:0 3px;
+    border:0 2px;
   }
-  .{{$template|escape:'html'}}_item .row3{margin:0 2px;
+  .{{$template|escape:'html'}}_item .row3{
+    margin:0 2px;
   }
-  .{{$template|escape:'html'}}_item .row4{margin:0 1px;
-              height:2px;
+  .{{$template|escape:'html'}}_item .row4{
+    margin:0 1px;
+    height:2px;
   }
 </style>
 
@@ -161,79 +165,57 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Wedding Date:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Wedding Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_weddingDay_input" class="{{$template|escape:'html'}}_inputText2"></input>
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Bride Name:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Bride Name:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_brideName_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Groom Name:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Groom Name:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_groomName_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Address:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Address:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_brideAddress_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Address:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Address:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_groomAddress_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Phone:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Phone:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_bridePhone_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Phone:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Phone:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_groomPhone_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Mobile:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Mobile:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_brideMobile_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Mobile:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Mobile:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_groomMobile_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      Email:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">Email:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_brideEmail_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      Email:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Email:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_groomEmail_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
@@ -319,15 +301,11 @@
     </td>
   </tr>
    <tr>
-    <td class="{{$template|escape:'html'}}_td3">
-      First Visiting Method:
-    </td>
+    <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
     <td class="{{$template|escape:'html'}}_td8">
        <input type="text" id="{{$template|escape:'html'}}_fristVisitingMethod_button" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      First Visiting Date:
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_button" class="{{$template|escape:'html'}}_inputText2"></input>
     </td>
