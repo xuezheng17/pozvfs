@@ -46,6 +46,9 @@
     text-align: right;
     padding-right:9px;
     vertical-align: bottom;
+    font-size: 12pt;
+    color: #000000; 
+    font-family: Arial;
   }
   .{{$template|escape:'html'}}_td4 {
     width: 224px;
@@ -59,6 +62,9 @@
     text-align: right;
     padding-right:9px;
     vertical-align: bottom;
+    font-size: 12pt;
+    color: #000000; 
+    font-family: Arial;
   }
   .{{$template|escape:'html'}}_td6 {
     width: 224px;
@@ -69,15 +75,13 @@
   .{{$template|escape:'html'}}_td7 {
     width: 115px;
     height: 52px;
-    text-align: right;
-    padding-right:9px;
-    vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td8 {
     width: 224px;
     height: 52px;
     text-align: left;
     vertical-align: bottom;
+    padding-bottom:20px;
   }
   .{{$template|escape:'html'}}_td9 {
     width: 348px;
@@ -120,7 +124,7 @@
   </tr>
 </table>
 
-<table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table2" >
+<table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table2" border=0>
   <tr>
     <td class="{{$template|escape:'html'}}_td1">
       Dream Visitor Service
@@ -128,10 +132,10 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td2">
-      <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table3" > 
+      <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table3" border=0> 
         <tr>
           <td class="{{$template|escape:'html'}}_td9">
-            <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table4">
+            <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table4" border=0>
               <tr>
                 <td class="{{$template|escape:'html'}}_td3">
                   Account:
@@ -152,7 +156,7 @@
                 <td class="{{$template|escape:'html'}}_td7">
                 </td>
                 <td class="{{$template|escape:'html'}}_td8">
-                  <input type="button" id="{{$template|escape:'html'}}_login_button" value = "Login"></input>
+                  <input type="button" id="{{$template|escape:'html'}}_login_button" value = "Login" style="font-family:Arial; font-size: 12pt;"></input>
                 </td>
               </tr>
             </table>
