@@ -318,7 +318,7 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td11" colspan="4">
-      <input type="button" id="{{$template|escape:'html'}}_save_button" value = "Save"></input>
+      <input type="button" id="{{$template|escape:'html'}}_save_button" style = "width:66px" value = "Save"></input>
     </td>
   </tr>
 </table>
