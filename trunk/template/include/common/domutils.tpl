@@ -51,6 +51,21 @@ DOMUtils.findPos = function(elem) {
   return [curleft, curtop];
 };
 
+DOMUtils.getEventCode = function(e) {
+  var code = null;
+  if (!e) {
+    e = window.event;
+  }
+  if (e) {
+    if (e.keyCode) {
+      code = e.keyCode;
+    } else if (e.which) {
+      code = e.which;
+    }
+  }
+  return code;
+};
+
 DOMUtils.callFunc = function(func, args, context) {
   if (!func) {
     return null;
