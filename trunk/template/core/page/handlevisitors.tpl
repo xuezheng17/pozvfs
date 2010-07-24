@@ -103,7 +103,7 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
                                          };
 
   gui.inProgressingOnly.defaultChecked = this._search.inProgressingOnly;
-  gui.inProgressingOnly.onclick = function() { _self._search.inProgressingOnly = this.checked; console.log(_self._search.inProgressingOnly);};
+  gui.inProgressingOnly.onclick = function() { _self._search.inProgressingOnly = this.checked; };
 
   gui.search.onclick = function() { _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this)); };
 };

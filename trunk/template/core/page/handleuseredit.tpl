@@ -34,7 +34,7 @@ HandleUserEdit.prototype._retrieveUser = function() {
   }
 };
 
-HandleUserEdit.prototype._updateElements = function() {console.log(this._user, this._gui.account);
+HandleUserEdit.prototype._updateElements = function() {
   var table, tr, td, _self = this;
   
   this._gui.account.value = this._user.account;
