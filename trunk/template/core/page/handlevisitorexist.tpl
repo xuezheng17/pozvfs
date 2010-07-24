@@ -3,7 +3,6 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
-  console.log(now);
   
   this._visitorId = (options && options.id) ? options.id : null;
   this._gui.email.style.display = 'none';
@@ -11,6 +10,7 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._gui.visit.style.display = 'none';
   this._gui.succeed.style.display = 'none';
   this._gui.drop.style.display = 'none';
+  this._copy = this._options.id;
   this._createElements();
 };
 
@@ -30,7 +30,7 @@ HandleVisitorExist.prototype._loadData = function() {
   this._cultures = null;
   this._ceremonys = null;
   this._operations = null;
-  
+  this._parameters = null;
   this._retrieveVisitor();
   this._retrieveSources();
   this._retrieveReceptions();
@@ -42,6 +42,8 @@ HandleVisitorExist.prototype._loadData = function() {
 HandleVisitorExist.prototype._verifyData = function() {
   if (this._visitor && this._sources && this._receptions && this._cultures && this._ceremonys && this._operations) {
     this._updateElements();
+  } else {
+    this._popupBox._close();
   }
 };
 
@@ -76,20 +78,20 @@ HandleVisitorExist.prototype._retrieveCeremonys = function() {
 HandleVisitorExist.prototype._retrieveOperations = function() {
   var _self = this;
   new RequestUtils()._read('operation', null, 'd.visitId = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._operations = result.data;
-                                                                                                                                              _self._verifyData.call(_self);
-                                                                                                                                            }, null);
+                                                                                                                                           _self._parameters = result;
+                                                                                                                                           _self._verifyData.call(_self);
+                                                                                                                                         }, null);
 };
 
 HandleVisitorExist.prototype._retrieveVisitor = function() {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : _self._visitor;
+    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
                                                                                                                                         if (result.data.length == 0) {
                                                                                                                                           window.alert('No Visitor Found');
-                                                                                                                                          return;
-                                                                                                                                        } else {
-                                                                                                                                          _self._verifyData.call(_self);
-                                                                                                                                        }
+                                                                                                                                          _self._visitorId = _self._copy;
+                                                                                                                                        } 
+                                                                                                                                        _self._verifyData.call(_self);
                                                                                                                                       }, null);
   } else {
     this._visitor = Visitor.instance();
@@ -109,6 +111,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   DOMUtils.removeChildElements(this._gui.receptionLocation);
   DOMUtils.removeChildElements(this._gui.culturalBackground);
   DOMUtils.removeTableRows(this._gui.operations, 1);
+  DOMUtils.removeChildElements(this._gui.page);
   
   this._gui.email.style.display = 'block';
   this._gui.call.style.display = 'block';
@@ -119,20 +122,22 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id) + ((this._visitor.status) ? '(Visited)' : '')));
   
-  this._gui.next.onclick = function() { _self._visitorId++;
-                                        location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitorId});
+  this._gui.next.onclick = function() { _self._copy = _self._visitorId;
+                                        _self._visitorId++;
+                                        _self._retrieveVisitor();
+                                        _self._retrieveOperations();
                                       };
-  this._gui.back.onclick = function() { if (!_self._visitorId != 1 && _self._visitorId > 0) {
-                                          _self._visitorId--;
-                                          _self._retrieveVisitor();
-                                        } else {
+  this._gui.back.onclick = function() { if (_self._visitorId == 1) {
                                           window.alert('The Last Visitor');
+                                          return;
                                         }
+                                        _self._visitorId--;
+                                        _self._retrieveVisitor();
+                                        _self._retrieveOperations();
                                       };
   this._gui.number.value = '';
-  this._gui.number.onchange = function() { _self._visitorId = this.value; };
-  
-  this._gui.jump.onclick = function() { if (isNaN(_self._visitorId) || _self._gui.number.value == '') {
+
+  this._gui.jump.onclick = function() { if (isNaN(_self._gui.number.value) || _self._gui.number.value == '') {
                                           window.alert('Not A Number');
                                           _self._gui.number.value = '';
                                           return;
@@ -141,7 +146,9 @@ HandleVisitorExist.prototype._updateElements = function() {
                                           window.alert('Error Number');
                                           _self._gui.number.value = '';
                                         } else {
+                                          _self._visitorId = _self._gui.number.value;
                                           _self._retrieveVisitor();
+                                          _self._retrieveOperations();
                                         }
                                       };
   
@@ -304,7 +311,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.update.onclick = function() { if (_self._visitor.cultureBackground != '' && _self._visitor.source != '') {
                                             if (!_self._visitor.weddingDay) {
                                               var r = window.confirm('NO WEDDING DAY, CONTINUE?');
-                                              if (r) { console.log(_self._visitor);
+                                              if (r) {
                                                 var pos = DOMUtils.findPos(this);
                                                 new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                               }
@@ -383,7 +390,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.style.height = '24px';
     td.style.textAlign = 'left';
     td.style.padding = '0 0 0 10px';
-    td.appendChild(document.createTextNode('(' + ((operation.content) ? operation.content : 'NONE' ) + ')'));
+    td.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ')'));
     if (!operation.cancelled) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
@@ -456,6 +463,9 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   this._gui.succeed.onclick = function() {};
   this._gui.drop.onclick = function() {};
+  
+  Pagination.makePagedResults(this._gui.page, this._parameters.page, this._parameters.total, this._parameters.size, function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, this, document);
+
 };
 
 /* 
