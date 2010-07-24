@@ -14,8 +14,11 @@ try {
     case 'login':
       login($myManager);
       break;
-   case 'addVisitor':
+    case 'addVisitor':
       addVisitor($myManager);
+      break;
+    case 'visitors':
+      visitors($myManager);
       break;
     default:
       break;
@@ -52,5 +55,36 @@ function addVisitor($myManager) {
   $visitor = $orm->__toObject($myManager, $epVisitor, new stdClass());
   
   echo json_encode($visitor);
+}
+
+function visitors($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $order = MiscUtils::getParam('o', 'd.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+
+  $datefrom = MiscUtils::getParam('datefrom', NULL);
+  $dateto = MiscUtils::getParam('dateto', NULL);
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($datefrom) ? ' AND (d.weddingDay >= \'' . SimpleDate::toStamp(json_decode($datefrom)) . '\')' : '';
+  $condition .= ($dateto) ? ' AND (vd.weddingDay <= \'' . SimpleDate::toStamp(json_decode($dateto)) . '\')' : '';
+  $condition .= ($createdFrom) ? ' AND (d.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (d.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $orm = classToOrm('visitor');
+  if ($orm) {
+    try {
+      $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
+      $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
+      echo json_encode($result);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
 }
 ?>

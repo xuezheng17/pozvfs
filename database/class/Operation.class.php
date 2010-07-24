@@ -9,6 +9,11 @@ class Operation {
    */
   public $visitId;
   /**
+   * @orm bool
+   */
+  public $cancelled;
+  
+  /**
    * @orm char(64)
    */
   public $operateType;

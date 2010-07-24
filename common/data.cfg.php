@@ -12,6 +12,7 @@ define('SESSION', 'pozvfs');
 define('READ', 'jsonread.php');
 define('WRITE', 'jsonwrite.php');
 define('CUSTOM', 'myphp/jsoncustom.php');
+define('MYSQL', 'myphp/mysqlcustom.php');
 
 define('OPERATOR', 'operator');
 ?>

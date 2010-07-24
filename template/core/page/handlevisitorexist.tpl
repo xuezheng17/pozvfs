@@ -3,17 +3,22 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
+  console.log(now);
   
-  this._popupBox = new PopupBox3();
   this._visitorId = (options && options.id) ? options.id : null;
-  
+  this._gui.email.style.display = 'none';
+  this._gui.call.style.display = 'none';
+  this._gui.visit.style.display = 'none';
+  this._gui.succeed.style.display = 'none';
+  this._gui.drop.style.display = 'none';
   this._createElements();
 };
 
 HandleVisitorExist.prototype._createElements = function() {
   
   var pos = [window.screen.width / 2, window.screen.height / 5];
-  MiscUtils.load1(this._popupBox, pos, 'It may take several seconds. Please wait...');
+  this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
+  MiscUtils.load(this._popupBox, 'It may take several seconds. Please wait...');
   
   this._loadData();
 };
@@ -24,16 +29,18 @@ HandleVisitorExist.prototype._loadData = function() {
   this._receptions = null;
   this._cultures = null;
   this._ceremonys = null;
+  this._operations = null;
   
   this._retrieveVisitor();
   this._retrieveSources();
   this._retrieveReceptions();
   this._retrieveCultures();
   this._retrieveCeremonys();
+  this._retrieveOperations();
 };
 
 HandleVisitorExist.prototype._verifyData = function() {
-  if (this._visitor && this._sources && this._receptions && this._cultures && this._ceremonys) {
+  if (this._visitor && this._sources && this._receptions && this._cultures && this._ceremonys && this._operations) {
     this._updateElements();
   }
 };
@@ -66,17 +73,24 @@ HandleVisitorExist.prototype._retrieveCeremonys = function() {
                                                                                                      }, null);
 };
 
+HandleVisitorExist.prototype._retrieveOperations = function() {
+  var _self = this;
+  new RequestUtils()._read('operation', null, 'd.visitId = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._operations = result.data;
+                                                                                                                                              _self._verifyData.call(_self);
+                                                                                                                                            }, null);
+};
+
 HandleVisitorExist.prototype._retrieveVisitor = function() {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                               if (!_self._visitor) {
-                                                                                                                                 window.alert('Non Exists Visitor');
-                                                                                                                                 _self._visitorId = _self._options.id;
-                                                                                                                               } else {
-                                                                                                                                 _self._verifyData.call(_self);
-                                                                                                                               }
-                                                                                                                             }, null);
+    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : _self._visitor;
+                                                                                                                                        if (result.data.length == 0) {
+                                                                                                                                          window.alert('No Visitor Found');
+                                                                                                                                          return;
+                                                                                                                                        } else {
+                                                                                                                                          _self._verifyData.call(_self);
+                                                                                                                                        }
+                                                                                                                                      }, null);
   } else {
     this._visitor = Visitor.instance();
     this._visitor.weddingDay = '';
@@ -89,28 +103,43 @@ HandleVisitorExist.prototype._retrieveVisitor = function() {
 HandleVisitorExist.prototype._updateElements = function() {
   var _self = this, table, tr, td;
   this._popupBox._close();
-  POZVFSUtils.clear(this._gui);
-
+  DOMUtils.removeChildElements(this._gui.title);
+  DOMUtils.removeChildElements(this._gui.source);
+  DOMUtils.removeChildElements(this._gui.ceremonyLocation);
+  DOMUtils.removeChildElements(this._gui.receptionLocation);
+  DOMUtils.removeChildElements(this._gui.culturalBackground);
+  DOMUtils.removeTableRows(this._gui.operations, 1);
+  
+  this._gui.email.style.display = 'block';
+  this._gui.call.style.display = 'block';
+  this._gui.visit.style.display = 'block';
+  this._gui.succeed.style.display = 'block';
+  this._gui.drop.style.display = 'block';
+  
+  
   this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id) + ((this._visitor.status) ? '(Visited)' : '')));
   
   this._gui.next.onclick = function() { _self._visitorId++;
-                                        _self._retrieveVisitor();
+                                        location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitorId});
                                       };
-  this._gui.back.onclick = function() { if (!_self._visitorId == 1) {
+  this._gui.back.onclick = function() { if (!_self._visitorId != 1 && _self._visitorId > 0) {
                                           _self._visitorId--;
                                           _self._retrieveVisitor();
                                         } else {
                                           window.alert('The Last Visitor');
                                         }
                                       };
+  this._gui.number.value = '';
   this._gui.number.onchange = function() { _self._visitorId = this.value; };
   
   this._gui.jump.onclick = function() { if (isNaN(_self._visitorId) || _self._gui.number.value == '') {
                                           window.alert('Not A Number');
+                                          _self._gui.number.value = '';
                                           return;
                                         }
                                         if (_self._gui.number.value < 0) {
                                           window.alert('Error Number');
+                                          _self._gui.number.value = '';
                                         } else {
                                           _self._retrieveVisitor();
                                         }
@@ -222,49 +251,54 @@ HandleVisitorExist.prototype._updateElements = function() {
 
   /* 添加Source等信息 */
   this._gui.sourceAdd.onclick = function() { var object = ISource.instance(); 
-                                             var div = document.createElement('div');
-                                             var func1 = function() { _self._popupBox._close();
+                                             var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
                                                                       new RequestUtils()._write('isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
                                                                     };
-                                             var func2 = function() { _self._popupBox._close();
+                                             var func2 = function() { tmp._close();
                                                                     };
-                                             MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                             new DialogIObject(div, object, { name: 'isource', title: 'Sources' });
+                                             pos = DOMUtils.findPos(this);
+                                             tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                             var dialog = new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'isource', title: 'Sources', item: object });
+                                             MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                             
                                            };
   this._gui.receptionLocationAdd.onclick = function() { var object = IReception.instance();
-                                                        var div = document.createElement('div');
-                                                        var func1 = function() { _self._popupBox._close();
+                                                        var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
                                                                                  new RequestUtils()._write('ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
                                                                                };
-                                                          var func2 = function() { _self._popupBox._close();
-                                                                                 };
-                                                          MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                                          new DialogIObject(div, object, { name: 'ireception', title: 'Reception Locations' });
+                                                        var func2 = function() { tmp._close();
+                                                                               };
+                                                        pos = DOMUtils.findPos(this);
+                                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'ireception', title: 'Reception Location', item: object });
+                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                         };
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
-                                                         var div = document.createElement('div');
-                                                         var func1 = function() { _self._popupBox._close();
+                                                         var func1 = function() { tmp._close();
                                                                                   _self._visitor.cultureBackground = object.name;
                                                                                   new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
                                                                                 };
-                                                         var func2 = function() { _self._popupBox._close();
+                                                         var func2 = function() { tmp._close();
                                                                                 };
-                                                         MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                                         new DialogIObject(div, object, { name: 'iculture', title: 'Cultural Backgrounds' });
+                                                         pos = DOMUtils.findPos(this);
+                                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iculture', title: 'Cultural Background', item: object });
+                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
   this._gui.ceremonyLocationAdd.onclick = function() { var object = ICeremony.instance();
-                                                         var div = document.createElement('div');
-                                                         var func1 = function() { _self._popupBox._close();
-                                                                                  _self._visitor.ceremonyLocation = object.name;
-                                                                                  new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
-                                                                                };
-                                                         var func2 = function() { _self._popupBox._close();
-                                                                                };
-                                                         MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                                         new DialogIObject(div, object, { name: 'iceremony', title: 'Ceremony Locations' });
-                                                       };
+                                                       var func1 = function() { tmp._close();
+                                                                                _self._visitor.ceremonyLocation = object.name;
+                                                                                new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
+                                                                              };
+                                                       var func2 = function() { tmp._close();
+                                                                              };
+                                                       pos = DOMUtils.findPos(this);
+                                                       tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                       new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iceremony', title: 'Ceremony Location', item: object });
+                                                       MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                                     };
   /* Save */
   if (this._visitorId) {
     this._gui.update.onclick = function() { if (_self._visitor.cultureBackground != '' && _self._visitor.source != '') {
@@ -283,6 +317,145 @@ HandleVisitorExist.prototype._updateElements = function() {
                                           }
                                         };
   }
+  
+  /*- Operation -*/
+  if (this._operations.length == 0) {
+    tr = this._gui.operations.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.colSpan = 5;
+    td.style.height = '24px';
+    td.style.textAlign = 'center';
+    td.appendChild(document.createTextNode('NONE'));
+  }
+  
+  var pNumber = 1, eNumber = 1, vNumber = 1;
+  
+  for (var i = 0, il = this._operations.length; i < il; i++) {
+    var operation = this._operations[i];
+    
+    var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
+    if (type == 'call') {
+      if (!operation.cancelled) {
+        pNumber++;
+      }
+    } else if (type == 'email') {
+      if (!operation.cancelled) {
+        eNumber++;
+      }
+    } else {
+      if (!operation.cancelled) {
+        vNumber++;
+      }
+    }
+    
+    tr = this._gui.operations.insertRow(-1);
+    tr.style.backgroundColor = (i % 2 == 0) ? '#fff' : '#f8f8f8';
+    td = tr.insertCell(-1);
+    if (operation.cancelled) {
+      td.style.textDecoration = 'line-through';
+    }
+    td.style.height = '24px';
+    td.style.textAlign = 'center';
+    td.appendChild(document.createTextNode(operation.operateType));
+    
+    td = tr.insertCell(-1);
+    if (operation.cancelled) {
+      td.style.textDecoration = 'line-through';
+    }
+    td.style.height = '24px';
+    td.style.textAlign = 'left';
+    td.style.padding = '0 0 0 10px';
+    td.appendChild(document.createTextNode(operation.operator));
+    
+    td = tr.insertCell(-1);
+    if (operation.cancelled) {
+      td.style.textDecoration = 'line-through';
+    }
+    td.style.height = '24px';
+    td.style.textAlign = 'left';
+    td.style.padding = '0 0 0 10px';
+    td.appendChild(document.createTextNode(SimpleDate.format(operation.operatedDate)));
+    
+    td = tr.insertCell(-1);
+    if (operation.cancelled) {
+      td.style.textDecoration = 'line-through';
+    }
+    td.style.height = '24px';
+    td.style.textAlign = 'left';
+    td.style.padding = '0 0 0 10px';
+    td.appendChild(document.createTextNode('(' + ((operation.content) ? operation.content : 'NONE' ) + ')'));
+    if (!operation.cancelled) {
+      var img = document.createElement('img');
+      img.src = 'image/edit.png';
+      img.style.cursor = 'pointer';
+      img._operation = operation;
+      img.onclick = function() { var pos, func1, func2;
+                                 var operation = this._operation;
+                                 func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                      tmp._close();
+                                                    }
+                                 var func2 = function() { tmp._close(); };
+                                 pos = DOMUtils.findPos(this);
+                                 tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: this._operation.content });
+                                 MiscUtils.dialog(tmp, null, func1, func2, null);
+                                 return false;
+                               };
+      td.appendChild(img);
+    }
+    
+    td = tr.insertCell(-1);
+    td.style.height = '24px';
+    td.style.textAlign = 'center';
+    if (!operation.cancelled) {
+      var img = document.createElement('img');
+      img.src = 'image/delete.png';
+      img.style.cursor = 'pointer';
+      img._operation = operation;
+      img.onclick = function() { this._operation.cancelled = 1;
+                                 var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf('('));
+                                 if (type == 'call') {
+                                   _self._pNumber -= 1;
+                                 } else if (type == 'email') {
+                                   _self._eNumber -= 1;
+                                 } else {
+                                   _self._vNumber -= 1;
+                                 }
+                                 new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
+                               };
+      td.appendChild(img);
+    }
+  }
+  
+  
+  this._gui.email.value = 'email(' + eNumber + ')';
+  this._gui.call.value = 'call(' + pNumber + ')';
+  this._gui.visit.value = 'visit(' + vNumber + ')';
+  
+  this._gui.email.onclick = function() { var operation = Operation.instance();
+                                         operation.visitId = _self._visitorId;
+                                         operation.cancelled = 0;
+                                         operation.operateType = this.value;
+                                         operation.operator = _self._operator.account;
+                                         new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
+                                       };
+  this._gui.call.onclick = function() { var operation = Operation.instance();
+                                        operation.visitId = _self._visitorId;
+                                        operation.cancelled = 0;
+                                        operation.operateType = this.value;
+                                        operation.operator = _self._operator.account;
+                                        new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
+                                      };
+  this._gui.visit.onclick = function() { var operation = Operation.instance();
+                                         operation.visitId = _self._visitorId;
+                                         operation.cancelled = 0;
+                                         operation.operateType = this.value;
+                                         operation.operator = _self._operator.account;
+                                         new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
+                                       };
+  
+  this._gui.succeed.onclick = function() {};
+  this._gui.drop.onclick = function() {};
 };
 
 /* 
@@ -293,7 +466,8 @@ HandleVisitorExist.prototype._changeDate = function(label, currentDate, onChange
   div = document.createElement('div');
   div.style.left = DOMUtils.findPos(label)[0] + 'px';
   div.style.top = DOMUtils.findPos(label)[1] + 'px';
-  this._popupBox._open(div, { pos: DOMUtils.findPos(label) });
+  this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: DOMUtils.findPos(label)});
+  this._popupBox._gui.panel.appendChild(div);
   
   var ds = new DateSelect(currentDate, null, { container: div, showTime: showTime });
   ds._selectFunc = function(sd) { _self._selectDate.call(_self, sd, label, onChangeFunc, showTime); };

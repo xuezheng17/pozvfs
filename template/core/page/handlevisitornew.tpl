@@ -10,9 +10,9 @@ function HandleVisitorNew(gui, operator, now, options) {
 };
 
 HandleVisitorNew.prototype._createElements = function() {
-  
   var pos = [window.screen.width / 2, window.screen.height / 5];
-  MiscUtils.load1(this._popupBox, pos, 'It may take several seconds. Please wait...');
+  this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
+  MiscUtils.load(this._popupBox, 'It may take several seconds. Please wait...');
   
   this._loadData();
 };
@@ -179,49 +179,54 @@ HandleVisitorNew.prototype._updateElements = function() {
 
   /* 添加Source等信息 */
   this._gui.sourceAdd.onclick = function() { var object = ISource.instance(); 
-                                             var div = document.createElement('div');
-                                             var func1 = function() { _self._popupBox._close();
+                                             var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
                                                                       new RequestUtils()._write('isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
                                                                     };
-                                             var func2 = function() { _self._popupBox._close();
+                                             var func2 = function() { tmp._close();
                                                                     };
-                                             MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                             new DialogIObject(div, object, { name: 'isource', title: 'Sources' });
+                                             pos = DOMUtils.findPos(this);
+                                             tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                             var dialog = new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'isource', title: 'Sources', item: object });
+                                             MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                             
                                            };
   this._gui.receptionLocationAdd.onclick = function() { var object = IReception.instance();
-                                                        var div = document.createElement('div');
-                                                        var func1 = function() { _self._popupBox._close();
+                                                        var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
                                                                                  new RequestUtils()._write('ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
                                                                                };
-                                                          var func2 = function() { _self._popupBox._close();
-                                                                                 };
-                                                          MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                                          new DialogIObject(div, object, { name: 'ireception', title: 'Reception Locations' });
+                                                        var func2 = function() { tmp._close();
+                                                                               };
+                                                        pos = DOMUtils.findPos(this);
+                                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'ireception', title: 'Reception Location', item: object });
+                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                         };
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
-                                                         var div = document.createElement('div');
-                                                         var func1 = function() { _self._popupBox._close();
+                                                         var func1 = function() { tmp._close();
                                                                                   _self._visitor.cultureBackground = object.name;
                                                                                   new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
                                                                                 };
-                                                         var func2 = function() { _self._popupBox._close();
+                                                         var func2 = function() { tmp._close();
                                                                                 };
-                                                         MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                                         new DialogIObject(div, object, { name: 'iculture', title: 'Cultural Backgrounds' });
+                                                         pos = DOMUtils.findPos(this);
+                                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iculture', title: 'Cultural Background', item: object });
+                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
   this._gui.ceremonyLocationAdd.onclick = function() { var object = ICeremony.instance();
-                                                         var div = document.createElement('div');
-                                                         var func1 = function() { _self._popupBox._close();
-                                                                                  _self._visitor.ceremonyLocation = object.name;
-                                                                                  new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
-                                                                                };
-                                                         var func2 = function() { _self._popupBox._close();
-                                                                                };
-                                                         MiscUtils.dialog1(_self._popupBox, DOMUtils.findPos(this), div, func1, func2, { ok: 'Add' });
-                                                         new DialogIObject(div, object, { name: 'iceremony', title: 'Ceremony Locations' });
-                                                       };
+                                                       var func1 = function() { tmp._close();
+                                                                                _self._visitor.ceremonyLocation = object.name;
+                                                                                new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
+                                                                              };
+                                                       var func2 = function() { tmp._close();
+                                                                              };
+                                                       pos = DOMUtils.findPos(this);
+                                                       tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                       new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iceremony', title: 'Ceremony Location', item: object });
+                                                       MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                                     };
   /* Save */
   this._gui.save.onclick = function() { if (_self._visitor.cultureBackground != '' && _self._visitor.source != '') {
                                           if (!_self._visitor.weddingDay) {
@@ -253,7 +258,8 @@ HandleVisitorNew.prototype._changeDate = function(label, currentDate, onChangeFu
   div = document.createElement('div');
   div.style.left = DOMUtils.findPos(label)[0] + 'px';
   div.style.top = DOMUtils.findPos(label)[1] + 'px';
-  this._popupBox._open(div, { pos: DOMUtils.findPos(label) });
+  this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: DOMUtils.findPos(label)});
+  this._popupBox._gui.panel.appendChild(div);
   
   var ds = new DateSelect(currentDate, null, { container: div, showTime: showTime });
   ds._selectFunc = function(sd) { _self._selectDate.call(_self, sd, label, onChangeFunc, showTime); };
