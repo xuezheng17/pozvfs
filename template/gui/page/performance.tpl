@@ -40,8 +40,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractPerformance.gui('{{$template|escape:javascript}}');
-      console.log(gui);
-      //new HandleSignIn(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
+      new HandlePerformance(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
   //-->
 </script>

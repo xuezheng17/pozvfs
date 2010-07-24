@@ -142,7 +142,7 @@
   .{{$template|escape:'html'}}_td19 {
     width: 618px;
     height: 50px;
-    text-align: right;
+    text-align: left;
     vertical-align: middle;
     padding-right:1px;
   }
@@ -418,7 +418,16 @@
     <td class="{{$template|escape:'html'}}_td17" colspan="6"> Operation </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td18" id="{{$template|escape:'html'}}_operations_table" colspan="6">
+    <td class="{{$template|escape:'html'}}_td18"  colspan="6">
+      <table id="{{$template|escape:'html'}}_operations_table" border=1 cellPadding="0" cellSpacing="0" width="980px">
+        <tr>
+          <td width = '50px' height="24px">Method</td>
+          <td width = '100px'>operator</td>
+          <td width = '150px'>date</td>
+          <td width = ''>note</td>
+          <td width = '80px'></td>
+        </tr>
+      </table>
     </td>
   </tr>
   <tr>

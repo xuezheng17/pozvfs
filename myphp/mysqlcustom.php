@@ -24,6 +24,9 @@ try {
     case 'visitors':
       visitors($myPdo);
       break;
+    case 'performance':
+      performance($myPdo);
+      break;
     default:
       break;
   }
@@ -75,6 +78,63 @@ function visitors($myPdo) {
     $result->data[] = $tmp;
     $i++;
   }
+  echo json_encode($result);
+}
+
+function performance($myPdo) {
+  global $tableVisitor;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 0";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->visitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 1";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->customers = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 0 AND v.firstVisitMethod = 'Phone'";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->pVisitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 1 AND v.firstVisitMethod = 'Phone'";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->pSucVisitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 0 AND v.firstVisitMethod = 'Email'";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->eVisitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 1 AND v.firstVisitMethod = 'Email'";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->eSucVisitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 0 AND v.firstVisitMethod = 'Visitor'";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->vVisitors = $stmt->rowCount();
+  $result->data[] = $tmp;
   echo json_encode($result);
 }
 ?>
