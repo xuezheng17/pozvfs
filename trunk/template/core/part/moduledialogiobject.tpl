@@ -1,16 +1,22 @@
-function ModuleDialogIObject(gui, item, options) {
-  this._gui = gui;
-  this._item = item;
+function ModuleDialogIObject(doc, container, width, height, operator, now, options) {
+  this._doc = doc;
+  this._container = container;
+  this._width = width;
+  this._height = height;
+  this._operator = operator;
+  this._now = now;
   this._options = options;
 
   this._php = (options && options.php) ? options.php : null;
   this._name = (options && options.name) ? options.name : null;
   this._title = (options && options.title) ? options.title : null;
+  this._item = (options && options.item) ? options.item : null;
   
   this._createElements();
 };
 
 ModuleDialogIObject.prototype._createElements = function() {
+  this._gui = new DialogIObject(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
   this._loadData();
 };
 
@@ -34,7 +40,7 @@ ModuleDialogIObject.prototype._retrieveUsers = function() {
 
 ModuleDialogIObject.prototype._updateElements = function() {
   var table, tr, td, radio, input, _self = this;
-  
+
   POZVFSUtils.clear(this._gui);
   
   if (this._title) {

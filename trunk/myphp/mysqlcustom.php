@@ -1,0 +1,80 @@
+<?php
+require_once dirname(__FILE__) . '/../common/common.inc.php';
+
+header('Content-Type: text/plain');
+
+$tableVisitor = 'np_Visitor';
+
+try {
+  $hostname = 'localhost';
+  $username = 'pozvfs';
+  $password = 'weida911';
+  $dbname = 'pozvfs';
+  $myPdo = new PDO ('mysql:host=' . $hostname, $username, $password);
+  $myPdo->exec('USE ' . $dbname);
+  $myPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo $e->getMessage ();
+}
+
+$action = MiscUtils::getParam('action', NULL);
+
+try {
+  switch ($action) {
+    case 'visitors':
+      visitors($myPdo);
+      break;
+    default:
+      break;
+  }
+} catch (PDOException $e) {
+  echo $e->getMessage();
+}
+
+function visitors($myPdo) {
+  global $tableVisitor;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+
+  $datefrom = MiscUtils::getParam('datefrom', NULL);
+  $dateto = MiscUtils::getParam('dateto', NULL);
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($datefrom) ? ' AND (v.weddingDay >= \'' . SimpleDate::toStamp(json_decode($datefrom)) . '\')' : '';
+  $condition .= ($dateto) ? ' AND (v.weddingDay <= \'' . SimpleDate::toStamp(json_decode($dateto)) . '\')' : '';
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT DISTINCT v.e_oid AS total FROM $tableVisitor AS v $condition";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $result->total = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitMethod AS firstVisitMethod, v.status AS status FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $tmp->createdDate = SimpleDate::fromStamp($tmp->createdDate);
+    $result->data[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+?>
