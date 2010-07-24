@@ -30,7 +30,7 @@ HandleVisitorExist.prototype._loadData = function() {
   this._cultures = null;
   this._ceremonys = null;
   this._operations = null;
-  this._parameters = null;
+
   this._retrieveVisitor();
   this._retrieveSources();
   this._retrieveReceptions();
@@ -78,21 +78,20 @@ HandleVisitorExist.prototype._retrieveCeremonys = function() {
 HandleVisitorExist.prototype._retrieveOperations = function() {
   var _self = this;
   new RequestUtils()._read('operation', null, 'd.visitId = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._operations = result.data;
-                                                                                                                                           _self._parameters = result;
                                                                                                                                            _self._verifyData.call(_self);
                                                                                                                                          }, null);
 };
 
-HandleVisitorExist.prototype._retrieveVisitor = function() {
+HandleVisitorExist.prototype._retrieveVisitor = function(condition, queue) {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                        if (result.data.length == 0) {
-                                                                                                                                          window.alert('No Visitor Found');
-                                                                                                                                          _self._visitorId = _self._copy;
-                                                                                                                                        } 
-                                                                                                                                        _self._verifyData.call(_self);
-                                                                                                                                      }, null);
+    new RequestUtils()._read('visitor', null, (condition) ? condition : 'd.oid=\'' + this._visitorId + '\'', '1', '1', null, (queue) ? queue : 'DESC', function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : _self._visitor;
+                                                                                                                                                                                  if (result.data.length == 0) {
+                                                                                                                                                                                    window.alert('No Visitor Found');
+                                                                                                                                                                                  } else {
+                                                                                                                                                                                    _self._verifyData.call(_self);
+                                                                                                                                                                                  }
+                                                                                                                                                                                }, null);
   } else {
     this._visitor = Visitor.instance();
     this._visitor.weddingDay = '';
@@ -120,19 +119,12 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.drop.style.display = 'block';
   
   
-  this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id) + ((this._visitor.status) ? '(Visited)' : '')));
+  this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id)));
   
-  this._gui.next.onclick = function() { _self._copy = _self._visitorId;
-                                        _self._visitorId++;
-                                        _self._retrieveVisitor();
+  this._gui.next.onclick = function() { _self._retrieveVisitor('d.oid>\'' + _self._visitor.id + '\'', 'ASC');
                                         _self._retrieveOperations();
                                       };
-  this._gui.back.onclick = function() { if (_self._visitorId == 1) {
-                                          window.alert('The Last Visitor');
-                                          return;
-                                        }
-                                        _self._visitorId--;
-                                        _self._retrieveVisitor();
+  this._gui.back.onclick = function() { _self._retrieveVisitor('d.oid<\'' + _self._visitor.id + '\'', 'DESC');
                                         _self._retrieveOperations();
                                       };
   this._gui.number.value = '';
@@ -146,8 +138,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                           window.alert('Error Number');
                                           _self._gui.number.value = '';
                                         } else {
-                                          _self._visitorId = _self._gui.number.value;
-                                          _self._retrieveVisitor();
+                                          _self._retrieveVisitor('d.oid=\'' + _self._gui.number.value + '\'', 'ASC');
                                           _self._retrieveOperations();
                                         }
                                       };
@@ -284,7 +275,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                         };
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
                                                          var func1 = function() { tmp._close();
-                                                                                  _self._visitor.cultureBackground = object.name;
+                                                                                  _self._visitor.culturalBackground = object.name;
                                                                                   new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
                                                                                 };
                                                          var func2 = function() { tmp._close();
@@ -308,21 +299,21 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                      };
   /* Save */
   if (this._visitorId) {
-    this._gui.update.onclick = function() { if (_self._visitor.cultureBackground != '' && _self._visitor.source != '') {
-                                            if (!_self._visitor.weddingDay) {
-                                              var r = window.confirm('NO WEDDING DAY, CONTINUE?');
-                                              if (r) {
+    this._gui.update.onclick = function() { if (_self._visitor.culturalBackground != '' && _self._visitor.source != '') {
+                                              if (!_self._visitor.weddingDay) {
+                                                var r = window.confirm('NO WEDDING DAY, CONTINUE?');
+                                                if (r) {
+                                                  var pos = DOMUtils.findPos(this);
+                                                  new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                                }
+                                              } else {
                                                 var pos = DOMUtils.findPos(this);
                                                 new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                               }
                                             } else {
-                                              var pos = DOMUtils.findPos(this);
-                                              new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                              window.alert('CAN NOT BE EMPTY (Cultural Background, Source)');
                                             }
-                                          } else {
-                                            window.alert('CAN NOT BE EMPTY (Cultural Background, Source)');
-                                          }
-                                        };
+                                          };
   }
   
   /*- Operation -*/
@@ -336,7 +327,6 @@ HandleVisitorExist.prototype._updateElements = function() {
   }
   
   var pNumber = 1, eNumber = 1, vNumber = 1;
-  
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
     
@@ -434,10 +424,35 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
   }
   
+  if (this._visitor.status == 1) {
+    this._gui.email.disabled = true;
+    this._gui.call.disabled = true;
+    this._gui.visit.disabled = true;
+    this._gui.succeed.disabled = true;
+    this._gui.drop.disabled = true;
+    this._gui.update.disabled = false;
+  } else if (this._visitor.status == -1){
+    this._gui.update.disabled = true;
+    this._gui.email.disabled = true;
+    this._gui.call.disabled = true;
+    this._gui.visit.disabled = true;
+    this._gui.succeed.disabled = true;
+    this._gui.drop.disabled = true;
+  } else {
+    this._gui.update.disabled = false;
+    this._gui.email.disabled = false;
+    this._gui.call.disabled = false;
+    this._gui.visit.disabled = false;
+    this._gui.succeed.disabled = false;
+    this._gui.drop.disabled = false;
+  }
   
   this._gui.email.value = 'email(' + eNumber + ')';
   this._gui.call.value = 'call(' + pNumber + ')';
   this._gui.visit.value = 'visit(' + vNumber + ')';
+  if (vNumber-1) {
+    this._gui.title.appendChild(document.createTextNode('(Visited)'));
+  }
   
   this._gui.email.onclick = function() { var operation = Operation.instance();
                                          operation.visitId = _self._visitorId;
@@ -461,11 +476,15 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
                                        };
   
-  this._gui.succeed.onclick = function() {};
-  this._gui.drop.onclick = function() {};
-  
-  Pagination.makePagedResults(this._gui.page, this._parameters.page, this._parameters.total, this._parameters.size, function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, this, document);
-
+  this._gui.succeed.onclick = function() { _self._visitor.status = 1;
+                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
+                                         };
+  this._gui.drop.onclick = function() { var r = window.confirm('Confirm To Drop?');
+                                        if (r) {
+                                          _self._visitor.status = -1;
+                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
+                                        }
+                                      };
 };
 
 /* 

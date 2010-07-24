@@ -17,7 +17,6 @@
 {{include file='core/part/moduledialogiobject.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
 {{include file='include/common/dateselect.tpl'}}
-{{include file='include/common/pagination.tpl'}}
 {{include file='include/_database/isource.class.tpl'}}
 {{include file='include/_database/ireception.class.tpl'}}
 {{include file='include/_database/iculture.class.tpl'}}
