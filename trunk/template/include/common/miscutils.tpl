@@ -95,22 +95,10 @@ MiscUtils.alert = function(popupBox, text) {
   MiscUtils.dialog(popupBox, div, function() { popupBox._close(); }, null);
 };
 
-MiscUtils.load1 = function(popupBox, pos, text) {
-  var div = document.createElement('div');
-  var img = document.createElement('img');
-  img.src = 'images/common/loading.gif';
-  img.style.margin = '0 0 5px 0';
-  div.appendChild(img);
-  div.appendChild(document.createElement('br'));
-  div.appendChild(document.createTextNode(text));
-  div.style.margin = '0 0 5px 0';
-  MiscUtils.dialog1(popupBox, pos, div, null, null);
-};
-
 MiscUtils.load = function(popupBox, text) {
   var div = document.createElement('div');
   var img = document.createElement('img');
-  img.src = 'image/common/loading.gif';
+  img.src = 'image/loading.gif';
   div.appendChild(img);
   div.appendChild(document.createElement('br'));
   div.appendChild(document.createTextNode(text));
