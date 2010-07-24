@@ -60,39 +60,18 @@ MiscUtils.span = function(content) {
   span.appendChild(document.createTextNode(str));
   return span
 };
-MiscUtils.dialog1 = function(popupBox, pos, content, func1, func2, options) {
-  var table, tr, td, btn;
-  
-  table = document.createElement('table');
-  popupBox._open(table, { pos: pos });
-  tr = table.insertRow(-1);
-  td = tr.insertCell(-1);
-  td.appendChild(content);
-  tr = table.insertRow(-1);
-  td = tr.insertCell(-1);
-  if (func1 || func2) {
-    if (func1) {
-      btn = DOMUtils.createInput(null, null, 'button', (options && options.ok) ? options.ok : 'OK', null);
-      btn.onclick = func1;
-      td.appendChild(btn);
-    }
-    if (func2) {
-      btn = DOMUtils.createInput(null, null, 'button', (options && options.cancel) ? options.cancel : 'Cancel', null);
-      btn.onclick = func2;
-      td.appendChild(btn);
-    }
-  }
-};
-
 
 MiscUtils.dialog = function(popupBox, content, func1, func2, options) {
   var table, tr, td, btn;
   table = document.createElement('table');
+  table.style.width = '100%';
   popupBox._gui.panel.appendChild(table);
   
-  tr = table.insertRow(-1);
-  td = tr.insertCell(-1);
-  td.appendChild(content);
+  if (content) {
+    tr = table.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.appendChild(content);
+  }
   tr = table.insertRow(-1);
   td = tr.insertCell(-1);
   td.align = 'left';
