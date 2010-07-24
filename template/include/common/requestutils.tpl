@@ -50,3 +50,15 @@ RequestUtils.callbackFunc = function(pos, text, callbackFunc, doc) {
     return callbackFunc;
   }
 };
+
+RequestUtils.prototype._mysql = function(action, args, callbackFunc, options) {
+  var php = (options && options.php) ? options.php : '{{$smarty.const.MYSQL|escape:'javascript'}}';
+  var request = new Request(this._parseMySql, { method: 'POST', context: this, params: { callbackFunc: RequestUtils.callbackFunc((options) ? options.pos : null, 'Waiting...', callbackFunc, (options && options.doc) ? options.doc : document), options: options } });
+  request._request(php + '?action=' + action, ((args) ? args : ''));
+};
+
+RequestUtils.prototype._parseMySql = function(result, params) {
+  if (params.callbackFunc) {
+    params.callbackFunc(result, params);
+  }
+};

@@ -3,7 +3,7 @@ Pagination = function() {
 
 Pagination.makePagedResults = function(container, page, total, limit, callbackFunc, context, doc) {
   if (!this._popupBox) {
-    this._popupBox = new PopupBox();
+    this._popupBox = null;
   } else {
     this._popupBox._close();
   }
@@ -61,7 +61,8 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
         window.alert('Exceeded The Range');
         return;
       }
-      MiscUtils.load(_self._popupBox, DOMUtils.findPos(this), 'Loading...');
+      _self._popupBox = new ModulePopupBoxSimple(doc, doc.body, null, null, null, null, {pos: DOMUtils.findPos(this)});
+      MiscUtils.load(_self._popupBox, 'Loading...');
       callbackFunc(this._page);
       return false;
     };
