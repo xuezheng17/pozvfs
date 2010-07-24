@@ -82,16 +82,17 @@ HandleVisitorExist.prototype._retrieveOperations = function() {
                                                                                                                                          }, null);
 };
 
-HandleVisitorExist.prototype._retrieveVisitor = function(condition, queue) {
+HandleVisitorExist.prototype._retrieveVisitor = function() {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('visitor', null, (condition) ? condition : 'd.oid=\'' + this._visitorId + '\'', '1', '1', null, (queue) ? queue : 'DESC', function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : _self._visitor;
-                                                                                                                                                                                  if (result.data.length == 0) {
-                                                                                                                                                                                    window.alert('No Visitor Found');
-                                                                                                                                                                                  } else {
-                                                                                                                                                                                    _self._verifyData.call(_self);
-                                                                                                                                                                                  }
-                                                                                                                                                                                }, null);
+    new RequestUtils()._read('visitor', null, 'd.oid=' + this._visitorId , null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                              if (!_self._visitor) {
+                                                                                                                                window.alert('NO VISITOR ' + _self._visitorId);
+                                                                                                                                history.back();
+                                                                                                                                return;
+                                                                                                                              }
+                                                                                                                              _self._verifyData.call(_self);
+                                                                                                                            }, null);
   } else {
     this._visitor = Visitor.instance();
     this._visitor.weddingDay = '';
@@ -121,25 +122,23 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id)));
   
-  this._gui.next.onclick = function() { _self._retrieveVisitor('d.oid>\'' + _self._visitor.id + '\'', 'ASC');
-                                        _self._retrieveOperations();
+  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1});
                                       };
-  this._gui.back.onclick = function() { _self._retrieveVisitor('d.oid<\'' + _self._visitor.id + '\'', 'DESC');
-                                        _self._retrieveOperations();
+  this._gui.back.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1});
                                       };
-  this._gui.number.value = '';
-
-  this._gui.jump.onclick = function() { if (isNaN(_self._gui.number.value) || _self._gui.number.value == '') {
-                                          window.alert('Not A Number');
-                                          _self._gui.number.value = '';
-                                          return;
-                                        }
-                                        if (_self._gui.number.value < 0) {
-                                          window.alert('Error Number');
-                                          _self._gui.number.value = '';
+  this._gui.number.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                              if (code == 13) {
+                                                if(POZVFSUtils.isNum(this.value)) {
+                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: this.value});
+                                                } else {
+                                                  window.alert('Input A Number');
+                                                }
+                                              }
+                                            };
+  this._gui.jump.onclick = function() { if(POZVFSUtils.isNum(_self._gui.number.value)) {
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value});
                                         } else {
-                                          _self._retrieveVisitor('d.oid=\'' + _self._gui.number.value + '\'', 'ASC');
-                                          _self._retrieveOperations();
+                                          window.alert('Input A Number');
                                         }
                                       };
   

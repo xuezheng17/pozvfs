@@ -35,6 +35,19 @@ POZVFSUtils.visitorId = function(visitorId) {
   return visitorId;
 };
 
+/**
+ * 判断是否是数字
+ */
+POZVFSUtils.isNum = function(value) {
+  var type = "^[0-9]*[1-9][0-9]*$";
+  var re = new RegExp(type);
+  if(value.match(re) != null) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 POZVFSUtils.search = function() {
   return { id: '',
            name: '',
