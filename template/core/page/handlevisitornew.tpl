@@ -69,6 +69,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   POZVFSUtils.clear(this._gui);
 
   this._visitor.weddingDay = '';
+  this._visitor.firstVisitDate = '';
   this._visitor.creator = this._operator.account;
   
   /* 结婚日期 */

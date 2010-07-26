@@ -43,20 +43,19 @@ HandleVisitors.prototype._updateElements = function() {
 
   var table = document.createElement('table');
   this._gui.visitors.appendChild(table);
-  
   if (this._visitors.length == 0) {
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
     td.appendChild(document.createTextNode('Empty'));
   }
-
-//  for (var i = 0, il = this._visitors.length; i < il; i++) {
-//    var tmp = this._visitors[i];
-//    tr = table.insertRow(-1);
-//    td = tr.insertCell(-1);
-//    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp} );
-//  }
+  for (var i = 0, il = this._visitors.length; i < il; i++) {
+    var tmp = this._visitors[i];
+    tr = table.insertRow(-1);
+    td = tr.insertCell(-1);
+    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp } );
+  }
+  
   this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
 };
 
@@ -76,7 +75,7 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
   gui.phone.onkeydown = function() { _self._search.phone = this.value; };
   gui.phone.onchange = function() { _self._search.phone = this.value; };
   
-  gui.email.value = this._search.phone;
+  gui.email.value = this._search.email;
   gui.email.onkeydown = function() { _self._search.email = this.value; };
   gui.email.onchange = function() { _self._search.email = this.value; };
   
@@ -117,7 +116,7 @@ HandleVisitors.prototype._toString = function(search) {
   str += (search.id == '') ? '' : ((isNaN(search.id)) ? ' AND 1 = 0' : ' AND (v.e_oid=\'' + search.id + '\')');
   
   if (search.inProgressingOnly) {
-    str += ' AND v.status = 1';
+    str += ' AND v.status = 0';
   }
   
   return str;
