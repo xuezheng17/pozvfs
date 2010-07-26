@@ -42,7 +42,7 @@ function visitors($myPdo) {
   global $tableVisitor, $tableOperation;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1 AND v.status = 0');
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
   $order = MiscUtils::getParam('o', 'v.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
