@@ -41,6 +41,8 @@ HandleFollowUp.prototype._updateElements = function() {
   Pagination.makePagedResults(this._gui.page, this._parameters.page, this._parameters.total, this._parameters.size, function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, this, document);
 
   var table = document.createElement('table');
+  table.cellPadding = 0;
+  table.cellSpacing = 0;
   this._gui.visitors.appendChild(table);
   
   if (this._visitors.length == 0) {
