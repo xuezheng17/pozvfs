@@ -27,7 +27,7 @@ HandleFollowUp.prototype._verifyData = function() {
 
 HandleFollowUp.prototype._retrieveVisitors = function(page) { 
   var _self = this;
-  var args = '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}';
+  var args = '&c=' + 'WHERE v.status = 0' + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}';
   new RequestUtils()._mysql('followUp', args, function(result, params) { _self._visitors = result.data; 
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);
