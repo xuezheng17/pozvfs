@@ -57,6 +57,6 @@ POZVFSUtils.search = function() {
            weddingDayTo: null,
            createdDateFrom: null,
            createdDateTo: null,
-           inProgressingOnly: false
+           inProgressingOnly: true
          };
 };
