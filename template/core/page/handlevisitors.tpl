@@ -28,7 +28,7 @@ HandleVisitors.prototype._verifyData = function() {
 
 HandleVisitors.prototype._retrieveVisitors = function(page, condition, datefrom, dateto, from, to, pos) { 
   var _self = this;
-  var args = ((condition) ?  '&c=' + encodeURIComponent(condition) : '') + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + ((datefrom) ?  '&datefrom=' + datefrom : '') + ((dateto) ?  '&dateto=' + dateto : '') + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
+  var args = ((condition) ?  '&c=' + encodeURIComponent(condition) : '&c=' + 'WHERE v.status = 0') + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + ((datefrom) ?  '&datefrom=' + datefrom : '') + ((dateto) ?  '&dateto=' + dateto : '') + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
   new RequestUtils()._mysql('visitors', args, function(result, params) { _self._visitors = result.data; 
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);
@@ -111,16 +111,14 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
 };
 
 HandleVisitors.prototype._toString = function(search) {
-  var str = 'WHERE ';
+  var str = 'WHERE 1 = 1';
   
-  str += (search.name == '') ? '1 = 1' : '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
+  str += (search.name == '') ? '' : ' AND ((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
   str += (search.phone == '') ? '' : ' AND ((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
-  
+  str += (search.email == '') ? '' : ' AND ((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
   str += (search.id == '') ? '' : ((isNaN(search.id)) ? ' AND 1 = 0' : ' AND (v.e_oid=\'' + search.id + '\')');
   
-  if (search.inProgressingOnly) {
-    str += ' AND v.status = 0';
-  }
+  str += (search.inProgressingOnly) ? ' AND v.status = 0' : '';
   
   return str;
 };
