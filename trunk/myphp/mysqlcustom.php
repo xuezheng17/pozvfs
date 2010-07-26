@@ -42,7 +42,7 @@ function visitors($myPdo) {
   global $tableVisitor, $tableOperation;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1 AND v.status = 0');
   $order = MiscUtils::getParam('o', 'v.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -138,15 +138,16 @@ function followUp($myPdo) {
       $array[] = ($tmp3 && $tmp3->operatedDate) ? $tmp3->operatedDate : '';
       $k++;
     }
-    $tmp->operation = (count($array)) ? $array[count($array)-1] : SimpleDate::toStamp($tmp->createdDate);
+    $tmp->operation = -((count($array)) ? $array[count($array)-1] : SimpleDate::toStamp($tmp->createdDate));
     
     $sql2 = "SELECT DISTINCT o.e_oid AS id, o.operatedDate AS operatedDate, o.cancelled AS cancelled, o.operateType AS operateType FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
-    $tmp->cout = ($stmt2->rowCount() != 0) ? -$stmt2->rowCount() : 1;
+    $tmp->cout = $stmt2->rowCount();
     $j = 0;
     while ($j < $stmt2->rowCount()) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
       $tmp->operations[] = $tmp2;
       $j++;
     }
