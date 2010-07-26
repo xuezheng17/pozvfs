@@ -42,6 +42,8 @@ HandleVisitors.prototype._updateElements = function() {
   Pagination.makePagedResults(this._gui.page, this._parameters.page, this._parameters.total, this._parameters.size, function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, this, document);
 
   var table = document.createElement('table');
+  table.cellPadding = 0;
+  table.cellSpacing = 0;
   this._gui.visitors.appendChild(table);
   if (this._visitors.length == 0) {
     tr = table.insertRow(-1);
@@ -53,7 +55,8 @@ HandleVisitors.prototype._updateElements = function() {
     var tmp = this._visitors[i];
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
-    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp } );
+    td.style.textAlign = 'center';
+    new ModuleVisitorResult(document, td, 980, 122, this._operator, this._now, { item: tmp } );
   }
   
   this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
