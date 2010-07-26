@@ -10,7 +10,6 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._gui.visit.style.display = 'none';
   this._gui.succeed.style.display = 'none';
   this._gui.drop.style.display = 'none';
-  this._copy = this._options.id;
   this._createElements();
 };
 
@@ -42,8 +41,6 @@ HandleVisitorExist.prototype._loadData = function() {
 HandleVisitorExist.prototype._verifyData = function() {
   if (this._visitor && this._sources && this._receptions && this._cultures && this._ceremonys && this._operations) {
     this._updateElements();
-  } else {
-    this._popupBox._close();
   }
 };
 
