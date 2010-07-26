@@ -328,7 +328,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.appendChild(document.createTextNode('NONE'));
   }
   
-  var pNumber = 1, eNumber = 1, vNumber = 1;
+  var pNumber = 0, eNumber = 0, vNumber = 0;
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
     
@@ -341,7 +341,7 @@ HandleVisitorExist.prototype._updateElements = function() {
       if (!operation.cancelled) {
         eNumber++;
       }
-    } else {
+    } else if (type == 'visit'){
       if (!operation.cancelled) {
         vNumber++;
       }
@@ -383,7 +383,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.style.textAlign = 'left';
     td.style.padding = '0 0 0 10px';
     td.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ')'));
-    if (!operation.cancelled) {
+    if (!operation.cancelled && this._visitor.status == 0) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
       img.style.cursor = 'pointer';
@@ -406,7 +406,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.style.height = '24px';
     td.style.textAlign = 'center';
-    if (!operation.cancelled) {
+    if (!operation.cancelled && this._visitor.status == 0) {
       var img = document.createElement('img');
       img.src = 'image/delete.png';
       img.style.cursor = 'pointer';
@@ -449,43 +449,103 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.drop.disabled = false;
   }
   
-  this._gui.email.value = 'email(' + eNumber + ')';
-  this._gui.call.value = 'call(' + pNumber + ')';
-  this._gui.visit.value = 'visit(' + vNumber + ')';
-  if (vNumber-1) {
-    this._gui.title.appendChild(document.createTextNode('(Visited)'));
-  }
+  this._gui.email.value = 'email(' + (eNumber+1) + ')';
+  this._gui.call.value = 'call(' + (pNumber+1) + ')';
+  this._gui.visit.value = 'visit(' + (vNumber+1) + ')';
   
-  this._gui.email.onclick = function() { var operation = Operation.instance();
+  if (this._visitor.status == 1) {
+    this._gui.title.appendChild(document.createTextNode('(Succeed)'));
+  } else if (this._visitor.status == -1) {
+    this._gui.title.appendChild(document.createTextNode('(Dropped)'));
+  } else {
+    if (vNumber) {
+      this._gui.title.appendChild(document.createTextNode('(Visited)'));
+    }
+  }
+  this._gui.email.onclick = function() { var pos, func1, func2;
+                                         var operation = Operation.instance();
                                          operation.visitId = _self._visitorId;
                                          operation.cancelled = 0;
                                          operation.operateType = this.value;
                                          operation.operator = _self._operator.account;
-                                         new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
+                                         func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                              tmp._close();
+                                                            }
+                                         func2 = function() { tmp._close(); };
+                                         pos = DOMUtils.findPos(this);
+                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                         MiscUtils.dialog(tmp, null, func1, func2, null);
+                                         return false;
                                        };
-  this._gui.call.onclick = function() { var operation = Operation.instance();
+  this._gui.call.onclick = function() { var pos, func1, func2;
+                                        var operation = Operation.instance();
                                         operation.visitId = _self._visitorId;
                                         operation.cancelled = 0;
                                         operation.operateType = this.value;
                                         operation.operator = _self._operator.account;
-                                        new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
+                                        func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                             tmp._close();
+                                                           }
+                                        func2 = function() { tmp._close(); };
+                                        pos = DOMUtils.findPos(this);
+                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                        MiscUtils.dialog(tmp, null, func1, func2, null);
+                                        return false;
                                       };
-  this._gui.visit.onclick = function() { var operation = Operation.instance();
+  this._gui.visit.onclick = function() { var pos, func1, func2;
+                                         var operation = Operation.instance();
                                          operation.visitId = _self._visitorId;
                                          operation.cancelled = 0;
                                          operation.operateType = this.value;
                                          operation.operator = _self._operator.account;
-                                         new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, null);
+                                         func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                              tmp._close();
+                                                            }
+                                         func2 = function() { tmp._close(); };
+                                         pos = DOMUtils.findPos(this);
+                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                         MiscUtils.dialog(tmp, null, func1, func2, null);
+                                         return false;
                                        };
   
-  this._gui.succeed.onclick = function() { _self._visitor.status = 1;
-                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
+  this._gui.succeed.onclick = function() { var pos, func1, func2;
+                                           var operation = Operation.instance();
+                                           operation.visitId = _self._visitorId;
+                                           operation.cancelled = 0;
+                                           operation.operateType = this.value;
+                                           operation.operator = _self._operator.account;
+                                           func1 = function() { _self._visitor.status = 1;
+                                                                new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                                new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, { pos: pos });
+                                                                tmp._close();
+                                                              }
+                                           func2 = function() { tmp._close(); };
+                                           pos = DOMUtils.findPos(this);
+                                           tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                           MiscUtils.dialog(tmp, null, func1, func2, null);
+                                           return false;
                                          };
-  this._gui.drop.onclick = function() { var r = window.confirm('Confirm To Drop?');
-                                        if (r) {
-                                          _self._visitor.status = -1;
-                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
-                                        }
+  this._gui.drop.onclick = function() { var pos, func1, func2;
+                                        var operation = Operation.instance();
+                                        operation.visitId = _self._visitorId;
+                                        operation.cancelled = 0;
+                                        operation.operateType = this.value;
+                                        operation.operator = _self._operator.account;
+                                        func1 = function() { _self._visitor.status = -1;
+                                                             new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                             new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, { pos: pos });
+                                                             tmp._close();
+                                                           }
+                                        func2 = function() { tmp._close(); };
+                                        pos = DOMUtils.findPos(this);
+                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                        MiscUtils.dialog(tmp, null, func1, func2, null);
+                                        return false;
                                       };
 };
 

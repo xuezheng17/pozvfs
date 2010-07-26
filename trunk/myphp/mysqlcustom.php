@@ -4,6 +4,7 @@ require_once dirname(__FILE__) . '/../common/common.inc.php';
 header('Content-Type: text/plain');
 
 $tableVisitor = 'np_Visitor';
+$tableOperation = 'np_Operation';
 
 try {
   $hostname = 'localhost';
