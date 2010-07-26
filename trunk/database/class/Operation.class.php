@@ -12,7 +12,6 @@ class Operation {
    * @orm bool
    */
   public $cancelled;
-  
   /**
    * @orm char(64)
    */
