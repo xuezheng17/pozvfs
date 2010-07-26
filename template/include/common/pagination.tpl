@@ -81,7 +81,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   itd.align = 'left';
   itd.style.width = '35px';
   var items = document.createElement('img');
-  items.src = 'images/common/pagination/items.png';
+  items.src = 'image/pagination/items.png';
   itd.appendChild(items);
   itd = itr.insertCell(-1);
   itd.style.width = '15px';
@@ -94,7 +94,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   itd.align = 'left';
   itd.style.width = '40px';
   var pages = document.createElement('img');
-  pages.src = 'images/common/pagination/pages.png';
+  pages.src = 'image/pagination/pages.png';
   pages.style.margin = '5px 5px 0 10px';
   itd.appendChild(pages);
   itd = itr.insertCell(-1);
@@ -127,7 +127,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   left.cellSpacing = 0;
   itd.appendChild(left);
   if (prev > 0 && prev != page) {
-    left.style.backgroundImage = 'url(images/common/pagination/leftbg.png)';
+    left.style.backgroundImage = 'url(image/pagination/leftbg.png)';
     left.style.backgroundRepeat = 'no-repeat';
     left.style.width = '52px';
     left.style.height = '28px';
@@ -138,7 +138,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
     lftd.align = 'center';
     a = doc.createElement('img');
     a.setAttribute('href', '#first');
-    a.src = 'images/common/pagination/first.png';
+    a.src = 'image/pagination/first.png';
     lftd.style.cursor = 'pointer';
     lftd._page = first;
     lftd.onclick = func;
@@ -150,13 +150,13 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
     lftd.style.verticalAlign = 'middle';
     a = doc.createElement('img');
     a.setAttribute('href', '#prev');
-    a.src = 'images/common/pagination/prev.png';
+    a.src = 'image/pagination/prev.png';
     lftd.style.cursor = 'pointer';
     lftd._page = prev;
     lftd.onclick = func;
     lftd.appendChild(a);
   } else {
-    left.style.backgroundImage = 'url(images/common/pagination/noleft.png)';
+    left.style.backgroundImage = 'url(image/pagination/noleft.png)';
     left.style.backgroundRepeat = 'no-repeat';
     left.style.width = '52px';
     left.style.height = '28px';
@@ -164,7 +164,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   itd = itr.insertCell(-1);
   itd.align = 'center';
   var middle = document.createElement('table');
-  middle.style.backgroundImage = 'url(images/common/pagination/middlebg.png)';
+  middle.style.backgroundImage = 'url(image/pagination/middlebg.png)';
   middle.style.backgroundRepeat = 'repeat-x';
   middle.style.width = '40px';
   middle.style.height = '28px';
@@ -217,7 +217,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   itd.appendChild(right);
   
   if (next > 0 && next != page) {
-    right.style.backgroundImage = 'url(images/common/pagination/rightbg.png)';
+    right.style.backgroundImage = 'url(image/pagination/rightbg.png)';
     right.style.backgroundRepeat = 'no-repeat';
     right.style.width = '118px';
     right.style.height = '28px';
@@ -229,7 +229,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
     rtd.style.verticalAlign = 'middle';
     a = doc.createElement('img');
     a.setAttribute('href', '#next');
-    a.src = 'images/common/pagination/nextpage.png';
+    a.src = 'image/pagination/nextpage.png';
     rtd.style.cursor = 'pointer';
     rtd._page = next;
     rtd.onclick = func;
@@ -241,13 +241,13 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
     rtd.style.verticalAlign = 'middle';
     a = doc.createElement('img');
     a.setAttribute('href', '#last');
-    a.src = 'images/common/pagination/last.png';
+    a.src = 'image/pagination/last.png';
     rtd.style.cursor = 'pointer';
     rtd._page = last;
     rtd.onclick = func;
     rtd.appendChild(a);
   } else {
-    right.style.backgroundImage = 'url(images/common/pagination/noright.png)';
+    right.style.backgroundImage = 'url(image/pagination/noright.png)';
     right.style.backgroundRepeat = 'no-repeat';
     right.style.width = '118px';
     right.style.height = '28px';
@@ -255,7 +255,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   
   td = tr.insertCell(-1);
   var itable = document.createElement('table');
-  itable.style.backgroundImage = 'url(images/common/pagination/jumpbg.png)';
+  itable.style.backgroundImage = 'url(image/pagination/jumpbg.png)';
   itable.style.backgroundRepeat = 'no-repeat';
   itable.style.width = '122px';
   itable.style.height = '28px';
@@ -276,7 +276,7 @@ Pagination.makePagedResults = function(container, page, total, limit, callbackFu
   itd.align = 'center';
   itd.style.width = '55px';
   var pBtn = document.createElement('img');
-  pBtn.src = 'images/common/pagination/jumpto.png';
+  pBtn.src = 'image/pagination/jumpto.png';
   pBtn.style.cursor = 'pointer';
   pBtn.style.margin = '3px 0 0 0';
   pBtn._page = page;
