@@ -54,7 +54,7 @@ HandleFollowUp.prototype._updateElements = function() {
     MiscUtils.sort(this._visitors, ['weddingDay']);
   } else if (this._cont == 2) {
     MiscUtils.sort(this._visitors, ['operation']);
-  } else {
+  } else if (this._cont == 3){
     MiscUtils.sort(this._visitors, ['cout']);
   }
   

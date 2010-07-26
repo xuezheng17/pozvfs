@@ -10,6 +10,7 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._gui.visit.style.display = 'none';
   this._gui.succeed.style.display = 'none';
   this._gui.drop.style.display = 'none';
+  
   this._createElements();
 };
 
