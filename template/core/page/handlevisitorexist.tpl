@@ -381,7 +381,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.style.textAlign = 'left';
     td.style.padding = '0 0 0 10px';
     td.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ')'));
-    if (!operation.cancelled && this._visitor.status == 0) {
+    if (!operation.cancelled) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
       img.style.cursor = 'pointer';
@@ -404,7 +404,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.style.height = '24px';
     td.style.textAlign = 'center';
-    if (!operation.cancelled && this._visitor.status == 0) {
+    if (!operation.cancelled) {
       var img = document.createElement('img');
       img.src = 'image/delete.png';
       img.style.cursor = 'pointer';
@@ -424,28 +424,32 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
   }
   
-  if (this._visitor.status == 1) {
-    this._gui.email.disabled = true;
-    this._gui.call.disabled = true;
-    this._gui.visit.disabled = true;
-    this._gui.succeed.disabled = true;
-    this._gui.drop.disabled = true;
-    this._gui.update.disabled = false;
-  } else if (this._visitor.status == -1){
-    this._gui.update.disabled = true;
-    this._gui.email.disabled = true;
-    this._gui.call.disabled = true;
-    this._gui.visit.disabled = true;
-    this._gui.succeed.disabled = true;
-    this._gui.drop.disabled = true;
-  } else {
-    this._gui.update.disabled = false;
-    this._gui.email.disabled = false;
-    this._gui.call.disabled = false;
-    this._gui.visit.disabled = false;
-    this._gui.succeed.disabled = false;
-    this._gui.drop.disabled = false;
-  }
+//  if (this._visitor.status == 1) {
+//    this._gui.email.disabled = true;
+//    this._gui.call.disabled = true;
+//    this._gui.visit.disabled = true;
+//    this._gui.drop.disabled = true;
+//    this._gui.succeed.disabled = false;
+//    this._gui.update.disabled = false;
+//    this._gui.succeed.value = 'Reverse';
+//  } else if (this._visitor.status == -1){
+//    this._gui.update.disabled = true;
+//    this._gui.email.disabled = true;
+//    this._gui.call.disabled = true;
+//    this._gui.visit.disabled = true;
+//    this._gui.succeed.disabled = true;
+//    this._gui.drop.disabled = false;
+//    this._gui.drop.value = 'Reverse';
+//  } else {
+//    this._gui.update.disabled = false;
+//    this._gui.email.disabled = false;
+//    this._gui.call.disabled = false;
+//    this._gui.visit.disabled = false;
+//    this._gui.succeed.disabled = false;
+//    this._gui.drop.disabled = false;
+//    this._gui.succeed.value = 'Succeed';
+//    this._gui.drop.value = 'Drop';
+//  }
   
   this._gui.email.value = 'email(' + (eNumber+1) + ')';
   this._gui.call.value = 'call(' + (pNumber+1) + ')';
@@ -515,7 +519,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
-                                           func1 = function() { _self._visitor.status = 1;
+                                           func1 = function() { _self._visitor.status = (operation.operateType == 'Succeed') ? 1 : 0;
                                                                 new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
                                                                 new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, { pos: pos });
                                                                 tmp._close();
@@ -533,7 +537,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         operation.cancelled = 0;
                                         operation.operateType = this.value;
                                         operation.operator = _self._operator.account;
-                                        func1 = function() { _self._visitor.status = -1;
+                                        func1 = function() { _self._visitor.status = (operation.operateType == 'Drop') ? -1 : 0;
                                                              new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
                                                              new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, { pos: pos });
                                                              tmp._close();
