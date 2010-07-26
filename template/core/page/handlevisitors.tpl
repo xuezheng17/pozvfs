@@ -55,7 +55,7 @@ HandleVisitors.prototype._updateElements = function() {
 //    var tmp = this._visitors[i];
 //    tr = table.insertRow(-1);
 //    td = tr.insertCell(-1);
-//    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp } );
+//    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp} );
 //  }
   this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
 };

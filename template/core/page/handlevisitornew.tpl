@@ -18,7 +18,6 @@ HandleVisitorNew.prototype._createElements = function() {
 };
 
 HandleVisitorNew.prototype._loadData = function() {
-  
   this._sources = null;
   this._receptions = null;
   this._cultures = null;
@@ -70,7 +69,6 @@ HandleVisitorNew.prototype._updateElements = function() {
   POZVFSUtils.clear(this._gui);
 
   this._visitor.weddingDay = '';
-  this._visitor.firstVisitDate = '';
   this._visitor.creator = this._operator.account;
   
   /* 结婚日期 */
@@ -228,7 +226,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                      };
   /* Save */
-  this._gui.save.onclick = function() { if (_self._visitor.cultureBackground != '' && _self._visitor.source != '') {
+  this._gui.save.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
                                           if (!_self._visitor.weddingDay) {
                                             var r = window.confirm('NO WEDDING DAY, CONTINUE?');
                                             if (r) {
@@ -244,10 +242,9 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                                                                                                          }, { pos: pos });
                                           }
                                         } else {
-                                          window.alert('CAN NOT BE EMPTY (Cultural Background, Source)');
+                                          window.alert('CAN NOT BE EMPTY (First Visiting Method)');
                                         }
                                       };
-  
 };
 
 /* 
