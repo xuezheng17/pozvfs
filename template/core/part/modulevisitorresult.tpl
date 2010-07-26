@@ -27,12 +27,11 @@ ModuleVisitorResult.prototype._createElements = function() {
     var cnt = 0;
     for (var i = 0, il = this._item.operations.length; i < il; i++) {
       var operation = this._item.operations[i];
-      if (operation.cancelled == 1) {
-        continue;
-      }
       var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
       if (type == 'visit') {
-        cnt++;
+        if (!operation.cancelled) {
+          cnt++;
+        }
       }
     }
     if (cnt) {
