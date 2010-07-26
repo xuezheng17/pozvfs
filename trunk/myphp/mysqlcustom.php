@@ -86,6 +86,7 @@ function visitors($myPdo) {
     $j = 0;
     while ($j < $stmt2->rowCount()) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
       $tmp->operations[] = $tmp2;
       $j++;
     }
