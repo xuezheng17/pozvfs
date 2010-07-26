@@ -1,160 +1,222 @@
-<style>
-  .{{$template|escape:'html'}}_table1 {
-    width: 980px;
-    height: 122px;
-    border:solid 1px #e5ecf9;
-  }
-  .{{$template|escape:'html'}}_table2 {
-    width: 980px;
-    height: 28px;
-  }
-  .{{$template|escape:'html'}}_td1 {
-    width: 980px;
-    height: 30px;
-    text-align: left;
-    vertical-align: bottom;
-    padding-left:18px;
-    background-color:#e5ecf9;
-  }
-  .{{$template|escape:'html'}}_td2 {
-    width: 124px;
-    height: 24px;
-    text-align: right;
-    vertical-align: BOTTOM;
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td3 {
-    width: 164px;
-    height: 24px;
-    text-align: left;
-    vertical-align: BOTTOM;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td4 {
-    width: 164px;
-    height: 24px;
-    text-align: right;
-    vertical-align: BOTTOM;
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td5 {
-    width: 528px;
-    height: 24px;
-    text-align: left;
-    vertical-align: BOTTOM;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td6 {
-    width: 980px;
-    height: 28px;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .{{$template|escape:'html'}}_td7 {
-    width: 800px;
-    height: 28px;
-    text-align: right;
-    vertical-align: middle;
-    font-weight: bold;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td8 {
-    width: 68px;
-    height: 28px;
-    text-align: right;
-    vertical-align: middle;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td9 {
-    width: 32px;
-    height: 28px;
-    text-align: right;
-    vertical-align: middle;
-    font-weight: bold;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td10 {
-    width: 80px;
-    height: 28px;
-    text-align: left;
-    vertical-align: middle;
-    padding-left:10px;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-</style>
+function VisitorResult(doc, container, width, height, operator, now, options) {
+  this._doc = doc;
+  this._container = container;
+  this._operator = operator;
+  this._now = now;
+  this._options = options;
+  this._unique = MiscUtils.unique();
+  this._createElements();
+  this._gui = AbstractVisitorResult.gui(this._unique, this._doc);
+}
 
-<script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
-<script type="text/javascript">
-  <!--
-    if (document.addEventListener) {
-      document.addEventListener('DOMContentLoaded', init, false);
-    }
-    window.onload = init;
-
-    function init() {
-      if (!document.getElementById || !document.createElement || !arguments || arguments.callee._loaded) {
-        return;
-      }
-      arguments.callee._loaded = true;
-      
-      var gui = AbstractVisitorResult.gui('{{$template|escape:javascript}}');
-      console.log(gui);
-      //new HandleSignIn(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
-    }
-  //-->
-</script>
-
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td1" colSpan="5" ></td> 
-      <div id="{{$template|escape:'html'}}_title_div" ></div>
-    </td>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td2" >Bride:</td> 
-    <td class="{{$template|escape:'html'}}_td3" id="{{$template|escape:'html'}}_brideName_div" ></td>
-    <td class="{{$template|escape:'html'}}_td4" >Groom:</td>
-    <td class="{{$template|escape:'html'}}_td5" id="{{$template|escape:'html'}}_groomName_div" ></td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td2" >Tel/Mob:</td> 
-    <td class="{{$template|escape:'html'}}_td3" id="{{$template|escape:'html'}}_bridePhone_div" ></td>
-    <td class="{{$template|escape:'html'}}_td4" >Tel/Mob:</td>
-    <td class="{{$template|escape:'html'}}_td5" id="{{$template|escape:'html'}}_groomPhone_div" ></td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td2" >Email:</td> 
-    <td class="{{$template|escape:'html'}}_td3" id="{{$template|escape:'html'}}_brideEmail_div" ></td>
-    <td class="{{$template|escape:'html'}}_td4" >Email:</td>
-    <td class="{{$template|escape:'html'}}_td5" id="{{$template|escape:'html'}}_groomEmail_div" ></td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td6" colSpan="5" >
-      <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
-        <tr>
-          <td class="{{$template|escape:'html'}}_td7" >Created on</td>
-          <td class="{{$template|escape:'html'}}_td8" id="{{$template|escape:'html'}}_createdDate_div" ></td>
-          <td class="{{$template|escape:'html'}}_td9" >By</td>
-          <td class="{{$template|escape:'html'}}_td10" id="{{$template|escape:'html'}}_author_div" ></td>
-        </tr>
-      </table>
-    </td> 
-  </tr>
-</table>
+VisitorResult.prototype._createElements = function() {
+  var table, tr, td, input;
+  table= this._doc.createElement('table');
+  table.style.width = '980px';
+  table.style.height = '122px';
+  table.cellPadding = 0;
+  table.cellSpacing = 0;
+  table.style.textAlign = 'center';
+  table.style.border='solid 1px #e5ecf9';
+  this._container.appendChild(table);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '30px';
+  td.style.width = '980px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.paddingLeft = '18px';
+  td.style.backgroundColor = '#e5ecf9';
+  td.colSpan = '5';
+  var div1 = this._doc.createElement('div');
+  div1.id = this._unique + '_title_div';
+  td.appendChild(div1);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '124px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  td.appendChild(this._doc.createTextNode('Bride:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '164px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div2 = this._doc.createElement('div');
+  div2.id = this._unique + '_brideName_div';
+  td.appendChild(div2);
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '164px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  td.appendChild(this._doc.createTextNode('Groom:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '528px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div3 = this._doc.createElement('div');
+  div3.id = this._unique + '_groomName_div';
+  td.appendChild(div3);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '124px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  td.appendChild(this._doc.createTextNode('Tel/Mob:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '164px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div4 = this._doc.createElement('div');
+  div4.id = this._unique + '_bridePhone_div';
+  td.appendChild(div4);
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '164px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  td.appendChild(this._doc.createTextNode('Tel/Mob:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '528px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div5 = this._doc.createElement('div');
+  div5.id = this._unique + '_groomPhone_div';
+  td.appendChild(div5);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '124px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  td.appendChild(this._doc.createTextNode('Email:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '164px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div6 = this._doc.createElement('div');
+  div6.id = this._unique + '_brideEmail_div';
+  td.appendChild(div6);
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '164px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  td.appendChild(this._doc.createTextNode('Email:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '528px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div7 = this._doc.createElement('div');
+  div7.id = this._unique + '_groomEmail_div';
+  td.appendChild(div7);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '28px';
+  td.style.width = '980px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'middle';
+  td.colSpan = '5';
+  var table1= this._doc.createElement('table');
+  table1.style.width = '980px';
+  table1.style.height = '28px';
+  table1.cellPadding = 0;
+  table1.cellSpacing = 0;
+  td.appendChild(table1);
+  
+  tr1=table1.insertRow(-1);
+  td = tr1.insertCell(-1);
+  td.style.height = '28px';
+  td.style.width = '800px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'middle';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial'
+  td.appendChild(this._doc.createTextNode('Created on'));
+  
+  td = tr1.insertCell(-1);
+  td.style.height = '28px';
+  td.style.width = '68px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'middle';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial';
+  var div8 = this._doc.createElement('div');
+  div8.id = this._unique + '_createdDate_div';
+  td.appendChild(div8);
+  
+  td = tr1.insertCell(-1);
+  td.style.height = '28px';
+  td.style.width = '32px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'middle';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '11pt';
+  td.style.fontFamily= 'Arial'
+  td.appendChild(this._doc.createTextNode('By'));
+  
+  td = tr1.insertCell(-1);
+  td.style.height = '28px';
+  td.style.width = '80px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'middle';
+  td.style.fontSize = '11pt';
+  td.style.paddingLeft = '10px';
+  td.style.fontFamily= 'Arial';
+  var div9 = this._doc.createElement('div');
+  div9.id = this._unique + '_author_div';
+  td.appendChild(div9);
+};
