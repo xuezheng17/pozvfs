@@ -10,6 +10,7 @@
     font-size: 12px;
     font-family: Arial;
     text-align: center;
+    background-color:#e5ecf9;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
   }
@@ -79,7 +80,6 @@
         return;
       }
       arguments.callee._loaded = true;
-      
       var gui = AbstractUsers.gui('{{$template|escape:javascript}}');
       new HandleUsers(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
