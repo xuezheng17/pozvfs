@@ -393,7 +393,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                  var func2 = function() { tmp._close(); };
                                  pos = DOMUtils.findPos(this);
                                  tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: this._operation.content });
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: this._operation.content });
                                  MiscUtils.dialog(tmp, null, func1, func2, null);
                                  return false;
                                };
@@ -475,7 +475,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          func2 = function() { tmp._close(); };
                                          pos = DOMUtils.findPos(this);
                                          tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
                                          MiscUtils.dialog(tmp, null, func1, func2, null);
                                          return false;
                                        };
@@ -491,7 +491,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         func2 = function() { tmp._close(); };
                                         pos = DOMUtils.findPos(this);
                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
                                         MiscUtils.dialog(tmp, null, func1, func2, null);
                                         return false;
                                       };
@@ -507,7 +507,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          func2 = function() { tmp._close(); };
                                          pos = DOMUtils.findPos(this);
                                          tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
                                          MiscUtils.dialog(tmp, null, func1, func2, null);
                                          return false;
                                        };
@@ -526,7 +526,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            func2 = function() { tmp._close(); };
                                            pos = DOMUtils.findPos(this);
                                            tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
                                            MiscUtils.dialog(tmp, null, func1, func2, null);
                                            return false;
                                          };
@@ -544,7 +544,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         func2 = function() { tmp._close(); };
                                         pos = DOMUtils.findPos(this);
                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', default: operation.content });
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
                                         MiscUtils.dialog(tmp, null, func1, func2, null);
                                         return false;
                                       };
