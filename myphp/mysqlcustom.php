@@ -141,7 +141,7 @@ function followUp($myPdo) {
     }
     $tmp->operation = -((count($array)) ? $array[count($array)-1] : SimpleDate::toStamp($tmp->createdDate));
     
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.operatedDate AS operatedDate, o.cancelled AS cancelled, o.operateType AS operateType FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
+    $sql2 = "SELECT DISTINCT o.cancelled AS cancelled, o.operateType AS operateType FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->cout = $stmt2->rowCount();
