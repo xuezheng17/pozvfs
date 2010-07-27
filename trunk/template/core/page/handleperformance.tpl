@@ -12,19 +12,19 @@ HandlePerformance.prototype._createElements = function() {
 };
 
 HandlePerformance.prototype._loadData = function() {
-  this._visitors = null;
-  this._retrieveVisitors();
+  this._visitor = null;
+  this._retrieveVisitor();
 };
 
 HandlePerformance.prototype._verifyData = function() {
-  if (this._visitors) {
+  if (this._visitor) {
     this._updateElements();
   }
 };
 
-HandlePerformance.prototype._retrieveVisitors = function() { 
+HandlePerformance.prototype._retrieveVisitor = function() { 
   var _self = this;
-  new RequestUtils()._mysql('performance', '&s=99999', function(result, params) { _self._visitors = result.data[0];
+  new RequestUtils()._mysql('performance', '&s=99999', function(result, params) { _self._visitor = result.data[0];
                                                                                   _self._verifyData.call(_self);
                                                                                 }, null);
 };
@@ -41,11 +41,11 @@ HandlePerformance.prototype._updateElements = function() {
   this._gui.cVisitor.appendChild(document.createTextNode('0%'));
   this._gui.total.appendChild(document.createTextNode('0%'));
   
-//  this._gui.visitors.appendChild(document.createTextNode(this._visitors.visitors));
-//  this._gui.eVisitor.appendChild(document.createTextNode((this._visitors.visitors == 0) ? '0%' : ((this._visitors.eVisitors / this._visitors.visitors) * 100).toFixed(0) + '%'));
-//  this._gui.eSucVisitor.appendChild(document.createTextNode((this._visitors.eVisitors == 0) ? '0%' : ((this._visitors.eSucVisitors / this._visitors.eVisitors) * 100).toFixed(0) + '%'));
-//  this._gui.pVisitor.appendChild(document.createTextNode((this._visitors.visitors == 0) ? '0%' : ((this._visitors.pVisitors / this._visitors.visitors) * 100).toFixed(0) + '%'));
-//  this._gui.pSucVisitor.appendChild(document.createTextNode((this._visitors.pVisitors == 0) ? '0%' : ((this._visitors.pSucVisitors / this._visitors.pVisitors) * 100).toFixed(0) + '%'));
-//  this._gui.cVisitor.appendChild(document.createTextNode((this._visitors.visitors == 0) ? '0%' : ((this._visitors.customers / this._visitors.visitors) * 100).toFixed(0) + '%'));
-//  this._gui.total.appendChild(document.createTextNode(((this._visitors.eVisitors + this._visitors.pVisitors + this._visitors.vVisitors) == 0) ? '0%' : ((this._visitors.customers / (this._visitors.eVisitors + this._visitors.pVisitors + this._visitors.vVisitors)) * 100).toFixed(0) + '%'));
+//  this._gui.visitors.appendChild(document.createTextNode(this._visitor.visitors));
+//  this._gui.eVisitor.appendChild(document.createTextNode((this._visitor.visitors == 0) ? '0%' : ((this._visitor.eVisitors / this._visitor.visitors) * 100).toFixed(0) + '%'));
+//  this._gui.eSucVisitor.appendChild(document.createTextNode((this._visitor.eVisitors == 0) ? '0%' : ((this._visitor.eSucVisitors / this._visitor.eVisitors) * 100).toFixed(0) + '%'));
+//  this._gui.pVisitor.appendChild(document.createTextNode((this._visitor.visitors == 0) ? '0%' : ((this._visitor.pVisitors / this._visitor.visitors) * 100).toFixed(0) + '%'));
+//  this._gui.pSucVisitor.appendChild(document.createTextNode((this._visitor.pVisitors == 0) ? '0%' : ((this._visitor.pSucVisitors / this._visitor.pVisitors) * 100).toFixed(0) + '%'));
+//  this._gui.cVisitor.appendChild(document.createTextNode((this._visitor.visitors == 0) ? '0%' : ((this._visitor.customers / this._visitor.visitors) * 100).toFixed(0) + '%'));
+//  this._gui.total.appendChild(document.createTextNode(((this._visitor.eVisitors + this._visitor.pVisitors + this._visitor.vVisitors) == 0) ? '0%' : ((this._visitor.customers / (this._visitor.eVisitors + this._visitor.pVisitors + this._visitor.vVisitors)) * 100).toFixed(0) + '%'));
 };
