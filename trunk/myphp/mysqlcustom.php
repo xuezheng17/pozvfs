@@ -132,6 +132,8 @@ function followUp($myPdo) {
     $sql3 = "SELECT DISTINCT o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 ORDER BY 'o.e_oid' $queue";
     $stmt3 = $myPdo->prepare($sql3);
     $stmt3->execute();
+    $tmp->cout = $stmt3->rowCount();
+    
     $array = array();
     $k = 0;
     while ($k < $stmt3->rowCount()) {
@@ -144,7 +146,7 @@ function followUp($myPdo) {
     $sql2 = "SELECT DISTINCT o.cancelled AS cancelled, o.operateType AS operateType FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
-    $tmp->cout = $stmt2->rowCount();
+    
     $j = 0;
     while ($j < $stmt2->rowCount()) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
