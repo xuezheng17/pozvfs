@@ -9,7 +9,7 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   
   this._title = (options && options.title) ? options.title : '';
   this._item = (options && options.item) ? options.item : '';
-  this._default = (options && options.default) ? options.default : '';
+  this._default = (options && options.content) ? options.content : '';
   
   this._createElements();
 };
