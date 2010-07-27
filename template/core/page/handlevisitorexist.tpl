@@ -352,6 +352,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'center';
+    td.style.verticalAlign = 'middle';
     td.appendChild(document.createTextNode(operation.operateType));
     
     td = tr.insertCell(-1);
@@ -360,6 +361,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
+    td.style.verticalAlign = 'middle';
     td.style.padding = '0 0 0 20px';
     td.appendChild(document.createTextNode(operation.operator));
     
@@ -369,6 +371,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
+    td.style.verticalAlign = 'middle';
     td.style.padding = '0 0 0 20px';
     td.appendChild(document.createTextNode(SimpleDate.format(operation.operatedDate)));
     
@@ -378,6 +381,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
+    td.style.verticalAlign = 'middle';
     td.style.padding = '0 0 0 20px';
     td.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ')'));
     if (!operation.cancelled) {
@@ -403,6 +407,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.style.height = '24px';
     td.style.textAlign = 'center';
+    td.style.verticalAlign = 'middle';
     if (!operation.cancelled) {
       var img = document.createElement('img');
       img.src = 'image/delete.png';
