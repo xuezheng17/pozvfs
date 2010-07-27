@@ -360,7 +360,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
-    td.style.padding = '0 0 0 10px';
+    td.style.padding = '0 0 0 20px';
     td.appendChild(document.createTextNode(operation.operator));
     
     td = tr.insertCell(-1);
@@ -369,7 +369,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
-    td.style.padding = '0 0 0 10px';
+    td.style.padding = '0 0 0 20px';
     td.appendChild(document.createTextNode(SimpleDate.format(operation.operatedDate)));
     
     td = tr.insertCell(-1);
@@ -378,7 +378,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
-    td.style.padding = '0 0 0 10px';
+    td.style.padding = '0 0 0 20px';
     td.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ')'));
     if (!operation.cancelled) {
       var img = document.createElement('img');
