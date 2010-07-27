@@ -52,12 +52,13 @@ HandleFollowUp.prototype._updateElements = function() {
     td.appendChild(document.createTextNode('Empty'));
   }
   
+  
   if (this._cont == 1) {
-    MiscUtils.sort(this._visitors, ['weddingDay']);
+    this._visitors.sort( function(left, right){return left.weddingDay > right.weddingDay ? 1 : -1} );
   } else if (this._cont == 2) {
-    MiscUtils.sort(this._visitors, ['operation']);
+    this._visitors.sort( function(left, right){return left.operation > right.operation ? -1 : 1} );
   } else if (this._cont == 3){
-    MiscUtils.sort(this._visitors, ['cout']);
+    this._visitors.sort( function(left, right){return left.cout > right.cout ? 1 : -1} );
   }
   
   for (var i = 0, il = this._visitors.length; i < il; i++) {
