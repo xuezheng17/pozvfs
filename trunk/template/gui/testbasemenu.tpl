@@ -4,7 +4,7 @@
     <td class="basemenus_cellMiddle" align="right">
       <table class="basemenus_subTableWidth" cellPadding="0" cellSpacing="0">
         <tr>
-          <td {{if $menu->a == 1}}class="basemenus_tasksHilight"{{else}}class="basemenus_tasks"{{/if}} onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';">
+          <td {{if $menu->a == 1}}class="basemenus_tasksHilight"{{else}}class="basemenus_tasks"{{/if}} onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';" height="30px">
             |---Visitor---|
           </td>
           <td {{if $menu->a == 2}}class="basemenus_customersHilight"{{else}}class="basemenus_customers"{{/if}} onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
