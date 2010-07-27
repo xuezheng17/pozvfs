@@ -17,6 +17,16 @@
     width: 980px;
     height: 250px;
   }
+  .{{$template|escape:'html'}}_table5 {
+    width: 980px;
+    height: 24px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+  .{{$template|escape:'html'}}_table5 td{
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
     height: 36px;
@@ -135,7 +145,7 @@
   }
   .{{$template|escape:'html'}}_td18 {
     width: 980px;
-    height: 150px;
+    height: 24px;
     text-align: center;
     vertical-align: middle;
   }
@@ -158,6 +168,54 @@
     height: 50px;
     text-align: left;
     vertical-align: middle;
+  }
+  .{{$template|escape:'html'}}_td22 {
+    width: 82px;
+    height: 24px;
+    padding-left:20px;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .{{$template|escape:'html'}}_td23 {
+    width: 135px;
+    height: 24px;
+    padding-left:20px;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .{{$template|escape:'html'}}_td24 {
+    width: 100px;
+    height: 24px;
+    padding-left:20px;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .{{$template|escape:'html'}}_td25 {
+    width: 593px;
+    height: 24px;
+    padding-left:20px;
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .{{$template|escape:'html'}}_td26 {
+    width: 70px;
+    height: 24px;
   }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
@@ -222,6 +280,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractVisitorExist.gui('{{$template|escape:'javascript'}}');
+
       new HandleVisitorExist(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
@@ -419,34 +478,35 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td18"  colspan="6">
-      <table id="{{$template|escape:'html'}}_operations_table" border=1 cellPadding="0" cellSpacing="0" width="980px">
+      <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table5" id="{{$template|escape:'html'}}_operations_table" >
         <tr>
-          <td width = '50px' height="24px">Method</td>
-          <td width = '100px'>operator</td>
-          <td width = '150px'>date</td>
-          <td width = ''>note</td>
-          <td width = '80px'></td>
+          <td class="{{$template|escape:'html'}}_td22">Method</td>
+          <td class="{{$template|escape:'html'}}_td23">Operator</td>
+          <td class="{{$template|escape:'html'}}_td24">Date</td>
+          <td class="{{$template|escape:'html'}}_td25">Note</td>
+          <td class="{{$template|escape:'html'}}_td26"></td>
         </tr>
       </table>
     </td>
   </tr>
+  
   <tr>
     <td class="{{$template|escape:'html'}}_td19">
     </td>
     <td class="{{$template|escape:'html'}}_td20">
-      <input type="button" id="{{$template|escape:'html'}}_email_button" value = "Email"></input>
+      <input type="button" id="{{$template|escape:'html'}}_email_button" style ="width:68px" value = "Email"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td20">
-      <input type="button" id="{{$template|escape:'html'}}_call_button" value = "Call"></input>
+      <input type="button" id="{{$template|escape:'html'}}_call_button" style ="width:68px" value = "Call"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td20">
-      <input type="button" id="{{$template|escape:'html'}}_visit_button" value = "Visit"></input>
+      <input type="button" id="{{$template|escape:'html'}}_visit_button" style ="width:68px" value = "Visit"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td20">
-      <input type="button" id="{{$template|escape:'html'}}_succeed_button" value = "Succeed"></input>
+      <input type="button" id="{{$template|escape:'html'}}_succeed_button" style ="width:68px" value = "Succeed"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td21">
-      <input type="button" id="{{$template|escape:'html'}}_drop_button" value = "Drop"></input>
+      <input type="button" id="{{$template|escape:'html'}}_drop_button" style ="width:60px" value = "Drop"></input>
     </td>
   </tr>
 </table>
