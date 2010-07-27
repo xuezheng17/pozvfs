@@ -34,8 +34,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractFollowUp.gui('{{$template|escape:'javascript'}}');
-      console.log(gui);
-      //new HandleFollowUp(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      new HandleFollowUp(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
