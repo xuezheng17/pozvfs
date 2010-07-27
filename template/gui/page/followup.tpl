@@ -13,8 +13,6 @@
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
     height: 240px;
-    text-align: center;
-    vertical-align: top;
   }
   .{{$template|escape:'html'}}_td3 {
     width: 980px;
