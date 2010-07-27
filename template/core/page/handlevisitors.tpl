@@ -48,6 +48,8 @@ HandleVisitors.prototype._updateElements = function() {
   if (this._visitors.length == 0) {
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
+    td.style.width = '980px';
+    td.style.height = '122px';
     td.style.textAlign = 'center';
     td.appendChild(document.createTextNode('Empty'));
   }
