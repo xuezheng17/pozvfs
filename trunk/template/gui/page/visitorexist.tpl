@@ -20,6 +20,7 @@
   .{{$template|escape:'html'}}_table5 {
     width: 980px;
     height: 24px;
+    background-color:#e5ecf9;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
   }
