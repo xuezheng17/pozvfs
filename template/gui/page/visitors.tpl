@@ -8,8 +8,8 @@
   }
   .{{$template|escape:'html'}}_table2 {
     width: 980px;
-    height: 300px;
-    margin: 20px 0 0 0;
+    height: 45px;
+    margin: 15px 0 0 0;
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_td0 {
@@ -67,9 +67,9 @@
   }
   .{{$template|escape:'html'}}_td7 {
     width: 980px;
-    height: 210px;
-    text-align: center;
-    vertical-align: middle;
+    height: 45px;
+    text-align: right;
+    vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_inputText{
     width: 210px;
@@ -92,7 +92,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractVisitors.gui('{{$template|escape:'javascript'}}');
-      new HandleVisitors(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      //new HandleVisitors(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
@@ -151,13 +151,12 @@
     </td> 
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" >
+<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" border=1>
   <tr>
-    <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_page_div">
-    </td>
+    <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_page_div"></td>
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" >
+<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" border=1>
   <tr>
     <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_visitors_table">
     </td>
