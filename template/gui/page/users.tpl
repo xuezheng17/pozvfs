@@ -10,7 +10,6 @@
     font-size: 12px;
     font-family: Arial;
     text-align: center;
-    background-color:#e5ecf9;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
   }
@@ -38,6 +37,7 @@
     width: 140px;
     height: 25px;
     text-align: left;
+    background-color:#e5ecf9;
     vertical-align: middle;
     padding-left:20px;
     font-size: 11pt;
@@ -50,6 +50,7 @@
     height: 25px;
     text-align: left;
     vertical-align: middle;
+    background-color:#e5ecf9;
     padding-left:20px;
     font-size: 11pt;
     font-weight: bold;
@@ -59,6 +60,7 @@
   .{{$template|escape:'html'}}_td5 {
     width: 75px;
     height: 25px;
+    background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_td6 {
     width: 730px;
