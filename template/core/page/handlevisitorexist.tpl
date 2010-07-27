@@ -83,14 +83,14 @@ HandleVisitorExist.prototype._retrieveOperations = function() {
 HandleVisitorExist.prototype._retrieveVisitor = function() {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('visitor', null, 'd.oid=\'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                              if (!_self._visitor) {
-                                                                                                                                window.alert('NO VISITOR ' + _self._visitorId);
-                                                                                                                                history.back();
-                                                                                                                                return;
-                                                                                                                              }
-                                                                                                                              _self._verifyData.call(_self);
-                                                                                                                            }, null);
+    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                        if (!_self._visitor) {
+                                                                                                                                          window.alert('NO VISITOR ' + _self._visitorId);
+                                                                                                                                          history.back();
+                                                                                                                                          return;
+                                                                                                                                        }
+                                                                                                                                        _self._verifyData.call(_self);
+                                                                                                                                      }, null);
   } else {
     this._visitor = Visitor.instance();
     this._visitor.weddingDay = '';
@@ -255,11 +255,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                                     };
                                              var func2 = function() { tmp._close();
                                                                     };
-                                             pos = DOMUtils.findPos(this);
-                                             tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                             var dialog = new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'isource', title: 'Sources', item: object });
+                                             var pos = DOMUtils.findPos(this);
+                                             var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                             new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'isource', title: 'Sources', item: object });
                                              MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
-                                             
                                            };
   this._gui.receptionLocationAdd.onclick = function() { var object = IReception.instance();
                                                         var func1 = function() { tmp._close();
@@ -268,11 +267,11 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                                                };
                                                         var func2 = function() { tmp._close();
                                                                                };
-                                                        pos = DOMUtils.findPos(this);
-                                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                        var pos = DOMUtils.findPos(this);
+                                                        var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'ireception', title: 'Reception Location', item: object });
                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
-                                                        };
+                                                      };
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
                                                          var func1 = function() { tmp._close();
                                                                                   _self._visitor.culturalBackground = object.name;
@@ -280,8 +279,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                                                 };
                                                          var func2 = function() { tmp._close();
                                                                                 };
-                                                         pos = DOMUtils.findPos(this);
-                                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                         var pos = DOMUtils.findPos(this);
+                                                         var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
                                                          new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iculture', title: 'Cultural Background', item: object });
                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
@@ -292,14 +291,14 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                                               };
                                                        var func2 = function() { tmp._close();
                                                                               };
-                                                       pos = DOMUtils.findPos(this);
-                                                       tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                       var pos = DOMUtils.findPos(this);
+                                                       var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iceremony', title: 'Ceremony Location', item: object });
                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                      };
   /* Save */
   if (this._visitorId) {
-    this._gui.update.onclick = function() { if (_self._visitor.culturalBackground != '' && _self._visitor.source != '') {
+    this._gui.update.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
                                               if (!_self._visitor.weddingDay) {
                                                 var r = window.confirm('NO WEDDING DAY, CONTINUE?');
                                                 if (r) {
@@ -311,7 +310,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                 new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                               }
                                             } else {
-                                              window.alert('CAN NOT BE EMPTY (Cultural Background, Source)');
+                                              window.alert('CAN NOT BE EMPTY (First Visiting Method)');
                                             }
                                           };
   }
