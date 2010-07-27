@@ -92,7 +92,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractVisitors.gui('{{$template|escape:'javascript'}}');
-      //new HandleVisitors(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      new HandleVisitors(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
@@ -151,12 +151,12 @@
     </td> 
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" border=1>
+<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0">
   <tr>
     <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_page_div"></td>
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" border=1>
+<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0">
   <tr>
     <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_visitors_table">
     </td>
