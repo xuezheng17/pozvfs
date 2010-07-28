@@ -7,14 +7,14 @@
   }
   .{{$template|escape:'html'}}_table2 {
     width: 980px;
-    height: 30px;
+    height: 10px;
     margin: 10px 0 0 0;
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table3 {
     width: 980px;
     height: 30px;
-    margin: 8px 0 0 0;
+    margin: 0px 0 0 0;
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_td0 {
@@ -75,10 +75,13 @@
     padding:0 30px 20px 0;
   }
   .{{$template|escape:'html'}}_td7 {
-    width: 980px;
-    height: 30px;
-    text-align: right;
-    vertical-align: bottom;
+    width: 500px;
+    height: 10px;
+    padding-right:22px;
+  }
+  .{{$template|escape:'html'}}_td71 {
+    width: 480px;
+    height: 10px;
     padding-right:22px;
   }
   .{{$template|escape:'html'}}_td8 {
@@ -172,9 +175,10 @@
     <td class="{{$template|escape:'html'}}_td8" colSpan="6"></td>
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0">
+<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_page_div"></td>
+    <td class="{{$template|escape:'html'}}_td7"></td>
+    <td class="{{$template|escape:'html'}}_td71" id="{{$template|escape:'html'}}_page_div"></td>
   </tr>
 </table>
 <table class="{{$template|escape:'html'}}_table3"  cellPaddiing="0" cellSpacing="0">
