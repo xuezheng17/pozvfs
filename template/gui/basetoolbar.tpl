@@ -17,7 +17,7 @@
     width: 57px;
     font-size: 11pt;
     font-family: Arial;
-    color:blue;
+    color: blue;
     text-align: left;
     padding-top:24px;
     text-decoration: underline ;
@@ -30,7 +30,7 @@
     color: #000000;
   }
 </style>
-<table cellPadding="0" cellSpacing="0" border=0>
+<table cellPadding="0" cellSpacing="0">
   <tr>
     <td class="basetoolbar_cellTdLeft">
       <span class="basetoolbar_padding">{{$userInfo|escape:html}}</span>
@@ -38,9 +38,7 @@
     <td class="basetoolbar_cellTdCenter">
       <img src="image/line2.png"></img>
     </td>
-    <td>
-      <div class="basetoolbar_cellTdRight" onclick="location.href='?logout'">Sign out</div>
-    </td>
+    <td class="basetoolbar_cellTdRight" onclick="location.href='?logout'">Sign out</td>
   </tr>
 </table>
 <hr color=#c9d7f1 size=1 width=980px>
