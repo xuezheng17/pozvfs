@@ -1,7 +1,7 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 200px;
+    height: 100px;
     text-align: left
   }
   .{{$template|escape:'html'}}_table2 {
@@ -23,15 +23,15 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 20px;
+    height: 23px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 430px;
-    height: 180px;
+    height: 100px;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 550px;
-    height: 180px;
+    height: 25px;
   }
   .{{$template|escape:'html'}}_td3 {
     width: 140px;
@@ -64,7 +64,7 @@
   }
   .{{$template|escape:'html'}}_td6 {
     width: 730px;
-    height: 155px;
+    height: 25px;
   }
   
 </style>
@@ -88,7 +88,7 @@
   //-->
 </script>
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0">
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0"border=0>
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colspan="2"></td>
   </tr>
