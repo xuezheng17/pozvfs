@@ -2,13 +2,13 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 165px;
-    margin:20px 0 0 0;
+    margin:15px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
-    height: 35px;
+    height: 50px;
     text-align: left;
-    padding-left:12px;
+    padding-left:15px;
     vertical-align: center;
     font-size: 13pt;
     font-weight: bold;
@@ -19,7 +19,8 @@
     width: 83px;
     height: 30px;
     text-align: right;
-    vertical-align: bottom;
+    vertical-align: middle;
+    padding-top:2px;
     padding-right:3px;
     font-size: 11pt;
     font-weight: bold;
@@ -88,7 +89,7 @@
   <tr>
     <td class="{{$template|escape:'html'}}_td2"></td>
     <td class="{{$template|escape:'html'}}_td5">
-      <input type="button" style="width:65px" id="{{$template|escape:'html'}}_save_button" value = "Add"></input>
+      <input type="button" style="width:65px;font-family:Arial;" id="{{$template|escape:'html'}}_save_button" value = "Add"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
