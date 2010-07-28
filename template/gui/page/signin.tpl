@@ -1,13 +1,11 @@
  <style>
   .{{$template|escape:'html'}}_table1 {
-    width: 360px;
+    width: 348px;
     height: 147px;
-    border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 348px;
     height: 210px;
-    border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table3 {
     width: 348px;
@@ -21,7 +19,6 @@
     height: 202px;
     text-align: center; 
     background-color:#e8eefa;
-    border:solid 0px #ccc;
   }
   
   .{{$template|escape:'html'}}_td1 {
@@ -29,31 +26,31 @@
     height: 128px;
     text-align: center;
     vertical-align: middle;
-    font-size: 22pt;
+    font-size: 20pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 347px;
+    width: 348px;
     height: 210px;
     text-align: center;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td3 {
     width: 115px;
-    height: 56px;
+    height: 66px;
     text-align: right;
     padding-right:7px;
-    padding-bottom:4px;
+    padding-bottom:6px;
     vertical-align: bottom;
     font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td4 {
-    width: 224px;
-    height: 56px;
+    width: 225px;
+    height: 66px;
     text-align: left;
     vertical-align: bottom;
   }
@@ -63,24 +60,24 @@
     text-align: right;
     padding-right:7px;
     vertical-align: bottom;
-    padding-bottom:4px;
+    padding-bottom:6px;
     font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 224px;
+    width: 225px;
     height: 40px;
     text-align: left;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 115px;
-    height: 90px;
+    height: 94px;
   }
   .{{$template|escape:'html'}}_td8 {
-    width: 224px;
-    height: 90px;
+    width: 225px;
+    height: 94px;
     text-align: left;
     vertical-align: middle;
     padding-bottom:20px;
@@ -88,13 +85,13 @@
   .{{$template|escape:'html'}}_td9 {
     width: 339px;
     height: 202px;
-    padding:4px;
+    padding:3px;
     text-align: right;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_inputText{
-    width: 152px;
-    height: 20px;
+    width: 140px;
+    height: 17px;
   }
   .{{$template|escape:'html'}}_btn{
     //background-image: url('image/btnback.png');
