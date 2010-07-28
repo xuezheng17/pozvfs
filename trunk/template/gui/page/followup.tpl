@@ -2,13 +2,11 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 30px;
-    margin: 15px 0 0 0;
+    margin: 10px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 980px;
-    height: 26px;
-    text-align: right;
-    vertical-align: bottom;
+    width: 480px;
+    height: 10px;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
@@ -17,6 +15,11 @@
   .{{$template|escape:'html'}}_td3 {
     width: 980px;
     height: 5px;
+  }
+  .{{$template|escape:'html'}}_td4 {
+    width: 500px;
+    height: 10px;
+  }
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
@@ -41,12 +44,10 @@
 
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" id= "{{$template|escape:'html'}}_page_div" ></td>
+    <td class="{{$template|escape:'html'}}_td1"></td>
+    <td class="{{$template|escape:'html'}}_td4" id= "{{$template|escape:'html'}}_page_div" ></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3"></td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td2" id= "{{$template|escape:'html'}}_visitors_div" ></td>
+    <td class="{{$template|escape:'html'}}_td2" id= "{{$template|escape:'html'}}_visitors_div" colSpan="2" ></td>
   </tr>
 </table>
