@@ -35,6 +35,7 @@
   <body >
     <div align="center" class="base_td2">
       <div class="base_mainBg">
+        {{include file="gui/basetoolbar.tpl"}}
         {{if $template != 'signin'}}
           {{include file="gui/basemenus.tpl"}}
         {{/if}}
