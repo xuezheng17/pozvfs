@@ -5,27 +5,27 @@
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 378px;
-    height: 230px;
+    width: 348px;
+    height: 210px;
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table3 {
-    width: 378px;
-    height: 230px;
+    width: 348px;
+    height: 210px;
     text-align: center;
     vertical-align: middle;
     border:solid 1px #c7dbff;
   }
   .{{$template|escape:'html'}}_table4 {
-    width: 370px;
-    height: 222px;
+    width: 340px;
+    height: 202px;
     text-align: center; 
     background-color:#e8eefa;
     border:solid 0px #ccc;
   }
   
   .{{$template|escape:'html'}}_td1 {
-    width: 378px;
+    width: 348px;
     height: 128px;
     text-align: center;
     vertical-align: middle;
