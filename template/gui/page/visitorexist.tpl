@@ -269,6 +269,7 @@
     width: 71px;
     font-size: 10pt;
     font-family: Arial;
+    cursor: pointer;
   }
 </style>
 
@@ -513,7 +514,7 @@
       <input type="button" id="{{$template|escape:'html'}}_succeed_button" class="{{$template|escape:'html'}}_btn" value = "Succeed"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td21">
-      <input type="button" id="{{$template|escape:'html'}}_drop_button" style ="width:60px;font-size:10pt;font-family:Arial;" value = "Drop"></input>
+      <input type="button" id="{{$template|escape:'html'}}_drop_button" style ="width:60px;font-size:10pt;font-family:Arial;cursor: pointer;" value = "Drop"></input>
     </td>
   </tr>
 </table>
