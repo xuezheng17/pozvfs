@@ -2,13 +2,13 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 300px;
-    margin: 20px 0 0 0;
+    margin: 15px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
-    height: 50px;
+    height: 26px;
     text-align: right;
-    vertical-align: middle;
+    vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
@@ -16,7 +16,7 @@
   }
   .{{$template|escape:'html'}}_td3 {
     width: 980px;
-    height: 10px;
+    height: 5px;
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
