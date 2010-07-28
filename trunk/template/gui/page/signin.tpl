@@ -44,7 +44,7 @@
     padding-right:7px;
     padding-bottom:6px;
     vertical-align: bottom;
-    font-size: 11pt;
+    font-size: 10pt;
     color: #000000; 
     font-family: Arial;
   }
@@ -61,7 +61,7 @@
     padding-right:7px;
     vertical-align: bottom;
     padding-bottom:6px;
-    font-size: 11pt;
+    font-size: 10pt;
     color: #000000; 
     font-family: Arial;
   }
