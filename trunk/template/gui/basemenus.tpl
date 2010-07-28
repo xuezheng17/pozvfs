@@ -2,7 +2,7 @@
   .basemenus_table1 {
     width: 980px;
     height: 28px;
-    margin:110px 0 0 0;
+    margin:60px 0 0 0;
   }
   .basemenus_table2 {
     background-color:#c3d9ff;
