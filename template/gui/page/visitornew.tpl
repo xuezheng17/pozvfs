@@ -82,19 +82,15 @@
   }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
-    height: 18px;
+    height: 17px;
   }
   .{{$template|escape:'html'}}_inputText2{
     width: 155px;
-    height: 18px;
+    height: 17px;
   }
   .{{$template|escape:'html'}}_select{
     width: 291px;
-    height: 24px;
-  }
-  .{{$template|escape:'html'}}_item{
-    margin:0;
-    padding:0;
+    height: 22px;
   }
   .{{$template|escape:'html'}}_item p{
     border-left:1px solid #e5ecf9;
