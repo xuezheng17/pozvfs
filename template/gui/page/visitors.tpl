@@ -158,7 +158,7 @@
        <input type="text" id="{{$template|escape:'html'}}_weddingDayTo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td> 
     <td class="{{$template|escape:'html'}}_td6" colspan="2" rowSpan="2">
-    <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:65px;cursor: pointer;font-family:Arial;font-size:10pt;" value = "Search"></input>
+    <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:65px;font-family:Arial;font-size:10pt;" value = "Search"></input>
   </td>
   </tr>
   <tr>

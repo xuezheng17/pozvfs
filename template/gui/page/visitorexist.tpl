@@ -83,6 +83,7 @@
     height: 27px;
     text-align: left;
     vertical-align: bottom;
+    cursor:pointer;
   }
   .{{$template|escape:'html'}}_td10 {
     width: 975px;
@@ -269,7 +270,6 @@
     width: 71px;
     font-size: 10pt;
     font-family: Arial;
-    cursor: pointer;
   }
 </style>
 
@@ -404,7 +404,7 @@
             <select id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
-          <img src="image/add.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button" ></img>
+          <img src="image/add.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button"></img>
           </td>
         </tr>
       </table>
@@ -514,7 +514,7 @@
       <input type="button" id="{{$template|escape:'html'}}_succeed_button" class="{{$template|escape:'html'}}_btn" value = "Succeed"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td21">
-      <input type="button" id="{{$template|escape:'html'}}_drop_button" style ="width:60px;font-size:10pt;font-family:Arial;cursor: pointer;" value = "Drop"></input>
+      <input type="button" id="{{$template|escape:'html'}}_drop_button" style ="width:60px;font-size:10pt;font-family:Arial;" value = "Drop"></input>
     </td>
   </tr>
 </table>
