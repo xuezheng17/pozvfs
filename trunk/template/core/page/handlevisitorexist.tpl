@@ -455,9 +455,9 @@ HandleVisitorExist.prototype._updateElements = function() {
 //    this._gui.drop.value = 'Drop';
 //  }
   
-  this._gui.email.value = 'email(' + (eNumber+1) + ')';
-  this._gui.call.value = 'call(' + (pNumber+1) + ')';
-  this._gui.visit.value = 'visit(' + (vNumber+1) + ')';
+  this._gui.email.value = 'Email(' + (eNumber+1) + ')';
+  this._gui.call.value = 'Call(' + (pNumber+1) + ')';
+  this._gui.visit.value = 'Visit(' + (vNumber+1) + ')';
   
   if (this._visitor.status == 1) {
     this._gui.title.appendChild(document.createTextNode('(Succeed)'));
