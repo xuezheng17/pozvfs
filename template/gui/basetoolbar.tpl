@@ -43,4 +43,4 @@
     </td>
   </tr>
 </table>
-<hr color=#c9d7f1 size=1>
+<hr color=#c9d7f1 size=1 width=980px>
