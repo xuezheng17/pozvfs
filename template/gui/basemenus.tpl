@@ -522,7 +522,7 @@
       <td class="basemenus_td5">
         <img src="image/line.png" ></img>
       </td>
-      <td class="">
+      <td>
         <div {{if $menu->b == 2}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}} onclick="location.href='?t=visitornew&m={%22a%22:1,%22b%22:2}';">New Visitor</div>
       </td>
       <td class="basemenus_td41"></td>
@@ -535,19 +535,19 @@
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0">
       <tr>
-        <td class="">
+        <td>
           <div {{if $menu->b == 1}}class="basemenus_td6Hilight"{{else}}class="basemenus_td6"{{/if}} onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">Close to wedding day</div>
         </td>
         <td class="basemenus_td5">
           <img src="image/line.png" ></img>
         </td>
-        <td class="">
+        <td>
           <div {{if $menu->b == 2}}class="basemenus_td7Hilight"{{else}}class="basemenus_td7"{{/if}} onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:2}&opts={%22follow%22:2}';">Last updated</div>
         </td>
         <td class="basemenus_td5">
           <img src="image/line.png" ></img>
         </td>
-        <td class="">
+        <td>
           <div {{if $menu->b == 3}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}} onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:3}&opts={%22follow%22:3}';">Follow up times</div>
         </td>
         <td class="basemenus_td42"></td>
@@ -570,13 +570,13 @@
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0">
       <tr>
-        <td class="">
+        <td>
           <div {{if $menu->b == 1}}class="basemenus_td9Hilight"{{else}}class="basemenus_td9"{{/if}} onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">Users</div>
         </td>
         <td class="basemenus_td5">
           <img src="image/line.png" ></img>
         </td>
-        <td class="">
+        <td>
           <div {{if $menu->b == 2}}class="basemenus_td10Hilight"{{else}}class="basemenus_td10"{{/if}} onclick="location.href='?t=useredit&m={%22a%22:4,%22b%22:2}';">New User</div>
         </td>
         <td class="basemenus_td43"></td>
