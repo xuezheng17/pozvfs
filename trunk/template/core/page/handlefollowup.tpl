@@ -54,13 +54,12 @@ HandleFollowUp.prototype._updateElements = function() {
   
   
   if (this._cont == 1) {
-    this._visitors.sort( function(left, right){return left.weddingDay > right.weddingDay ? 1 : -1} );
+    this._visitors.sort( function(left, right){ return ((left.weddingDay > right.weddingDay) ? 1 : -1) } );
   } else if (this._cont == 2) {
-    this._visitors.sort( function(left, right){return left.operation > right.operation ? -1 : 1} );
+    this._visitors.sort( function(left, right){ return ((left.operation > right.operation) ? -1 : 1) } );
   } else if (this._cont == 3){
-    this._visitors.sort( function(left, right){return left.cout > right.cout ? 1 : -1} );
+    this._visitors.sort( function(left, right){ return ((left.cout > right.cout) ? 1 : -1) } );
   }
-  
   for (var i = 0, il = this._visitors.length; i < il; i++) {
     var tmp = this._visitors[i];
     tr = table.insertRow(-1);
