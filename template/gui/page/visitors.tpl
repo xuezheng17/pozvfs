@@ -19,7 +19,7 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 7px;
+    height: 9px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 122px;
@@ -86,7 +86,7 @@
   }
   .{{$template|escape:'html'}}_td8 {
     width: 980px;
-    height: 13px;
+    height: 11px;
   }
   .{{$template|escape:'html'}}_td9 {
     width: 980px;
