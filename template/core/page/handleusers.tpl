@@ -39,7 +39,7 @@ HandleUsers.prototype._updateElements = function() {
   DOMUtils.removeTableRows(this._gui.users, 1);
   
   if (this._users.length == 0) {
-    tr = this._gui.result.insertRow(-1);
+    tr = this._gui.users.insertRow(-1);
     td = tr.insertCell(-1);
     td.colSpan = 3;
     td.style.height = '24px';
