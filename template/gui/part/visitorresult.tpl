@@ -16,6 +16,7 @@ VisitorResult.prototype._createElements = function() {
   table.style.height = '122px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
+  //table.border=1
   table.style.textAlign = 'center';
   table.style.border='solid 1px #e5ecf9';
   this._container.appendChild(table);
@@ -27,6 +28,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.paddingLeft = '18px';
+  td.style.paddingBottom = '7px';
   td.style.backgroundColor = '#e5ecf9';
   td.colSpan = '5';
   var div1 = this._doc.createElement('div');
@@ -42,6 +44,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontWeight = 'bold';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Bride:'));
   
   td = tr.insertCell(-1);
@@ -63,6 +66,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontWeight = 'bold';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Groom:'));
   
   td = tr.insertCell(-1);
@@ -85,6 +89,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontWeight = 'bold';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Tel/Mob:'));
   
   td = tr.insertCell(-1);
@@ -106,6 +111,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontWeight = 'bold';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Tel/Mob:'));
   
   td = tr.insertCell(-1);
@@ -128,6 +134,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontWeight = 'bold';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Email:'));
   
   td = tr.insertCell(-1);
@@ -149,6 +156,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontWeight = 'bold';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Email:'));
   
   td = tr.insertCell(-1);
@@ -179,7 +187,7 @@ VisitorResult.prototype._createElements = function() {
   tr1=table1.insertRow(-1);
   td = tr1.insertCell(-1);
   td.style.height = '28px';
-  td.style.width = '800px';
+  td.style.width = '788px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'middle';
   td.style.fontWeight = 'bold';
@@ -189,7 +197,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr1.insertCell(-1);
   td.style.height = '28px';
-  td.style.width = '68px';
+  td.style.width = '80px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'middle';
   td.style.fontSize = '11pt';
