@@ -20,12 +20,12 @@
     width: 155px;
     height: 27px;
     text-align: right;
-    vertical-align: bottom;
+    vertical-align: middle;
     font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
-    padding: 0 0 3px 0;
+    padding: 1px 5px 0 0;
   }
   .{{$template|escape:'html'}}_td4 {
     width: 310px;
@@ -37,12 +37,12 @@
     width: 179px;
     height: 27px;
     text-align: right;
-    vertical-align: bottom;
+    vertical-align: middle;
     font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
-    padding: 0 2px 4px 0;
+    padding: 1px 5px 0px 0;
   }
   .{{$template|escape:'html'}}_td6 {
     width: 980px;
@@ -105,7 +105,7 @@
     text-align: left;
     padding-left:18px;
     padding-top:6px;
-    font-size: 13pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -119,7 +119,6 @@
   }
   .{{$template|escape:'html'}}_item .row1{
     margin:0 5px;
-    background:#e5ecf9;
    }
   .{{$template|escape:'html'}}_item .row2{
     margin:0 3px;
