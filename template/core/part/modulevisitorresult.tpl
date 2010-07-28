@@ -34,7 +34,7 @@ ModuleVisitorResult.prototype._createElements = function() {
         }
       }
     }
-    if (cnt) {
+    if (cnt || this._item.firstVisitMethod == 'Visitor') {
       a.appendChild(document.createTextNode('(Visited)'));
     }
   }
