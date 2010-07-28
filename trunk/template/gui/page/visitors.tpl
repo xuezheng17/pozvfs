@@ -4,12 +4,17 @@
     height: 143px;
     margin: 20px 0 0 0;
     background-color:#e5ecf9;
-    border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 980px;
-    height: 45px;
-    margin: 15px 0 0 0;
+    height: 30px;
+    margin: 10px 0 0 0;
+    border:solid 0px #ccc;
+  }
+  .{{$template|escape:'html'}}_table3 {
+    width: 980px;
+    height: 30px;
+    margin: 8px 0 0 0;
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_td0 {
@@ -20,8 +25,9 @@
     width: 122px;
     height: 30px;
     text-align: right;
-    vertical-align: middle;
-    font-size: 13pt;
+    vertical-align: bottom;
+    padding-bottom:7px;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -36,8 +42,9 @@
     width: 102px;
     height: 30px;
     text-align: right;
-    vertical-align: middle;
-    font-size: 13pt;
+    vertical-align: bottom;
+    padding-bottom:7px;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -47,13 +54,15 @@
     height: 28px;
     text-align: center;
     vertical-align: bottom;
+    padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td5 {
     width: 220px;
     height: 28px;
     text-align: left;
     vertical-align: bottom;
-    font-size: 13pt;
+    padding-bottom:9px;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -67,11 +76,20 @@
   }
   .{{$template|escape:'html'}}_td7 {
     width: 980px;
-    height: 45px;
+    height: 30px;
     text-align: right;
     vertical-align: bottom;
+    padding-right:22px;
   }
-  .{{$template|escape:'html'}}_inputText{
+  .{{$template|escape:'html'}}_td8 {
+    width: 980px;
+    height: 13px;
+  }
+  .{{$template|escape:'html'}}_td9 {
+    width: 980px;
+    height: 50px;
+  }
+  .{{$template|escape:'html'}}_inputText {
     width: 210px;
     height: 20px;
   }
@@ -137,7 +155,7 @@
        <input type="text" id="{{$template|escape:'html'}}_weddingDayTo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td> 
     <td class="{{$template|escape:'html'}}_td6" colspan="2" rowSpan="2">
-    <input type="button" id="{{$template|escape:'html'}}_search_button" value = "Search"></input>
+    <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:65px;" value = "Search"></input>
   </td>
   </tr>
   <tr>
@@ -150,15 +168,18 @@
        <input type="text" id="{{$template|escape:'html'}}_createdDateTo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td> 
   </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td8" colSpan="6"></td>
+  </tr>
 </table>
 <table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0">
   <tr>
     <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_page_div"></td>
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0">
+<table class="{{$template|escape:'html'}}_table3"  cellPaddiing="0" cellSpacing="0">
   <tr>
-    <td class="{{$template|escape:'html'}}_td7" id="{{$template|escape:'html'}}_visitors_table">
+    <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_visitors_table">
     </td>
   </tr>
 </table>
