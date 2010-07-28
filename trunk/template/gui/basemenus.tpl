@@ -214,55 +214,55 @@
     cursor: pointer;
   }
   
-  .{{$template|escape:'html'}}_item div{
+  .basemenus_item div{
     height:1px;
     overflow:hidden;
     border-left:1px solid #c3d9ff;
     border-right:1px solid #c3d9ff;
     background-color:#c3d9ff;
   }
-  .{{$template|escape:'html'}}_item .row1{
+  .basemenus_item .row1{
     margin:0 5px;
    }
-  .{{$template|escape:'html'}}_item .row2{
+  .basemenus_item .row2{
     margin:0 3px;
     border:0 2px;
   }
-  .{{$template|escape:'html'}}_item .row3{
+  .basemenus_item .row3{
     margin:0 2px;
   }
-  .{{$template|escape:'html'}}_item .row4{
+  .basemenus_item .row4{
     margin:0 1px;
     height:2px;
   }
-  .{{$template|escape:'html'}}_item1 div{
+  .basemenus_item1 div{
     height:1px;
     overflow:hidden;
     border-left:1px solid #e5ecf9;
     border-right:1px solid #e5ecf9;
     background-color:#e5ecf9;
   }
-  .{{$template|escape:'html'}}_item1 .row1{
+  .basemenus_item1 .row1{
     margin:0 5px;
    }
-  .{{$template|escape:'html'}}_item1 .row2{
+  .basemenus_item1 .row2{
     margin:0 3px;
     border:0 2px;
   }
-  .{{$template|escape:'html'}}_item1 .row3{
+  .basemenus_item1 .row3{
     margin:0 2px;
   }
-  .{{$template|escape:'html'}}_item1 .row4{
+  .basemenus_item1 .row4{
     margin:0 1px;
     height:2px;
   }
-  .{{$template|escape:'html'}}_p{
+  .basemenus_p{
     border:o;
     height:22px;
     background-color:#c3d9ff;
     margin:0;
   }
-  .{{$template|escape:'html'}}_p2{
+  .basemenus_p2{
     border:o;
     height:22px;
     background-color:#e5ecf9;
@@ -274,81 +274,81 @@
   <tr>
     {{if $menu->a == 1}} 
       <td class="basemenus_td1Hilight" onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';">
-        <div class="{{$template|escape:'html'}}_item">
+        <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p">Visitor</p>
+          <p class="basemenus_p">Visitor</p>
       </td>
     {{else}}
       <td class="basemenus_td1"  onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';">
-        <div class="{{$template|escape:'html'}}_item1">
+        <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p2">Visitor</p>
+          <p class="basemenus_p2">Visitor</p>
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 2}} 
       <td class="basemenus_td1Hilight" onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
-        <div class="{{$template|escape:'html'}}_item">
+        <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p">Follow up</p>
+          <p class="basemenus_p">Follow up</p>
       </td>
     {{else}}
       <td class="basemenus_td1"  onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
-        <div class="{{$template|escape:'html'}}_item1">
+        <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p2">Follow up</p>
+          <p class="basemenus_p2">Follow up</p>
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 3}} 
       <td class="basemenus_td1Hilight" onclick="location.href='?t=performance&m={%22a%22:3}';">
-        <div class="{{$template|escape:'html'}}_item">
+        <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p">Performance</p>
+          <p class="basemenus_p">Performance</p>
       </td>
     {{else}}
       <td class="basemenus_td1" onclick="location.href='?t=performance&m={%22a%22:3}';">
-        <div class="{{$template|escape:'html'}}_item1">
+        <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p2">Performance</p>
+          <p class="basemenus_p2">Performance</p>
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 4}}
       <td class="basemenus_td1Hilight" onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">
-        <div class="{{$template|escape:'html'}}_item">
+        <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p">User</p>
+          <p class="basemenus_p">User</p>
       </td>
     {{else}}
       <td class="basemenus_td1" onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">
-        <div class="{{$template|escape:'html'}}_item1">
+        <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="{{$template|escape:'html'}}_p2">User</p>
+          <p class="basemenus_p2">User</p>
       </td>
     {{/if}}
     <td class="basemenus_td4"></td>
