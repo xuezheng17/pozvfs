@@ -10,25 +10,90 @@
     height: 28px;
   }
   .basemenus_td1 {
-
-    width: 70px;
     height: 28px;
+    width:70px;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: bottom;
     cursor: pointer;
-    font-size: 11pt;
+    font-size: 12pt;
+    font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td1Hilight {
-    
-    width: 70px;
+    width:70px;
     height: 28px;
     text-align: center;
-    vertical-align: middle;
+    vertical-align: bottom;
     cursor: pointer;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 12pt;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .basemenus_td12 {
+    width:100px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .basemenus_td12Hilight {
+    width:100px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .basemenus_td13 {
+    width:115px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .basemenus_td13Hilight {
+    width:115px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .basemenus_td14 {
+    width:65px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+  }
+  .basemenus_td14Hilight {
+    width:65px;
+    height: 28px;
+    text-align: center;
+    vertical-align: bottom;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
     color: #000000; 
     font-family: Arial;
   }
@@ -257,15 +322,67 @@
     height:2px;
   }
   .basemenus_p{
-    border:o;
-    height:22px;
+    width:70px;
+    height:24px;
     background-color:#c3d9ff;
+    vertical-align:bottom;
+    padding-bottom:5px;
+    margin:0;
+  }
+  .basemenus_ph{
+    width:70px;
+    height:24px;
+    background-color:#e5ecf9;
+    vertical-align:bottom;
+    padding-bottom:5px;
     margin:0;
   }
   .basemenus_p2{
-    border:o;
-    height:22px;
+    width:100px;
+    height:24px;
+    background-color:#c3d9ff;
+    vertical-align:bottom;
+    padding-bottom:5px;
+    margin:0;
+  }
+  .basemenus_ph2{
+    width:100px;
+    height:24px;
     background-color:#e5ecf9;
+    vertical-align:bottom;
+    padding-bottom:5px;
+    margin:0;
+  }
+  .basemenus_p3{
+    width:115px;
+    height:24px;
+    background-color:#c3d9ff;
+    vertical-align:bottom;
+    padding-bottom:5px;
+    margin:0;
+  }
+  .basemenus_ph3{
+    width:115px;
+    height:24px;
+    background-color:#e5ecf9;
+    vertical-align:bottom;
+    padding-bottom:5px;
+    margin:0;
+  }
+  .basemenus_p4{
+    width:65px;
+    height:24px;
+    background-color:#c3d9ff;
+    vertical-align:bottom;
+    padding-bottom:5px;
+    margin:0;
+  }
+  .basemenus_ph4{
+    width:65px;
+    height:24px;
+    background-color:#e5ecf9;
+    vertical-align:bottom;
+    padding-bottom:5px;
     margin:0;
   }
 </style>
@@ -274,12 +391,17 @@
   <tr>
     {{if $menu->a == 1}} 
       <td class="basemenus_td1Hilight" onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';">
-        <div class="basemenus_item">
+        <div class="basemenus_item" >
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p">Visitor</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_p" >Visitor</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{else}}
       <td class="basemenus_td1"  onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';">
@@ -288,67 +410,102 @@
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p2">Visitor</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_ph" >Visitor</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 2}} 
-      <td class="basemenus_td1Hilight" onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
+      <td class="basemenus_td12Hilight" onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
         <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p">Follow up</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_p2" >Follow up</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{else}}
-      <td class="basemenus_td1"  onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
+      <td class="basemenus_td12"  onclick="location.href='?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}';">
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p2">Follow up</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_ph2" >Follow up</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 3}} 
-      <td class="basemenus_td1Hilight" onclick="location.href='?t=performance&m={%22a%22:3}';">
+      <td class="basemenus_td13Hilight" onclick="location.href='?t=performance&m={%22a%22:3}';">
         <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p">Performance</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_p3" >Performance</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{else}}
-      <td class="basemenus_td1" onclick="location.href='?t=performance&m={%22a%22:3}';">
+      <td class="basemenus_td13" onclick="location.href='?t=performance&m={%22a%22:3}';">
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p2">Performance</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_ph3" >Performance</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 4}}
-      <td class="basemenus_td1Hilight" onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">
+      <td class="basemenus_td14Hilight" onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">
         <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p">User</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_p4" >User</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{else}}
-      <td class="basemenus_td1" onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">
+      <td class="basemenus_td14" onclick="location.href='?t=users&m={%22a%22:4,%22b%22:1}';">
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
         <div class="row3"></div>
         <div class="row4"></div>
-          <p class="basemenus_p2">User</p>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_ph4" >User</td>
+            </tr>
+          </table>
+        </div>
       </td>
     {{/if}}
     <td class="basemenus_td4"></td>
@@ -399,6 +556,15 @@
   </div>
 {{/if}}
 
+{{if $menu->a == 3}}
+  <div align="center">
+    <table class="basemenus_table2" cellPadding="0" cellSpacing="0">
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+{{/if}}
 
 {{if $menu->a == 4}}
   <div align="center">
