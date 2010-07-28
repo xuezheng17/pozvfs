@@ -72,7 +72,7 @@
     height: 60px;
     text-align: right;
     vertical-align: bottom;
-    padding:0 30px 20px 0;
+    padding:0 30px 15px 0;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 500px;
