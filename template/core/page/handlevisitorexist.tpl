@@ -464,7 +464,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   } else if (this._visitor.status == -1) {
     this._gui.title.appendChild(document.createTextNode('(Dropped)'));
   } else {
-    if (vNumber) {
+    if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
       this._gui.title.appendChild(document.createTextNode('(Visited)'));
     }
   }
