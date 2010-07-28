@@ -23,7 +23,7 @@ VisitorResult.prototype._createElements = function() {
   
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
-  td.style.height = '30px';
+  td.style.height = '25px';
   td.style.width = '980px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
