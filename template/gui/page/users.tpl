@@ -23,7 +23,7 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 23px;
+    height: 25px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 430px;
@@ -40,7 +40,7 @@
     background-color:#e5ecf9;
     vertical-align: middle;
     padding-left:20px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -52,7 +52,7 @@
     vertical-align: middle;
     background-color:#e5ecf9;
     padding-left:20px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
