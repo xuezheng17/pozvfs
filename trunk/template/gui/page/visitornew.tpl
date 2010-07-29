@@ -1,8 +1,8 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 420px;
-    margin: 20px 0 0 0;
+    height: 350px;
+    margin: 18px 0 0 0;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 310px;
@@ -10,18 +10,18 @@
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
-    height: 36px;
+    height: 32px;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
-    height: 8px;
+    height: 6px;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 155px;
+    width: 157px;
     height: 27px;
     text-align: right;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -38,7 +38,7 @@
     height: 27px;
     text-align: right;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -46,7 +46,7 @@
   }
   .{{$template|escape:'html'}}_td6 {
     width: 980px;
-    height: 10px;
+    height: 12px;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 980px;
@@ -56,9 +56,8 @@
   .{{$template|escape:'html'}}_td8 {
     width: 291px;
     height: 27px;
-    text-align: right;
+    text-align: left;
     vertical-align: bottom;
-    margin-right:15px;
   }
   .{{$template|escape:'html'}}_td9 {
     width: 19px;
@@ -75,35 +74,45 @@
   }
   .{{$template|escape:'html'}}_td11 {
     width: 291px;
-    height: 50px;
+    height: 55px;
     text-align: right;
     vertical-align: bottom;
-    padding-right:15px;
+  }
+  .{{$template|escape:'html'}}_td12 {
+    width: 24px;
+    height: 1px;
   }
   .{{$template|escape:'html'}}_inputText1{
-    width: 310px;
-    height: 17px;
+    width: 309px;
+    height: 16px;
   }
   .{{$template|escape:'html'}}_inputText2{
     width: 155px;
-    height: 17px;
+    height: 16px;
   }
+  .{{$template|escape:'html'}}_inputText3{
+	    width: 172px;
+	    height: 16px;
+	  }
   .{{$template|escape:'html'}}_select{
     width: 291px;
     height: 22px;
   }
+  .{{$template|escape:'html'}}_select2{
+	    width: 310px;
+	    height: 22px;
+	  }
   .{{$template|escape:'html'}}_item p{
     border-left:1px solid #e5ecf9;
     border-right:1px solid #e5ecf9;
-    height:22px;
+    height:18px;
     margin:0;
     background-color:#e5ecf9;
     text-align: left;
-    padding-left:18px;
-    padding-top:6px;
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000; 
+    padding-left:15px;
+    padding-top:2px;
+    font-size: 10pt;
+    font-weight: 700;
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_item div{
@@ -157,7 +166,7 @@
       <div class="row2"></div>
       <div class="row3"></div>
       <div class="row4"></div>
-         <p>CUSTOMER INFORMATION</p>
+         <p>CUSTOMER &nbsp INFORMATION</p>
     </td>
   </tr>
   <tr>
@@ -179,6 +188,7 @@
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_groomName_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
+    <td class="{{$template|escape:'html'}}_td12"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td3">Address:</td>
@@ -303,16 +313,16 @@
    <tr>
     <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
     <td class="{{$template|escape:'html'}}_td8">
-       <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select"></select>
+       <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select2"></select>
     </td>
     <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
-       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText2"></input>
+       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText3"></input>
     </td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td11" colspan="4">
-      <input type="button" id="{{$template|escape:'html'}}_save_button" style = "width:66px;font-family:Arial;font-size:11pt;" value = "Save"></input>
+      <input type="button" id="{{$template|escape:'html'}}_save_button" style = "width:66px;font-family:Arial;font-size:9pt;" value = "Save"></input>
     </td>
   </tr>
 </table>
