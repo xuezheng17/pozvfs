@@ -1,7 +1,7 @@
  <style>
   .{{$template|escape:'html'}}_table1 {
     width: 348px;
-    height: 147px;
+    height: 150px;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 348px;
@@ -26,8 +26,8 @@
     height: 128px;
     text-align: center;
     vertical-align: middle;
-    font-size: 20pt;
-    font-weight: bold;
+    font-size: 18pt;
+    font-weight: 700;
     color: #000000; 
     font-family: Arial;
   }
@@ -91,14 +91,13 @@
   }
   .{{$template|escape:'html'}}_inputText{
     width: 140px;
-    height: 17px;
+    height: 16px;
   }
   .{{$template|escape:'html'}}_btn{
-    //background-image: url('image/btnback.png');
-    //background-repeat: no-repeat;
     font-family:Arial;
     width:60px;
     height:24px;
+    padding-bottom:15px;
     
   }
 </style>
