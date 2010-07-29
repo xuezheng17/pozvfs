@@ -19,15 +19,15 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 9px;
+    height: 8px;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 122px;
+    width: 121px;
     height: 30px;
     text-align: right;
     vertical-align: bottom;
-    padding-bottom:7px;
-    font-size: 11pt;
+    padding-bottom:6px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -39,12 +39,12 @@
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 102px;
+    width: 103px;
     height: 30px;
     text-align: right;
     vertical-align: bottom;
-    padding-bottom:7px;
-    font-size: 11pt;
+    padding-bottom:6px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -57,12 +57,12 @@
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td5 {
-    width: 220px;
+    width: 285px;
     height: 28px;
     text-align: left;
     vertical-align: bottom;
-    padding-bottom:9px;
-    font-size: 11pt;
+    padding-bottom:7px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -72,11 +72,11 @@
     height: 60px;
     text-align: right;
     vertical-align: bottom;
-    padding:0 30px 15px 0;
+    padding:0 42px 0px 0;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 500px;
-    height: 10px;
+    height: 8px;
     padding-right:22px;
   }
   .{{$template|escape:'html'}}_td71 {
@@ -86,7 +86,7 @@
   }
   .{{$template|escape:'html'}}_td8 {
     width: 980px;
-    height: 11px;
+    height: 14px;
   }
   .{{$template|escape:'html'}}_td9 {
     width: 980px;
@@ -94,7 +94,7 @@
   }
   .{{$template|escape:'html'}}_inputText {
     width: 210px;
-    height: 17px;
+    height: 16px;
   }
 </style>
 
@@ -158,7 +158,7 @@
        <input type="text" id="{{$template|escape:'html'}}_weddingDayTo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td> 
     <td class="{{$template|escape:'html'}}_td6" colspan="2" rowSpan="2">
-    <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:65px;font-family:Arial;font-size:10pt;" value = "Search"></input>
+    <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:67px;font-family:Arial;font-size:10pt;" value = "Search"></input>
   </td>
   </tr>
   <tr>
