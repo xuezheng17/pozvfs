@@ -2,7 +2,7 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 143px;
-    margin: 20px 0 0 0;
+    margin: 23px 0 0 0;
     background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_table2 {
@@ -93,7 +93,7 @@
     height: 50px;
   }
   .{{$template|escape:'html'}}_inputText {
-    width: 210px;
+    width: 206px;
     height: 16px;
   }
 </style>
