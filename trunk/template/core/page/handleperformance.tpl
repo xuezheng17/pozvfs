@@ -33,7 +33,7 @@ HandlePerformance.prototype._updateElements = function() {
   var unique, _self = this;
   POZVFSUtils.clear(this._gui);
   
-  this._gui.visitors.appendChild(document.createTextNode('0%'));
+  this._gui.visitors.appendChild(document.createTextNode('0'));
   this._gui.eVisitor.appendChild(document.createTextNode('0%'));
   this._gui.eSucVisitor.appendChild(document.createTextNode('0%'));
   this._gui.pVisitor.appendChild(document.createTextNode('0%'));
