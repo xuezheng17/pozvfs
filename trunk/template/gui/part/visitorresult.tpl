@@ -13,22 +13,22 @@ VisitorResult.prototype._createElements = function() {
   var table, tr, td, input;
   table= this._doc.createElement('table');
   table.style.width = '980px';
-  table.style.height = '122px';
+  table.style.height = '123px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
-  //table.border=1
+//  table.border=1
   table.style.textAlign = 'center';
   table.style.border='solid 1px #e5ecf9';
   this._container.appendChild(table);
   
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
-  td.style.height = '25px';
+  td.style.height = '24px';
   td.style.width = '980px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.paddingLeft = '18px';
-  td.style.paddingBottom = '7px';
+  td.style.paddingBottom = '5px';
   td.style.backgroundColor = '#e5ecf9';
   td.colSpan = '5';
   var div1 = this._doc.createElement('div');
@@ -38,21 +38,21 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '124px';
+  td.style.width = '120px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Bride:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '164px';
+  td.style.width = '165px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div2 = this._doc.createElement('div');
   div2.id = this._unique + '_brideName_div';
@@ -60,21 +60,21 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '164px';
+  td.style.width = '163px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Groom:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '528px';
+  td.style.width = '527px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div3 = this._doc.createElement('div');
   div3.id = this._unique + '_groomName_div';
@@ -83,21 +83,21 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '124px';
+  td.style.width = '120px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Tel/Mob:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '164px';
+  td.style.width = '163px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div4 = this._doc.createElement('div');
   div4.id = this._unique + '_bridePhone_div';
@@ -105,21 +105,21 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '164px';
+  td.style.width = '163px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Tel/Mob:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '528px';
+  td.style.width = '527px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div5 = this._doc.createElement('div');
   div5.id = this._unique + '_groomPhone_div';
@@ -128,21 +128,21 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '124px';
+  td.style.width = '120px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Email:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '164px';
+  td.style.width = '163px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div6 = this._doc.createElement('div');
   div6.id = this._unique + '_brideEmail_div';
@@ -150,21 +150,21 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '164px';
+  td.style.width = '163px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Email:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '528px';
+  td.style.width = '537px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div7 = this._doc.createElement('div');
   div7.id = this._unique + '_groomEmail_div';
@@ -180,48 +180,49 @@ VisitorResult.prototype._createElements = function() {
   var table1= this._doc.createElement('table');
   table1.style.width = '980px';
   table1.style.height = '28px';
+//  table1.border=1;
   table1.cellPadding = 0;
   table1.cellSpacing = 0;
   td.appendChild(table1);
   
   tr1=table1.insertRow(-1);
   td = tr1.insertCell(-1);
-  td.style.height = '28px';
-  td.style.width = '788px';
+  td.style.height = '26px';
+  td.style.width = '803px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'middle';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial'
   td.appendChild(this._doc.createTextNode('Created on'));
   
   td = tr1.insertCell(-1);
-  td.style.height = '28px';
-  td.style.width = '80px';
+  td.style.height = '26px';
+  td.style.width = '68px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'middle';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div8 = this._doc.createElement('div');
   div8.id = this._unique + '_createdDate_div';
   td.appendChild(div8);
   
   td = tr1.insertCell(-1);
-  td.style.height = '28px';
-  td.style.width = '32px';
+  td.style.height = '26px';
+  td.style.width = '28px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'middle';
   td.style.fontWeight = 'bold';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial'
   td.appendChild(this._doc.createTextNode('By'));
   
   td = tr1.insertCell(-1);
-  td.style.height = '28px';
-  td.style.width = '80px';
+  td.style.height = '26px';
+  td.style.width = '81px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'middle';
-  td.style.fontSize = '11pt';
+  td.style.fontSize = '9pt';
   td.style.paddingLeft = '10px';
   td.style.fontFamily= 'Arial';
   var div9 = this._doc.createElement('div');
