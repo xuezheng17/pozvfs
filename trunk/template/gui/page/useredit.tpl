@@ -6,7 +6,7 @@
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
-    height: 50px;
+    height: 40px;
     text-align: left;
     padding-left:15px;
     vertical-align: center;
@@ -22,7 +22,7 @@
     vertical-align: middle;
     padding-top:2px;
     padding-right:3px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;

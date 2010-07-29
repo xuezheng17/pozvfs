@@ -2,24 +2,24 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 122px;
-    margin:20px 0 0 0;
+    margin:16px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 380px;
+    width: 330px;
     height: 30px;
     text-align: right;
     vertical-align: bottom;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 600px;
+    width: 650px;
     height: 30px;
     text-align: left;
     vertical-align: bottom;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
