@@ -91,9 +91,9 @@
     height: 16px;
   }
   .{{$template|escape:'html'}}_inputText3{
-	    width: 172px;
-	    height: 16px;
-	  }
+    width: 172px;
+    height: 16px;
+  }
   .{{$template|escape:'html'}}_select{
     width: 291px;
     height: 22px;
