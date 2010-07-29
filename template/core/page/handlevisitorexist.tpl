@@ -322,23 +322,23 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.colSpan = 5;
     td.style.height = '24px';
     td.style.textAlign = 'center';
-    td.appendChild(document.createTextNode('NONE'));
+    td.appendChild(document.createTextNode('None'));
   }
   
   var pNumber = 0, eNumber = 0, vNumber = 0;
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
-    
     var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
-    if (type == 'call') {
+
+    if (type == 'Call') {
       if (!operation.cancelled) {
         pNumber++;
       }
-    } else if (type == 'email') {
+    } else if (type == 'Email') {
       if (!operation.cancelled) {
         eNumber++;
       }
-    } else if (type == 'visit'){
+    } else if (type == 'Visit') {
       if (!operation.cancelled) {
         vNumber++;
       }
@@ -454,7 +454,6 @@ HandleVisitorExist.prototype._updateElements = function() {
 //    this._gui.succeed.value = 'Succeed';
 //    this._gui.drop.value = 'Drop';
 //  }
-  
   this._gui.email.value = 'Email(' + (eNumber+1) + ')';
   this._gui.call.value = 'Call(' + (pNumber+1) + ')';
   this._gui.visit.value = 'Visit(' + (vNumber+1) + ')';
