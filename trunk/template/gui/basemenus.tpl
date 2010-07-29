@@ -1,99 +1,100 @@
 <style>
   .basemenus_table1 {
     width: 980px;
-    height: 30px;
-    margin:60px 0 0 0;
+    height: 28px;
+    margin:50px 0 0 0;
   }
   .basemenus_table2 {
     background-color:#c3d9ff;
     width: 980px;
-    height: 26px;
+  	height:30px;
+  	
   }
   .basemenus_td1 {
-    height: 30px;
+    height: 28px;
     width:70px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td1Hilight {
     width:70px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td12 {
     width:100px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td12Hilight {
     width:100px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td13 {
     width:115px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td13Hilight {
     width:115px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td14 {
     width:65px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 11pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
   .basemenus_td14Hilight {
     width:65px;
-    height: 30px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 11pt;
     color: #000000; 
     font-family: Arial;
   }
@@ -102,11 +103,11 @@
     height: 28px;
   }
   .basemenus_td3 {
-    width: 76px;
-    height: 26px;
+    width: 72px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
@@ -114,21 +115,21 @@
     cursor: pointer;
   }
   .basemenus_td3Hilight {
-    width: 76px;
-    height: 26px;
+    width: 72px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td31 {
     width: 100px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
@@ -137,42 +138,42 @@
   }
   .basemenus_td31Hilight {
     width: 100px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td4 {
-    width: 595px;
-    height: 26px;
+    width: 597px;
+    height: 21px;
   }
   .basemenus_td41 {
     width: 810px;
-    height: 26px;
+    height: 21px;
   }
   .basemenus_td42 {
     width: 590px;
-    height: 26px;
+    height: 21px;
   }
   .basemenus_td43 {
     width: 830px;
-    height: 26px;
+    height: 21px;
   }
   .basemenus_td5 {
     width: 1px;
-    height: 28px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
   }
   .basemenus_td6 {
     width: 153px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
@@ -181,20 +182,20 @@
   }
   .basemenus_td6Hilight {
     width: 153px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td7 {
     width: 105px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
@@ -203,21 +204,21 @@
   }
   .basemenus_td7Hilight {
     width: 105px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   
   .basemenus_td8 {
     width: 122px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
@@ -226,20 +227,20 @@
   }
   .basemenus_td8Hilight {
     width: 122px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td9 {
     width: 66px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
@@ -248,20 +249,20 @@
   }
   .basemenus_td9Hilight {
     width: 66px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td10 {
     width: 82px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
@@ -270,11 +271,11 @@
   }
   .basemenus_td10Hilight {
     width: 82px;
-    height: 26px;
+    height: 21px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
-    font-size: 11pt;
+    font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
@@ -323,7 +324,7 @@
   }
   .basemenus_p{
     width:70px;
-    height:26px;
+    height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -331,7 +332,7 @@
   }
   .basemenus_ph{
     width:70px;
-    height:26px;
+    height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -339,7 +340,7 @@
   }
   .basemenus_p2{
     width:100px;
-    height:26px;
+    height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -347,7 +348,7 @@
   }
   .basemenus_ph2{
     width:100px;
-    height:26px;
+    height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -355,7 +356,7 @@
   }
   .basemenus_p3{
     width:115px;
-    height:26px;
+    height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -363,7 +364,7 @@
   }
   .basemenus_ph3{
     width:115px;
-    height:26px;
+    height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -371,7 +372,7 @@
   }
   .basemenus_p4{
     width:65px;
-    height:26px;
+    height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -379,7 +380,7 @@
   }
   .basemenus_ph4{
     width:65px;
-    height:26px;
+    height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
     padding-bottom:5px;
@@ -514,7 +515,7 @@
 
 {{if $menu->a == 1}}
 <div align="center">
-  <table class="basemenus_table2" cellPadding="0" cellSpacing="0">
+  <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
     <tr>
       <td>
         <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}} onclick="location.href='?t=visitors&m={%22a%22:1,%22b%22:1}';">Search</div>
@@ -560,7 +561,7 @@
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0">
       <tr>
-        <td></td>
+        <td>&nbsp</td>
       </tr>
     </table>
   </div>
