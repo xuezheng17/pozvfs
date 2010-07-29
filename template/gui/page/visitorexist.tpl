@@ -1,8 +1,8 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 420px;
-    margin: 20px 0 0 0;
+    height: 220px;
+    margin: 22px 0 0 0;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 310px;
@@ -15,7 +15,7 @@
   }
   .{{$template|escape:'html'}}_table4 {
     width: 980px;
-    height: 200px;
+    height: 100px;
   }
   .{{$template|escape:'html'}}_table5 {
     width: 980px;
@@ -34,20 +34,21 @@
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
-    height: 8px;
+    height: 4px;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 155px;
+    width: 157px;
     height: 27px;
     text-align: right;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
+    padding: 1px 5px 0 0;
   }
   .{{$template|escape:'html'}}_td4 {
-    width: 310px;
+     width: 310px;
     height: 27px;
     text-align: left;
     vertical-align: bottom;
@@ -57,14 +58,15 @@
     height: 27px;
     text-align: right;
     vertical-align: middle;
-    font-size: 11pt;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
+    padding: 1px 5px 0px 0;
   }
   .{{$template|escape:'html'}}_td6 {
     width: 980px;
-    height: 10px;
+    height: 12px;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 980px;
@@ -93,13 +95,12 @@
   }
   .{{$template|escape:'html'}}_td11 {
     width: 291px;
-    height: 50px;
+    height: 30px;
     text-align: right;
     vertical-align: bottom;
-    padding-right:15px;
   }
   .{{$template|escape:'html'}}_td12 {
-    width: 650px;
+    width: 653px;
     height: 30px;
     padding-left:18px;
     padding-top:0px;
@@ -110,28 +111,28 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td13 {
-    width: 85px;
+    width: 82px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td14 {
-    width: 75px;
+    width: 72px;
     height: 30px;
     text-align: right;
     vertical-align: middle;
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td15 {
-    width: 85px;
+    width: 81px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td16 {
-    width: 85px;
+    width: 92px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
@@ -139,7 +140,7 @@
   }
   .{{$template|escape:'html'}}_td17 {
     width: 980px;
-    height: 50px;
+    height: 45px;
     padding-bottom:9px;
     font-size: 13pt;
     font-weight: bold;
@@ -155,30 +156,27 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td19 {
-    width: 618px;
+    width: 620px;
     height: 51px;
     text-align: left;
     vertical-align: middle;
     padding-right:1px;
   }
   .{{$template|escape:'html'}}_td20 {
-    width: 70px;
-    height: 51px;
-    text-align: right;
-    vertical-align: middle;
-    padding-right:1px;
-  }
-  .{{$template|escape:'html'}}_td21 {
-    width: 82px;
+    width: 68px;
     height: 51px;
     text-align: left;
     vertical-align: middle;
   }
+  .{{$template|escape:'html'}}_td21 {
+    width: 20px;
+    height: 51px;
+  }
   .{{$template|escape:'html'}}_td22 {
-    width: 82px;
+    width: 72px;
     height: 25px;
-    padding-left:20px;
-    font-size: 11pt;
+    padding-left:17px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -189,8 +187,8 @@
   .{{$template|escape:'html'}}_td23 {
     width: 135px;
     height: 25px;
-    padding-left:20px;
-    font-size: 11pt;
+    padding-left:17px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     background-color:#e5ecf9;
@@ -199,10 +197,10 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td24 {
-    width: 100px;
+    width: 101px;
     height: 25px;
-    padding-left:20px;
-    font-size: 11pt;
+    padding-left:17px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     background-color:#e5ecf9;
@@ -211,10 +209,10 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td25 {
-    width: 593px;
+    width: 592px;
     height: 25px;
-    padding-left:20px;
-    font-size: 11pt;
+    padding-left:17px;
+    font-size: 10pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -227,6 +225,10 @@
     height: 25px;
     background-color:#e5ecf9;
   }
+  .{{$template|escape:'html'}}_td27 {
+	    width: 24px;
+	    height: 1px;
+	  }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
     height: 17px;
@@ -237,9 +239,12 @@
   }
   .{{$template|escape:'html'}}_inputText3 {
     width: 72px;
-    height: 17px;
+    height: 16px;
   }
-  
+  .{{$template|escape:'html'}}_inputText4{
+    width: 172px;
+    height: 16px;
+  }
   .{{$template|escape:'html'}}_select{
     width: 291px;
     height:22px;
@@ -267,7 +272,7 @@
     height:2px;
   }
   .{{$template|escape:'html'}}_btn {
-    width: 71px;
+    width: 67px;
     font-size: 10pt;
     font-family: Arial;
   }
@@ -341,6 +346,7 @@
     <td class="{{$template|escape:'html'}}_td4">
       <input type="text" id="{{$template|escape:'html'}}_groomName_input" class="{{$template|escape:'html'}}_inputText1"></input>
     </td>
+    <td class="{{$template|escape:'html'}}_td27"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td3">Address:</td>
@@ -470,7 +476,7 @@
     </td>
     <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
-      <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText2"></input>
+      <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText4"></input>
     </td>
   </tr>
   <tr>
@@ -482,10 +488,10 @@
 
 <table  class="{{$template|escape:'html'}}_table4" cellPaddiing="0" cellSpacing="0"border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td17" colspan="6"> Operation </td>
+    <td class="{{$template|escape:'html'}}_td17" colspan="7"> Operation </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td18"  colspan="6">
+    <td class="{{$template|escape:'html'}}_td18"  colspan="7">
       <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table5" id="{{$template|escape:'html'}}_operations_table" >
         <tr>
           <td class="{{$template|escape:'html'}}_td22">Method</td>
@@ -513,8 +519,9 @@
     <td class="{{$template|escape:'html'}}_td20">
       <input type="button" id="{{$template|escape:'html'}}_succeed_button" class="{{$template|escape:'html'}}_btn" value = "Succeed"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td21">
-      <input type="button" id="{{$template|escape:'html'}}_drop_button" style ="width:60px;font-size:10pt;font-family:Arial;" value = "Drop"></input>
+    <td class="{{$template|escape:'html'}}_td20">
+      <input type="button" id="{{$template|escape:'html'}}_drop_button" class="{{$template|escape:'html'}}_btn" value = "Drop"></input>
     </td>
+    <td class="{{$template|escape:'html'}}_td21"></td>
   </tr>
 </table>
