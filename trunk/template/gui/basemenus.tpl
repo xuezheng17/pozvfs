@@ -41,7 +41,7 @@
     font-family: Arial;
   }
   .basemenus_td12 {
-    width:75px;
+    width:85px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -52,7 +52,7 @@
     font-family: Arial;
   }
   .basemenus_td12Hilight {
-    width:75px;
+    width:85px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -369,7 +369,7 @@
     margin:0;
   }
   .basemenus_p2{
-    width:75px;
+    width:80px;
     height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
@@ -377,7 +377,7 @@
     margin:0;
   }
   .basemenus_ph2{
-    width:75px;
+    width:80px;
     height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
