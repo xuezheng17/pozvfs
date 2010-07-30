@@ -2,6 +2,8 @@ function AbstractUsers() {
 };
 
 AbstractUsers.gui = function(unique) {
-  return { users: document.getElementById(unique + '_users_table') };
+  return { addUser: document.getElementById(unique + '_addUser_button'),
+           users: document.getElementById(unique + '_users_table') 
+         };
 };
 
