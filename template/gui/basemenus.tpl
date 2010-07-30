@@ -17,7 +17,6 @@
   .basemenus_td0 {
     height: 28px;
     width:100%;
-//    text-align:center;
   }
   .basemenus_td1 {
     height: 28px;
@@ -42,7 +41,7 @@
     font-family: Arial;
   }
   .basemenus_td12 {
-    width:100px;
+    width:75px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -53,7 +52,7 @@
     font-family: Arial;
   }
   .basemenus_td12Hilight {
-    width:100px;
+    width:75px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -370,7 +369,7 @@
     margin:0;
   }
   .basemenus_p2{
-    width:100px;
+    width:75px;
     height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
@@ -378,7 +377,7 @@
     margin:0;
   }
   .basemenus_ph2{
-    width:100px;
+    width:75px;
     height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
@@ -418,7 +417,7 @@
     margin:0;
   }
   .basemenus_td14Hilight a,.basemenus_td1Hilight a,.basemenus_td13Hilight a,
-  .basemenus_td14 a,.basemenus_td1 a,.basemenus_td13 a{
+  .basemenus_td14 a,.basemenus_td1 a,.basemenus_td13 a,.basemenus_td12Hilight a,.basemenus_td12 a{
     text-decoration:none;
     font-size:11pt; 
     color:black;
@@ -508,7 +507,7 @@
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 3}} 
-      <td class="basemenus_td14Hilight">
+      <td class="basemenus_td12Hilight">
         <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -516,15 +515,15 @@
         <div class="row4"></div>
           <table cellPadding="0" cellSpacing="0">
             <tr>
-              <td class="basemenus_p4">
-                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Task</a>
+              <td class="basemenus_p2">
+                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Featured</a>
               </td>
             </tr>
           </table>
         </div>
       </td>
     {{else}}
-      <td class="basemenus_td14">
+      <td class="basemenus_td12">
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -532,8 +531,8 @@
         <div class="row4"></div>
           <table cellPadding="0" cellSpacing="0">
             <tr>
-              <td class="basemenus_ph4" >
-                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Task</a>
+              <td class="basemenus_ph2" >
+                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Featured</a>
               </td>
             </tr>
           </table>
