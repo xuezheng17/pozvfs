@@ -7,41 +7,31 @@
       html,body {
       }
       .base_mainBg {
-
-        background-image: url(image/common/background.jpg); 
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 900px;
+        width: 100%;
+        height: 800px;
       }
-    .base_td1 {
-      background-image: url(image/common/background.png); 
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 900px;
-    }
-    .base_td2 {
-      background-image: url(image/common/left-line.png); 
-      background-repeat: repeat-x;
-      height: 900px;
-    }
-    .base_td3 {
-      background-image: url(image/common/right-line.png); 
-      background-repeat: repeat-x;
-      height: 900px;
-    }
+      .base_td1 {
+        vertical-align: top;
+      }
     </style>
   </head>
   
   <body >
-    <div align="center" class="base_td2">
-      <div class="base_mainBg">
-        {{if $template != 'signin'}}
-          {{include file="gui/basetoolbar.tpl"}}
-          {{include file="gui/basemenus.tpl"}}
-        {{/if}}
-        {{include file="gui/page/$template.tpl"}}
-        {{include file="gui/basesubscript.tpl"}}
-      </div>
+    <div align="center">
+      <table class="base_mainBg" cellPadding="0" cellSpacing="0">
+        <tr>
+          <td class="base_td1" align="center">
+            {{if $template != 'signin'}}
+              {{include file="gui/basetoolbar.tpl"}}
+              {{include file="gui/basemenus.tpl"}}
+            {{/if}}
+              {{include file="gui/page/$template.tpl"}}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div align="center">
+      {{include file="gui/basesubscript.tpl"}}
     </div>
   </body>
 </html>
