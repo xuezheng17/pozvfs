@@ -7,29 +7,31 @@
     height: 20px;
     text-align: right;
     vertical-align: bottom;
-  	padding-bottom: 2px;
+    padding-bottom: 2px;
   }
   .basetoolbar_cellTdCenter {
     width: 20px;
     height: 20px;
     text-align: center;
     vertical-align: bottom;
-
   }
   .basetoolbar_cellTdRight {
     width: 60px;
     font-size: 13px;
     font-family: Arial;
-    color: blue;
     text-align: left;
-    text-decoration: underline ;
-    cursor: pointer;
   }
   .basetoolbar_padding {
     font-size: 11pt;
     font-family: Arial;
     font-weight: bold;
     color: #000000;
+  }
+  .basetoolbar_cellTdRight a {
+    color: #0000ff;
+    font-size: 13px;
+    text-decoration: underline ;
+    cursor: pointer;
   }
 </style>
 <div align="right">
