@@ -9,7 +9,7 @@ function HandleEmailTemplates(gui, operator, now, options) {
 
 HandleEmailTemplates.prototype._createElements = function() {
   var tr, td;
-  this._gui.addUser.onclick = function() { location.href = '?t=emailtemplateedit&m=' + JSON.stringify({ a: 4, b: 2 }); };
+  this._gui.addTemplate.onclick = function() { location.href = '?t=emailtemplateedit&m=' + JSON.stringify({ a: 4, b: 2 }); };
   tr = this._gui.templates.insertRow(-1);
   td = tr.insertCell(-1);
   td.appendChild(DOMUtils.getLoadingImage());
