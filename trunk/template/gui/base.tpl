@@ -10,13 +10,13 @@
 
         background-image: url(image/common/background.jpg); 
       background-repeat: no-repeat;
-      width: 1024px;
+      width: 100%;
       height: 900px;
       }
     .base_td1 {
       background-image: url(image/common/background.png); 
       background-repeat: no-repeat;
-      width: 1024px;
+      width: 100%;
       height: 900px;
     }
     .base_td2 {
