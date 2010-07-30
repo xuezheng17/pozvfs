@@ -3,6 +3,9 @@ require_once dirname(__FILE__) . '/ORMBase.class.php';
 function classToOrm($class = NULL) {
   $class = strtolower($class);
   switch ($class) {
+    case 'emailtemplate':
+      require_once dirname(__FILE__) . '/ORMEmailTemplate.class.php';
+      return new ORMEmailTemplate();
     case 'iceremony':
       require_once dirname(__FILE__) . '/ORMICeremony.class.php';
       return new ORMICeremony();
