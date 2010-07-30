@@ -41,4 +41,4 @@
     <td class="basetoolbar_cellTdRight" onclick="location.href='?logout'">Sign out</td>
   </tr>
 </table>
-<hr color=#c9d7f1 size=1 width=980px>
+<hr color=#c9d7f1 size=1 width=100%>
