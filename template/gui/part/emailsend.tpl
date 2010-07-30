@@ -34,7 +34,14 @@ EmailSend.prototype._createElements = function() {
     tr=table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '30px';
-    td.style.width = '980px';
+    td.style.width = '75px';
+    td.style.textAlign = 'right';
+    td.style.verticalAlign = 'middle';
+    td.style.paddingRight = '3px';
+    td.appendChild(this._doc.createTextNode('Template:'));
+    td = tr.insertCell(-1);
+    td.style.height = '30px';
+    td.style.width = '905px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'middle';
     var select = this._doc.createElement('select');
@@ -44,20 +51,38 @@ EmailSend.prototype._createElements = function() {
     tr=table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '30px';
-    td.style.width = '980px';
+    td.style.width = '75px';
+    td.style.textAlign = 'right';
+    td.style.paddingRight = '3px';
+    td.style.verticalAlign = 'middle';
+    td.appendChild(this._doc.createTextNode('Subject:'));
+    td = tr.insertCell(-1);
+    td.style.height = '30px';
+    td.style.width = '905px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'middle';
-    var input = this.DOMUtils.createInput('', '', 'text', '', null)
+    var input = DOMUtils.createInput('', '', 'text', '', null)
     input.id = this._unique + '_subject_input';
+    input.style.width = '905px';
+    input.style.height = '30px';
     td.appendChild(input);
     
     tr=table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '100px';
-    td.style.width = '980px';
+    td.style.width = '75px';
+    td.style.textAlign = 'right';
+    td.style.verticalAlign = 'middle';
+    td.style.paddingRight = '3px';
+    td.appendChild(this._doc.createTextNode('Content:'));
+    td = tr.insertCell(-1);
+    td.style.height = '100px';
+    td.style.width = '905px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'middle';
     var text = this._doc.createElement('textarea');
     text.id = this._unique + '_content_input';
+    text.style.width = '905px';
+    text.style.height = '100px';
     td.appendChild(text);
 };
