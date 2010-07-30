@@ -47,7 +47,7 @@ HandleEmailTemplateEdit.prototype._updateElements = function() {
   this._gui.save.value = (this._options.id) ? 'Update' : 'Add';
   this._gui.save.onclick = function() { var str = '';
                                         if (_self._template.name == '') {
-                                          str += 'subject, ';
+                                          str += 'name, ';
                                         }
                                         if (_self._template.content == '') {
                                           str += 'content, ';
