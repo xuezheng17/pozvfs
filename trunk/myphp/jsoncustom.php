@@ -60,8 +60,10 @@ function addVisitor($myManager) {
     $mailer->IsSMTP();
     $mailer->Host = 'ssl://smtp.gmail.com:465';
     $mailer->SMTPAuth = true;
-    $mailer->Username = 'dreamlife.noreply@gmail.com';
-    $mailer->Password = 'luckybox4mail';
+    $mailer->Username = 'ns.gresource@gmail.com';
+    $mailer->Password = 'weida911';
+    $mailer->From = 'ns.gresource@gmail.com';
+    $mailer->FromName = 'Dreamlife';
     $mailer->Body = 'Welcome to Dreamlife';
     $mailer->Subject = 'This is the subject of the email';
     if ($args->visitor->brideEmail != '') {
