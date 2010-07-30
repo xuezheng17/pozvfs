@@ -119,10 +119,10 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   
   this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id)));
-  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1});
+  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1});
                                       };
   this._gui.back.onclick = function() { if (_self._visitor.id - 1 != 0) {
-                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1});
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1});
                                         } else {
                                           window.alert('NO VISITOR 0');
                                         }
@@ -130,14 +130,14 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.number.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                               if (code == 13) {
                                                 if(POZVFSUtils.isNum(this.value)) {
-                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: this.value});
+                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: this.value});
                                                 } else {
                                                   window.alert('Input A Number Greater Than 0');
                                                 }
                                               }
                                             };
   this._gui.jump.onclick = function() { if(POZVFSUtils.isNum(_self._gui.number.value)) {
-                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value});
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value});
                                         } else {
                                           window.alert('Input A Number Greater Than 0');
                                         }

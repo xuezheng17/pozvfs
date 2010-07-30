@@ -17,7 +17,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui = new VisitorResult(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
 
   var a = this._doc.createElement('a');
-  a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 1, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
+  a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
   a.appendChild(this._doc.createTextNode(this._item.firstVisitMethod + POZVFSUtils.visitorId(this._item.id)));
   if (this._item.status == 1) {
     a.appendChild(document.createTextNode('(Succeed)'));
