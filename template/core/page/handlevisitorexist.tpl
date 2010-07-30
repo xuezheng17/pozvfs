@@ -18,7 +18,7 @@ HandleVisitorExist.prototype._createElements = function() {
   
   var pos = [window.screen.width / 2, window.screen.height / 5];
   this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
-  MiscUtils.load(this._popupBox, 'It may take several seconds. Please wait...');
+  MiscUtils.load(this._popupBox, 'Loading data...');
   
   this._loadData();
 };
