@@ -133,8 +133,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractBasic.gui('{{$template|escape:'javascript'}}');
-      console.log(gui);
-      //new HandleBasic(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      new HandleBasic(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
