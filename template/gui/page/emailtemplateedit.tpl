@@ -22,7 +22,7 @@
     width: 83px;
     height: 30px;
     text-align: right;
-    vertical-align: middle;
+    vertical-align: top;
     padding-top:7px;
     padding-right:3px;
     font-size: 10pt;
@@ -47,7 +47,7 @@
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_inputText{
-    width: 210px;
+    width: 669px;
     height: 17px;
   }
 </style>
@@ -85,7 +85,7 @@
   </tr>
     <td class="{{$template|escape:'html'}}_td2">Content:</td>
     <td class="{{$template|escape:'html'}}_td3">
-      <input type="text" id="{{$template|escape:'html'}}_content_input" class="{{$template|escape:'html'}}_inputText"></input>
+      <textarea id="{{$template|escape:'html'}}_content_input" rows="8"cols="80"></textarea>
     </td>
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
