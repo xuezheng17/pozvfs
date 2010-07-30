@@ -54,6 +54,27 @@ function addVisitor($myManager) {
   $myManager->start_t();
   $visitor = $orm->__toObject($myManager, $epVisitor, new stdClass());
   
+  if ($args->visitor->brideEmail != '' || $args->visitor->groomEmail != '') {
+    require_once dirname(__FILE__) . '/../library/phpMailer/class.phpmailer.php';
+    $mailer = new PHPMailer();
+    $mailer->IsSMTP();
+    $mailer->Host = 'ssl://smtp.gmail.com:465';
+    $mailer->SMTPAuth = true;
+    $mailer->Username = 'dreamlife.noreply@gmail.com';
+    $mailer->Password = 'luckybox4mail';
+    $mailer->Body = 'Welcome to Dreamlife';
+    $mailer->Subject = 'This is the subject of the email';
+    if ($args->visitor->brideEmail != '') {
+      $mailer->AddAddress($args->visitor->brideEmail);
+    }
+    if ($args->visitor->groomEmail != '') {
+      $mailer->AddAddress($args->visitor->groomEmail);
+    }
+    if (!$mailer->Send()) {
+      echo $mailer->ErrorInfo; 
+      return;
+    }
+  }
   echo json_encode($visitor);
 }
 
