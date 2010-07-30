@@ -20,6 +20,9 @@ try {
     case 'visitors':
       visitors($myManager);
       break;
+    case 'sendEmail':
+      sendEmail($myManager);
+      break;
     default:
       break;
   }
@@ -109,5 +112,40 @@ function visitors($myManager) {
       echo $e->getMessage();
     }
   }
+}
+
+function sendEmail($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
+  if ($args->visitor->brideEmail != '' || $args->visitor->groomEmail != '') {
+    require_once dirname(__FILE__) . '/../library/phpMailer/class.phpmailer.php';
+    $mailer = new PHPMailer();
+    $mailer->IsSMTP();
+    $mailer->Host = 'ssl://smtp.gmail.com:465';
+    $mailer->SMTPAuth = true;
+    $mailer->Username = 'ns.gresource@gmail.com';
+    $mailer->Password = 'weida911';
+    $mailer->From = 'ns.gresource@gmail.com';
+    $mailer->FromName = 'Dreamlife';
+    $mailer->Body = $args->email->content;
+    $mailer->Subject = $args->email->subject;
+    if ($args->visitor->brideEmail != '') {
+      $mailer->AddAddress($args->visitor->brideEmail);
+    }
+    if ($args->visitor->groomEmail != '') {
+      $mailer->AddAddress($args->visitor->groomEmail);
+    }
+    if (!$mailer->Send()) {
+      echo $mailer->ErrorInfo; 
+      return;
+    }
+  }
+  
+  $orm = classToOrm('opertion');
+  $epOperation = $orm->add($myManager, $args->operation);
+  $myManager->commit_t();
+  $myManager->start_t();
+  $operation = $orm->__toObject($myManager, $epOperation, new stdClass());
+  echo json_encode($operation);
 }
 ?>
