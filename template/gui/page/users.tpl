@@ -1,7 +1,7 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 100px;
+    height: 40px;
     text-align: left
   }
   .{{$template|escape:'html'}}_table2 {
@@ -23,7 +23,7 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 25px;
+    height: 24px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 430px;
