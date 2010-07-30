@@ -7,15 +7,17 @@
   .basemenus_table2 {
     background-color:#c3d9ff;
     width: 100%;
-  	height:30px;
+    height:30px;
+    text-align:center;
   }
   .basemenus_table3 {
     width: 980px;
-  	height:30px;
+    height:30px;
   }
   .basemenus_td0 {
     height: 30px;
-    width:15.5%;
+    width:100%;
+//    text-align:center;
   }
   .basemenus_td1 {
     height: 28px;
@@ -110,7 +112,7 @@
     height: 28px;
   }
   .basemenus_td3 {
-    width: 72px;
+    width: 62px;
     height: 21px;
     text-align: center;
     vertical-align: middle;
@@ -122,7 +124,29 @@
     cursor: pointer;
   }
   .basemenus_td3Hilight {
-    width: 72px;
+    width: 62px;
+    height: 21px;
+    text-align: center;
+    vertical-align: middle;
+    padding-top:9px;
+    font-size: 10pt;
+    font-family: Arial;
+    cursor: pointer;
+  }
+  .basemenus_td33 {
+    width: 53px;
+    height: 21px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 10pt;
+    color: blue; 
+    text-decoration: underline ;
+    font-family: Arial;
+    padding-top:9px;
+    cursor: pointer;
+  }
+  .basemenus_td33Hilight {
+    width: 53px;
     height: 21px;
     text-align: center;
     vertical-align: middle;
@@ -166,7 +190,7 @@
     height: 21px;
   }
   .basemenus_td43 {
-    width: 785px;
+    width: 985px;
     height: 21px;
   }
   .basemenus_td5 {
@@ -243,7 +267,7 @@
     cursor: pointer;
   }
   .basemenus_td9 {
-    width: 66px;
+    width: 50px;
     height: 21px;
     text-align: center;
     vertical-align: middle;
@@ -255,7 +279,7 @@
     cursor: pointer;
   }
   .basemenus_td9Hilight {
-    width: 66px;
+    width: 50px;
     height: 21px;
     text-align: center;
     vertical-align: middle;
@@ -580,27 +604,59 @@
 </table>
 
 
+{{if $menu->a == 1}}
+<div align="center">
+    <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
+      <tr>
+        <td class="basemenus_td0" align="center">
+          <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
+            <tr>
+              <td>
+                <div {{if $menu->b == 1}}class="basemenus_td33Hilight"{{else}}class="basemenus_td33"{{/if}}>
+                  <a class="2" href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
+              <td>
+                <div {{if $menu->b == 1}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                  <a class="2" href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
+                </div>
+              </td>
+              <td class="basemenus_td43">&nbsp</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+{{/if}}
+
 
 {{if $menu->a == 2}}
 <div align="center">
   <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
     <tr>
-      <td class="basemenus_td0"><td>
+      <td class="basemenus_td0" align="center">
+        <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
+          <tr>
+            <td>
+              <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                <a class="2" href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Search</a>
+              </div>
+            </td>
+            <td class="basemenus_td5">
+              <img src="image/line.png" ></img>
+            </td>
+            <td>
+              <div {{if $menu->b == 2}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
+                <a class="2" href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
+              </div>
+            <td class="basemenus_td41"></td>
+          </tr>
+        </table>
       <td>
-        <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-          <a class="2" href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Search</a>
-        </div>
-      </td>
-      <td class="basemenus_td5">
-        <img src="image/line.png" ></img>
-      </td>
-      <td>
-        <div {{if $menu->b == 2}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
-          <a class="2" href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
-        </div>
-      </td>
-      <td class="basemenus_td41"></td>
-      <td class="basemenus_td0"><td>
     </tr>
   </table>
 </div>
@@ -610,78 +666,62 @@
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0">
       <tr>
-        <td class="basemenus_td0"><td>
-        <td>
-          <div {{if $menu->b == 1}}class="basemenus_td6Hilight"{{else}}class="basemenus_td6"{{/if}}>
-            <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
-          </div>
-         </td>
-        <td class="basemenus_td5">
-          <img src="image/line.png" ></img>
+        <td class="basemenus_td0" align="center">
+          <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
+            <tr>
+              <td>
+                <div {{if $menu->b == 1}}class="basemenus_td6Hilight"{{else}}class="basemenus_td6"{{/if}}>
+                  <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
+              <td>
+                <div {{if $menu->b == 2}}class="basemenus_td7Hilight"{{else}}class="basemenus_td7"{{/if}}>
+                  <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
+              </td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
+              <td>
+                <div {{if $menu->b == 3}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                  <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
+              </td>
+              <td class="basemenus_td42"></td>
+            </tr>
+          </table>
         </td>
-        <td>
-          <div {{if $menu->b == 2}}class="basemenus_td7Hilight"{{else}}class="basemenus_td7"{{/if}}>
-            <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
-        </td>
-        <td class="basemenus_td5">
-          <img src="image/line.png" ></img>
-        </td>
-        <td>
-          <div {{if $menu->b == 3}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-            <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
-        </td>
-        <td class="basemenus_td42"></td>
-        <td class="basemenus_td0"><td>
       </tr>
     </table>
   </div>
 {{/if}}
 
-{{if $menu->a == 1}}
-  <div align="center">
-    <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
-      <tr>
-        <td class="basemenus_td0"><td>
-        <td>
-          <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-            <a class="2" href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
-          </div>
-        </td>
-        <td class="basemenus_td5">
-          <img src="image/line.png" ></img>
-        </td>
-        <td>
-          <div {{if $menu->b == 1}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-            <a class="2" href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
-          </div>
-        </td>
-        <td class="basemenus_td43">&nbsp</td>
-        <td class="basemenus_td0"><td>
-      </tr>
-    </table>
-  </div>
-{{/if}}
 
 {{if $menu->a == 4}}
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
       <tr>
-        <td class="basemenus_td0"><td>
-        <td>
-          <div {{if $menu->b == 1}}class="basemenus_td9Hilight"{{else}}class="basemenus_td9"{{/if}}>
-            <a class="2" href="?t=users&m={%22a%22:4,%22b%22:1}">Users</a>
-          </div>
+        <td class="basemenus_td0" align="center">
+          <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
+            <tr>
+              <td>
+                <div {{if $menu->b == 1}}class="basemenus_td9Hilight"{{else}}class="basemenus_td9"{{/if}}>
+                  <a class="2" href="?t=users&m={%22a%22:4,%22b%22:1}">User</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
+              <td>
+                <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                  <a class="2" href="?t=email&m={%22a%22:4,%22b%22:2}">Email Template</a>
+                </div>
+              </td>
+              <td class="basemenus_td43"></td>
+            </tr>
+          </table>
         </td>
-        <td class="basemenus_td5">
-          <img src="image/line.png" ></img>
-        </td>
-        <td>
-          <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-            <a class="2" href="?t=email&m={%22a%22:4,%22b%22:2}">Email Template</a>
-          </div>
-        </td>
-        <td class="basemenus_td43"></td>
-        <td class="basemenus_td0"><td>
       </tr>
     </table>
   </div>
