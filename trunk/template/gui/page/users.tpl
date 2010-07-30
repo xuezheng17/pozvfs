@@ -66,7 +66,17 @@
     width: 730px;
     height: 25px;
   }
-  
+  .{{$template|escape:'html'}}_td7 {
+    width: 430px;
+    height: 30px;
+    vertical-align: top;
+  }
+  .{{$template|escape:'html'}}_td7 a {
+    color: #0000ff;
+    font-size: 13px;
+    text-decoration: underline ;
+    cursor: pointer;
+  }
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
@@ -88,12 +98,19 @@
   //-->
 </script>
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0"border=0>
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0">
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colspan="2"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >
+    <td class="{{$template|escape:'html'}}_td1" valign="top">
+      <table class="{{$template|escape:'html'}}_table4" cellPaddiing="0" cellSpacing="0">
+        <tr>
+          <td class="{{$template|escape:'html'}}_td7">
+            <a id="{{$template|escape:'html'}}_addUser_link">New User</a>
+          </td>
+        </tr>
+      </table>
       <table class="{{$template|escape:'html'}}_table2" id="{{$template|escape:'html'}}_users_table" cellPaddiing="0" cellSpacing="0">
         <tr>
           <td class="{{$template|escape:'html'}}_td3">Account</td>
