@@ -5,21 +5,21 @@
     margin:16px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 330px;
+    width: 290px;
     height: 30px;
     text-align: right;
     vertical-align: bottom;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 10pt;
     color: #000000; 
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 650px;
+    width: 690px;
     height: 30px;
     text-align: left;
     vertical-align: bottom;
-    font-size: 11pt;
+    font-size: 10pt;
     color: #000000; 
     font-family: Arial;
   }
