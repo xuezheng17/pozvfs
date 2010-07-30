@@ -111,28 +111,24 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td13 {
-    width: 82px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td14 {
-    width: 72px;
     height: 30px;
     text-align: right;
     vertical-align: middle;
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td15 {
-    width: 81px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td16 {
-    width: 92px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
@@ -238,7 +234,7 @@
     height: 17px;
   }
   .{{$template|escape:'html'}}_inputText3 {
-    width: 72px;
+    width: 90%;
     height: 16px;
   }
   .{{$template|escape:'html'}}_inputText4{
@@ -272,7 +268,6 @@
     height:2px;
   }
   .{{$template|escape:'html'}}_btn {
-    width: 67px;
     font-size: 10pt;
     font-family: Arial;
   }
@@ -312,16 +307,16 @@
             <td class="{{$template|escape:'html'}}_td12" id="{{$template|escape:'html'}}_title_label">
             </td>
             <td class="{{$template|escape:'html'}}_td13">
-              <input type="button" id="{{$template|escape:'html'}}_back_button" class="{{$template|escape:'html'}}_btn" value ="Back"></input>
+              <input type="button" id="{{$template|escape:'html'}}_back_button" class="{{$template|escape:'html'}}_btn" value ="<"></input>
             </td>
             <td class="{{$template|escape:'html'}}_td14">
               <input type="text" id="{{$template|escape:'html'}}_number_input" class="{{$template|escape:'html'}}_inputText3"></input>
             </td>
             <td class="{{$template|escape:'html'}}_td15">
-              <input type="button" id="{{$template|escape:'html'}}_jump_button" class="{{$template|escape:'html'}}_btn" value = "Jump"></input>
+              <input type="button" id="{{$template|escape:'html'}}_jump_button" class="{{$template|escape:'html'}}_btn" value = "Go"></input>
             </td>
             <td class="{{$template|escape:'html'}}_td16">
-              <input type="button" id="{{$template|escape:'html'}}_next_button" class="{{$template|escape:'html'}}_btn" value = "Next"></input>
+              <input type="button" id="{{$template|escape:'html'}}_next_button" class="{{$template|escape:'html'}}_btn" value = ">"></input>
             </td>
           </tr>
         </table>
