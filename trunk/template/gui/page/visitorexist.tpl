@@ -234,7 +234,7 @@
     height: 17px;
   }
   .{{$template|escape:'html'}}_inputText3 {
-    width: 90%;
+    width: 120px;
     height: 16px;
   }
   .{{$template|escape:'html'}}_inputText4{
@@ -308,14 +308,8 @@
             </td>
             <td class="{{$template|escape:'html'}}_td13">
               <input type="button" id="{{$template|escape:'html'}}_back_button" class="{{$template|escape:'html'}}_btn" value ="<"></input>
-            </td>
-            <td class="{{$template|escape:'html'}}_td14">
               <input type="text" id="{{$template|escape:'html'}}_number_input" class="{{$template|escape:'html'}}_inputText3"></input>
-            </td>
-            <td class="{{$template|escape:'html'}}_td15">
               <input type="button" id="{{$template|escape:'html'}}_jump_button" class="{{$template|escape:'html'}}_btn" value = "Go"></input>
-            </td>
-            <td class="{{$template|escape:'html'}}_td16">
               <input type="button" id="{{$template|escape:'html'}}_next_button" class="{{$template|escape:'html'}}_btn" value = ">"></input>
             </td>
           </tr>
