@@ -19,15 +19,15 @@
     }
   .{{$template|escape:'html'}}_table3 {
     width: 730px;
-    height: 155px;
+    height: 30px;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 24px;
+    height: 20px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 430px;
-    height: 100px;
+    height: 50px;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 550px;
@@ -98,13 +98,13 @@
   //-->
 </script>
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0">
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colspan="2"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" valign="top">
-      <table class="{{$template|escape:'html'}}_table4" cellPaddiing="0" cellSpacing="0">
+    <td class="{{$template|escape:'html'}}_td1" >
+      <table class="{{$template|escape:'html'}}_table3" cellPaddiing="0" cellSpacing="0">
         <tr>
           <td class="{{$template|escape:'html'}}_td7">
             <a id="{{$template|escape:'html'}}_addUser_link">New User</a>
