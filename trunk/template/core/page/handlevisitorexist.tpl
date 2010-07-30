@@ -328,17 +328,17 @@ HandleVisitorExist.prototype._updateElements = function() {
   var pNumber = 0, eNumber = 0, vNumber = 0;
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
-    var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
+    var type = (operation.operateType.substring(0, operation.operateType.indexOf('('))).toLowerCase();
 
-    if (type == 'Call') {
+    if (type == 'call') {
       if (!operation.cancelled) {
         pNumber++;
       }
-    } else if (type == 'Email') {
+    } else if (type == 'email') {
       if (!operation.cancelled) {
         eNumber++;
       }
-    } else if (type == 'Visit') {
+    } else if (type == 'visit') {
       if (!operation.cancelled) {
         vNumber++;
       }
@@ -467,21 +467,43 @@ HandleVisitorExist.prototype._updateElements = function() {
       this._gui.title.appendChild(document.createTextNode('(Visited)'));
     }
   }
-  this._gui.email.onclick = function() { var pos, func1, func2;
-                                         var operation = Operation.instance();
-                                         operation.visitId = _self._visitorId;
-                                         operation.cancelled = 0;
-                                         operation.operateType = this.value;
-                                         operation.operator = _self._operator.account;
-                                         func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                              tmp._close();
-                                                            }
-                                         func2 = function() { tmp._close(); };
-                                         pos = DOMUtils.findPos(this);
-                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
-                                         MiscUtils.dialog(tmp, null, func1, func2, null);
-                                         return false;
+  this._gui.email.onclick = function() { var r = window.confirm('Do You Want To Email Via Our System?');
+                                         if (r) {
+                                           var pos, func1, func2;
+                                           var operation = Operation.instance();
+                                           operation.visitId = _self._visitorId;
+                                           operation.cancelled = 0;
+                                           operation.operateType = this.value;
+                                           operation.operator = _self._operator.account;
+                                           var email = { subject: '',
+                                                         content: ''
+                                                       };
+                                           func1 = function() { new RequestUtils()._custom('sendEmail', {operation: operation, visitor: _self._visitor, email: email}, [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                                tmp._close();
+                                                              }
+                                           func2 = function() { tmp._close(); };
+                                           pos = DOMUtils.findPos(this);
+                                           tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                           new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, email: email });
+                                           MiscUtils.dialog(tmp, null, func1, func2, {ok : 'Send'});
+                                           return false;
+                                         } else {
+                                           var pos, func1, func2;
+                                           var operation = Operation.instance();
+                                           operation.visitId = _self._visitorId;
+                                           operation.cancelled = 0;
+                                           operation.operateType = this.value;
+                                           operation.operator = _self._operator.account;
+                                           func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                                                tmp._close();
+                                                              }
+                                           func2 = function() { tmp._close(); };
+                                           pos = DOMUtils.findPos(this);
+                                           tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
+                                           MiscUtils.dialog(tmp, null, func1, func2, null);
+                                           return false;
+                                         }
                                        };
   this._gui.call.onclick = function() { var pos, func1, func2;
                                         var operation = Operation.instance();
