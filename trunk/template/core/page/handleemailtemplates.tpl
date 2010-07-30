@@ -52,7 +52,7 @@ HandleEmailTemplates.prototype._updateElements = function() {
   for(var i = 0, il = this._templates.length; i < il; i++) {
     var u = this._templates[i];
     
-    tr = this._gui.users.insertRow(-1);
+    tr = this._gui.templates.insertRow(-1);
     tr.style.backgroundColor = (i % 2 == 0) ? '#fff' : '#f8f8f8';
     td = tr.insertCell(-1);
     td.align = 'left';

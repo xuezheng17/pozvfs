@@ -40,8 +40,8 @@ HandleEmailTemplateEdit.prototype._updateElements = function() {
   this._gui.name.value = this._template.name;
   this._gui.content.value = this._template.content;
 
-  this._gui.name.onchange = function() { _self._template.account = this.value; };
-  this._gui.content.onchange = function() { _self._template.password = this.value; };
+  this._gui.name.onchange = function() { _self._template.name = this.value; };
+  this._gui.content.onchange = function() { _self._template.content = this.value; };
   
   
   this._gui.save.value = (this._options.id) ? 'Update' : 'Add';
