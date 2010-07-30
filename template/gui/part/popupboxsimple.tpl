@@ -22,5 +22,6 @@ PopupBoxSimple.prototype._createElements = function() {
   tr = table.insertRow(-1);
   td = tr.insertCell(-1);
   td.align = 'center';
+  td.style.padding = '10px';
   td.id = this._unique + '_panel_div';
 };
