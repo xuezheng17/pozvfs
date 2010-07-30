@@ -30,10 +30,9 @@
   .{{$template|escape:'html'}}_td3 {
     width: 100px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     background-color:#e5ecf9;
     vertical-align: middle;
-    padding-left:20px;
     font-size: 10pt;
     font-weight: bold;
     font-family: Arial;
@@ -41,10 +40,9 @@
   .{{$template|escape:'html'}}_td4 {
     width: 110px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     background-color:#e5ecf9;
-    padding-left:20px;
     font-size: 10pt;
     font-weight: bold;
     font-family: Arial;
@@ -52,10 +50,9 @@
   .{{$template|escape:'html'}}_td5 {
     width: 95px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     background-color:#e5ecf9;
-    padding-left:20px;
     font-size: 10pt;
     font-weight: bold; 
     font-family: Arial;
@@ -63,10 +60,9 @@
   .{{$template|escape:'html'}}_td6 {
     width: 125px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     background-color:#e5ecf9;
-    padding-left:20px;
     font-size: 10pt;
     font-weight: bold; 
     font-family: Arial;
@@ -74,47 +70,38 @@
   .{{$template|escape:'html'}}_td31 {
     width: 100px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
-    padding-left:20px;
     font-size: 10pt;
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td41 {
     width: 110px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
-    padding-left:20px;
     font-size: 10pt;
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td51 {
     width: 95px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
-    padding-left:20px;
     font-size: 10pt;
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td61 {
     width: 125px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
-    padding-left:20px;
     font-size: 10pt;
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 430px;
     height: 25px;
-  }
-  .{{$template|escape:'html'}}_td8 {
-    width: 430px;
-    height: 30px;
-    vertical-align: top;
   }
 </style>
 
