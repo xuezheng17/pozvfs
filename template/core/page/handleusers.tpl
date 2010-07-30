@@ -9,6 +9,7 @@ function HandleUsers(gui, operator, now, options) {
 
 HandleUsers.prototype._createElements = function() {
   var tr, td;
+  this._gui.addUser.onclick = function() { location.href = '?t=useredit&m=' + JSON.stringify({ a: 4, b: 1 }); };
   tr = this._gui.users.insertRow(-1);
   td = tr.insertCell(-1);
   td.appendChild(DOMUtils.getLoadingImage());
