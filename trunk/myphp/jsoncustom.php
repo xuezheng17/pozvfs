@@ -123,6 +123,8 @@ function sendEmail($myManager) {
   $myManager->start_t();
   $operation = $orm->__toObject($myManager, $epOperation, new stdClass());
   
+  $subject = $args->email->subject;
+  $content = $args->email->content;
   if ($args->visitor->brideEmail != '' || $args->visitor->groomEmail != '') {
     require_once dirname(__FILE__) . '/../library/phpMailer/class.phpmailer.php';
     $mailer = new PHPMailer();
@@ -133,8 +135,8 @@ function sendEmail($myManager) {
     $mailer->Password = 'weida911';
     $mailer->From = 'ns.gresource@gmail.com';
     $mailer->FromName = 'Dreamlife';
-    $mailer->Body = '\'' . $args->email->content . '\'';
-    $mailer->Subject = '\'' . $args->email->subject . '\'';
+    $mailer->Body = $subject;
+    $mailer->Subject = $content;
     if ($args->visitor->brideEmail != '') {
       $mailer->AddAddress($args->visitor->brideEmail);
     }
