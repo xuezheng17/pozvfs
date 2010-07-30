@@ -52,7 +52,7 @@ HandleEmailTemplateEdit.prototype._updateElements = function() {
                                         if (_self._template.content == '') {
                                           str += 'content, ';
                                         }
-                                        if (_self._user.account == '' || _self._user.password == '') {
+                                        if (_self._template.account == '' || _self._template.password == '') {
                                           window.alert(str.substring(0, str.length-2) + ' can not be empty');
                                         } else {
                                           new RequestUtils()._write('emailtemplate', [_self._template], [], function() { location.href = '?t=emailtemplates&m=' + JSON.stringify({ a: 4, b: 2 }); }, null); };
