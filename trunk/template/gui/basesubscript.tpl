@@ -4,7 +4,7 @@
     height: 45px;
     text-align: center;
     vertical-align: middle;
-    margin: 100px 0 0 0;
+    margin: 30px 0 0 0;
   }
   .basesubscript_td1 {
     width: 980px;
