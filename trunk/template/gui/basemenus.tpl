@@ -2,20 +2,20 @@
   .basemenus_table1 {
     width: 980px;
     height: 28px;
-    margin:50px 0 0 0;
+    margin:30px 0 0 0;
   }
   .basemenus_table2 {
     background-color:#c3d9ff;
     width: 100%;
-    height:30px;
+    height:28px;
     text-align:center;
   }
   .basemenus_table3 {
     width: 980px;
-    height:30px;
+    height:28px;
   }
   .basemenus_td0 {
-    height: 30px;
+    height: 28px;
     width:100%;
 //    text-align:center;
   }
@@ -113,7 +113,7 @@
   }
   .basemenus_td3 {
     width: 62px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -125,7 +125,7 @@
   }
   .basemenus_td3Hilight {
     width: 62px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -135,7 +135,7 @@
   }
   .basemenus_td33 {
     width: 53px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -147,7 +147,7 @@
   }
   .basemenus_td33Hilight {
     width: 53px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -157,7 +157,7 @@
   }
   .basemenus_td31 {
     width: 100px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -169,7 +169,7 @@
   }
   .basemenus_td31Hilight {
     width: 100px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -179,15 +179,15 @@
   }
   .basemenus_td4 {
     width: 997px;
-    height: 21px;
+    height: 19px;
   }
   .basemenus_td41 {
     width: 910px;
-    height: 21px;
+    height: 19px;
   }
   .basemenus_td42 {
     width: 990px;
-    height: 21px;
+    height: 19px;
   }
   .basemenus_td43 {
     width: 985px;
@@ -195,13 +195,13 @@
   }
   .basemenus_td5 {
     width: 1px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
   }
   .basemenus_td6 {
     width: 153px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -213,7 +213,7 @@
   }
   .basemenus_td6Hilight {
     width: 153px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -223,7 +223,7 @@
   }
   .basemenus_td7 {
     width: 105px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -235,7 +235,7 @@
   }
   .basemenus_td7Hilight {
     width: 105px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -246,7 +246,7 @@
   
   .basemenus_td8 {
     width: 122px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -258,7 +258,7 @@
   }
   .basemenus_td8Hilight {
     width: 122px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -268,7 +268,7 @@
   }
   .basemenus_td9 {
     width: 50px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -280,7 +280,7 @@
   }
   .basemenus_td9Hilight {
     width: 50px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -290,7 +290,7 @@
   }
   .basemenus_td10 {
     width: 82px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -302,7 +302,7 @@
   }
   .basemenus_td10Hilight {
     width: 82px;
-    height: 21px;
+    height: 19px;
     text-align: center;
     vertical-align: middle;
     padding-top:9px;
@@ -417,49 +417,24 @@
     padding-bottom:5px;
     margin:0;
   }
-  a:link{
+  .basemenus_td14Hilight a,.basemenus_td1Hilight a,.basemenus_td13Hilight a,
+  .basemenus_td14 a,.basemenus_td1 a,.basemenus_td13 a{
     text-decoration:none;
     font-size:11pt; 
+    color:black;
   } 
-  a:active{
+  .basemenus_td33Hilight a,.basemenus_td8Hilight a,.basemenus_td3Hilight a,.basemenus_td31Hilight a,
+  .basemenus_td6Hilight a,.basemenus_td7Hilight a,.basemenus_td9Hilight a{
+    color:black;
+    font-size:11pt; 
     text-decoration:none;
-    color:#000000;
-    font-size:11pt; 
-  } 
-  a:visited{
-    text-decoration:none;
-    color:#000000;
-    font-size:11pt; 
-  } 
-  a.1:link{
-    text-decoration:none;
-    font-size:11pt; 
-  } 
-  a.1:active{
-    text-decoration:none;
-    color:#000000;
-    font-size:11pt; 
-  } 
-  a.1:visited{
-    text-decoration:none;
-    color:#000000;
-    font-size:11pt; 
-  } 
-  a.2:link{
-    text-decoration:underline;
-    color:#e8e8e8;
-    font-size:11pt; 
-  } 
-  a.2:active{
-    text-decoration:none;
-    color:#000000;
-    font-size:11pt; 
-  } 
-  a.2:visited{
-    text-decoration:none;
-    color:#000000;
-    font-size:11pt; 
-  } 
+  }
+  
+  
+  .basemenus_td33 a,.basemenus_td8 a,.basemenus_td3 a,.basemenus_td31 a,
+  .basemenus_td6 a,.basemenus_td7 a,.basemenus_td9 a{
+   font-size:11pt; 
+  }
 </style>
 
 <table class="basemenus_table1"  cellPadding="0" cellSpacing="0" border=0>
@@ -474,7 +449,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a class="1" href = "?t=basic&m={%22a%22:1,%22b%22:1}">Home</a>
+                <a  href = "?t=basic&m={%22a%22:1,%22b%22:1}">Home</a>
               </td>
             </tr>
           </table>
@@ -490,7 +465,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a class="1" href = "?t=basic&m={%22a%22:1,%22b%22:1}">Home</a>
+                <a  href = "?t=basic&m={%22a%22:1,%22b%22:1}">Home</a>
               </td>
             </tr>
           </table>
@@ -508,7 +483,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
             <td class="basemenus_p" >
-              <a class="1" href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Visitor</a>
+              <a  href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Visitor</a>
             </td>
             </tr>
           </table>
@@ -524,7 +499,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
             <td class="basemenus_ph" >
-              <a class="1" href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Visitor</a>
+              <a  href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Visitor</a>
             </td>
             </tr>
           </table>
@@ -542,7 +517,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p4">
-                <a class="1" href = "?t=followup&m={%22a%22:3,%22b%22:1}">Task</a>
+                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Task</a>
               </td>
             </tr>
           </table>
@@ -558,7 +533,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph4" >
-                <a class="1" href = "?t=followup&m={%22a%22:3,%22b%22:1}">Task</a>
+                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Task</a>
               </td>
             </tr>
           </table>
@@ -576,7 +551,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p3" >
-                <a class="1" href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -592,7 +567,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph3" >
-                <a class="1" href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -613,15 +588,15 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td33Hilight"{{else}}class="basemenus_td33"{{/if}}>
-                  <a class="2" href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
+                  <a href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
                 </div>
               </td>
               <td class="basemenus_td5">
                 <img src="image/line.png" ></img>
               </td>
               <td>
-                <div {{if $menu->b == 1}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-                  <a class="2" href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
+                <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                  <a href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
                 </div>
               </td>
               <td class="basemenus_td43">&nbsp</td>
@@ -643,7 +618,7 @@
           <tr>
             <td>
               <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                <a class="2" href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Search</a>
+                <a href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Search</a>
               </div>
             </td>
             <td class="basemenus_td5">
@@ -651,7 +626,7 @@
             </td>
             <td>
               <div {{if $menu->b == 2}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
-                <a class="2" href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
+                <a href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
               </div>
             <td class="basemenus_td41"></td>
           </tr>
@@ -671,7 +646,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td6Hilight"{{else}}class="basemenus_td6"{{/if}}>
-                  <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
+                  <a  href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -679,14 +654,14 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td7Hilight"{{else}}class="basemenus_td7"{{/if}}>
-                  <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
+                  <a href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
               </td>
               <td class="basemenus_td5">
                 <img src="image/line.png" ></img>
               </td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-                  <a class="2" href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
+                  <a href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
               </td>
               <td class="basemenus_td42"></td>
             </tr>
@@ -707,7 +682,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td9Hilight"{{else}}class="basemenus_td9"{{/if}}>
-                  <a class="2" href="?t=users&m={%22a%22:4,%22b%22:1}">User</a>
+                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">User</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -715,7 +690,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-                  <a class="2" href="?t=email&m={%22a%22:4,%22b%22:2}">Email Template</a>
+                  <a href="?t=email&m={%22a%22:4,%22b%22:2}">Email Template</a>
                 </div>
               </td>
               <td class="basemenus_td43"></td>
