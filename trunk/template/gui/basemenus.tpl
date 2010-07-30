@@ -111,7 +111,7 @@
     height: 28px;
   }
   .basemenus_td3 {
-    width: 62px;
+    width: 60px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -119,21 +119,21 @@
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td3Hilight {
-    width: 62px;
+    width: 60px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td33 {
-    width: 53px;
+    width: 50px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -141,15 +141,15 @@
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td33Hilight {
-    width: 53px;
+    width: 50px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
@@ -163,7 +163,7 @@
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td31Hilight {
@@ -171,7 +171,7 @@
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
@@ -199,7 +199,7 @@
     vertical-align: middle;
   }
   .basemenus_td6 {
-    width: 153px;
+    width: 143px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -207,15 +207,15 @@
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td6Hilight {
-    width: 153px;
+    width: 143px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
@@ -229,7 +229,7 @@
     color: blue; 
     text-decoration: underline ;
     font-family: Arial;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td7Hilight {
@@ -237,14 +237,14 @@
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   
   .basemenus_td8 {
-    width: 122px;
+    width: 105px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -252,21 +252,21 @@
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td8Hilight {
-    width: 122px;
+    width: 105px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
   }
   .basemenus_td9 {
-    width: 50px;
+    width: 48px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -274,15 +274,15 @@
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td9Hilight {
-    width: 50px;
+    width: 48px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
@@ -296,7 +296,7 @@
     font-family: Arial;
     color: blue; 
     text-decoration: underline ;
-    padding-top:9px;
+    padding-top:7px;
     cursor: pointer;
   }
   .basemenus_td10Hilight {
@@ -304,7 +304,7 @@
     height: 19px;
     text-align: center;
     vertical-align: middle;
-    padding-top:9px;
+    padding-top:7px;
     font-size: 10pt;
     font-family: Arial;
     cursor: pointer;
@@ -419,20 +419,20 @@
   .basemenus_td14Hilight a,.basemenus_td1Hilight a,.basemenus_td13Hilight a,
   .basemenus_td14 a,.basemenus_td1 a,.basemenus_td13 a,.basemenus_td12Hilight a,.basemenus_td12 a{
     text-decoration:none;
-    font-size:11pt; 
+    font-size:10pt; 
     color:black;
   } 
   .basemenus_td33Hilight a,.basemenus_td8Hilight a,.basemenus_td3Hilight a,.basemenus_td31Hilight a,
   .basemenus_td6Hilight a,.basemenus_td7Hilight a,.basemenus_td9Hilight a{
     color:black;
-    font-size:11pt; 
+    font-size:10pt; 
     text-decoration:none;
   }
   
   
   .basemenus_td33 a,.basemenus_td8 a,.basemenus_td3 a,.basemenus_td31 a,
   .basemenus_td6 a,.basemenus_td7 a,.basemenus_td9 a{
-   font-size:11pt; 
+   font-size:10pt; 
   }
 </style>
 
@@ -689,7 +689,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
-                  <a href="?t=email&m={%22a%22:4,%22b%22:2}">Email Template</a>
+                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Email Template</a>
                 </div>
               </td>
               <td class="basemenus_td43"></td>
