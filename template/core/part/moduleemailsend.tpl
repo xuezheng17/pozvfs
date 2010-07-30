@@ -40,7 +40,8 @@ ModuleEmailSend.prototype._updateElements = function() {
   var table, tr, td, input, _self = this;
 
   POZVFSUtils.clear(this._gui);
-  var table = this._doc.createElement('table');
+
+  var table = document.createElement('table');
   this._gui.visitorInfo.appendChild(table);
   tr = table.insertRow(-1);
   td = tr.insertCell(-1);
@@ -59,15 +60,13 @@ ModuleEmailSend.prototype._updateElements = function() {
       this._gui.templateSelect.selectedIndex = this._gui.templateSelect.options.length - 1;
     }
   }
-  console.log(this._gui.templateSelect.selectedIndex);
+  
   if (this._templates.length > 0) {
-    this._email.subject = this._gui.templateSelect.options[this._gui.templateSelect.selectedIndex]._template.name;
-    this._email.content = this._gui.templateSelect.options[this._gui.templateSelect.selectedIndex]._template.content;
     this._gui.templateSelect.onchange = function() { _self._email.subject = (this.options[this.selectedIndex]._template) ? this.options[this.selectedIndex]._template.name : '';
                                                      _self._email.content = (this.options[this.selectedIndex]._template) ? this.options[this.selectedIndex]._template.content : '';
+                                                     _self._updateElements();
                                                    };
   }
-
   this._gui.subject.value = this._email.subject;
   this._gui.content.value = this._email.content;
   this._gui.subject.onchange = function() { _self._email.subject = this.value };

@@ -478,7 +478,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            var email = { subject: '',
                                                          content: ''
                                                        };
-                                           func1 = function() { new RequestUtils()._custom('sendEmail', {operation: operation, visitor: _self._visitor, email: email}, [], function() { _self._retrieveOperations(); }, { pos: pos });
+                                           func1 = function() { operation.content = email.content;
+                                                                new RequestUtils()._custom('sendEmail', {operation: operation, visitor: _self._visitor, email: email}, [], function() { _self._retrieveOperations(); }, { pos: pos });
                                                                 tmp._close();
                                                               }
                                            func2 = function() { tmp._close(); };
