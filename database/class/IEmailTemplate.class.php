@@ -1,5 +1,5 @@
 <?php
-class IEmailTemplate {
+class EmailTemplate {
   /**
    * @orm char(64)
    */
@@ -7,9 +7,9 @@ class IEmailTemplate {
   /**
    * @orm char(64)
    */
-  public $subject;
+  public $name;
   /**
-   * @orm char(5086)
+   * @orm char(4096)
    */
   public $content;
 }
