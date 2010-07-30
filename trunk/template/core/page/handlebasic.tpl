@@ -34,7 +34,7 @@ HandleBasic.prototype._updateElements = function() {
   POZVFSUtils.clear(this._gui);
   
   this._gui.visitors.appendChild(document.createTextNode(this._visitor.visitors));
-  this._gui.successVisitors.appendChild(document.createTextNode(this._visitor.successVisitors));
+  this._gui.succeedVisitors.appendChild(document.createTextNode(this._visitor.successVisitors));
   this._gui.dropVisitors.appendChild(document.createTextNode(this._visitor.dropVisitors));
   this._gui.progressingVisitors.appendChild(document.createTextNode(this._visitor.progressingVisitors));
   
