@@ -93,8 +93,8 @@
       }
       arguments.callee._loaded = true;
       
-//      var gui = AbstractEmailTemplates.gui('{{$template|escape:javascript}}');
-//      new HandleEmailTemplates(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
+      var gui = AbstractEmailTemplates.gui('{{$template|escape:javascript}}');
+      new HandleEmailTemplates(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
