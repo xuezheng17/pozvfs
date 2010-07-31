@@ -422,6 +422,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                    _self._vNumber -= 1;
                                  }
                                  new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
+                                 if (_self._visitor.status == -1 && this._operation.operateType.toLowerCase() == 'fail') {
+                                   _self._visitor.status = 0;
+                                   new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitors(); }, null);
+                                 }
                                };
       td.appendChild(img);
     }
@@ -474,18 +478,9 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
-                                           var email = { subject: '',
-                                                         content: ''
-                                                       };
-                                           func1 = function() { operation.content = email.content;
-                                                                new RequestUtils()._custom('sendEmail', {operation: operation, visitor: _self._visitor, email: email}, function() { _self._retrieveOperations(); }, { pos: pos });
-                                                                tmp._close();
-                                                              }
-                                           func2 = function() { tmp._close(); };
-                                           pos = DOMUtils.findPos(this);
-                                           tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                           new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, email: email });
-                                           MiscUtils.dialog(tmp, null, func1, func2, {ok : 'Send'});
+                                           pos = [window.screen.width/2, window.screen.height/3];
+                                           tmp = new ModulePopupBox(document, document.body, 600, 400, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
+                                           new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, callbackFunc: function() {_self._retrieveOperations();}, popupBox: tmp });
                                            return false;
                                          } else {
                                            var pos, func1, func2;
@@ -494,14 +489,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
-                                           func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                                tmp._close();
-                                                              }
-                                           func2 = function() { tmp._close(); };
-                                           pos = DOMUtils.findPos(this);
-                                           tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
-                                           MiscUtils.dialog(tmp, null, func1, func2, null);
+                                           func1 = function() {  _self._retrieveOperations(); };
+                                           pos = [window.screen.width/2, window.screen.height/3];
+                                           tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
                                            return false;
                                          }
                                        };
@@ -511,30 +502,22 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         operation.cancelled = 0;
                                         operation.operateType = this.value;
                                         operation.operator = _self._operator.account;
-                                        func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                             tmp._close();
-                                                           }
-                                        func2 = function() { tmp._close(); };
-                                        pos = DOMUtils.findPos(this);
-                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
-                                        MiscUtils.dialog(tmp, null, func1, func2, null);
+                                        func1 = function() {  _self._retrieveOperations(); };
+                                        pos = [window.screen.width/2, window.screen.height/3];
+                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
                                         return false;
                                       };
-  this._gui.visit.onclick = function() { var pos, func1, func2;
+  this._gui.visit.onclick = function() { var pos, func1;
                                          var operation = Operation.instance();
                                          operation.visitId = _self._visitorId;
                                          operation.cancelled = 0;
                                          operation.operateType = this.value;
                                          operation.operator = _self._operator.account;
-                                         func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                              tmp._close();
-                                                            }
-                                         func2 = function() { tmp._close(); };
-                                         pos = DOMUtils.findPos(this);
-                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
-                                         MiscUtils.dialog(tmp, null, func1, func2, null);
+                                         func1 = function() {  _self._retrieveOperations(); };
+                                         pos = [window.screen.width/2, window.screen.height/3];
+                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
                                          return false;
                                        };
   
@@ -544,16 +527,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
-                                           func1 = function() { _self._visitor.status = (operation.operateType == 'Succeed') ? 1 : 0;
-                                                                new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                                new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, { pos: pos });
-                                                                tmp._close();
-                                                              }
-                                           func2 = function() { tmp._close(); };
-                                           pos = DOMUtils.findPos(this);
-                                           tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
-                                           MiscUtils.dialog(tmp, null, func1, func2, null);
+                                           func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();};
+                                           pos = [window.screen.width/2, window.screen.height/3];
+                                           tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, succeed: true, callbackFunc: func1, popupBox: tmp });
                                            return false;
                                          };
   this._gui.drop.onclick = function() { var pos, func1, func2;
@@ -562,16 +539,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         operation.cancelled = 0;
                                         operation.operateType = this.value;
                                         operation.operator = _self._operator.account;
-                                        func1 = function() { _self._visitor.status = (operation.operateType == 'Drop') ? -1 : 0;
-                                                             new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                             new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, { pos: pos });
-                                                             tmp._close();
-                                                           }
-                                        func2 = function() { tmp._close(); };
-                                        pos = DOMUtils.findPos(this);
-                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: operation.content });
-                                        MiscUtils.dialog(tmp, null, func1, func2, null);
+                                        func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();};
+                                        pos = [window.screen.width/2, window.screen.height/3];
+                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp });
                                         return false;
                                       };
 };
