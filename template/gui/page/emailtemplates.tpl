@@ -109,7 +109,7 @@
       <table class="{{$template|escape:'html'}}_table3" cellPaddiing="0" cellSpacing="0"border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td7">
-            <a id="{{$template|escape:'html'}}_addTemplate_button">New Template</a>
+            <a id="{{$template|escape:'html'}}_addTemplate_button">Create new eTemplate</a>
           </td>
         </tr>
       </table>

@@ -43,7 +43,6 @@
     height: 28px;
   }
   .basemenus_td3 {
-    padding: 0 13px;
     height: 19px;
     white-space:nowrap;
     text-align: center;
@@ -56,7 +55,6 @@
     cursor: pointer;
   }
   .basemenus_td3Hilight {
-    padding: 0 13px;
     height: 19px;
     white-space:nowrap;
     text-align: center;
@@ -77,6 +75,8 @@
     height: 19px;
     text-align: center;
     vertical-align: middle;
+    font-size: 14px;
+    padding: 0 13px;
   }
 
   
@@ -308,9 +308,7 @@
                   <a href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
                 </div>
               </td>
-              <td class="basemenus_td5">
-                <img src="image/line.png" ></img>
-              </td>
+              <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
@@ -338,9 +336,7 @@
                 <a href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Search</a>
               </div>
             </td>
-            <td class="basemenus_td5">
-              <img src="image/line.png" ></img>
-            </td>
+            <td class="basemenus_td5">|</td>
             <td>
               <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                 <a href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
@@ -366,16 +362,12 @@
                   <a  href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
                 </div>
               </td>
-              <td class="basemenus_td5">
-                <img src="image/line.png" ></img>
-              </td>
+              <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
               </td>
-              <td class="basemenus_td5">
-                <img src="image/line.png" ></img>
-              </td>
+              <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
@@ -402,9 +394,7 @@
                   <a href="?t=users&m={%22a%22:4,%22b%22:1}">Manage User</a>
                 </div>
               </td>
-              <td class="basemenus_td5">
-                <img src="image/line.png" ></img>
-              </td>
+              <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>

@@ -180,6 +180,17 @@
     </td>
   </tr>
   <tr>
+    <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
+    <td class="{{$template|escape:'html'}}_td4">
+       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText3"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
+    <td class="{{$template|escape:'html'}}_td8">
+       <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select2"></select>
+    </td>
+  </tr>
+  <tr><td style="padding: 20px 0 0 0;"></td></tr>
+  <tr>
     <td class="{{$template|escape:'html'}}_td3">Bride Name:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_brideName_input" class="{{$template|escape:'html'}}_inputText1"></input>
@@ -308,16 +319,6 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td6" colspan="5">
-    </td>
-  </tr>
-   <tr>
-    <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
-    <td class="{{$template|escape:'html'}}_td8">
-       <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select2"></select>
-    </td>
-    <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
-    <td class="{{$template|escape:'html'}}_td4">
-       <input type="text" id="{{$template|escape:'html'}}_fristVisitingDate_input" class="{{$template|escape:'html'}}_inputText3"></input>
     </td>
   </tr>
   <tr>
