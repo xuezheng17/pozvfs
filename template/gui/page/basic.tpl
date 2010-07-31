@@ -134,10 +134,10 @@
     <td class="{{$template|escape:'html'}}_td1" >
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0">
         <tr>
-          <td class="{{$template|escape:'html'}}_td3">Visitors</td>
-          <td class="{{$template|escape:'html'}}_td4">Successed</td>
-          <td class="{{$template|escape:'html'}}_td5">Dropped</td>
-          <td class="{{$template|escape:'html'}}_td6">Progressing</td>
+          <td class="{{$template|escape:'html'}}_td3">Total</td>
+          <td class="{{$template|escape:'html'}}_td4">Succeeded</td>
+          <td class="{{$template|escape:'html'}}_td5">Failed</td>
+          <td class="{{$template|escape:'html'}}_td6">In processing</td>
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td31" id="{{$template|escape:'html'}}_visitors_div"></td>
@@ -149,10 +149,5 @@
     </td>
     <td class="{{$template|escape:'html'}}_td2"></td>
   <tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td7">
-     <div id="{{$template|escape:'html'}}_graphy_div"></div>
-    </td>
-    <td class="{{$template|escape:'html'}}_td2"></td>
-  </tr>
 </table>
+<div id="{{$template|escape:'html'}}_graphy_div" class="{{$template|escape:'html'}}_table1" style="margin:30px 0 0 0;height:768px"></div>

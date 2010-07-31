@@ -38,4 +38,6 @@ HandleBasic.prototype._updateElements = function() {
   this._gui.dropVisitors.appendChild(document.createTextNode(this._visitor.dropVisitors));
   this._gui.progressingVisitors.appendChild(document.createTextNode(this._visitor.progressingVisitors));
   
+  ChartUtils.basic(this._gui.graphy, this._visitor);
+  
 };

@@ -8,5 +8,6 @@
 {{include file='include/library/request/request.tpl'}}
 {{include file='include/common/requestutils.tpl'}}
 {{include file='include/common/pozvfsutils.tpl'}}
+{{include file='include/common/chartutils.tpl'}}
 {{include file='core/page/handlebasic.tpl'}}
 {{include file='api/page/abstractbasic.tpl'}}

@@ -519,7 +519,7 @@
       <input type="button" id="{{$template|escape:'html'}}_succeed_button" class="{{$template|escape:'html'}}_btn" value = "Succeed"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td20">
-      <input type="button" id="{{$template|escape:'html'}}_drop_button" class="{{$template|escape:'html'}}_btn" value = "Drop"></input>
+      <input type="button" id="{{$template|escape:'html'}}_drop_button" class="{{$template|escape:'html'}}_btn" value = "Fail"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td21"></td>
   </tr>

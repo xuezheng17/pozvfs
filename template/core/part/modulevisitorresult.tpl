@@ -22,7 +22,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   if (this._item.status == 1) {
     a.appendChild(document.createTextNode('(Succeed)'));
   } else if (this._item.status == -1) {
-    a.appendChild(document.createTextNode('(Dropped)'));
+    a.appendChild(document.createTextNode('(Failed)'));
   } else {
     var cnt = 0;
     for (var i = 0, il = this._item.operations.length; i < il; i++) {
