@@ -20,6 +20,12 @@ try {
     case 'visitors':
       visitors($myManager);
       break;
+    case 'succeed':
+      succeed($myManager);
+      break;
+    case 'drop':
+      drop($myManager);
+      break;
     case 'sendEmail':
       sendEmail($myManager);
       break;
@@ -114,6 +120,36 @@ function visitors($myManager) {
   }
 }
 
+function succeed($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  $orm = classToOrm('visitor');
+  $orm1 = classToOrm('operation');
+  if ($orm && $orm1) {
+    try {
+      $orm->update($myManager, $args->visitor);
+      $orm1->add($myManager, $args->operation);
+      echo json_encode(array());
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function drop($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  $orm = classToOrm('visitor');
+  $orm1 = classToOrm('operation');
+  if ($orm && $orm1) {
+    try {
+      $orm->update($myManager, $args->visitor);
+      $orm1->add($myManager, $args->operation);
+      echo json_encode(array());
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
 function sendEmail($myManager) {
   $args = json_decode(MiscUtils::decryptParam('a', '[]'));
   
@@ -129,11 +165,11 @@ function sendEmail($myManager) {
     require_once dirname(__FILE__) . '/../library/phpMailer/class.phpmailer.php';
     $mailer = new PHPMailer();
     $mailer->IsSMTP();
-    $mailer->Host = 'ssl://smtp.gmail.com:465';
+    $mailer->Host = 'fsx01.justhost.com';
     $mailer->SMTPAuth = true;
-    $mailer->Username = 'ns.gresource@gmail.com';
-    $mailer->Password = 'weida911';
-    $mailer->From = 'ns.gresource@gmail.com';
+    $mailer->Username = 'albumpi1';
+    $mailer->Password = '8WQ3V9*J';
+    $mailer->From = 'dreamlife.noreply@gmail.com';
     $mailer->FromName = 'Dreamlife';
     $mailer->Body = $content;
     $mailer->Subject = $subject;
