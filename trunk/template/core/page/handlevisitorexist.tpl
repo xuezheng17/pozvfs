@@ -380,9 +380,12 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
     td.style.height = '24px';
     td.style.textAlign = 'left';
-    td.style.verticalAlign = 'middle';
+    td.style.verticalAlign = 'bottom';
     td.style.padding = '0 0 0 20px';
-    td.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ')'));
+    var span1 = document.createElement('span');
+    td.appendChild(span1);
+    span1.style.lineHeight = '24px';
+    span1.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ') '));
     if (!operation.cancelled) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
@@ -390,14 +393,10 @@ HandleVisitorExist.prototype._updateElements = function() {
       img._operation = operation;
       img.onclick = function() { var pos, func1, func2;
                                  var operation = this._operation;
-                                 func1 = function() { new RequestUtils()._write('operation', [operation], [], function() { _self._retrieveOperations(); }, { pos: pos });
-                                                      tmp._close();
-                                                    }
-                                 var func2 = function() { tmp._close(); };
-                                 pos = DOMUtils.findPos(this);
-                                 tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, title: 'Content', content: this._operation.content });
-                                 MiscUtils.dialog(tmp, null, func1, func2, null);
+                                 func1 = function() {  _self._retrieveOperations(); };
+                                 pos = [window.screen.width/2, window.screen.height/3];
+                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
                                  return false;
                                };
       td.appendChild(img);
