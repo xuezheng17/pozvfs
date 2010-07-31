@@ -19,6 +19,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.style.fontSize = '13px';
   this._gui.title.style.fontWeight = 'bold';
   var a = this._doc.createElement('a');
+  a.style.fontSize = '13px';
   a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
   a.appendChild(this._doc.createTextNode('No. ' + POZVFSUtils.visitorId(this._item.id)));
   this._gui.title.appendChild(a);

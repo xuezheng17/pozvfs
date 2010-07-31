@@ -22,7 +22,6 @@ ModuleDialogInput.prototype._createElements = function() {
   
   this._gui = new DialogInput(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
   
-  console.log(this._gui);
   this._gui.input.value = this._operation.content;
   this._gui.input.onchange = function() { _self._operation.content = this.value; };
   
