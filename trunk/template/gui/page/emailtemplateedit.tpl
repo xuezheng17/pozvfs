@@ -33,8 +33,9 @@
   .{{$template|escape:'html'}}_td3 {
     width: 210px;
     height: 30px;
-    text-align: center;
+    text-align: left;
     vertical-align: bottom;
+
   }
   .{{$template|escape:'html'}}_td4 {
     width: 687px;
@@ -84,7 +85,7 @@
 </script>
 
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=1>
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colSpan="3" ></td> 
   </tr>
