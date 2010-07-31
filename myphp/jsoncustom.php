@@ -135,8 +135,8 @@ function sendEmail($myManager) {
     $mailer->Password = 'weida911';
     $mailer->From = 'ns.gresource@gmail.com';
     $mailer->FromName = 'Dreamlife';
-    $mailer->Body = $subject;
-    $mailer->Subject = $content;
+    $mailer->Body = $content;
+    $mailer->Subject = $subject;
     if ($args->visitor->brideEmail != '') {
       $mailer->AddAddress($args->visitor->brideEmail);
     }
