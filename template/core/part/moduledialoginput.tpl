@@ -28,7 +28,7 @@ ModuleDialogInput.prototype._createElements = function() {
   
   this._gui.save.onclick = function() { var pos = DOMUtils.findPos(this);
                                         if (_self._drop) {
-                                          _self._visitor.status = (_self._operation.operateType == 'Drop') ? -1 : 0;
+                                          _self._visitor.status = (_self._drop) ? -1 : 0;
                                           new RequestUtils()._custom('drop', {operation: _self._operation, visitor: _self._visitor}, function(result, params) { _self._callbackFunc(); }, { pos: pos });
                                         } else if (_self._succeed) {
                                           var visitor = { fromVisitor: true,
@@ -50,7 +50,7 @@ ModuleDialogInput.prototype._createElements = function() {
                                                         }
                                           var func = function() { window.open('http://dlmanage.co.nz/test/dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}))
                                                                 }
-                                          _self._visitor.status = (_self._operation.operateType == 'Succeed') ? 1 : 0;
+                                          _self._visitor.status = (_self._succeed) ? 1 : 0;
                                           new RequestUtils()._custom('succeed', {operation: _self._operation, visitor: _self._visitor}, function(result, params) { _self._callbackFunc(); func(); }, { pos: pos });
                                         } else {
                                           new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: pos });
