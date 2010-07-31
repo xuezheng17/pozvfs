@@ -125,13 +125,15 @@ function followUp($myPdo) {
   $stmt->execute();
   $result->total = $stmt->rowCount();
   
-  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitMethod AS firstVisitMethod, v.status AS status, v.weddingDay AS weddingDay FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
+  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
-    $tmp->createdDate = SimpleDate::fromStamp($tmp->createdDate);
+    $tmp->createdDate = ($tmp->createdDate) ? SimpleDate::fromStamp($tmp->createdDate) : NULL;
+    $tmp->weddingDay = ($tmp->weddingDay) ? SimpleDate::fromStamp($tmp->weddingDay) : NULL;
+    $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
     $tmp->operations = array();
     
     $sql3 = "SELECT DISTINCT o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 ORDER BY 'o.e_oid' $queue";
