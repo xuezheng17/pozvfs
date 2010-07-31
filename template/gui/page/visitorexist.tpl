@@ -497,7 +497,7 @@
           <td class="{{$template|escape:'html'}}_td22">Method</td>
           <td class="{{$template|escape:'html'}}_td23">Operator</td>
           <td class="{{$template|escape:'html'}}_td24">Date</td>
-          <td class="{{$template|escape:'html'}}_td25">Note</td>
+          <td class="{{$template|escape:'html'}}_td25" valign="middle">Note</td>
           <td class="{{$template|escape:'html'}}_td26"></td>
         </tr>
       </table>
