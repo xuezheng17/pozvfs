@@ -10,14 +10,22 @@ function HandleVisitors(gui, operator, now, options) {
 }
 
 HandleVisitors.prototype._createElements = function() {
-  this._gui.visitors.appendChild(DOMUtils.getLoadingImage());
-  this._loadData();
-};
-
-HandleVisitors.prototype._loadData = function() {
+  var _self = this, tr, td;
   this._visitors = null;
   this._parameters = null;
-  this._retrieveVisitors(1);
+  
+  var table = document.createElement('table');
+  table.cellPadding = 0;
+  table.cellSpacing = 0;
+  this._gui.visitors.appendChild(table);
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.width = '980px';
+  td.style.height = '122px';
+  td.style.textAlign = 'center';
+  td.appendChild(document.createTextNode('Show Visitors By Search'));
+  
+  this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
 };
 
 HandleVisitors.prototype._verifyData = function() {
@@ -60,8 +68,6 @@ HandleVisitors.prototype._updateElements = function() {
     td.style.textAlign = 'center';
     new ModuleVisitorResult(document, td, 980, 122, this._operator, this._now, { item: tmp } );
   }
-  
-  this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
 };
 
 HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
