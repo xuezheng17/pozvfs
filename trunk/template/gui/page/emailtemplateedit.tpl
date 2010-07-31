@@ -85,7 +85,7 @@
 </script>
 
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=1>
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colSpan="3" ></td> 
   </tr>
