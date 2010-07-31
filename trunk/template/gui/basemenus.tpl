@@ -20,7 +20,6 @@
   }
   .basemenus_td1 {
     height: 28px;
-    width:70px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
@@ -30,7 +29,6 @@
     font-family: Arial;
   }
   .basemenus_td1Hilight {
-    width:70px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -41,7 +39,6 @@
     font-family: Arial;
   }
   .basemenus_td12 {
-    width:85px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -52,7 +49,6 @@
     font-family: Arial;
   }
   .basemenus_td12Hilight {
-    width:85px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -63,7 +59,6 @@
     font-family: Arial;
   }
   .basemenus_td13 {
-    width:115px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -74,7 +69,6 @@
     font-family: Arial;
   }
   .basemenus_td13Hilight {
-    width:115px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -85,7 +79,6 @@
     font-family: Arial;
   }
   .basemenus_td14 {
-    width:65px;
     height: 28px;
     text-align: center;
     vertical-align: bottom;
@@ -97,7 +90,6 @@
   }
   .basemenus_td14Hilight {
     width:65px;
-    height: 28px;
     text-align: center;
     vertical-align: bottom;
     cursor: pointer;
@@ -111,7 +103,7 @@
     height: 28px;
   }
   .basemenus_td3 {
-    width: 60px;
+    width: 58px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -123,7 +115,7 @@
     cursor: pointer;
   }
   .basemenus_td3Hilight {
-    width: 60px;
+    width: 58px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -133,7 +125,7 @@
     cursor: pointer;
   }
   .basemenus_td33 {
-    width: 50px;
+    width: 48px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -145,7 +137,7 @@
     cursor: pointer;
   }
   .basemenus_td33Hilight {
-    width: 50px;
+    width: 48px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -199,7 +191,7 @@
     vertical-align: middle;
   }
   .basemenus_td6 {
-    width: 143px;
+    width: 141px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -211,7 +203,7 @@
     cursor: pointer;
   }
   .basemenus_td6Hilight {
-    width: 143px;
+    width: 141px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -266,7 +258,7 @@
     cursor: pointer;
   }
   .basemenus_td9 {
-    width: 48px;
+    width: 42px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -278,7 +270,7 @@
     cursor: pointer;
   }
   .basemenus_td9Hilight {
-    width: 48px;
+    width: 42px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
@@ -353,7 +345,7 @@
     height:2px;
   }
   .basemenus_p{
-    width:70px;
+    padding: 0 13px;
     height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
@@ -361,7 +353,7 @@
     margin:0;
   }
   .basemenus_ph{
-    width:70px;
+    padding: 0 13px;
     height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
@@ -369,7 +361,7 @@
     margin:0;
   }
   .basemenus_p2{
-    width:80px;
+    padding: 0 13px;
     height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
@@ -377,7 +369,7 @@
     margin:0;
   }
   .basemenus_ph2{
-    width:80px;
+    padding: 0 13px;
     height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
@@ -385,7 +377,7 @@
     margin:0;
   }
   .basemenus_p3{
-    width:115px;
+    padding: 0 13px;
     height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
@@ -393,7 +385,7 @@
     margin:0;
   }
   .basemenus_ph3{
-    width:115px;
+    padding: 0 13px;
     height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
@@ -401,7 +393,7 @@
     margin:0;
   }
   .basemenus_p4{
-    width:65px;
+    padding: 0 13px;
     height:24px;
     background-color:#c3d9ff;
     vertical-align:bottom;
@@ -409,7 +401,7 @@
     margin:0;
   }
   .basemenus_ph4{
-    width:65px;
+    padding: 0 13px;
     height:24px;
     background-color:#e5ecf9;
     vertical-align:bottom;
