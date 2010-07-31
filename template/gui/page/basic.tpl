@@ -3,7 +3,7 @@
     width: 980px;
     height: 40px;
     text-align: left
-    marging:24px 0 0 0;
+    marging:23px 0 0 0;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 430px;

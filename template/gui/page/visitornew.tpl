@@ -99,9 +99,9 @@
     height: 22px;
   }
   .{{$template|escape:'html'}}_select2{
-	    width: 310px;
-	    height: 22px;
-	  }
+    width: 314px;
+    height: 22px;
+  }
   .{{$template|escape:'html'}}_item p{
     border-left:1px solid #e5ecf9;
     border-right:1px solid #e5ecf9;

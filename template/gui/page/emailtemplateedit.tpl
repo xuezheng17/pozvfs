@@ -5,7 +5,7 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 24px;
+    height: 23px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;

@@ -2,12 +2,13 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 122px;
-    margin:16px 0 0 0;
+    margin:10px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 290px;
     height: 30px;
     text-align: right;
+  	padding-right:5px;
     vertical-align: bottom;
     font-weight: bold;
     font-size: 10pt;

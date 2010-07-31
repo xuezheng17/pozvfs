@@ -10,7 +10,7 @@
   }
   .{{$template|escape:'html'}}_table3 {
     width: 980px;
-    height: 30px;
+    height: 28px;
     background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_table4 {
@@ -94,14 +94,15 @@
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td11 {
-    width: 291px;
+    width: 290px;
     height: 30px;
     text-align: right;
+  	padding-right:2px;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td12 {
-    width: 653px;
-    height: 30px;
+    width: 694px;
+    height: 28px;
     padding-left:18px;
     padding-top:0px;
     font-size: 13pt;
@@ -111,7 +112,7 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td13 {
-    height: 30px;
+    height: 28px;
     text-align: left;
     vertical-align: middle;
     padding-bottom:4px;
@@ -147,7 +148,7 @@
   }
   .{{$template|escape:'html'}}_td18 {
     width: 980px;
-    height: 25px;
+    height: 24px;
     text-align: center;
     vertical-align: middle;
   }
@@ -161,7 +162,7 @@
   .{{$template|escape:'html'}}_td20 {
     width: 68px;
     height: 51px;
-    text-align: left;
+    text-align: right;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td21 {
@@ -170,7 +171,7 @@
   }
   .{{$template|escape:'html'}}_td22 {
     width: 72px;
-    height: 25px;
+    height: 24px;
     padding-left:17px;
     font-size: 10pt;
     font-weight: bold;
@@ -182,7 +183,7 @@
   }
   .{{$template|escape:'html'}}_td23 {
     width: 135px;
-    height: 25px;
+    height: 24px;
     padding-left:17px;
     font-size: 10pt;
     font-weight: bold;
@@ -194,7 +195,7 @@
   }
   .{{$template|escape:'html'}}_td24 {
     width: 101px;
-    height: 25px;
+    height: 24px;
     padding-left:17px;
     font-size: 10pt;
     font-weight: bold;
@@ -206,7 +207,7 @@
   }
   .{{$template|escape:'html'}}_td25 {
     width: 592px;
-    height: 25px;
+    height: 24px;
     padding-left:17px;
     font-size: 10pt;
     font-weight: bold;
@@ -218,7 +219,7 @@
   }
   .{{$template|escape:'html'}}_td26 {
     width: 70px;
-    height: 25px;
+    height: 24px;
     background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_td27 {
@@ -227,11 +228,11 @@
 	  }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
-    height: 17px;
+    height: 16px;
   }
   .{{$template|escape:'html'}}_inputText2{
     width: 155px;
-    height: 17px;
+    height: 16px;
   }
   .{{$template|escape:'html'}}_inputText3 {
     width: 120px;
@@ -244,6 +245,10 @@
   .{{$template|escape:'html'}}_select{
     width: 291px;
     height:22px;
+  }
+  .{{$template|escape:'html'}}_select2{
+    width: 314px;
+    height: 22px;
   }
   .{{$template|escape:'html'}}_item div{
     height:1px;
@@ -268,6 +273,11 @@
     height:2px;
   }
   .{{$template|escape:'html'}}_btn {
+    font-size: 10pt;
+    font-family: Arial;
+  	width:67px;
+  }
+  .{{$template|escape:'html'}}_btn2 {
     font-size: 10pt;
     font-family: Arial;
   }
@@ -307,10 +317,10 @@
             <td class="{{$template|escape:'html'}}_td12" id="{{$template|escape:'html'}}_title_label">
             </td>
             <td class="{{$template|escape:'html'}}_td13">
-              <input type="button" id="{{$template|escape:'html'}}_back_button" class="{{$template|escape:'html'}}_btn" value ="<"></input>
+              <input type="button" id="{{$template|escape:'html'}}_back_button" class="{{$template|escape:'html'}}_btn2" value ="<"></input>
               <input type="text" id="{{$template|escape:'html'}}_number_input" class="{{$template|escape:'html'}}_inputText3"></input>
-              <input type="button" id="{{$template|escape:'html'}}_jump_button" class="{{$template|escape:'html'}}_btn" value = "Go"></input>
-              <input type="button" id="{{$template|escape:'html'}}_next_button" class="{{$template|escape:'html'}}_btn" value = ">"></input>
+              <input type="button" id="{{$template|escape:'html'}}_jump_button" class="{{$template|escape:'html'}}_btn2" value = "Go"></input>
+              <input type="button" id="{{$template|escape:'html'}}_next_button" class="{{$template|escape:'html'}}_btn2" value = ">"></input>
             </td>
           </tr>
         </table>
@@ -461,7 +471,7 @@
   <tr>
     <td class="{{$template|escape:'html'}}_td3">First Visiting Method:</td>
     <td class="{{$template|escape:'html'}}_td8">
-      <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select"></select>
+      <select id="{{$template|escape:'html'}}_fristVisitingMethod_select" class="{{$template|escape:'html'}}_select2"></select>
     </td>
     <td class="{{$template|escape:'html'}}_td5">First Visiting Date:</td>
     <td class="{{$template|escape:'html'}}_td4">
