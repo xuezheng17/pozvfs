@@ -9,7 +9,7 @@ function HandleUsers(gui, operator, now, options) {
 
 HandleUsers.prototype._createElements = function() {
   var tr, td;
-  this._gui.addUser.onclick = function() { location.href = '?t=useredit&m=' + JSON.stringify({ a: 4, b: 1 }); };
+  this._gui.addUser.onclick = function() { location.href = '?t=useredit&m=' + JSON.stringify({ a: 5, b: 1 }); };
   tr = this._gui.users.insertRow(-1);
   td = tr.insertCell(-1);
   td.appendChild(DOMUtils.getLoadingImage());
@@ -59,7 +59,7 @@ HandleUsers.prototype._updateElements = function() {
     td.style.height = '24px';
     td.style.padding = '0 0 0 20px';
     var a = document.createElement('a');
-    a.href = '?t=useredit&m=' + MiscUtils.encode({a: 4, b: 1}) + '&opts=' + MiscUtils.encode({id: u.id})
+    a.href = '?t=useredit&m=' + MiscUtils.encode({a: 5, b: 1}) + '&opts=' + MiscUtils.encode({id: u.id})
     a.appendChild(document.createTextNode(u.account));
     td.appendChild(a);
     
