@@ -243,7 +243,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                                                                                                          }, { pos: pos });
                                           }
                                         } else {
-                                          window.alert('CAN NOT BE EMPTY (First Visiting Method)');
+                                          window.alert('CAN NOT BE EMPTY (First Contact Method)');
                                         }
                                       };
 };

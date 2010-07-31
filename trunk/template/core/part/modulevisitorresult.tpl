@@ -22,7 +22,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
   a.appendChild(this._doc.createTextNode('No. ' + POZVFSUtils.visitorId(this._item.id)));
   this._gui.title.appendChild(a);
-  this._gui.title.appendChild(document.createTextNode(' - ' + this._item.firstVisitMethod + ' ' + SimpleDate.format(this._item.firstVisitDate)));
+  this._gui.title.appendChild(document.createTextNode(' - First Contact By ' + this._item.firstVisitMethod + ' On ' + SimpleDate.format(this._item.firstVisitDate)));
   var cnt = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
