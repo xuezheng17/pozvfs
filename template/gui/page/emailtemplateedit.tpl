@@ -46,6 +46,18 @@
     text-align: right;
     vertical-align: bottom;
   }
+  .{{$template|escape:'html'}}_td6 {
+    width: 83px;
+    height: 30px;
+    text-align: right;
+    vertical-align: top;
+    padding-top:10px;
+    padding-right:3px;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
+  }
   .{{$template|escape:'html'}}_inputText{
     width: 669px;
     height: 17px;
@@ -77,7 +89,7 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="3" ></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td2">Name:</td>
+    <td class="{{$template|escape:'html'}}_td6">Name:</td>
     <td class="{{$template|escape:'html'}}_td3">
       <input type="text" id="{{$template|escape:'html'}}_name_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
