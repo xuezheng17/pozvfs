@@ -309,7 +309,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                 new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                               }
                                             } else {
-                                              window.alert('CAN NOT BE EMPTY (First Visiting Method)');
+                                              window.alert('CAN NOT BE EMPTY (First Contact Method)');
                                             }
                                           };
   }
