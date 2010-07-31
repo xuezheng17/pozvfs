@@ -87,7 +87,7 @@
     height: 16px;
   }
   .{{$template|escape:'html'}}_inputText2{
-    width: 155px;
+    width: 172px;
     height: 16px;
   }
   .{{$template|escape:'html'}}_inputText3{
@@ -174,7 +174,7 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td3">Wedding Date:</td>
+    <td class="{{$template|escape:'html'}}_td3">Wedding Day:</td>
     <td class="{{$template|escape:'html'}}_td4">
        <input type="text" id="{{$template|escape:'html'}}_weddingDay_input" class="{{$template|escape:'html'}}_inputText2"></input>
     </td>

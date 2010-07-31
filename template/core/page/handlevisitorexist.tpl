@@ -117,7 +117,6 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.succeed.style.display = 'block';
   this._gui.drop.style.display = 'block';
   
-  
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
   this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1});
                                       };
@@ -467,7 +466,7 @@ HandleVisitorExist.prototype._updateElements = function() {
       this._gui.title.appendChild(document.createTextNode('(Visited)'));
     }
   }
-  this._gui.email.onclick = function() { var r = window.confirm('Do You Want To Email Via Our System?');
+  this._gui.email.onclick = function() { var r = window.confirm('Would you like to email via our system?');
                                          if (r) {
                                            var pos, func1, func2;
                                            var operation = Operation.instance();
