@@ -55,6 +55,8 @@ HandleUserEdit.prototype._updateElements = function() {
                                         if (_self._user.account == '' || _self._user.password == '') {
                                           window.alert(str.substring(0, str.length-2) + ' 不能为空');
                                         } else {
-                                          new RequestUtils()._write('user', [_self._user], [], function() { location.href = '?t=users&m=' + JSON.stringify({ a: 5, b: 1 }); }, null); };
+                                          new RequestUtils()._write('user', [_self._user], [], function() { location.href = '?t=users&m=' + JSON.stringify({ a: 5, b: 1 }); }, null); 
                                         }
+                                      };
+  this._gui.back.onclick = function() { history.back(); };
 };
