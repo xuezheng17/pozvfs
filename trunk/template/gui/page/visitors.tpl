@@ -14,7 +14,7 @@
   .{{$template|escape:'html'}}_table3 {
     width: 980px;
     height: 30px;
-    margin: 0px 0 0 0;
+    margin: 0px 0 50px 0;
     border:solid 0px #ccc;
   }
   .{{$template|escape:'html'}}_td0 {
@@ -180,7 +180,7 @@
     <td class="{{$template|escape:'html'}}_td8" colSpan="6"></td>
   </tr>
 </table>
-<table class="{{$template|escape:'html'}}_table2"  cellPaddiing="0" cellSpacing="0" border=0>
+<table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
     <td class="{{$template|escape:'html'}}_td7"></td>
     <td class="{{$template|escape:'html'}}_td71" id="{{$template|escape:'html'}}_page_div"></td>

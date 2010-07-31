@@ -24,21 +24,11 @@
     font-size: 9pt;
     font-weight: Regular;
     color: #000000; 
-    font-family: Arial;
+    font-family: arial, sans-serif;
+    font-size: 13px;
   }
 </style>
 
-<table cellPadding="0" cellSpacing="0" class="basesubscript_table1">
-  <tr>
-    <td class="basesubscript_td1" >
-      DREAMLIFE VISITOR SERVICE<sup>&reg</sup>
-    </td>
-  </tr>
-  <tr>
-    <td class="basesubscript_td2" >
-      Copyright&copy 2010 Dreamlife All rights reserved.
-    </td>
-  </tr>
-</table>  
+<div>Powered by <a href='#' style="font-family:arial, sans-serif;font-size:13px;">Dreamlife Project Developing Team</a></div>  
   
 

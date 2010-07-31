@@ -16,31 +16,39 @@ ModuleVisitorResult.prototype._createElements = function() {
   var _self = this;
   this._gui = new VisitorResult(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
 
+  this._gui.title.style.fontSize = '13px';
+  this._gui.title.style.fontWeight = 'bold';
   var a = this._doc.createElement('a');
   a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
   a.appendChild(this._doc.createTextNode('No. ' + POZVFSUtils.visitorId(this._item.id)));
   this._gui.title.appendChild(a);
-  this._gui.title.appendChild(document.createTextNode(' - ' + this._item.firstVisitMethod));
+  this._gui.title.appendChild(document.createTextNode(' - ' + this._item.firstVisitMethod + ' ' + SimpleDate.format(this._item.firstVisitDate)));
+  var cnt = 0;
+  for (var i = 0, il = this._item.operations.length; i < il; i++) {
+    var operation = this._item.operations[i];
+    var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
+    if (type == 'visit') {
+      if (!operation.cancelled) {
+        cnt++;
+      }
+    }
+  }
+  if (cnt || this._item.firstVisitMethod == 'Visitor') {
+    this._gui.title.appendChild(document.createTextNode(', Visited'));
+  } else {
+    this._gui.title.appendChild(document.createTextNode(', No Visit'));
+  }
+  
+  if (this._item.weddingDay) {
+    this._gui.title.appendChild(document.createTextNode(', Wedding Day ' + SimpleDate.format(this._item.weddingDay)));
+  } else {
+    this._gui.title.appendChild(document.createTextNode(', Wedding Day -'));
+  }
+   
   if (this._item.status == 1) {
     this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
   } else if (this._item.status == -1) {
     this._gui.title.appendChild(document.createTextNode(' (Failed)'));
-  } else {
-    var cnt = 0;
-    for (var i = 0, il = this._item.operations.length; i < il; i++) {
-      var operation = this._item.operations[i];
-      var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
-      if (type == 'visit') {
-        if (!operation.cancelled) {
-          cnt++;
-        }
-      }
-    }
-    if (cnt || this._item.firstVisitMethod == 'Visitor') {
-      this._gui.title.appendChild(document.createTextNode(', Visited'));
-    } else {
-      this._gui.title.appendChild(document.createTextNode(', No Visit'));
-    }
   }
   
   this._gui.brideName.appendChild(this._doc.createTextNode(this._item.brideName));
