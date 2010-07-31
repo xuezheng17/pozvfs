@@ -118,7 +118,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.drop.style.display = 'block';
   
   
-  this._gui.title.appendChild(document.createTextNode(this._visitor.firstVisitMethod + POZVFSUtils.visitorId(this._visitor.id)));
+  this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
   this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1});
                                       };
   this._gui.back.onclick = function() { if (_self._visitor.id - 1 != 0) {
