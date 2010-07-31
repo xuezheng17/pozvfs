@@ -39,10 +39,11 @@
     font-family: Arial;
   }
   .basemenus_td2 {
-    width: 10px;
+    width: 12px;
     height: 28px;
   }
   .basemenus_td3 {
+    padding: 0 13px;
     height: 19px;
     white-space:nowrap;
     text-align: center;
@@ -55,6 +56,7 @@
     cursor: pointer;
   }
   .basemenus_td3Hilight {
+    padding: 0 13px;
     height: 19px;
     white-space:nowrap;
     text-align: center;
@@ -73,10 +75,9 @@
   .basemenus_td5 {
     width: 1px;
     height: 19px;
+    padding-top:2px;
     text-align: center;
     vertical-align: middle;
-    font-size: 14px;
-    padding: 0 13px;
   }
 
   
@@ -166,7 +167,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a  href = "?t=basic&m={%22a%22:1,%22b%22:1}">Home</a>
+                <a  href = "?t=basic&m={%22a%22:1">Home</a>
               </td>
             </tr>
           </table>
@@ -182,7 +183,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href = "?t=basic&m={%22a%22:1,%22b%22:1}">Home</a>
+                <a  href = "?t=basic&m={%22a%22:1}">Home</a>
               </td>
             </tr>
           </table>
@@ -234,7 +235,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p">
-                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Featured</a>
+                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Feature</a>
               </td>
             </tr>
           </table>
@@ -250,7 +251,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Featured</a>
+                <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Feature</a>
               </td>
             </tr>
           </table>
@@ -258,7 +259,41 @@
       </td>
     {{/if}}
     <td class="basemenus_td2"></td>
-    {{if $menu->a == 4}}
+    {{if $menu->a == 4}} 
+    <td class="basemenus_td1Hilight">
+      <div class="basemenus_item">
+      <div class="row1"></div>
+      <div class="row2"></div>
+      <div class="row3"></div>
+      <div class="row4"></div>
+        <table cellPadding="0" cellSpacing="0">
+          <tr>
+          <td class="basemenus_p" >
+            <a  href = "?t=performance&m={%22a%22:4}">Performance</a>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  {{else}}
+    <td class="basemenus_td1" >
+      <div class="basemenus_item1">
+      <div class="row1"></div>
+      <div class="row2"></div>
+      <div class="row3"></div>
+      <div class="row4"></div>
+        <table cellPadding="0" cellSpacing="0">
+          <tr>
+          <td class="basemenus_ph" >
+            <a  href = "?t=performance&m={%22a%22:4}">Performance</a>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  {{/if}}
+  <td class="basemenus_td2"></td>
+    {{if $menu->a == 5}}
       <td class="basemenus_td1Hilight" >
         <div class="basemenus_item">
         <div class="row1"></div>
@@ -268,7 +303,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:5,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -284,7 +319,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:5,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -297,27 +332,10 @@
 
 
 {{if $menu->a == 1}}
-<div align="center">
+  <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
       <tr>
-        <td class="basemenus_td0" align="center">
-          <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
-            <tr>
-              <td>
-                <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
-                </div>
-              </td>
-              <td class="basemenus_td5">|</td>
-              <td>
-                <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
-                </div>
-              </td>
-              <td class="basemenus_td4">&nbsp</td>
-            </tr>
-          </table>
-        </td>
+        <td class="basemenus_td0" align="center">&nbsp</td>
       </tr>
     </table>
   </div>
@@ -336,7 +354,9 @@
                 <a href = "?t=visitors&m={%22a%22:2,%22b%22:1}">Search</a>
               </div>
             </td>
-            <td class="basemenus_td5">|</td>
+            <td class="basemenus_td5">
+              <img src="image/line.png" ></img>
+            </td>
             <td>
               <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                 <a href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
@@ -359,15 +379,21 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a  href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
+                  <a href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Last updated</a>
                 </div>
               </td>
-              <td class="basemenus_td5">|</td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
+                  <a  href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Close to wedding 
+
+day</a>
               </td>
-              <td class="basemenus_td5">|</td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
@@ -381,8 +407,17 @@
   </div>
 {{/if}}
 
-
 {{if $menu->a == 4}}
+  <div align="center">
+    <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
+      <tr>
+        <td class="basemenus_td0" align="center">&nbsp</td>
+      </tr>
+    </table>
+  </div>
+{{/if}}
+
+{{if $menu->a == 5}}
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
       <tr>
@@ -391,13 +426,15 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">Manage User</a>
+                  <a href="?t=users&m={%22a%22:5,%22b%22:1}">Manage User</a>
                 </div>
               </td>
-              <td class="basemenus_td5">|</td>
+              <td class="basemenus_td5">
+                <img src="image/line.png" ></img>
+              </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>
+                  <a href="?t=emailtemplates&m={%22a%22:5,%22b%22:2}">Manage eTemplate</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
