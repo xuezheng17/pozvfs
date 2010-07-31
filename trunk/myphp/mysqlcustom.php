@@ -8,9 +8,9 @@ $tableOperation = 'np_Operation';
 
 try {
   $hostname = 'localhost';
-  $username = 'pozvfs';
+  $username = 'albumpi1_pozvfs';
   $password = 'weida911';
-  $dbname = 'pozvfs';
+  $dbname = 'albumpi1_pozvfs';
   $myPdo = new PDO ('mysql:host=' . $hostname, $username, $password);
   $myPdo->exec('USE ' . $dbname);
   $myPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

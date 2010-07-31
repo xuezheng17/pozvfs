@@ -399,7 +399,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">User</a>
+                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">Manage User</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -407,7 +407,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Email Template</a>
+                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
