@@ -38,73 +38,14 @@
     color: #000000; 
     font-family: Arial;
   }
-  .basemenus_td12 {
-    height: 28px;
-    text-align: center;
-    vertical-align: bottom;
-    cursor: pointer;
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .basemenus_td12Hilight {
-    height: 28px;
-    text-align: center;
-    vertical-align: bottom;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .basemenus_td13 {
-    height: 28px;
-    text-align: center;
-    vertical-align: bottom;
-    cursor: pointer;
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .basemenus_td13Hilight {
-    height: 28px;
-    text-align: center;
-    vertical-align: bottom;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .basemenus_td14 {
-    height: 28px;
-    text-align: center;
-    vertical-align: bottom;
-    cursor: pointer;
-    font-size: 11pt;
-    font-weight: bold;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .basemenus_td14Hilight {
-    width:65px;
-    text-align: center;
-    vertical-align: bottom;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 11pt;
-    color: #000000; 
-    font-family: Arial;
-  }
   .basemenus_td2 {
     width: 10px;
     height: 28px;
   }
   .basemenus_td3 {
-    width: 58px;
+    padding: 0 13px;
     height: 19px;
+    white-space:nowrap;
     text-align: center;
     vertical-align: middle;
     font-size: 10pt;
@@ -115,8 +56,9 @@
     cursor: pointer;
   }
   .basemenus_td3Hilight {
-    width: 58px;
+    padding: 0 13px;
     height: 19px;
+    white-space:nowrap;
     text-align: center;
     vertical-align: middle;
     padding-top:7px;
@@ -124,183 +66,19 @@
     font-family: Arial;
     cursor: pointer;
   }
-  .basemenus_td33 {
-    width: 48px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    color: blue; 
-    text-decoration: underline ;
-    font-family: Arial;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td33Hilight {
-    width: 48px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
-  .basemenus_td31 {
-    width: 100px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    font-family: Arial;
-    color: blue; 
-    text-decoration: underline ;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td31Hilight {
-    width: 100px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
+
   .basemenus_td4 {
-    width: 997px;
+    width: 980px;
     height: 19px;
   }
-  .basemenus_td41 {
-    width: 910px;
-    height: 19px;
-  }
-  .basemenus_td42 {
-    width: 990px;
-    height: 19px;
-  }
-  .basemenus_td43 {
-    width: 985px;
-    height: 21px;
-  }
+
   .basemenus_td5 {
     width: 1px;
     height: 19px;
     text-align: center;
     vertical-align: middle;
   }
-  .basemenus_td6 {
-    width: 141px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    color: blue; 
-    text-decoration: underline ;
-    font-family: Arial;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td6Hilight {
-    width: 141px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
-  .basemenus_td7 {
-    width: 105px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    color: blue; 
-    text-decoration: underline ;
-    font-family: Arial;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td7Hilight {
-    width: 105px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
-  
-  .basemenus_td8 {
-    width: 105px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    font-family: Arial;
-    color: blue; 
-    text-decoration: underline ;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td8Hilight {
-    width: 105px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
-  .basemenus_td9 {
-    width: 42px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    font-family: Arial;
-    color: blue; 
-    text-decoration: underline ;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td9Hilight {
-    width: 42px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
-  .basemenus_td10 {
-    width: 82px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 10pt;
-    font-family: Arial;
-    color: blue; 
-    text-decoration: underline ;
-    padding-top:7px;
-    cursor: pointer;
-  }
-  .basemenus_td10Hilight {
-    width: 82px;
-    height: 19px;
-    text-align: center;
-    vertical-align: middle;
-    padding-top:7px;
-    font-size: 10pt;
-    font-family: Arial;
-    cursor: pointer;
-  }
+
   
   .basemenus_item div{
     height:1px;
@@ -360,70 +138,18 @@
     padding-bottom:5px;
     margin:0;
   }
-  .basemenus_p2{
-    padding: 0 13px;
-    height:24px;
-    background-color:#c3d9ff;
-    vertical-align:bottom;
-    padding-bottom:5px;
-    margin:0;
-  }
-  .basemenus_ph2{
-    padding: 0 13px;
-    height:24px;
-    background-color:#e5ecf9;
-    vertical-align:bottom;
-    padding-bottom:5px;
-    margin:0;
-  }
-  .basemenus_p3{
-    padding: 0 13px;
-    height:24px;
-    background-color:#c3d9ff;
-    vertical-align:bottom;
-    padding-bottom:5px;
-    margin:0;
-  }
-  .basemenus_ph3{
-    padding: 0 13px;
-    height:24px;
-    background-color:#e5ecf9;
-    vertical-align:bottom;
-    padding-bottom:5px;
-    margin:0;
-  }
-  .basemenus_p4{
-    padding: 0 13px;
-    height:24px;
-    background-color:#c3d9ff;
-    vertical-align:bottom;
-    padding-bottom:5px;
-    margin:0;
-  }
-  .basemenus_ph4{
-    padding: 0 13px;
-    height:24px;
-    background-color:#e5ecf9;
-    vertical-align:bottom;
-    padding-bottom:5px;
-    margin:0;
-  }
-  .basemenus_td14Hilight a,.basemenus_td1Hilight a,.basemenus_td13Hilight a,
-  .basemenus_td14 a,.basemenus_td1 a,.basemenus_td13 a,.basemenus_td12Hilight a,.basemenus_td12 a{
+
+  .basemenus_td1Hilight a,.basemenus_td1 a{
     text-decoration:none;
     font-size:11pt; 
     color:black;
   } 
-  .basemenus_td33Hilight a,.basemenus_td8Hilight a,.basemenus_td3Hilight a,.basemenus_td31Hilight a,
-  .basemenus_td6Hilight a,.basemenus_td7Hilight a,.basemenus_td9Hilight a{
+  .basemenus_td3Hilight a{
     color:black;
     font-size:10pt; 
     text-decoration:none;
   }
-  
-  
-  .basemenus_td33 a,.basemenus_td8 a,.basemenus_td3 a,.basemenus_td31 a,
-  .basemenus_td6 a,.basemenus_td7 a,.basemenus_td9 a{
+  .basemenus_td3 a{
    font-size:10pt; 
   }
 </style>
@@ -431,7 +157,7 @@
 <table class="basemenus_table1"  cellPadding="0" cellSpacing="0" border=0>
   <tr>
     {{if $menu->a == 1}} 
-      <td class="basemenus_td14Hilight">
+      <td class="basemenus_td1Hilight">
         <div class="basemenus_item" >
         <div class="row1"></div>
         <div class="row2"></div>
@@ -447,7 +173,7 @@
         </div>
       </td>
     {{else}}
-      <td class="basemenus_td14" >
+      <td class="basemenus_td1" >
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -499,7 +225,7 @@
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 3}} 
-      <td class="basemenus_td12Hilight">
+      <td class="basemenus_td1Hilight">
         <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -507,7 +233,7 @@
         <div class="row4"></div>
           <table cellPadding="0" cellSpacing="0">
             <tr>
-              <td class="basemenus_p2">
+              <td class="basemenus_p">
                 <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Featured</a>
               </td>
             </tr>
@@ -515,7 +241,7 @@
         </div>
       </td>
     {{else}}
-      <td class="basemenus_td12">
+      <td class="basemenus_td1">
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -523,7 +249,7 @@
         <div class="row4"></div>
           <table cellPadding="0" cellSpacing="0">
             <tr>
-              <td class="basemenus_ph2" >
+              <td class="basemenus_ph" >
                 <a  href = "?t=followup&m={%22a%22:3,%22b%22:1}">Featured</a>
               </td>
             </tr>
@@ -533,7 +259,7 @@
     {{/if}}
     <td class="basemenus_td2"></td>
     {{if $menu->a == 4}}
-      <td class="basemenus_td13Hilight" >
+      <td class="basemenus_td1Hilight" >
         <div class="basemenus_item">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -541,7 +267,7 @@
         <div class="row4"></div>
           <table cellPadding="0" cellSpacing="0">
             <tr>
-              <td class="basemenus_p3" >
+              <td class="basemenus_p" >
                 <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
@@ -549,7 +275,7 @@
         </div>
       </td>
     {{else}}
-      <td class="basemenus_td13">
+      <td class="basemenus_td1">
         <div class="basemenus_item1">
         <div class="row1"></div>
         <div class="row2"></div>
@@ -557,7 +283,7 @@
         <div class="row4"></div>
           <table cellPadding="0" cellSpacing="0">
             <tr>
-              <td class="basemenus_ph3" >
+              <td class="basemenus_ph" >
                 <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
@@ -578,7 +304,7 @@
           <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
             <tr>
               <td>
-                <div {{if $menu->b == 1}}class="basemenus_td33Hilight"{{else}}class="basemenus_td33"{{/if}}>
+                <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href = "?t=basic&m={%22a%22:1,%22b%22:1}">Basic</a>
                 </div>
               </td>
@@ -586,11 +312,11 @@
                 <img src="image/line.png" ></img>
               </td>
               <td>
-                <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href = "?t=performance&m={%22a%22:1,%22b%22:2}">Performance</a>
                 </div>
               </td>
-              <td class="basemenus_td43">&nbsp</td>
+              <td class="basemenus_td4">&nbsp</td>
             </tr>
           </table>
         </td>
@@ -616,10 +342,10 @@
               <img src="image/line.png" ></img>
             </td>
             <td>
-              <div {{if $menu->b == 2}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
+              <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                 <a href = "?t=visitornew&m={%22a%22:2,%22b%22:2}">New Visitor</a>
               </div>
-            <td class="basemenus_td41"></td>
+            <td class="basemenus_td4"></td>
           </tr>
         </table>
       <td>
@@ -636,7 +362,7 @@
           <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
             <tr>
               <td>
-                <div {{if $menu->b == 1}}class="basemenus_td6Hilight"{{else}}class="basemenus_td6"{{/if}}>
+                <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a  href="?t=followup&m={%22a%22:3,%22b%22:1}&opts={%22follow%22:1}">Close to wedding day</a>
                 </div>
               </td>
@@ -644,17 +370,17 @@
                 <img src="image/line.png" ></img>
               </td>
               <td>
-                <div {{if $menu->b == 2}}class="basemenus_td7Hilight"{{else}}class="basemenus_td7"{{/if}}>
+                <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Last updated</a>
               </td>
               <td class="basemenus_td5">
                 <img src="image/line.png" ></img>
               </td>
               <td>
-                <div {{if $menu->b == 3}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:3}&opts={%22follow%22:3}">Follow up times</a>
               </td>
-              <td class="basemenus_td42"></td>
+              <td class="basemenus_td4"></td>
             </tr>
           </table>
         </td>
@@ -672,7 +398,7 @@
           <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
             <tr>
               <td>
-                <div {{if $menu->b == 1}}class="basemenus_td9Hilight"{{else}}class="basemenus_td9"{{/if}}>
+                <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=users&m={%22a%22:4,%22b%22:1}">User</a>
                 </div>
               </td>
@@ -680,11 +406,11 @@
                 <img src="image/line.png" ></img>
               </td>
               <td>
-                <div {{if $menu->b == 2}}class="basemenus_td8Hilight"{{else}}class="basemenus_td8"{{/if}}>
+                <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Email Template</a>
                 </div>
               </td>
-              <td class="basemenus_td43"></td>
+              <td class="basemenus_td4"></td>
             </tr>
           </table>
         </td>
