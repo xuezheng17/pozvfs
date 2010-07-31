@@ -3,14 +3,23 @@
     width: 100%;
     height: 20px;
   }
+  .basetoolbar_td1 {
+    width: 100%;
+    height: 20px;
+    text-align: left;
+    vertical-align: bottom;
+    padding:0 0 2px 7px;
+  }
   .basetoolbar_cellTdLeft {
     height: 20px;
+  	width:
     text-align: right;
     vertical-align: bottom;
     padding-bottom: 2px;
+  	padding-right:7px;
   }
   .basetoolbar_cellTdCenter {
-    width: 20px;
+    width: 2px;
     height: 20px;
     text-align: center;
     vertical-align: bottom;
@@ -20,6 +29,8 @@
     font-size: 13px;
     font-family: Arial;
     text-align: left;
+    white-space:nowrap;
+    padding: 0 7px;
   }
   .basetoolbar_padding {
     font-size: 11pt;
@@ -35,8 +46,11 @@
   }
 </style>
 <div align="right">
-  <table cellPadding="0" cellSpacing="0">
+  <table cellPadding="0" cellSpacing="0" border=0>
     <tr>
+      <td class="basetoolbar_td1">
+        <a href = "http://code.google.com/p/dreamlifevisitorsystem/issues/list">Report&nbsp a&nbsp bug</a>
+      </td>
       <td class="basetoolbar_cellTdLeft">
         <span class="basetoolbar_padding">{{$userInfo|escape:html}}</span>
       </td>
