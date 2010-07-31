@@ -23,7 +23,15 @@ HandleVisitors.prototype._createElements = function() {
   td.style.width = '980px';
   td.style.height = '122px';
   td.style.textAlign = 'center';
-  td.appendChild(document.createTextNode('Show Visitors By Search'));
+  td.style.fontSize = '14px';
+  td.style.fontWeight = 'bold';
+  td.appendChild(document.createTextNode('Show visitors by search or create '));
+  var a = document.createElement('a');
+  a.style.fontSize = '14px';
+  a.style.fontWeight = 'normal';
+  a.href = '?t=visitornew&m={\"a\":2,\"b\":2}';
+  a.appendChild(document.createTextNode('New Visitor'));
+  td.appendChild(a);
   
   this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
 };
@@ -59,7 +67,9 @@ HandleVisitors.prototype._updateElements = function() {
     td.style.width = '980px';
     td.style.height = '122px';
     td.style.textAlign = 'center';
-    td.appendChild(document.createTextNode('Show Visitors By Search'));
+    td.style.fontSize = '14px';
+    td.style.fontWeight = 'bold';
+    td.appendChild(document.createTextNode('No result matches'));
   }
   for (var i = 0, il = this._visitors.length; i < il; i++) {
     var tmp = this._visitors[i];

@@ -22,7 +22,7 @@
     height: 8px;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 121px;
+    width: 125px;
     height: 29px;
     text-align: right;
     vertical-align: bottom;
@@ -33,13 +33,13 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 223px;
+    width: 225px;
     height: 29px;
     text-align: center;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 103px;
+    width: 125px;
     height: 29px;
     text-align: right;
     vertical-align: bottom;
@@ -57,7 +57,7 @@
     padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td5 {
-    width: 285px;
+    width: 280px;
     height: 28px;
     text-align: left;
     vertical-align: bottom;
@@ -68,11 +68,8 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 208px;
-    height: 60px;
-    text-align: right;
+    text-align: center;
     vertical-align: bottom;
-    padding:0 42px 0px 0;
   }
   .{{$template|escape:'html'}}_td7 {
     width: 500px;
@@ -134,7 +131,7 @@
     <td class="{{$template|escape:'html'}}_td4">
       <input type = "checkbox" id="{{$template|escape:'html'}}_inProgressingOnly_input" >
     </td>
-    <td class="{{$template|escape:'html'}}_td5">In Progressing Only</td>
+    <td class="{{$template|escape:'html'}}_td5">In Processing</td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td1">Phone:</td>
@@ -144,7 +141,11 @@
     <td class="{{$template|escape:'html'}}_td3"> Email:</td>
     <td class="{{$template|escape:'html'}}_td2">
        <input type="text" id="{{$template|escape:'html'}}_email_input" class="{{$template|escape:'html'}}_inputText"></input>
-    </td> 
+    </td>
+    <td class="{{$template|escape:'html'}}_td4">
+      <input type = "checkbox" id="{{$template|escape:'html'}}_succeededOnly_input" >
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">Succeeded</td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td1">W/D From:</td>
@@ -157,9 +158,10 @@
     <td class="{{$template|escape:'html'}}_td2">
        <input type="text" id="{{$template|escape:'html'}}_weddingDayTo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td> 
-    <td class="{{$template|escape:'html'}}_td6" colspan="2" rowSpan="2">
-    <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:67px;font-family:Arial;font-size:10pt;" value = "Search"></input>
-  </td>
+    <td class="{{$template|escape:'html'}}_td4">
+      <input type = "checkbox" id="{{$template|escape:'html'}}_failedOnly_input" >
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">Failed</td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td1">Created From:</td>
@@ -169,7 +171,10 @@
     <td class="{{$template|escape:'html'}}_td3">Created To:</td>
     <td class="{{$template|escape:'html'}}_td2">
        <input type="text" id="{{$template|escape:'html'}}_createdDateTo_input" class="{{$template|escape:'html'}}_inputText"></input>
-    </td> 
+    </td>
+    <td class="{{$template|escape:'html'}}_td6" colspan="2">
+      <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:67px;font-family:Arial;font-size:10pt;" value = "Search"></input>
+    </td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td8" colSpan="6"></td>

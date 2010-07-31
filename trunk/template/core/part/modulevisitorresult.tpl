@@ -18,11 +18,11 @@ ModuleVisitorResult.prototype._createElements = function() {
 
   var a = this._doc.createElement('a');
   a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
-  a.appendChild(this._doc.createTextNode(this._item.firstVisitMethod + POZVFSUtils.visitorId(this._item.id)));
+  a.appendChild(this._doc.createTextNode('No.' + POZVFSUtils.visitorId(this._item.id) + ' ' + this._item.firstVisitMethod));
   if (this._item.status == 1) {
-    a.appendChild(document.createTextNode('(Succeed)'));
+    a.appendChild(document.createTextNode(' (Succeed)'));
   } else if (this._item.status == -1) {
-    a.appendChild(document.createTextNode('(Failed)'));
+    a.appendChild(document.createTextNode(' (Failed)'));
   } else {
     var cnt = 0;
     for (var i = 0, il = this._item.operations.length; i < il; i++) {
@@ -35,7 +35,7 @@ ModuleVisitorResult.prototype._createElements = function() {
       }
     }
     if (cnt || this._item.firstVisitMethod == 'Visitor') {
-      a.appendChild(document.createTextNode('(Visited)'));
+      a.appendChild(document.createTextNode(' - Visited'));
     }
   }
   this._gui.title.appendChild(a);
