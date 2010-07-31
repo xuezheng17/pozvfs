@@ -5,6 +5,19 @@ function HandleFollowUp(gui, operator, now, options) {
   this._options = options;
   this._cont = (options && options.follow) ? options.follow : 0;
   
+  this._order = '';
+  if (this._cont == 1) {
+    this._order = 'o.operatedDate';
+    this._query = 'DESC';
+  } else if (this._cont == 2) {
+    this._order = 'v.weddingday';
+    this._query = 'ASC';
+  } else if (this._cont == 3) {
+    this._order = ' COUNT(o.e_oid) ';
+    this._query = 'ASC';
+    this._con = ' Group By v.e_oid';
+  }
+  
   this._createElements();
 }
 
@@ -27,8 +40,8 @@ HandleFollowUp.prototype._verifyData = function() {
 
 HandleFollowUp.prototype._retrieveVisitors = function(page) { 
   var _self = this;
-  var args = '&c=' + 'WHERE v.status = 0' + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}';
-  new RequestUtils()._mysql('followUp', args, function(result, params) { _self._visitors = result.data; 
+  var args = '&c=LEFT JOIN np_Operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + ((this._con) ? this._con : '')  + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + '&o=' + ((this._order) ? this._order : '' ) + '&q=' + ((this._query) ? this._query : '');
+  new RequestUtils()._mysql('followUp', args, function(result, params) { _self._visitors = result.data;
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);
                                                                        }, null);
@@ -52,14 +65,6 @@ HandleFollowUp.prototype._updateElements = function() {
     td.appendChild(document.createTextNode('Empty'));
   }
   
-  
-  if (this._cont == 1) {
-    this._visitors.sort( function(left, right){ return ((left.operation > right.operation) ? -1 : 1) } );
-  } else if (this._cont == 2) {
-    this._visitors.sort( function(left, right){ return ((left.weddingDay > right.weddingDay) ? 1 : -1) } );
-  } else if (this._cont == 3){
-    this._visitors.sort( function(left, right){ return ((left.cout > right.cout) ? 1 : -1) } );
-  }
   for (var i = 0, il = this._visitors.length; i < il; i++) {
     var tmp = this._visitors[i];
     tr = table.insertRow(-1);
