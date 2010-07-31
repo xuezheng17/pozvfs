@@ -105,6 +105,7 @@
     <td class="{{$template|escape:'html'}}_td2"></td>
     <td class="{{$template|escape:'html'}}_td5">
       <input type="button" style="width:65px;font-family:Arial;font-size:10pt;" id="{{$template|escape:'html'}}_save_button" value = "Save"></input>
+      <input type="button" style="width:65px;font-family:Arial;font-size:10pt;" id="{{$template|escape:'html'}}_back_button" value = "Back"></input
     </td>
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
