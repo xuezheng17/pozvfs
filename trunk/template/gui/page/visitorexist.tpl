@@ -28,6 +28,11 @@
     border-top: 1px solid #ccc;
     border-left: 1px solid #ccc;
     }
+  .{{$template|escape:'html'}}_table6 {
+    height: 51px;
+    text-align:right;
+    padding-right:20px;
+  }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
     height: 33px;
@@ -153,16 +158,15 @@
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td19 {
-    width: 620px;
+    width: 980px;
     height: 51px;
-    text-align: left;
     vertical-align: middle;
     padding-right:1px;
   }
   .{{$template|escape:'html'}}_td20 {
     width: 68px;
     height: 51px;
-    text-align: right;
+    text-align: left;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td21 {
@@ -505,8 +509,9 @@
   </tr>
   
   <tr>
-    <td class="{{$template|escape:'html'}}_td19">
-    </td>
+    <td class="{{$template|escape:'html'}}_td19" align="right">
+    <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table6" align="right" border=0>
+    <tr>
     <td class="{{$template|escape:'html'}}_td20">
       <input type="button" id="{{$template|escape:'html'}}_email_button" class="{{$template|escape:'html'}}_btn" value = "Email"></input>
     </td>
@@ -522,6 +527,8 @@
     <td class="{{$template|escape:'html'}}_td20">
       <input type="button" id="{{$template|escape:'html'}}_drop_button" class="{{$template|escape:'html'}}_btn" value = "Fail"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td21"></td>
+    </tr>
+    </table>
+    </td>
   </tr>
 </table>
