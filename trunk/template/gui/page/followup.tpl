@@ -10,7 +10,7 @@
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
-    height: 240px;
+    height: 40px;
     text-align: center;
   }
   .{{$template|escape:'html'}}_td3 {
