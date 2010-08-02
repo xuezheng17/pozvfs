@@ -71,7 +71,7 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
   }
 
   var _self = this
-  var func = function() {
+  var func = function() { console.log(this, this._page);
     if (isNaN(this._page)) {
       window.alert('Not A Number');
       return;
@@ -122,7 +122,7 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
     if (r != page) {
       a = doc.createElement('a');
       a.setAttribute('href', '#page' + r);
-      a.style.margin = '0em 0.7em';
+      a.style.margin = '0em 1em';
       a._page = r;
       a.onclick = func;
       a.appendChild(doc.createTextNode(r));
@@ -139,8 +139,20 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
 //    gui.last._page = last;
 //    gui.last.onclick = func;
   }
-  gui.page.onkeypress = function() { gui.jump._page = this.value; };
   gui.page.onchange = function() { gui.jump._page = this.value; };
+  gui.page.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                      if (code == 13) {
+                                        if (isNaN(this.value)) {
+                                          window.alert('Not A Number');
+                                          return;
+                                        }
+                                        if (this.value > last || this.value < 1) {
+                                          window.alert('Exceeded The Range');
+                                          return;
+                                        }
+                                        callbackFunc(this.value);
+                                      }
+                                    };
   gui.jump._page = page;
   gui.jump.onclick = func;
 };
