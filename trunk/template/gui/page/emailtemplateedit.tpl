@@ -51,8 +51,8 @@
     width: 83px;
     height: 30px;
     text-align: right;
-    vertical-align: top;
-    padding-top:10px;
+    vertical-align: middle;
+    padding-top:3px;
     padding-right:3px;
     font-size: 10pt;
     font-weight: bold;
@@ -60,8 +60,12 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_inputText{
-    width: 669px;
+    width: 670px;
     height: 17px;
+  }
+  .{{$template|escape:'html'}}_textarea{
+    width: 670px;
+    height: 400px;
   }
 </style>
 
@@ -98,7 +102,7 @@
   </tr>
     <td class="{{$template|escape:'html'}}_td2">Content:</td>
     <td class="{{$template|escape:'html'}}_td3">
-      <textarea id="{{$template|escape:'html'}}_content_input" rows="8"cols="80"></textarea>
+      <textarea id="{{$template|escape:'html'}}_content_input" class="{{$template|escape:'html'}}_textarea" style="overflow:hidden"></textarea>
     </td>
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
