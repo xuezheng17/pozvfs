@@ -72,7 +72,7 @@ Pagination.prototype._createElements = function() {
   btn1.type = 'button';
   btn1.style.fontSize = '9pt';
   btn1.style.fontFamily= 'Arial';
-  btn1.value = 'Back';
+  btn1.value = '<';
   td.appendChild(btn1);
   
   td = tr.insertCell(-1);
@@ -87,7 +87,7 @@ Pagination.prototype._createElements = function() {
   td.style.height = '22px';
   td.style.width = '46px';
   td.style.textAlign = 'left';
-  var btn2 = DOMUtils.createInput('', '', 'button', 'Next', null)
+  var btn2 = DOMUtils.createInput('', '', 'button', '>', null)
   btn2.id = this._unique + '_next_button';
   btn2.style.fontFamily= 'Arial'
   btn2.style.fontSize = '9pt';
@@ -113,6 +113,6 @@ Pagination.prototype._createElements = function() {
   btn3.type = 'button';
   btn3.style.fontSize = '9pt';
   btn3.style.fontFamily= 'Arial';
-  btn3.value = 'Jump';
+  btn3.value = 'Go';
   td.appendChild(btn3);
 };
