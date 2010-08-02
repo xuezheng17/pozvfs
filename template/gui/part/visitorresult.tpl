@@ -49,7 +49,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '165px';
+  td.style.width = '212px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -60,7 +60,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '163px';
+  td.style.width = '140px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -71,7 +71,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '527px';
+  td.style.width = '525px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -94,7 +94,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '163px';
+  td.style.width = '212px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -105,7 +105,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '163px';
+  td.style.width = '140px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -116,7 +116,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '527px';
+  td.style.width = '525px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -139,7 +139,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '163px';
+  td.style.width = '212px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -150,7 +150,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '163px';
+  td.style.width = '140px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -161,7 +161,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '537px';
+  td.style.width = '525px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
