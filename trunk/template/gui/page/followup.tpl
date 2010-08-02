@@ -18,8 +18,9 @@
     height: 5px;
   }
   .{{$template|escape:'html'}}_td4 {
-    width: 500px;
+    width: 980px;
     height: 10px;
+    padding-right:22px;
   }
 </style>
 
@@ -45,8 +46,7 @@
 
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1"></td>
-    <td class="{{$template|escape:'html'}}_td4" id= "{{$template|escape:'html'}}_page_div" ></td>
+    <td class="{{$template|escape:'html'}}_td4" id= "{{$template|escape:'html'}}_page_div" align="right"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td2" id= "{{$template|escape:'html'}}_visitors_div" colSpan="2" ></td>

@@ -180,7 +180,7 @@
 </table>
 <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td71" id="{{$template|escape:'html'}}_page_div"></td>
+    <td class="{{$template|escape:'html'}}_td71" align="right" id="{{$template|escape:'html'}}_page_div"></td>
   </tr>
 </table>
 <table class="{{$template|escape:'html'}}_table3"  cellPaddiing="0" cellSpacing="0">
