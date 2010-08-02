@@ -8,8 +8,8 @@ function ModuleVisitorResult(doc, container, width, height, operator, now, optio
   this._options = options;
 
   this._item = (options && options.item) ? options.item : null;
-  this._menu = (options && options.menu) ? options.menu : null;
-  this._cont = (options && options.cont) ? options.cont : null;
+  this._menu = (options && options.menu) ? options.menu : '';
+  this._cont = (options && options.cont) ? options.cont : '';
   
   this._createElements();
 }
