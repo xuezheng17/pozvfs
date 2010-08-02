@@ -483,7 +483,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
                                            pos = [window.screen.width/3, window.screen.height/3];
-                                           tmp = new ModulePopupBox(document, document.body, 700, 500, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
+                                           tmp = new ModulePopupBox(document, document.body, 710, 500, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
                                            new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, callbackFunc: function() {_self._retrieveOperations();}, popupBox: tmp });
                                            return false;
                                          } else {
