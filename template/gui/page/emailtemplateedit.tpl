@@ -42,8 +42,8 @@
     height: 30px;
   }
   .{{$template|escape:'html'}}_td5 {
-    width: 210px;
-    height: 70px;
+    width: 670px;
+    height: 50px;
     text-align: right;
     vertical-align: bottom;
   }
