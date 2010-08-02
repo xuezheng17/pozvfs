@@ -70,6 +70,6 @@ HandleFollowUp.prototype._updateElements = function() {
     var tmp = this._visitors[i];
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
-    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp } );
+    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp, menu: 3, cont: this._cont } );
   }
 };

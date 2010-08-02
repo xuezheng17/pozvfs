@@ -8,6 +8,8 @@ function ModuleVisitorResult(doc, container, width, height, operator, now, optio
   this._options = options;
 
   this._item = (options && options.item) ? options.item : null;
+  this._menu = (options && options.menu) ? options.menu : null;
+  this._cont = (options && options.cont) ? options.cont : null;
   
   this._createElements();
 }
@@ -20,7 +22,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.style.fontWeight = 'bold';
   var a = this._doc.createElement('a');
   a.style.fontSize = '13px';
-  a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: 1}) + '&opts=' + MiscUtils.encode({id: this._item.id});
+  a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: (this._menu) ? this._menu : 2, b: (this._cont) ? this._cont : 1}) + '&opts=' + MiscUtils.encode({id: this._item.id, menu: this._menu, cont: this._cont});
   a.appendChild(this._doc.createTextNode('No. ' + POZVFSUtils.visitorId(this._item.id)));
   this._gui.title.appendChild(a);
   this._gui.title.appendChild(document.createTextNode(' - First Contact By ' + this._item.firstVisitMethod + ' On ' + ((this._item.firstVisitDate) ? SimpleDate.format(this._item.firstVisitDate) : '-')));

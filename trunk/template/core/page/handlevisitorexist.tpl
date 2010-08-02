@@ -5,6 +5,9 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._options = options;
   
   this._visitorId = (options && options.id) ? options.id : null;
+  this._menu = (options && options.menu) ? options.menu : null;
+  this._cont = (options && options.cont) ? options.cont : null;
+  
   this._gui.email.style.display = 'none';
   this._gui.call.style.display = 'none';
   this._gui.visit.style.display = 'none';
@@ -116,12 +119,12 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.visit.style.display = 'block';
   this._gui.succeed.style.display = 'block';
   this._gui.drop.style.display = 'block';
-  
+  console.log(this._menu, this._cont);
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
-  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1});
+  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
                                       };
   this._gui.back.onclick = function() { if (_self._visitor.id - 1 != 0) {
-                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1});
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1, menu: _self._menu, cont: _self._cont});
                                         } else {
                                           window.alert('NO VISITOR 0');
                                         }
@@ -129,14 +132,14 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.number.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                               if (code == 13) {
                                                 if(POZVFSUtils.isNum(this.value)) {
-                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: this.value});
+                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: this.value, menu: _self._menu, cont: _self._cont});
                                                 } else {
                                                   window.alert('Input A Number Greater Than 0');
                                                 }
                                               }
                                             };
   this._gui.jump.onclick = function() { if(POZVFSUtils.isNum(_self._gui.number.value)) {
-                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value});
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value, menu: _self._menu, cont: _self._cont});
                                         } else {
                                           window.alert('Input A Number Greater Than 0');
                                         }
@@ -467,7 +470,8 @@ HandleVisitorExist.prototype._updateElements = function() {
   }
   if (this._visitor.brideEmail == '' && this._visitor.groomEmail == '') {
     this._gui.email.disabled = true;
-    this._gui.email.value = 'No emailAddress';
+    this._gui.email.style.width = '120px';
+    this._gui.email.value = 'No EmailAddress';
   }
   
   this._gui.email.onclick = function() { var r = window.confirm('Would you like to email via our system?');
@@ -479,7 +483,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
                                            pos = [window.screen.width/3, window.screen.height/3];
-                                           tmp = new ModulePopupBox(document, document.body, 800, 600, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
+                                           tmp = new ModulePopupBox(document, document.body, 700, 500, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
                                            new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, callbackFunc: function() {_self._retrieveOperations();}, popupBox: tmp });
                                            return false;
                                          } else {
@@ -550,17 +554,17 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            }
                                          };
   this._gui.drop.onclick = function() { var pos, func1;
-//                                        func1 = function() { _self._retrieveVisitor(); };
-//                                        pos = [window.screen.width/3, window.screen.height/3];
-//                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Failed Reason'});
-//                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp });
-                                        var r = window.confirm('Would you confirm to do this?');
-                                        if (r) {
-                                          var pos = DOMUtils.findPos(this);
-                                          _self._visitor.status = -1;
-                                          new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { _self._retrieveVisitor(); } }, { pos: pos });
-                                          return false;
-                                        }
+                                        func1 = function() { _self._retrieveVisitor(); };
+                                        pos = [window.screen.width/3, window.screen.height/3];
+                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Failed Reason'});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp });
+//                                        var r = window.confirm('Would you confirm to do this?');
+//                                        if (r) {
+//                                          var pos = DOMUtils.findPos(this);
+//                                          _self._visitor.status = -1;
+//                                          new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { _self._retrieveVisitor(); } }, { pos: pos });
+//                                          return false;
+//                                        }
                                       };
 };
 
