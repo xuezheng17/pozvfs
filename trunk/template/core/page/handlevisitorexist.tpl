@@ -13,7 +13,6 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._gui.visit.style.display = 'none';
   this._gui.succeed.style.display = 'none';
   this._gui.drop.style.display = 'none';
-  
   this._createElements();
 };
 
@@ -119,7 +118,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.visit.style.display = 'block';
   this._gui.succeed.style.display = 'block';
   this._gui.drop.style.display = 'block';
-  console.log(this._menu, this._cont);
+  
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
   this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
                                       };
@@ -435,7 +434,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.visit.disabled = true;
     this._gui.drop.disabled = true;
     this._gui.succeed.disabled = true;
-    this._gui.update.disabled = false;
+    this._gui.update.disabled = true;
   } else if (this._visitor.status == -1){
     this._gui.update.disabled = true;
     this._gui.email.disabled = true;
