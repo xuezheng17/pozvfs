@@ -44,16 +44,6 @@ ModuleEmailSend.prototype._updateElements = function() {
   var table, tr, td, input, _self = this;
 
   POZVFSUtils.clear(this._gui);
-
-  var table = document.createElement('table');
-  this._gui.visitorInfo.appendChild(table);
-  tr = table.insertRow(-1);
-  td = tr.insertCell(-1);
-  td.appendChild(this._doc.createTextNode(this._visitor.brideName + ' - ' + this._visitor.brideEmail));
-  tr = table.insertRow(-1);
-  td = tr.insertCell(-1);
-  td.appendChild(this._doc.createTextNode(this._visitor.groomName + ' - ' + this._visitor.groomEmail));
-
   this._gui.templateSelect.options[this._gui.templateSelect.options.length] = new Option('');
   for (var i = 0, il = this._templates.length; i < il; i++) {
     var template = this._templates[i];
@@ -80,5 +70,6 @@ ModuleEmailSend.prototype._updateElements = function() {
                                         new RequestUtils()._custom('sendEmail', {operation: _self._operation, visitor: _self._visitor, email: _self._email}, function() { _self._callbackFunc(); }, { pos: DOMUtils.findPos(this) });
                                         _self._popupBox._close();
                                       };
-  this._gui.cancel.onclick = function() { _self._popupBox._close(); };
+                                      
+  this._gui.cancel.onclick = function() {_self._popupBox._close();};
 };
