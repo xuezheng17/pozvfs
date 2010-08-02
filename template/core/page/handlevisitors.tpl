@@ -55,7 +55,7 @@ HandleVisitors.prototype._updateElements = function() {
   var unique, _self = this;
   DOMUtils.removeChildElements(this._gui.page);
   DOMUtils.removeChildElements(this._gui.visitors);
-  if (this._parameters.total > {{$smarty.const.SIZE|escape:'javascript'}}) {
+  if (this._parameters.total > this._parameters.size) {
     new ModulePagination(document, this._gui.page, 500, 50, this._operator, this._now, {page: this._parameters.page, total: this._parameters.total, limit: this._parameters.size, callbackFunc: function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, context: this});
   }
   var table = document.createElement('table');
