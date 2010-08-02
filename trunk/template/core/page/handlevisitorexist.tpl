@@ -5,8 +5,8 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._options = options;
   
   this._visitorId = (options && options.id) ? options.id : null;
-  this._menu = (options && options.menu) ? options.menu : null;
-  this._cont = (options && options.cont) ? options.cont : null;
+  this._menu = (options && options.menu) ? options.menu : '';
+  this._cont = (options && options.cont) ? options.cont : '';
   
   this._gui.email.style.display = 'none';
   this._gui.call.style.display = 'none';
@@ -484,7 +484,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.operator = _self._operator.account;
                                            pos = [window.screen.width/3, window.screen.height/3];
                                            tmp = new ModulePopupBox(document, document.body, 710, 500, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
-                                           new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, callbackFunc: function() {_self._retrieveOperations();}, popupBox: tmp });
+                                           new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, callbackFunc: function() {_self._retrieveOperations();}, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                            return false;
                                          } else {
                                            var pos, func1, func2;

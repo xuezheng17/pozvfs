@@ -11,6 +11,7 @@ function ModuleEmailSend(doc, container, width, height, operator, now, options) 
   this._visitor = (options && options.visitor) ? options.visitor : null;
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
   this._callbackFunc = (options && options.callbackFunc) ? options.callbackFunc : null;
+  this._pos = (options && options.pos) ? options.pos : null;
   this._email = { subject: '',
                   content: ''
                 };
@@ -67,7 +68,7 @@ ModuleEmailSend.prototype._updateElements = function() {
   this._gui.content.onchange = function() { _self._email.content = this.value };
   
   this._gui.send.onclick = function() { _self._operation.content = _self._email.content;
-                                        new RequestUtils()._custom('sendEmail', {operation: _self._operation, visitor: _self._visitor, email: _self._email}, function() { _self._callbackFunc(); }, { pos: DOMUtils.findPos(this) });
+                                        new RequestUtils()._custom('sendEmail', {operation: _self._operation, visitor: _self._visitor, email: _self._email}, function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         _self._popupBox._close();
                                       };
                                       

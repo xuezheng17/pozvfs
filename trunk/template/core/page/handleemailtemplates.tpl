@@ -60,14 +60,14 @@ HandleEmailTemplates.prototype._updateElements = function() {
     td.style.padding = '0 0 0 20px';
     var a = document.createElement('a');
     a.href = '?t=emailtemplateedit&m=' + MiscUtils.encode({a: 5, b: 2}) + '&opts=' + MiscUtils.encode({id: u.id})
-    a.appendChild(document.createTextNode(u.name));
+    a.appendChild(document.createTextNode((u.name.length > 20) ? u.name.substring(0, 20) + '...' : u.name));
     td.appendChild(a);
     
     td = tr.insertCell(-1);
     td.align = 'left';
     td.style.height = '24px';
     td.style.padding = '0 0 0 20px';
-    td.appendChild(document.createTextNode((u.content.length > 50) ? u.content.substring(0, 50) + '...' : u.content));
+    td.appendChild(document.createTextNode((u.content.length > 60) ? u.content.substring(0, 60) + '...' : u.content));
     
     td = tr.insertCell(-1);
     td.align = 'center';
