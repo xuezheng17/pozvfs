@@ -72,12 +72,10 @@
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td7 {
-    width: 500px;
     height: 8px;
     padding-right:22px;
   }
   .{{$template|escape:'html'}}_td71 {
-    width: 480px;
     height: 10px;
     padding-right:22px;
   }
@@ -182,7 +180,6 @@
 </table>
 <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td7"></td>
     <td class="{{$template|escape:'html'}}_td71" id="{{$template|escape:'html'}}_page_div"></td>
   </tr>
 </table>
