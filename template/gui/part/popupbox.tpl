@@ -57,11 +57,12 @@ PopupBox.prototype._createElements = function() {
   itable.cellPadding = 0;
   itable.cellSpacing = 0; 
   itable.border = 0
-  itable.style.margin='-1px 0 0 -1px';
+  itable.style.margin='-1px -3px 0 -1px';
   td.appendChild(itable);
   td = tr.insertCell(-1);
   td.style.height = (this._height-8) + 'px';
   td.style.width = '6px';
+  td.style.textAlign = 'left'
   td.style.backgroundImage='url(image/popupbox/rm.png)';
   td.style.backgroundRepeat = 'repeat-y';
   
@@ -95,7 +96,6 @@ PopupBox.prototype._createElements = function() {
   table1.cellPadding = 0;
   table1.cellSpacing = 0;
 //  table1.border=1
-  table1.style.margin='0 -3px 0 -1px';
   itd.appendChild(table1);
   
   tr1 = table1.insertRow(-1);
