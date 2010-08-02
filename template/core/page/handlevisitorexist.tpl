@@ -496,7 +496,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            func1 = function() {  _self._retrieveOperations(); };
                                            pos = [window.screen.width/3, window.screen.height/3];
                                            tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
-                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
+                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                            return false;
                                          }
                                        };
@@ -509,7 +509,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         func1 = function() {  _self._retrieveOperations(); };
                                         pos = [window.screen.width/3, window.screen.height/3];
                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                         return false;
                                       };
   this._gui.visit.onclick = function() { var pos, func1;
@@ -521,7 +521,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          func1 = function() {  _self._retrieveOperations(); };
                                          pos = [window.screen.width/3, window.screen.height/3];
                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
-                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
   
@@ -554,10 +554,15 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            }
                                          };
   this._gui.drop.onclick = function() { var pos, func1;
-                                        func1 = function() { _self._retrieveVisitor(); };
+                                        var operation = Operation.instance();
+                                        operation.visitId = _self._visitorId;
+                                        operation.cancelled = 0;
+                                        operation.operateType = this.value;
+                                        operation.operator = _self._operator.account;
+                                        func1 = function() { _self._retrieveVisitor(); _self._retrieveOperations(); };
                                         pos = [window.screen.width/3, window.screen.height/3];
                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Failed Reason'});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp });
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
 //                                        var r = window.confirm('Would you confirm to do this?');
 //                                        if (r) {
 //                                          var pos = DOMUtils.findPos(this);

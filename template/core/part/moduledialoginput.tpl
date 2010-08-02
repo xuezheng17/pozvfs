@@ -12,6 +12,7 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   this._drop = (options && options.drop) ? options.drop : false;
   this._callbackFunc = (options && options.callbackFunc) ? options.callbackFunc : null;
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
+  this._pos = (options && options.pos) ? options.pos : null;
   this._createElements();
 };
 
@@ -23,12 +24,11 @@ ModuleDialogInput.prototype._createElements = function() {
   this._gui.input.value = this._operation.content;
   this._gui.input.onchange = function() { _self._operation.content = this.value; };
   
-  this._gui.save.onclick = function() { var pos = DOMUtils.findPos(this);
-                                        if (_self._drop) {
+  this._gui.save.onclick = function() { if (_self._drop) {
                                           _self._visitor.status = (_self._drop) ? -1 : 0;
-                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: pos });
+                                          new RequestUtils()._custom('drop', {visitor: _self._visitor, operation: _self._operation }, function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
-                                          new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: pos });
+                                          new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         }
                                         _self._popupBox._close();
                                       };
