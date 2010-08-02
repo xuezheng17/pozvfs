@@ -42,9 +42,9 @@ HandleVisitors.prototype._verifyData = function() {
   }
 };
 
-HandleVisitors.prototype._retrieveVisitors = function(page, condition, datefrom, dateto, from, to, pos) { //{{$smarty.const.SIZE|escape:'javascript'}}
+HandleVisitors.prototype._retrieveVisitors = function(page, condition, datefrom, dateto, from, to, pos) {
   var _self = this;
-  var args = ((condition) ?  '&c=' + encodeURIComponent(condition) : '') + '&p=' + page + '&s=1' + ((datefrom) ?  '&datefrom=' + datefrom : '') + ((dateto) ?  '&dateto=' + dateto : '') + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
+  var args = ((condition) ?  '&c=' + encodeURIComponent(condition) : '') + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + ((datefrom) ?  '&datefrom=' + datefrom : '') + ((dateto) ?  '&dateto=' + dateto : '') + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
   new RequestUtils()._mysql('visitors', args, function(result, params) { _self._visitors = result.data; 
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);

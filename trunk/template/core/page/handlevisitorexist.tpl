@@ -429,32 +429,30 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
   }
   
-//  if (this._visitor.status == 1) {
-//    this._gui.email.disabled = true;
-//    this._gui.call.disabled = true;
-//    this._gui.visit.disabled = true;
-//    this._gui.drop.disabled = true;
-//    this._gui.succeed.disabled = false;
-//    this._gui.update.disabled = false;
-//    this._gui.succeed.value = 'Reverse';
-//  } else if (this._visitor.status == -1){
-//    this._gui.update.disabled = true;
-//    this._gui.email.disabled = true;
-//    this._gui.call.disabled = true;
-//    this._gui.visit.disabled = true;
-//    this._gui.succeed.disabled = true;
-//    this._gui.drop.disabled = false;
-//    this._gui.drop.value = 'Reverse';
-//  } else {
-//    this._gui.update.disabled = false;
-//    this._gui.email.disabled = false;
-//    this._gui.call.disabled = false;
-//    this._gui.visit.disabled = false;
-//    this._gui.succeed.disabled = false;
-//    this._gui.drop.disabled = false;
-//    this._gui.succeed.value = 'Succeed';
-//    this._gui.drop.value = 'Drop';
-//  }
+  if (this._visitor.status == 1) {
+    this._gui.email.disabled = true;
+    this._gui.call.disabled = true;
+    this._gui.visit.disabled = true;
+    this._gui.drop.disabled = true;
+    this._gui.succeed.disabled = true;
+    this._gui.update.disabled = false;
+  } else if (this._visitor.status == -1){
+    this._gui.update.disabled = true;
+    this._gui.email.disabled = true;
+    this._gui.call.disabled = true;
+    this._gui.visit.disabled = true;
+    this._gui.succeed.disabled = true;
+    this._gui.drop.disabled = true;
+  } else {
+    this._gui.update.disabled = false;
+    this._gui.email.disabled = false;
+    this._gui.call.disabled = false;
+    this._gui.visit.disabled = false;
+    this._gui.succeed.disabled = false;
+    this._gui.drop.disabled = false;
+    this._gui.succeed.value = 'Succeed';
+    this._gui.drop.value = 'Drop';
+  }
   this._gui.email.value = 'Email(' + (eNumber+1) + ')';
   this._gui.call.value = 'Call(' + (pNumber+1) + ')';
   this._gui.visit.value = 'Visit(' + (vNumber+1) + ')';
@@ -472,6 +470,8 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.email.disabled = true;
     this._gui.email.style.width = '120px';
     this._gui.email.value = 'No EmailAddress';
+  } else {
+    this._gui.email.style.width = '67px';
   }
   
   this._gui.email.onclick = function() { var r = window.confirm('Would you like to email via our system?');
