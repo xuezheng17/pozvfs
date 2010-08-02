@@ -182,19 +182,19 @@ HandleVisitors.prototype._toString = function(search) {
   str += (search.id == '') ? '' : ((isNaN(search.id)) ? ' AND 1 = 0' : ' AND (v.e_oid=\'' + search.id + '\')');
   
   if (search.inProgressingOnly && search.succeeded && search.failed) {
-    str += ' AND v.status = 0 OR v.status = 1 OR v.status = -1';
+    str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -1))';
   } else if (search.inProgressingOnly && search.succeeded) {
-    str += ' AND v.status = 0 OR v.status = 1';
+    str += ' AND ((v.status = 0) OR (v.status = 1))';
   } else if (search.inProgressingOnly && search.failed) {
-    str += ' AND v.status = 0 OR v.status = -1';
+    str += ' AND ((v.status = 0) OR (v.status = -1))';
   } else if (search.succeed && search.succeeded) {
-    str += ' AND v.status = 1 OR v.status = -1';
+    str += ' AND ((v.status = 1) OR (v.status = -1))';
   } else if (search.inProgressingOnly) {
-    str += ' AND v.status = 0';
+    str += ' AND (v.status = 0)';
   } else if (search.succeeded) {
-    str += ' AND v.status = 1';
+    str += ' AND (v.status = 1)';
   } else if (search.failed) {
-    str += ' AND v.status = -1';
+    str += ' AND (v.status = -1)';
   }
   return str;
 };
