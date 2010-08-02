@@ -94,15 +94,16 @@ PopupBox.prototype._createElements = function() {
   table1.style.height = '29px';
   table1.cellPadding = 0;
   table1.cellSpacing = 0;
-  table1.border=0
+//  table1.border=1
   table1.style.margin='0 -3px 0 -1px';
   itd.appendChild(table1);
   
   tr1 = table1.insertRow(-1);
   td1 = tr1.insertCell(-1);
   td1.style.height = '29px';
-  td1.style.width = '80px';
+  td1.style.width = '170px';
   td1.style.padding='0 0 0 20px'
+  td1.style.whiteSpace = 'nowrap'
   td1.align = 'left';
   td1.id = this._unique + '_title_img';
   td1.style.fontWeight = 'bold';
@@ -112,7 +113,7 @@ PopupBox.prototype._createElements = function() {
   
   td1 = tr1.insertCell(-1);
   td1.style.height = '29px';
-  td1.style.width = (this._width - 150) + 'px';
+  td1.style.width = (this._width - 240) + 'px';
   td1.style.backgroundImage='url(image/popupbox/ttm.png)';
   td1.style.backgroundRepeat = 'repeat-x';
   
