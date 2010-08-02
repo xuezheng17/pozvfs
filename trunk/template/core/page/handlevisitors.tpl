@@ -55,8 +55,9 @@ HandleVisitors.prototype._updateElements = function() {
   var unique, _self = this;
   DOMUtils.removeChildElements(this._gui.page);
   DOMUtils.removeChildElements(this._gui.visitors);
-  Pagination.makePagedResults(this._gui.page, this._parameters.page, this._parameters.total, this._parameters.size, function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, this, document);
-
+  if (this._parameters.total > {{$smarty.const.SIZE|escape:'javascript'}}) {
+    new ModulePagination(document, this._gui.page, 500, 50, this._operator, this._now, {page: this._parameters.page, total: this._parameters.total, limit: this._parameters.size, callbackFunc: function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, context: this});
+  }
   var table = document.createElement('table');
   table.cellPadding = 0;
   table.cellSpacing = 0;
@@ -161,21 +162,40 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
                                                }
                                              };
   gui.inProgressingOnly.defaultChecked = this._search.inProgressingOnly;
-  gui.inProgressingOnly.onclick = function() { _self._search.inProgressingOnly = this.checked; };
+  gui.inProgressingOnly.onclick = function() { _self._search.inProgressingOnly = this.checked;
+                                             };
+  gui.succeeded.defaultChecked = this._search.succeeded;
+  gui.succeeded.onclick = function() { _self._search.succeeded = this.checked;
+                                     };
+  gui.failed.defaultChecked = this._search.failed;
+  gui.failed.onclick = function() { _self._search.failed = this.checked;
+                                  };
 
   gui.search.onclick = function() { _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this)); };
 };
 
 HandleVisitors.prototype._toString = function(search) {
   var str = 'WHERE 1 = 1';
-  
   str += (search.name == '') ? '' : ' AND ((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
   str += (search.phone == '') ? '' : ' AND ((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
   str += (search.email == '') ? '' : ' AND ((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
   str += (search.id == '') ? '' : ((isNaN(search.id)) ? ' AND 1 = 0' : ' AND (v.e_oid=\'' + search.id + '\')');
   
-  str += (search.inProgressingOnly) ? ' AND v.status = 0' : '';
-  
+  if (search.inProgressingOnly && search.succeeded && search.failed) {
+    str += ' AND v.status = 0 OR v.status = 1 OR v.status = -1';
+  } else if (search.inProgressingOnly && search.succeeded) {
+    str += ' AND v.status = 0 OR v.status = 1';
+  } else if (search.inProgressingOnly && search.failed) {
+    str += ' AND v.status = 0 OR v.status = -1';
+  } else if (search.succeed && search.succeeded) {
+    str += ' AND v.status = 1 OR v.status = -1';
+  } else if (search.inProgressingOnly) {
+    str += ' AND v.status = 0';
+  } else if (search.succeeded) {
+    str += ' AND v.status = 1';
+  } else if (search.failed) {
+    str += ' AND v.status = -1';
+  }
   return str;
 };
 

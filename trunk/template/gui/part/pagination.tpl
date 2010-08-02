@@ -77,7 +77,7 @@ Pagination.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '22px';
-  td.style.width = '195px';
+  td.style.width = '15px';
   td.style.textAlign = 'center';
   td.style.fontSize = '11pt';
   td.style.fontFamily= 'Arial';
