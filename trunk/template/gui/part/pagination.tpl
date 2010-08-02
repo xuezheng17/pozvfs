@@ -12,8 +12,8 @@ function Pagination(doc, container, width, height, operator, now, options) {
 Pagination.prototype._createElements = function() {
   var table, tr, td, input;
   table= this._doc.createElement('table');
-  table.style.width = '555px';
   table.style.height = '22px';
+  table.style.textAlign = 'right';
   table.cellPadding = 0;
   table.cellSpacing = 0;
 //  table.border=1
