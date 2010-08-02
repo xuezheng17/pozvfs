@@ -388,7 +388,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.appendChild(span1);
     span1.style.lineHeight = '24px';
     span1.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ') '));
-    if (!operation.cancelled) {
+    if (!operation.cancelled && this._visitor.status == 0) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
       img.style.cursor = 'pointer';
@@ -408,7 +408,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.style.height = '24px';
     td.style.textAlign = 'center';
     td.style.verticalAlign = 'middle';
-    if (!operation.cancelled) {
+    if (!operation.cancelled && this._visitor.status == 0) {
       var img = document.createElement('img');
       img.src = 'image/delete.png';
       img.style.cursor = 'pointer';
