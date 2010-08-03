@@ -180,7 +180,7 @@ VisitorResult.prototype._createElements = function() {
   var table2 = this._doc.createElement('table');
   table2.style.width = '980px';
   table2.style.height = '24px';
-  table2.border=1;
+//  table2.border=1;
   table2.cellPadding = 0;
   table2.cellSpacing = 0;
   td.appendChild(table2);
