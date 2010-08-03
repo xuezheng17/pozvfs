@@ -100,4 +100,9 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.groomEmail.appendChild(this._doc.createTextNode(this._item.groomEmail));
   this._gui.createdDate.appendChild(this._doc.createTextNode(SimpleDate.format(this._item.createdDate)));
   this._gui.author.appendChild(this._doc.createTextNode(this._item.creator));
+  
+  this._gui.cultureBackground.appendChild(document.createTextNode(((this._item.culturalBackground) ? this._item.culturalBackground : ' - ') + ', '));
+  this._gui.ceremonyLocation.appendChild(document.createTextNode(((this._item.ceremonyLocation) ? this._item.ceremonyLocation : ' - ') + ', '));
+  this._gui.receptionLocation.appendChild(document.createTextNode(((this._item.receptionLocation) ? this._item.receptionLocation : ' - ') + ', '));
+  this._gui.source.appendChild(document.createTextNode((this._item.source) ? this._item.source : ' - '));
 };
