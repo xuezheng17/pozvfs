@@ -25,7 +25,10 @@ ModuleVisitorResult.prototype._createElements = function() {
   a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: (this._menu) ? this._menu : 2, b: (this._cont) ? this._cont : 1}) + '&opts=' + MiscUtils.encode({id: this._item.id, menu: this._menu, cont: this._cont});
   a.appendChild(this._doc.createTextNode('No. ' + POZVFSUtils.visitorId(this._item.id)));
   this._gui.title.appendChild(a);
-  this._gui.title.appendChild(document.createTextNode(' - First Contact By ' + this._item.firstVisitMethod + ' On ' + ((this._item.firstVisitDate) ? SimpleDate.format(this._item.firstVisitDate) : '-')));
+  
+  this._gui.title.appendChild(document.createTextNode(' - '));
+  var span = document.createElement('span');
+  span.style.color = '#891234';
   var cnt = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
@@ -37,17 +40,52 @@ ModuleVisitorResult.prototype._createElements = function() {
     }
   }
   if (cnt || this._item.firstVisitMethod == 'Visitor') {
-    this._gui.title.appendChild(document.createTextNode(', Visited'));
+    span.style.color = '#123489';
+    span.appendChild(document.createTextNode('Visited'));
   } else {
-    this._gui.title.appendChild(document.createTextNode(', No Visit'));
+    span.appendChild(document.createTextNode('No Visit'));
   }
+  this._gui.title.appendChild(span);
   
+  this._gui.title.appendChild(document.createTextNode(' | '));
+  span = document.createElement('span');
+  span.style.color = '#DD8012';
   if (this._item.weddingDay) {
-    this._gui.title.appendChild(document.createTextNode(', Wedding Day ' + SimpleDate.format(this._item.weddingDay)));
+    span.appendChild(document.createTextNode('Wedding Day ' + SimpleDate.format(this._item.weddingDay)));
   } else {
-    this._gui.title.appendChild(document.createTextNode(', Wedding Day -'));
+    span.style.color = '#FFBB00';
+    span.appendChild(document.createTextNode('No Wedding Day'));
   }
-   
+  this._gui.title.appendChild(span);
+  
+  this._gui.title.appendChild(document.createTextNode(' | '));
+  span = document.createElement('span');
+  span.style.color = '#129834';
+  span.appendChild(document.createTextNode('First Contact By ' + this._item.firstVisitMethod + ((this._item.firstVisitDate) ? ' On ' + SimpleDate.format(this._item.firstVisitDate) : '')));
+  this._gui.title.appendChild(span);
+  
+  this._gui.title.appendChild(document.createTextNode(' | '));
+  span = document.createElement('span');
+  span.style.color = '#123476';
+  if (this._item.operations.length == 0) {
+    span.appendChild(document.createTextNode('Last Updated at ' + SimpleDate.format(this._item.createdDate)));
+  } else {
+    span.appendChild(document.createTextNode('Last Updated at ' + SimpleDate.format(this._item.operations[0].operatedDate)));
+  }
+  this._gui.title.appendChild(span);
+  
+  this._gui.title.appendChild(document.createTextNode(' | '));
+  span = document.createElement('span');
+  span.style.color = '#123476';
+  if (this._item.operations.length == 0) {
+    span.style.color = '#FF0000';
+    span.appendChild(document.createTextNode('No Follow up actions'));
+  } else {
+    span.style.color = '#009900';
+    span.appendChild(document.createTextNode(this._item.operations.length + ' Follow up actions'));
+  }
+  this._gui.title.appendChild(span);
+
   if (this._item.status == 1) {
     this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
   } else if (this._item.status == -1) {
