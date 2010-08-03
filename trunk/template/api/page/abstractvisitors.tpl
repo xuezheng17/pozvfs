@@ -13,6 +13,7 @@ AbstractVisitors.gui = function(unique) {
            inProgressingOnly: document.getElementById(unique + '_inProgressingOnly_input'),
            succeeded: document.getElementById(unique + '_succeededOnly_input'),
            failed: document.getElementById(unique + '_failedOnly_input'),
+           deleted: document.getElementById(unique + '_deletedOnly_input'),
            search: document.getElementById(unique + '_search_button'),
            page: document.getElementById(unique + '_page_div'),
            visitors: document.getElementById(unique + '_visitors_table')
