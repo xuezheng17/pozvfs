@@ -39,7 +39,7 @@
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
-    height: 4px;
+    height: 10px;
   }
   .{{$template|escape:'html'}}_td3 {
     width: 157px;
@@ -332,6 +332,7 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td2"colspan="5">
+      <div id="{{$template|escape:'html'}}_reason_div"></div>
     </td>
   </tr>
   <tr>
@@ -486,7 +487,8 @@
   <tr>
     <td class="{{$template|escape:'html'}}_td11" colspan="4">
       <input type="button" id="{{$template|escape:'html'}}_update_button" class="{{$template|escape:'html'}}_btn" value = "Update"></input>
-    </td>
+      <input type="button" id="{{$template|escape:'html'}}_delete_button" class="{{$template|escape:'html'}}_btn" value = "Delete"></input>
+      </td>
   </tr>
 </table>
 
@@ -501,7 +503,7 @@
           <td class="{{$template|escape:'html'}}_td22">Method</td>
           <td class="{{$template|escape:'html'}}_td23">Operator</td>
           <td class="{{$template|escape:'html'}}_td24">Date</td>
-          <td class="{{$template|escape:'html'}}_td25" valign="middle">Note</td>
+          <td class="{{$template|escape:'html'}}_td25">Note</td>
           <td class="{{$template|escape:'html'}}_td26"></td>
         </tr>
       </table>
