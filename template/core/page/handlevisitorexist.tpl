@@ -414,8 +414,6 @@ HandleVisitorExist.prototype._updateElements = function() {
   /* Delete */
   this._gui.remove.onclick = function() { var func1 = function() { location.reload();};
                                           var pos = [window.screen.width/3, window.screen.height/3];
-                                          _self._visitor.cancelledOperator = _self._operator.account;
-                                          _self._visitor.cancelledDate = _self._now;
                                           tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Delete Reason'});
                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, deleted: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
                                         };
@@ -656,9 +654,6 @@ HandleVisitorExist.prototype._updateElements = function() {
 //                                         };
   this._gui.drop.onclick = function() { var func1 = function() { location.reload();};
                                         var pos = [window.screen.width/3, window.screen.height/3];
-                                        _self._visitor.cancelledOperator = _self._operator.account;
-                                        _self._visitor.cancelledDate = _self._now;
-                                        _self._visitor.status = -1;
                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Fail Reason'});
                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, failed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
                                       };

@@ -5,6 +5,8 @@ function HandleFollowUp(gui, operator, now, options) {
   this._options = options;
   this._cont = (options && options.follow) ? options.follow : 0;
   
+  this._gui.sort.style.display = 'none';
+  
   this._order = '';
   if (this._cont == 1) {
     this._order = 'o.operatedDate';
@@ -17,9 +19,15 @@ function HandleFollowUp(gui, operator, now, options) {
     this._query = 'ASC';
     this._con = ' Group By v.e_oid';
   } else if (this._cont == 4) {
-    this._cont = "v.firstVisitMethod = Visit OR (o.operateType.substring(0, o.operateType.indexOf(' ('))).toLowerCase() == 'visit'";
+    var str = 'Visit';
+    this._con = ' AND ((v.firstVisitMethod = \'Visitor\') OR (o.operateType LIKE \'%' + str + '%\'))';
+    this._order = 'v.e_oid';
+    this._query = 'ASC';
   } else if (this._cont == 5) {
-    this._cont = "v.firstVisitMethod != Visit OR (o.operateType.substring(0, o.operateType.indexOf(' ('))).toLowerCase() != 'visit'";
+    var str = 'Visit';
+    this._con = ' AND (v.firstVisitMethod != \'Visitor\') Group By v.e_oid HAVING COUNT(o.operateType LIKE \'%' + str + '%\') = 0';
+    this._order = 'v.e_oid';
+    this._query = 'ASC';
   }
   
   this._createElements();
@@ -27,9 +35,13 @@ function HandleFollowUp(gui, operator, now, options) {
 
 HandleFollowUp.prototype._createElements = function() {
   this._gui.visitors.appendChild(DOMUtils.getLoadingImage());
+  var _self = this;
   
-  if (this._cont != 4 || this._cont != 5) {
-    this._gui.sort.options[this._gui.sort.options.length] = new Option('');
+    
+  if (this._cont == 4 || this._cont == 5) {
+    
+  } else {
+    this._gui.sort.style.display = 'block';
     for (var i = 0, il = SortMethod.array().length; i < il; i++) {
       var method = SortMethod.array()[i];
       var option = new Option(method);
@@ -38,9 +50,9 @@ HandleFollowUp.prototype._createElements = function() {
         this._gui.sort.selectedIndex = this._gui.sort.options.length - 1;
       }
     }
-    this._gui.sort.onchange = function() { _self._query = this.options[this.selectedIndex].text; _self._createElements(); };
-  } else {
-    this._gui.sort.style.display = 'none';
+    this._gui.sort.onchange = function() { _self._query = this.options[this.selectedIndex].text;
+                                           _self._retrieveVisitors(1);
+                                         };
   }
   
   this._loadData();

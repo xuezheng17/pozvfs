@@ -29,7 +29,8 @@ ModuleDialogInput.prototype._createElements = function() {
                                             _self._operation.content = this.value;
                                           }
                                         };
-  
+  this._visitor.cancelledOperator = this._operator.account;
+  this._visitor.cancelledDate = this._now;
   this._gui.save.onclick = function() { if (_self._failed) {
                                           _self._visitor.status = -1;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
