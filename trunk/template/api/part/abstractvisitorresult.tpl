@@ -10,6 +10,10 @@ AbstractVisitorResult.gui = function(unique, doc) {
            groomName: doc.getElementById(unique + '_groomName_div'),
            groomPhone: doc.getElementById(unique + '_groomPhone_div'),
            groomEmail: doc.getElementById(unique + '_groomEmail_div'),
+           cultureback: doc.getElementById(unique + '_cultureback_div'),
+           cerelocation: doc.getElementById(unique + '_cerelocation_div'),
+           receplocation: doc.getElementById(unique + '_receplocation_div'),
+           source: doc.getElementById(unique + '_source_div'),
            createdDate: doc.getElementById(unique + '_createdDate_div'),
            author: doc.getElementById(unique + '_author_div')
          };
