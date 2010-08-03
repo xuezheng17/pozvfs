@@ -4,10 +4,9 @@
     height: 30px;
   }
   .{{$template|escape:'html'}}_td0 {
-    width: 480px;
-    height: 30px;
+    width: 980px;
     vertical-align:center;
-    padding-top:4px;
+    padding:5px 0;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
