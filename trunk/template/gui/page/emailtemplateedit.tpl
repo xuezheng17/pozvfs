@@ -1,7 +1,7 @@
 <style>
 .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 165px;
+    height: 525px;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
@@ -65,7 +65,7 @@
   }
   .{{$template|escape:'html'}}_textarea{
     width: 670px;
-    height: 400px;
+    height: 380px;
   }
 </style>
 
@@ -100,6 +100,17 @@
     </td>
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6">Subject:</td>
+    <td class="{{$template|escape:'html'}}_td3">
+      <input type="text" id="{{$template|escape:'html'}}_subject_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td class="{{$template|escape:'html'}}_td4"></td>
+  </tr>
+  <tr>
+    <td style="width:3px" colSpan="3"></td>
+  </tr>
+  <tr>
     <td class="{{$template|escape:'html'}}_td2">Content:</td>
     <td class="{{$template|escape:'html'}}_td3">
       <textarea id="{{$template|escape:'html'}}_content_input" class="{{$template|escape:'html'}}_textarea" style="overflow:hidden"></textarea>
