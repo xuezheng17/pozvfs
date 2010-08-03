@@ -32,7 +32,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   var cnt = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
-    var type = operation.operateType.substring(0, operation.operateType.indexOf('('));
+    var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
     if (type == 'visit') {
       if (!operation.cancelled) {
         cnt++;
@@ -103,6 +103,10 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.createdDate.appendChild(this._doc.createTextNode(SimpleDate.format(this._item.createdDate)));
   this._gui.author.appendChild(this._doc.createTextNode(this._item.creator));
   
+  this._gui.cultureBackground.style.margin = '0 10px 0 0';
+  this._gui.ceremonyLocation.style.margin = '0 10px 0 0';
+  this._gui.receptionLocation.style.margin = '0 10px 0 0';
+  this._gui.source.style.margin = '0 10px 0 0';
   this._gui.cultureBackground.appendChild(document.createTextNode(((this._item.culturalBackground) ? this._item.culturalBackground : ' - ') + ', '));
   this._gui.ceremonyLocation.appendChild(document.createTextNode(((this._item.ceremonyLocation) ? this._item.ceremonyLocation : ' - ') + ', '));
   this._gui.receptionLocation.appendChild(document.createTextNode(((this._item.receptionLocation) ? this._item.receptionLocation : ' - ') + ', '));
