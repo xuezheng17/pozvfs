@@ -59,7 +59,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.bridePhone.appendChild(this._doc.createTextNode(((this._item.bridePhone) ? this._item.bridePhone : ' - ') + ' / ' + ((this._item.brideMobile) ? this._item.brideMobile : ' - ')));
   this._gui.groomPhone.appendChild(this._doc.createTextNode(((this._item.groomPhone) ? this._item.groomPhone : ' - ') + ' / ' + ((this._item.groomMobile) ? this._item.groomMobile : ' - ')));
   this._gui.brideEmail.appendChild(this._doc.createTextNode(this._item.brideEmail));
-  this._gui.groomEmail.appendChild(this._doc.createTextNode(this._item.brideEmail));
+  this._gui.groomEmail.appendChild(this._doc.createTextNode(this._item.groomEmail));
   this._gui.createdDate.appendChild(this._doc.createTextNode(SimpleDate.format(this._item.createdDate)));
   this._gui.author.appendChild(this._doc.createTextNode(this._item.creator));
 };
