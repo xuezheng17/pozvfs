@@ -133,13 +133,13 @@ HandleVisitorExist.prototype._updateElements = function() {
   var _self = this, table, tr, td;
   this._popupBox._close();
   DOMUtils.removeChildElements(this._gui.title);
+  DOMUtils.removeChildElements(this._gui.firstVisitingMethod);
   DOMUtils.removeChildElements(this._gui.source);
   DOMUtils.removeChildElements(this._gui.ceremonyLocation);
   DOMUtils.removeChildElements(this._gui.receptionLocation);
   DOMUtils.removeChildElements(this._gui.culturalBackground);
   DOMUtils.removeTableRows(this._gui.operations, 1);
   DOMUtils.removeChildElements(this._gui.page);
-  
   if (this._visitor.status == 1) {
     this._gui.email.disabled = true;
     this._gui.call.disabled = true;
@@ -190,7 +190,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.succeed.style.display = 'block';
     this._gui.drop.style.display = 'block';
   }
-  
+
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
   this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
                                       };

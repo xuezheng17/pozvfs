@@ -24,10 +24,10 @@ function HandleFollowUp(gui, operator, now, options) {
     this._order = 'v.e_oid';
     this._query = 'ASC';
   } else if (this._cont == 5) {
-    var str = 'Visit';
-    this._con = ' AND (v.firstVisitMethod != \'Visitor\') Group By v.e_oid HAVING COUNT(o.operateType LIKE \'%' + str + '%\') = 0';
+    var str = 'Visit (1)' , str1 = 'Call', str2 = 'Email', str3 = '';
+    this._con = ' AND v.firstVisitMethod != \'Visitor\' AND o.operateType NOT LIKE \'%' + str + '%\' AND o.cancelled != 1' ;
     this._order = 'v.e_oid';
-    this._query = 'ASC';
+    this._query = 'asc';
   }
   
   this._createElements();
