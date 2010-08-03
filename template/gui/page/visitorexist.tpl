@@ -40,6 +40,8 @@
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
     height: 10px;
+    text-align:left;
+    padding-left:18px;
   }
   .{{$template|escape:'html'}}_td3 {
     width: 157px;
