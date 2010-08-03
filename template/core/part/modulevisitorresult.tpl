@@ -90,6 +90,8 @@ ModuleVisitorResult.prototype._createElements = function() {
     this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
   } else if (this._item.status == -1) {
     this._gui.title.appendChild(document.createTextNode(' (Failed)'));
+  } else if (this._item.status == -2) {
+    this._gui.title.appendChild(document.createTextNode(' (Deleted)'));
   }
   
   this._gui.brideName.appendChild(this._doc.createTextNode(this._item.brideName));

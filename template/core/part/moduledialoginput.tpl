@@ -23,7 +23,7 @@ ModuleDialogInput.prototype._createElements = function() {
   this._gui = new DialogInput(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
   
   this._gui.input.value = (this._operation && this._operation) ? this._operation.content : '';
-  this._gui.input.onchange = function() { if (_self._drop) {
+  this._gui.input.onchange = function() { if (_self._failed || _self._deleted) {
                                             _self._visitor.cancelledMessage = this.value;
                                           } else {
                                             _self._operation.content = this.value;
