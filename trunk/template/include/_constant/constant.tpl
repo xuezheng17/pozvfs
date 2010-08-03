@@ -14,4 +14,6 @@ Constant.DOC_TYPE_LOOSE = 'loose';
 Constant.Visitor_Method_Phone = 'Phone';
 Constant.Visitor_Method_Email = 'Email';
 Constant.Visitor_Method_Visitor = 'Visitor';
+Constant.Sort_Method_ASC = 'ASC';
+Constant.Sort_Method_DESC = 'DESC';
 

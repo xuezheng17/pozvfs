@@ -8,7 +8,7 @@ function HandleFollowUp(gui, operator, now, options) {
   this._order = '';
   if (this._cont == 1) {
     this._order = 'o.operatedDate';
-    this._query = 'DESC';
+    this._query = 'ASC';
   } else if (this._cont == 2) {
     this._order = 'v.weddingday';
     this._query = 'ASC';
@@ -16,6 +16,10 @@ function HandleFollowUp(gui, operator, now, options) {
     this._order = ' COUNT(o.e_oid) ';
     this._query = 'ASC';
     this._con = ' Group By v.e_oid';
+  } else if (this._cont == 4) {
+    this._cont = "v.firstVisitMethod = Visit OR (o.operateType.substring(0, o.operateType.indexOf(' ('))).toLowerCase() == 'visit'";
+  } else if (this._cont == 5) {
+    this._cont = "v.firstVisitMethod != Visit OR (o.operateType.substring(0, o.operateType.indexOf(' ('))).toLowerCase() != 'visit'";
   }
   
   this._createElements();
@@ -23,6 +27,22 @@ function HandleFollowUp(gui, operator, now, options) {
 
 HandleFollowUp.prototype._createElements = function() {
   this._gui.visitors.appendChild(DOMUtils.getLoadingImage());
+  
+  if (this._cont != 4 || this._cont != 5) {
+    this._gui.sort.options[this._gui.sort.options.length] = new Option('');
+    for (var i = 0, il = SortMethod.array().length; i < il; i++) {
+      var method = SortMethod.array()[i];
+      var option = new Option(method);
+      this._gui.sort.options[this._gui.sort.options.length] = option;
+      if (option.text == this._query) {
+        this._gui.sort.selectedIndex = this._gui.sort.options.length - 1;
+      }
+    }
+    this._gui.sort.onchange = function() { _self._query = this.options[this.selectedIndex].text; _self._createElements(); };
+  } else {
+    this._gui.sort.style.display = 'none';
+  }
+  
   this._loadData();
 };
 

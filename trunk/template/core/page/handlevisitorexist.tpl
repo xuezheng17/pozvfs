@@ -220,7 +220,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.reason.style.padding = '10px 0';
     var div = document.createElement('div');
     div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Drop'  : 'Cancel') + ' Reason Written by ' + this._visitor.cancelledOperator + ' On ' + SimpleDate.format(this._visitor.cancelledDate)));
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.cancelledOperator + ' On ' + SimpleDate.format(this._visitor.cancelledDate)));
     this._gui.reason.appendChild(div);
     this._gui.reason.style.margin = '0 0 30px 0';
     this._gui.reason.style.fontWeight = 'bold';
@@ -388,8 +388,16 @@ HandleVisitorExist.prototype._updateElements = function() {
   /* Save */
   if (this._visitorId) {
     this._gui.update.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
-                                              if (!_self._visitor.weddingDay) {
-                                                var r = window.confirm('NO WEDDING DAY, CONTINUE?');
+                                              if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
+                                                var str = '';
+                                                if (!_self._visitor.weddingDay && !_self._visitor.firstVisitDate) {
+                                                  str += '(Wedding Day, First Contact Date)';
+                                                } else if (!_self._visitor.weddingDay) {
+                                                  str += '(Wedding Day)';
+                                                } else if (!_self._visitor.firstVisitDate) {
+                                                  str += '(First Contact Date)';
+                                                }
+                                                var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                                 if (r) {
                                                   var pos = DOMUtils.findPos(this);
                                                   new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
@@ -403,14 +411,13 @@ HandleVisitorExist.prototype._updateElements = function() {
                                             }
                                           };
   }
-  
+  /* Delete */
   this._gui.remove.onclick = function() { var func1 = function() { location.reload();};
                                           var pos = [window.screen.width/3, window.screen.height/3];
                                           _self._visitor.cancelledOperator = _self._operator.account;
                                           _self._visitor.cancelledDate = _self._now;
-                                          _self._visitor.status = -2;
-                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Cancel Reason'});
-                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
+                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Delete Reason'});
+                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, deleted: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
                                         };
   
   /*- Operation -*/
@@ -426,7 +433,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   var pNumber = 0, eNumber = 0, vNumber = 0;
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
-    var type = (operation.operateType.substring(0, operation.operateType.indexOf('('))).toLowerCase();
+    var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
 
     if (type == 'call') {
       if (!operation.cancelled) {
@@ -511,7 +518,7 @@ HandleVisitorExist.prototype._updateElements = function() {
       img.style.cursor = 'pointer';
       img._operation = operation;
       img.onclick = function() { this._operation.cancelled = 1;
-                                 var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf('('));
+                                 var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf(' ('));
                                  if (type == 'call') {
                                    _self._pNumber -= 1;
                                  } else if (type == 'email') {
@@ -548,7 +555,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                              }
   } else if (this._visitor.status == -2) {
-    this._gui.title.appendChild(document.createTextNode(' (Cancelled) '));
+    this._gui.title.appendChild(document.createTextNode(' (Deleted) '));
   } else if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
     this._gui.title.appendChild(document.createTextNode(' (Visited)'));
   }
@@ -611,42 +618,49 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
-  
-  this._gui.succeed.onclick = function() { var r = window.confirm('Would you confirm to do this?');
-                                           if (r) {
-                                             var pos = DOMUtils.findPos(this);
-                                             _self._visitor.status = 1;
-                                             var visitor = { fromVisitor: true,
-                                                             brideName: _self._visitor.brideName,
-                                                             brideAddress: _self._visitor.brideAddress,
-                                                             bridePhone: _self._visitor.bridePhone,
-                                                             brideMobile: _self._visitor.brideMobile,
-                                                             brideEmail: _self._visitor.brideEmail,
-                                                             groomName: _self._visitor.groomName,
-                                                             groomAddress: _self._visitor.groomAddress,
-                                                             groomPhone: _self._visitor.groomPhone,
-                                                             groomMobile: _self._visitor.groomMobile,
-                                                             groomEmail: _self._visitor.groomEmail,
-                                                             culture: _self._visitor.culturalBackground,
-                                                             ceremony: _self._visitor.ceremonyLocation,
-                                                             reception: _self._visitor.receptionLocation,
-                                                             source: _self._visitor.source,
-                                                             weddingDay: _self._visitor.weddingDay
-                                                           }
-                                             var func = function() { location.reload();
-                                                                     window.open('http://dlmanage.co.nz/test/dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}))
-                                                                   };
-                                             new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { func(); } }, { pos: pos });
-                                             return false;
-                                           }
-                                         };
+  this._gui.succeed.onclick = function() { window.alert('Disabled'); };
+//  this._gui.succeed.onclick = function() { var r = window.confirm('Would you confirm to do this?');
+//                                           if (r) {
+//                                             var pos = DOMUtils.findPos(this);
+//                                             _self._visitor.status = 1;
+//                                             var visitor = { fromVisitor: true,
+//                                                             brideName: _self._visitor.brideName,
+//                                                             brideAddress: _self._visitor.brideAddress,
+//                                                             bridePhone: _self._visitor.bridePhone,
+//                                                             brideMobile: _self._visitor.brideMobile,
+//                                                             brideEmail: _self._visitor.brideEmail,
+//                                                             groomName: _self._visitor.groomName,
+//                                                             groomAddress: _self._visitor.groomAddress,
+//                                                             groomPhone: _self._visitor.groomPhone,
+//                                                             groomMobile: _self._visitor.groomMobile,
+//                                                             groomEmail: _self._visitor.groomEmail,
+//                                                             culture: _self._visitor.culturalBackground,
+//                                                             ceremony: _self._visitor.ceremonyLocation,
+//                                                             reception: _self._visitor.receptionLocation,
+//                                                             source: _self._visitor.source,
+//                                                             weddingDay: _self._visitor.weddingDay
+//                                                           }
+//                                             var func = function() { location.reload();
+//                                                                     window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+//                                                                   };
+//                                             new RequestUtils()._custom('isLogin', {}, function(result, params) { if (result.length == 1) { 
+//                                                                                                                    new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { func(); } }, { pos: pos });
+//                                                                                                                  } else {
+//                                                                                                                    pos = [window.screen.width/3, window.screen.height/3];
+//                                                                                                                    tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Sign In For DMS'});
+//                                                                                                                    new ModuleDialogSignIn(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { callbackFunc: func, popupBox: tmp, pos: DOMUtils.findPos(this)});
+//                                                                                                                  }
+//                                                                                                                }, {php: '../dms1/customphp/jsoncustom.php'});
+//                                             return false;
+//                                           }
+//                                         };
   this._gui.drop.onclick = function() { var func1 = function() { location.reload();};
                                         var pos = [window.screen.width/3, window.screen.height/3];
                                         _self._visitor.cancelledOperator = _self._operator.account;
                                         _self._visitor.cancelledDate = _self._now;
                                         _self._visitor.status = -1;
-                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Drop Reason'});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
+                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Fail Reason'});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, failed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
                                       };
 };
 

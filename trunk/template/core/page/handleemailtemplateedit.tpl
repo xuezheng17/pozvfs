@@ -38,9 +38,11 @@ HandleEmailTemplateEdit.prototype._updateElements = function() {
   var table, tr, td, _self = this;
   
   this._gui.name.value = this._template.name;
+  this._gui.subject.value = this._template.subject;
   this._gui.content.value = this._template.content;
 
   this._gui.name.onchange = function() { _self._template.name = this.value; };
+  this._gui.subject.onchange = function() { _self._template.subject = this.value; };
   this._gui.content.onchange = function() { _self._template.content = this.value; };
   
   
@@ -49,10 +51,13 @@ HandleEmailTemplateEdit.prototype._updateElements = function() {
                                         if (_self._template.name == '') {
                                           str += 'name, ';
                                         }
+                                        if (_self._template.subject == '') {
+                                          str += 'subject, ';
+                                        }
                                         if (_self._template.content == '') {
                                           str += 'content, ';
                                         }
-                                        if (_self._template.account == '' || _self._template.password == '') {
+                                        if (_self._template.name == '' || _self._template.subject == '' || _self._template.content == '') {
                                           window.alert(str.substring(0, str.length-2) + ' can not be empty');
                                         } else {
                                           new RequestUtils()._write('emailtemplate', [_self._template], [], function() { location.href = '?t=emailtemplates&m=' + JSON.stringify({ a: 5, b: 2 }); }, null); 
