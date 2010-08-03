@@ -5,7 +5,7 @@
     margin:10px 0 0 0;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 290px;
+    width: 320px;
     height: 30px;
     text-align: right;
   	padding-right:5px;
@@ -16,7 +16,7 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 690px;
+    width: 660px;
     height: 30px;
     text-align: left;
     vertical-align: bottom;
@@ -52,27 +52,27 @@
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_visitors_div"></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >Emails/Visitors(Email%):</td> 
+    <td class="{{$template|escape:'html'}}_td1" >Emails / Visitors (Email %):</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_eVisitor_div"></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >Email suc/Emails(Email suc%):</td> 
+    <td class="{{$template|escape:'html'}}_td1" >Email suc / Emails (Email suc %):</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_eSucVisitor_div"></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >Phones/Visitors(Phone%):</td> 
+    <td class="{{$template|escape:'html'}}_td1" >Phones / Visitors (Phone %):</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_pVisitor_div"></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >Phone suc/Phones(Phone suc%):</td> 
+    <td class="{{$template|escape:'html'}}_td1" >Phone suc / Phones (Phone suc %):</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_pSucVisitor_div"></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >Customers/Visitors(Sale suc%):</td> 
+    <td class="{{$template|escape:'html'}}_td1" >Customers / Visitors (Sale suc %):</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_cVisitor_div"></td> 
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" >Customers/Email+Phone+Visitor(Total suc%):</td> 
+    <td class="{{$template|escape:'html'}}_td1" >Customers / Email + Phone + Visitor (Total suc %):</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_total_div"></td> 
   </tr>
 </table>
