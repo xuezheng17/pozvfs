@@ -41,6 +41,9 @@ EmailSend.prototype._createElements = function() {
     select.style.height = '21px';
     select.style.width = '150px';
     td.appendChild(select);
+    var span = document.createElement('span');
+    span.id = this._unique + '_template_div';
+    td.appendChild(span);
     
     tr=table.insertRow(-1);
     td = tr.insertCell(-1);
