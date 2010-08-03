@@ -81,7 +81,10 @@
   }
   .{{$template|escape:'html'}}_td8 {
     width: 980px;
-    height: 15px;
+    height: 35px;
+    text-align:right;
+    vertical-align:top;
+    padding-right:38px;
   }
   .{{$template|escape:'html'}}_td9 {
     width: 980px;
@@ -170,12 +173,15 @@
     <td class="{{$template|escape:'html'}}_td2">
        <input type="text" id="{{$template|escape:'html'}}_createdDateTo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td class="{{$template|escape:'html'}}_td6" colspan="2">
-      <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:67px;font-family:Arial;font-size:10pt;" value = "Search"></input>
+    <td class="{{$template|escape:'html'}}_td4">
+      <input type = "checkbox" id="{{$template|escape:'html'}}_deletedOnly_input" >
     </td>
+    <td class="{{$template|escape:'html'}}_td5">Deleted</td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td8" colSpan="6"></td>
+    <td class="{{$template|escape:'html'}}_td8" colSpan="6">
+      <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:67px;font-family:Arial;font-size:10pt;" value = "Search"></input>
+    </td>
   </tr>
 </table>
 <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
