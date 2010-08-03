@@ -20,12 +20,6 @@ try {
     case 'visitors':
       visitors($myManager);
       break;
-    case 'succeed':
-      succeed($myManager);
-      break;
-    case 'drop':
-      drop($myManager);
-      break;
     case 'sendEmail':
       sendEmail($myManager);
       break;
@@ -114,36 +108,6 @@ function visitors($myManager) {
       $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
       $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
       echo json_encode($result);
-    } catch (PDOException $e) {
-      echo $e->getMessage();
-    }
-  }
-}
-
-function succeed($myManager) {
-  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
-  $orm = classToOrm('visitor');
-  $orm1 = classToOrm('operation');
-  if ($orm && $orm1) {
-    try {
-      $orm->update($myManager, $args->visitor);
-      $orm1->add($myManager, $args->operation);
-      echo json_encode(array());
-    } catch (PDOException $e) {
-      echo $e->getMessage();
-    }
-  }
-}
-
-function drop($myManager) {
-  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
-  $orm = classToOrm('visitor');
-  $orm1 = classToOrm('operation');
-  if ($orm && $orm1) {
-    try {
-      $orm->update($myManager, $args->visitor);
-      $orm1->add($myManager, $args->operation);
-      echo json_encode(array());
     } catch (PDOException $e) {
       echo $e->getMessage();
     }
