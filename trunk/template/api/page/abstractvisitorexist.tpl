@@ -29,11 +29,14 @@ AbstractVisitorExist.gui = function(unique) {
            firstVisitingMethod: document.getElementById(unique + '_fristVisitingMethod_select'),
            firstVisitingDate: document.getElementById(unique + '_fristVisitingDate_input'),
            update: document.getElementById(unique + '_update_button'),
+           remove: document.getElementById(unique + '_delete_button'),
            operations: document.getElementById(unique + '_operations_table'),
            succeed: document.getElementById(unique + '_succeed_button'),
            drop: document.getElementById(unique + '_drop_button'),
            email: document.getElementById(unique + '_email_button'),
            call: document.getElementById(unique + '_call_button'),
-           visit:document.getElementById(unique + '_visit_button')
+           visit:document.getElementById(unique + '_visit_button'),
+           reason:document.getElementById(unique + '_reason_div'),
+           reverse:document.getElementById(unique + '_reverse_button')
          };
 };
