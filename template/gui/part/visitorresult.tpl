@@ -173,6 +173,20 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
+  td.style.width = '980px';
+  td.colSpan = '5';
+  td.style.paddingRight = '40px';
+  var table2 = this._doc.createElement('table');
+  table2.style.width = '980px';
+  table2.style.height = '24px';
+//  table2.border=1;
+  table2.cellPadding = 0;
+  table2.cellSpacing = 0;
+  td.appendChild(table2);
+  
+  tr=table2.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
   td.style.width = '122px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
@@ -184,18 +198,18 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '212px';
+  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
-  var div6 = this._doc.createElement('div');
-  div6.id = this._unique + '_cultureback_div';
-  td.appendChild(div6);
+  var div8 = this._doc.createElement('div');
+  div8.id = this._unique + '_cultureback_div';
+  td.appendChild(div8);
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '140px';
+  td.style.width = '125px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -206,19 +220,18 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '523px';
+  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
-  var div7 = this._doc.createElement('div');
-  div7.id = this._unique + '_cerelocation_div';
-  td.appendChild(div7);
+  var div9 = this._doc.createElement('div');
+  div9.id = this._unique + '_cerelocation_div';
+  td.appendChild(div9);
   
-  tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '122px';
+  td.style.width = '125px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -229,18 +242,18 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '212px';
+  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
-  var div6 = this._doc.createElement('div');
-  div6.id = this._unique + '_receplocation_div';
-  td.appendChild(div6);
+  var div10 = this._doc.createElement('div');
+  div10.id = this._unique + '_receplocation_div';
+  td.appendChild(div10);
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '140px';
+  td.style.width = '65px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -251,14 +264,14 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '523px';
+  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
-  var div7 = this._doc.createElement('div');
-  div7.id = this._unique + '_source_div';
-  td.appendChild(div7);
+  var div11 = this._doc.createElement('div');
+  div11.id = this._unique + '_source_div';
+  td.appendChild(div11);
   
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
