@@ -150,4 +150,4 @@
     <td class="{{$template|escape:'html'}}_td2"></td>
   <tr>
 </table>
-<div id="{{$template|escape:'html'}}_graphy_div" class="{{$template|escape:'html'}}_table1" style="margin:30px 0 0 0;height:768px"></div>
+<div id="{{$template|escape:'html'}}_graphy_div" class="{{$template|escape:'html'}}_table1" style="margin:30px 0 0 0;height:550px"></div>
