@@ -75,7 +75,8 @@ HandleEmailTemplates.prototype._updateElements = function() {
     img = document.createElement('img');
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
-    img.onclick = function() { new RequestUtils()._write('emailtemplate', [], [u], function() { _self._createElements(); }, null); };
+    img._template = u;
+    img.onclick = function() { new RequestUtils()._write('emailtemplate', [], [this._template], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };
