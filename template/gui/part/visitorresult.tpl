@@ -306,9 +306,9 @@ VisitorResult.prototype._createElements = function() {
   td.style.verticalAlign = 'middle';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
-  var div8 = this._doc.createElement('div');
-  div8.id = this._unique + '_createdDate_div';
-  td.appendChild(div8);
+  var div12 = this._doc.createElement('div');
+  div12.id = this._unique + '_createdDate_div';
+  td.appendChild(div12);
   
   td = tr1.insertCell(-1);
   td.style.height = '26px';
@@ -328,7 +328,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontSize = '9pt';
   td.style.paddingLeft = '10px';
   td.style.fontFamily= 'Arial';
-  var div9 = this._doc.createElement('div');
-  div9.id = this._unique + '_author_div';
-  td.appendChild(div9);
+  var div13 = this._doc.createElement('div');
+  div13.id = this._unique + '_author_div';
+  td.appendChild(div13);
 };
