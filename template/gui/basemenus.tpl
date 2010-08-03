@@ -386,14 +386,14 @@
               <td>
                 <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:4}&opts={%22follow%22:4}">Visits</a>
-              </td>
+              </td>{{*/*
               <td class="basemenus_td5">
                 |
               </td>
               <td>
                 <div {{if $menu->b == 5}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:3,%22b%22:5}&opts={%22follow%22:5}">No Visits</a>
-              </td>
+              </td>*/*}}
               <td class="basemenus_td4"></td>
             </tr>
           </table>
