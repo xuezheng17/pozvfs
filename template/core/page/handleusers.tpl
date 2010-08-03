@@ -75,7 +75,8 @@ HandleUsers.prototype._updateElements = function() {
     img = document.createElement('img');
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
-    img.onclick = function() { new RequestUtils()._write('user', [], [u], function() { _self._createElements(); }, null); };
+    img._user = u;
+    img.onclick = function() { new RequestUtils()._write('user', [], [this._user], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };
