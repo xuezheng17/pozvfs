@@ -70,6 +70,7 @@ HandleVisitorNew.prototype._updateElements = function() {
 
   this._visitor.weddingDay = '';
   this._visitor.firstVisitDate = '';
+  this._visitor.cancelledDate = '';
   this._visitor.creator = this._operator.account;
   
   /* 结婚日期 */

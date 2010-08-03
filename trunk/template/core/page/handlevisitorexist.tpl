@@ -123,6 +123,7 @@ HandleVisitorExist.prototype._retrieveVisitor = function() {
     this._visitor = Visitor.instance();
     this._visitor.weddingDay = '';
     this._visitor.firstVisitDate = '';
+    this._visitor.cancelledDate = '';
     this._visitor.creator = this._operator.account;
     this._verifyData();
   }
@@ -220,9 +221,9 @@ HandleVisitorExist.prototype._updateElements = function() {
     var div = document.createElement('div');
     div.style.fontWeight = 'bold';
     div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Drop'  : 'Cancel') + ' Reason (written by ' + this._visitor.disposal.userAccount + ' on ' + SimpleDate.format(this._visitor.disposal.date) + ')'));
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Drop'  : 'Cancel') + ' Reason (written by ' + this._visitor.cancelledOperator + ' on ' + SimpleDate.format(this._visitor.cancelledDate) + ')'));
     this._gui.reason.appendChild(div);
-    this._gui.reason.appendChild(MiscUtils.span(this._visitor.disposal.message));
+    this._gui.reason.appendChild(MiscUtils.span(this._visitor.cancelledMessage));
   }
   /* 结婚日期 */
   this._gui.weddingDay.value = (this._visitor.weddingDay) ? SimpleDate.format(this._visitor.weddingDay) : '';
@@ -399,7 +400,8 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   this._gui.remove.onclick = function() { var func1 = function() { location.reload();};
                                           var pos = [window.screen.width/3, window.screen.height/3];
-                                          _self._visitor.disposal.userAccount = _self._operator.account;
+                                          _self._visitor.cancelledOperator = _self._operator.account;
+                                          _self._visitor.cancelledDate = _self._now;
                                           _self._visitor.status = -2;
                                           tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Cancel Reason'});
                                           new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
@@ -632,15 +634,13 @@ HandleVisitorExist.prototype._updateElements = function() {
                                              return false;
                                            }
                                          };
-  this._gui.drop.onclick = function() { var r = window.confirm('Would you confirm to do this?');
-                                        if (r) {
-                                          var func1 = function() { location.reload();};
-                                          var pos = [window.screen.width/3, window.screen.height/3];
-                                          _self._visitor.disposal.userAccount = _self._operator.account;
-                                          _self._visitor.status = -1;
-                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Drop Reason'});
-                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
-                                        }
+  this._gui.drop.onclick = function() { var func1 = function() { location.reload();};
+                                        var pos = [window.screen.width/3, window.screen.height/3];
+                                        _self._visitor.cancelledOperator = _self._operator.account;
+                                        _self._visitor.cancelledDate = _self._now;
+                                        _self._visitor.status = -1;
+                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Drop Reason'});
+                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
                                       };
 };
 
