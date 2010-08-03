@@ -7,4 +7,8 @@ define('DOC_TYPE_LOOSE', 'loose');
 define('Visitor_Method_Phone', 'Phone');
 define('Visitor_Method_Email', 'Email');
 define('Visitor_Method_Visitor', 'Visitor');
+
+/* @meta SortMethod(Sort_Method) */
+define('Sort_Method_ASC', 'ASC');
+define('Sort_Method_DESC', 'DESC');
 ?>
