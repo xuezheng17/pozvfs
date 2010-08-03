@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 03, 2010 at 04:34 AM
+-- Generation Time: Aug 03, 2010 at 04:52 AM
 -- Server version: 5.0.27
 -- PHP Version: 5.2.9-2
 
@@ -183,65 +183,15 @@ CREATE TABLE IF NOT EXISTS `np_visitor` (
   `firstVisitMethod` varchar(64) default NULL,
   `firstVisitDate` int(16) default NULL,
   `status` int(11) default NULL,
+  `cancelledDate` int(16) default NULL,
+  `cancelledOperator` varchar(64) default NULL,
+  `cancelledMessage` varchar(4096) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `np_visitor`
 --
 
-INSERT INTO `np_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`) VALUES
-(1, 'u1042528726006', 1280793600, 'emma', 1283212800, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Phone', 1280620800, -2),
-(2, 'u1066517807092', 1280793600, 'emma', 1283212800, '', '', '', 'ns.zhangjianxin@gmail.com', '', '', '', '', '', '', '', '', '', '', 'Email', 1280620800, 0),
-(3, 'u844644471639', 1280793600, 'emma', 1283126400, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Visitor', 1280620800, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `np_visitorcancel`
---
-
-CREATE TABLE IF NOT EXISTS `np_visitorcancel` (
-  `e_oid` int(12) NOT NULL auto_increment,
-  `trackId` varchar(64) default NULL,
-  `date` int(16) default NULL,
-  `userAccount` varchar(64) default NULL,
-  `message` varchar(4096) default NULL,
-  PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `np_visitorcancel`
---
-
-INSERT INTO `np_visitorcancel` (`e_oid`, `trackId`, `date`, `userAccount`, `message`) VALUES
-(1, 'u954469883793', 1280793600, 'emma', 'all the same in vistor 2'),
-(2, 'u995815284071', 1280793600, '', ''),
-(3, 'u370252775547', 1280793600, 'emma', 'bvbvb');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `np__ez_relation_visitor_visitorcancel`
---
-
-CREATE TABLE IF NOT EXISTS `np__ez_relation_visitor_visitorcancel` (
-  `e_oid` int(12) NOT NULL auto_increment,
-  `class_a` varchar(64) default NULL,
-  `oid_a` int(11) default NULL,
-  `var_a` varchar(64) default NULL,
-  `base_b` varchar(64) default NULL,
-  `class_b` varchar(64) default NULL,
-  `oid_b` int(11) default NULL,
-  PRIMARY KEY  (`e_oid`),
-  KEY `idx_class_oid_a` (`class_a`,`oid_a`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Dumping data for table `np__ez_relation_visitor_visitorcancel`
---
-
-INSERT INTO `np__ez_relation_visitor_visitorcancel` (`e_oid`, `class_a`, `oid_a`, `var_a`, `base_b`, `class_b`, `oid_b`) VALUES
-(1, 'Visitor', 1, 'disposal', 'VisitorCancel', 'VisitorCancel', 1),
-(2, 'Visitor', 2, 'disposal', 'VisitorCancel', 'VisitorCancel', 2),
-(3, 'Visitor', 3, 'disposal', 'VisitorCancel', 'VisitorCancel', 3);
+INSERT INTO `np_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `cancelledDate`, `cancelledOperator`, `cancelledMessage`) VALUES
+(1, 'u1010803953216', 1280793600, 'emma', 1283212800, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Phone', 1280620800, -2, 1280793600, 'emma', 'fsfsfffsfsd');
