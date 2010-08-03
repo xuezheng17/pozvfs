@@ -6,7 +6,8 @@
   .{{$template|escape:'html'}}_td0 {
     width: 480px;
     height: 30px;
-    vertical-align:top;
+    vertical-align:center;
+    padding-top:4px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
