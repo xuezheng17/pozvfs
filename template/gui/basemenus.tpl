@@ -279,7 +279,7 @@
     {{/if}}
 
   <td class="basemenus_td2"></td>
-    {{if $menu->a == 4}}
+    {{if $menu->a == 5}}
       <td class="basemenus_td1Hilight" >
         <div class="basemenus_item">
         <div class="row1"></div>
@@ -289,7 +289,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:5,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -305,7 +305,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:5,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -403,7 +403,7 @@
   </div>
 {{/if}}
 
-{{if $menu->a == 4}}
+{{if $menu->a == 5}}
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
       <tr>
@@ -412,7 +412,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
-                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">Manage User</a>
+                  <a href="?t=users&m={%22a%22:5,%22b%22:1}">Manage User</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -420,7 +420,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>
+                  <a href="?t=emailtemplates&m={%22a%22:5,%22b%22:2}">Manage eTemplate</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
