@@ -38,7 +38,7 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '120px';
+  td.style.width = '122px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -71,7 +71,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '525px';
+  td.style.width = '523px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -83,7 +83,7 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '120px';
+  td.style.width = '122px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -116,7 +116,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '525px';
+  td.style.width = '523px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -128,7 +128,7 @@ VisitorResult.prototype._createElements = function() {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '120px';
+  td.style.width = '122px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -161,13 +161,103 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '525px';
+  td.style.width = '523px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   var div7 = this._doc.createElement('div');
   div7.id = this._unique + '_groomEmail_div';
+  td.appendChild(div7);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '122px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
+  td.appendChild(this._doc.createTextNode('Culture Background:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '212px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  var div6 = this._doc.createElement('div');
+  div6.id = this._unique + '_cultureback_div';
+  td.appendChild(div6);
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '140px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
+  td.appendChild(this._doc.createTextNode('Ceremony Location:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '523px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  var div7 = this._doc.createElement('div');
+  div7.id = this._unique + '_cerelocation_div';
+  td.appendChild(div7);
+  
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '122px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
+  td.appendChild(this._doc.createTextNode('Reception Location:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '212px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  var div6 = this._doc.createElement('div');
+  div6.id = this._unique + '_receplocation_div';
+  td.appendChild(div6);
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '140px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  td.style.paddingRight = '6px';
+  td.appendChild(this._doc.createTextNode('Source:'));
+  
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.width = '523px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  td.style.fontSize = '9pt';
+  td.style.fontFamily= 'Arial';
+  var div7 = this._doc.createElement('div');
+  div7.id = this._unique + '_source_div';
   td.appendChild(div7);
   
   tr=table.insertRow(-1);
