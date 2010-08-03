@@ -92,7 +92,6 @@
     height: 27px;
     text-align: left;
     vertical-align: bottom;
-    cursor:pointer;
   }
   .{{$template|escape:'html'}}_td10 {
     width: 975px;
@@ -287,6 +286,9 @@
     font-size: 10pt;
     font-family: Arial;
   }
+  .{{$template|escape:'html'}}_img {
+    cursor:pointer;
+  }
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
@@ -427,7 +429,7 @@
             <select id="{{$template|escape:'html'}}_culturalBackground_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
-          <img src="image/add.png" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button"></img>
+          <img src="image/add.png" class="{{$template|escape:'html'}}_img" id="{{$template|escape:'html'}}_culturalBackgroundAdd_button"></img>
           </td>
         </tr>
       </table>
@@ -440,7 +442,7 @@
           <select id="{{$template|escape:'html'}}_ceremoneyLocation_select" class="{{$template|escape:'html'}}_select"></select>
         </td>
         <td class="{{$template|escape:'html'}}_td9">
-          <img src="image/add.png" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
+          <img src="image/add.png" class="{{$template|escape:'html'}}_img" id="{{$template|escape:'html'}}_ceremoneyLocationAdd_button" ></img>
         </td>
       </tr>
     </table>
@@ -455,7 +457,7 @@
             <select id="{{$template|escape:'html'}}_receptionLocation_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
-            <img src="image/add.png" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
+            <img src="image/add.png" class="{{$template|escape:'html'}}_img" id="{{$template|escape:'html'}}_receptionLocationAdd_button" ></img>
           </td>
         </tr>
       </table>
@@ -468,7 +470,7 @@
             <select id="{{$template|escape:'html'}}_source_select" class="{{$template|escape:'html'}}_select"></select>
           </td>
           <td class="{{$template|escape:'html'}}_td9">
-            <img src="image/add.png" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
+            <img src="image/add.png" class="{{$template|escape:'html'}}_img" id="{{$template|escape:'html'}}_sourceAdd_button" ></img>
           </td>
         </tr>
       </table>
