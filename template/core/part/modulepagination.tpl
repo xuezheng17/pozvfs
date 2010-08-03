@@ -71,7 +71,7 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
   }
 
   var _self = this
-  var func = function() { console.log(this, this._page);
+  var func = function() {
     if (isNaN(this._page)) {
       window.alert('Not A Number');
       return;
