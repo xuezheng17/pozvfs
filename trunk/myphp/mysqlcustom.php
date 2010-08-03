@@ -85,12 +85,13 @@ function visitors($myPdo) {
     $tmp->weddingDay = ($tmp->weddingDay) ? SimpleDate::fromStamp($tmp->weddingDay) : NULL;
     $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
     $tmp->operations = array();
-    $sql2 = "SELECT DISTINCT o.cancelled AS cancelled, o.operateType AS operateType FROM $tableOperation AS o WHERE o.visitId = $tmp->id";
+    $sql2 = "SELECT DISTINCT o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY o.operatedDate";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $j = 0;
     while ($j < $stmt2->rowCount()) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp2->operatedDate = ($tmp2->operatedDate) ? SimpleDate::fromStamp($tmp2->operatedDate) : NULL;
       $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
       $tmp->operations[] = $tmp2;
       $j++;
@@ -136,13 +137,14 @@ function followUp($myPdo) {
     $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
     $tmp->operations = array();
 
-    $sql2 = "SELECT DISTINCT o.cancelled AS cancelled, o.operateType AS operateType FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
+    $sql2 = "SELECT DISTINCT o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     
     $j = 0;
     while ($j < $stmt2->rowCount()) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp2->operatedDate = ($tmp2->operatedDate) ? SimpleDate::fromStamp($tmp2->operatedDate) : NULL;
       $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
       $tmp->operations[] = $tmp2;
       $j++;
