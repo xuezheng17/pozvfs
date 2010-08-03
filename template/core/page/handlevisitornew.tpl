@@ -229,8 +229,16 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                      };
   /* Save */
   this._gui.save.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
-                                          if (!_self._visitor.weddingDay) {
-                                            var r = window.confirm('NO WEDDING DAY, CONTINUE?');
+                                          if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
+                                            var str = '';
+                                            if (!_self._visitor.weddingDay && !_self._visitor.firstVisitDate) {
+                                              str += '(Wedding Day, First Contact Date)';
+                                            } else if (!_self._visitor.weddingDay) {
+                                              str += '(Wedding Day)';
+                                            } else if (!_self._visitor.firstVisitDate) {
+                                              str += '(First Contact Date)';
+                                            }
+                                            var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                             if (r) {
                                               var pos = DOMUtils.findPos(this);
                                               new RequestUtils()._custom('addVisitor', {visitor: _self._visitor}, function(result, params) { if (result) { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: result.id});
