@@ -251,6 +251,11 @@ function basic($myPdo) {
   $stmt->execute();
   $tmp->progressingVisitors = $stmt->rowCount();
   
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = -2";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->deletedVisitors = $stmt->rowCount();
+  
   $result->data[] = $tmp;
   echo json_encode($result);
 }

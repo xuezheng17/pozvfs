@@ -314,6 +314,11 @@
 
 <table  class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
+    <td class="{{$template|escape:'html'}}_td2"colspan="5">
+      <div id="{{$template|escape:'html'}}_reason_div"></div>
+    </td>
+  </tr>
+  <tr>
     <td class="{{$template|escape:'html'}}_td1" colspan="5">
       <div class="{{$template|escape:'html'}}_item">
       <div class="row1"></div>
@@ -332,11 +337,6 @@
             </td>
           </tr>
         </table>
-    </td>
-  </tr>
-  <tr>
-    <td class="{{$template|escape:'html'}}_td2"colspan="5">
-      <div id="{{$template|escape:'html'}}_reason_div"></div>
     </td>
   </tr>
   <tr>
