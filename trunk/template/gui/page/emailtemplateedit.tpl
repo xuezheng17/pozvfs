@@ -23,7 +23,7 @@
     height: 30px;
     text-align: right;
     vertical-align: top;
-    padding-top:7px;
+    padding-top:4px;
     padding-right:3px;
     font-size: 10pt;
     font-weight: bold;
