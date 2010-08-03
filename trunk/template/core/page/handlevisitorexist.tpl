@@ -458,6 +458,11 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   if (this._visitor.status == 1) {
     this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
+    var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
+    btn.id = this._unique + '_reverse_button';
+    btn.style.fontFamily= 'Arial'
+    btn.style.fontSize = '10pt';
+    this._gui.title.appendChild(btn);
   } else if (this._visitor.status == -1) {
     this._gui.title.appendChild(document.createTextNode(' (Failed)'));
   } else {
