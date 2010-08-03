@@ -7,6 +7,7 @@ AbstractVisitorExist.gui = function(unique) {
            back: document.getElementById(unique + '_back_button'),
            jump: document.getElementById(unique + '_jump_button'),
            number: document.getElementById(unique + '_number_input'),
+           reason:document.getElementById(unique + '_reason_div'),
            weddingDay: document.getElementById(unique + '_weddingDay_input'),
            brideName: document.getElementById(unique + '_brideName_input'),
            brideAddress: document.getElementById(unique + '_brideAddress_input'),
@@ -31,12 +32,10 @@ AbstractVisitorExist.gui = function(unique) {
            update: document.getElementById(unique + '_update_button'),
            remove: document.getElementById(unique + '_delete_button'),
            operations: document.getElementById(unique + '_operations_table'),
-           succeed: document.getElementById(unique + '_succeed_button'),
-           drop: document.getElementById(unique + '_drop_button'),
            email: document.getElementById(unique + '_email_button'),
            call: document.getElementById(unique + '_call_button'),
            visit:document.getElementById(unique + '_visit_button'),
-           reason:document.getElementById(unique + '_reason_div'),
-           reverse:document.getElementById(unique + '_reverse_button')
+           succeed: document.getElementById(unique + '_succeed_button'),
+           drop: document.getElementById(unique + '_drop_button')
          };
 };
