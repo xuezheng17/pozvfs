@@ -21,16 +21,20 @@ ModuleDialogInput.prototype._createElements = function() {
   
   this._gui = new DialogInput(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
   
-  this._gui.input.value = this._operation.content;
-  this._gui.input.onchange = function() { _self._operation.content = this.value; };
+  this._gui.input.value = (this._operation && this._operation) ? this._operation.content : '';
+  this._gui.input.onchange = function() { if (_self._drop) {
+                                            _self._visitor.disposal.message = this.value;
+                                          } else {
+                                            _self._operation.content = this.value;
+                                          }
+                                        };
   
   this._gui.save.onclick = function() { if (_self._drop) {
-                                          _self._visitor.status = (_self._drop) ? -1 : 0;
-                                          new RequestUtils()._custom('drop', {visitor: _self._visitor, operation: _self._operation }, function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
                                           new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         }
                                         _self._popupBox._close();
                                       };
-  this._gui.cancel.onclick = function() {_self._popupBox._close();};
+  this._gui.cancel.onclick = function() { _self._popupBox._close(); };
 };

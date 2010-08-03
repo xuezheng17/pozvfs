@@ -8,11 +8,37 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._menu = (options && options.menu) ? options.menu : '';
   this._cont = (options && options.cont) ? options.cont : '';
   
+  this._gui.update.style.display = 'none';
+  this._gui.remove.style.display = 'none';
   this._gui.email.style.display = 'none';
   this._gui.call.style.display = 'none';
   this._gui.visit.style.display = 'none';
   this._gui.succeed.style.display = 'none';
   this._gui.drop.style.display = 'none';
+  
+  this._gui.weddingDay.disabled = true;
+  this._gui.brideName.disabled = true;
+  this._gui.brideAddress.disabled = true;
+  this._gui.bridePhone.disabled = true;
+  this._gui.brideMobile.disabled = true;
+  this._gui.brideEmail.disabled = true;
+  this._gui.groomName.disabled = true;
+  this._gui.groomAddress.disabled = true;
+  this._gui.groomPhone.disabled = true;
+  this._gui.groomMobile.disabled = true;
+  this._gui.groomEmail.disabled = true;
+  this._gui.culturalBackground.disabled = true;
+  this._gui.culturalBackgroundAdd.disabled = true;
+  this._gui.ceremonyLocation.disabled = true;
+  this._gui.ceremonyLocationAdd.disabled = true;
+  this._gui.receptionLocation.disabled = true;
+  this._gui.receptionLocationAdd.disabled = true;
+  this._gui.source.disabled = true;
+  this._gui.sourceAdd.disabled = true;
+  this._gui.firstVisitingMethod.disabled = true;
+  this._gui.firstVisitingDate.disabled = true;
+  this._gui.update.disabled = true;
+  
   this._createElements();
 };
 
@@ -113,11 +139,56 @@ HandleVisitorExist.prototype._updateElements = function() {
   DOMUtils.removeTableRows(this._gui.operations, 1);
   DOMUtils.removeChildElements(this._gui.page);
   
-  this._gui.email.style.display = 'block';
-  this._gui.call.style.display = 'block';
-  this._gui.visit.style.display = 'block';
-  this._gui.succeed.style.display = 'block';
-  this._gui.drop.style.display = 'block';
+  if (this._visitor.status == 1) {
+    this._gui.email.disabled = true;
+    this._gui.call.disabled = true;
+    this._gui.visit.disabled = true;
+    this._gui.drop.disabled = true;
+    this._gui.succeed.disabled = true;
+    this._gui.update.disabled = true;
+  } else if (this._visitor.status == -1 || this._visitor.status == -2){
+    this._gui.update.disabled = true;
+    this._gui.email.disabled = true;
+    this._gui.call.disabled = true;
+    this._gui.visit.disabled = true;
+    this._gui.succeed.disabled = true;
+    this._gui.drop.disabled = true;
+  } else {
+    this._gui.weddingDay.disabled = false;
+    this._gui.brideName.disabled = false;
+    this._gui.brideAddress.disabled = false;
+    this._gui.bridePhone.disabled = false;
+    this._gui.brideMobile.disabled = false;
+    this._gui.brideEmail.disabled = false;
+    this._gui.groomName.disabled = false;
+    this._gui.groomAddress.disabled = false;
+    this._gui.groomPhone.disabled = false;
+    this._gui.groomMobile.disabled = false;
+    this._gui.groomEmail.disabled = false;
+    this._gui.culturalBackground.disabled = false;
+    this._gui.culturalBackgroundAdd.disabled = false;
+    this._gui.ceremonyLocation.disabled = false;
+    this._gui.ceremonyLocationAdd.disabled = false;
+    this._gui.receptionLocation.disabled = false;
+    this._gui.receptionLocationAdd.disabled = false;
+    this._gui.source.disabled = false;
+    this._gui.sourceAdd.disabled = false;
+    this._gui.firstVisitingMethod.disabled = false;
+    this._gui.firstVisitingDate.disabled = false;
+    this._gui.update.disabled = false;
+    this._gui.email.disabled = false;
+    this._gui.call.disabled = false;
+    this._gui.visit.disabled = false;
+    this._gui.succeed.disabled = false;
+    this._gui.drop.disabled = false;
+    this._gui.update.style.display = 'inLine';
+    this._gui.remove.style.display = 'inLine';
+    this._gui.email.style.display = 'block';
+    this._gui.call.style.display = 'block';
+    this._gui.visit.style.display = 'block';
+    this._gui.succeed.style.display = 'block';
+    this._gui.drop.style.display = 'block';
+  }
   
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
   this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
@@ -143,7 +214,16 @@ HandleVisitorExist.prototype._updateElements = function() {
                                           window.alert('Input A Number Greater Than 0');
                                         }
                                       };
-  
+  /*-- Drop Reason --*/
+  if (this._visitor.status == -1 || this._visitor.status == -2) {
+    this._gui.reason.style.padding = '10px 0';
+    var div = document.createElement('div');
+    div.style.fontWeight = 'bold';
+    div.style.margin = '0 0 10px 0';
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Drop'  : 'Cancel') + ' Reason (written by ' + this._visitor.disposal.userAccount + ' on ' + SimpleDate.format(this._visitor.disposal.date) + ')'));
+    this._gui.reason.appendChild(div);
+    this._gui.reason.appendChild(MiscUtils.span(this._visitor.disposal.message));
+  }
   /* 结婚日期 */
   this._gui.weddingDay.value = (this._visitor.weddingDay) ? SimpleDate.format(this._visitor.weddingDay) : '';
   this._gui.weddingDay.onclick = function() { var context = this;
@@ -247,7 +327,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._visitor.ceremonyLocation = this._gui.ceremonyLocation.options[this._gui.ceremonyLocation.selectedIndex].text;
     this._gui.ceremonyLocation.onchange = function() { _self._visitor.ceremonyLocation = this.options[this.selectedIndex].text; };
   }
-
+  if (this._visitor.status == 0) {
   /* 添加Source等信息 */
   this._gui.sourceAdd.onclick = function() { var object = ISource.instance(); 
                                              var func1 = function() { tmp._close();
@@ -297,6 +377,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iceremony', title: 'Ceremony Location', item: object });
                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                      };
+  }
   /* Save */
   if (this._visitorId) {
     this._gui.update.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
@@ -315,6 +396,14 @@ HandleVisitorExist.prototype._updateElements = function() {
                                             }
                                           };
   }
+  
+  this._gui.remove.onclick = function() { var func1 = function() { location.reload();};
+                                          var pos = [window.screen.width/3, window.screen.height/3];
+                                          _self._visitor.disposal.userAccount = _self._operator.account;
+                                          _self._visitor.status = -2;
+                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Cancel Reason'});
+                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
+                                        };
   
   /*- Operation -*/
   if (this._operations.length == 0) {
@@ -387,7 +476,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     var span1 = document.createElement('span');
     td.appendChild(span1);
     span1.style.lineHeight = '24px';
-    span1.appendChild(document.createTextNode('(' + ((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '......' : operation.content) : 'NONE' ) + ') '));
+    span1.appendChild(document.createTextNode(((operation.content) ? ((String(operation.content).length > 20) ? operation.content.substring(0, 20) + '......' : operation.content) : '(none)' )));
     if (!operation.cancelled && this._visitor.status == 0) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
@@ -428,46 +517,34 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
   }
   
-  if (this._visitor.status == 1) {
-    this._gui.email.disabled = true;
-    this._gui.call.disabled = true;
-    this._gui.visit.disabled = true;
-    this._gui.drop.disabled = true;
-    this._gui.succeed.disabled = true;
-    this._gui.update.disabled = true;
-  } else if (this._visitor.status == -1){
-    this._gui.update.disabled = true;
-    this._gui.email.disabled = true;
-    this._gui.call.disabled = true;
-    this._gui.visit.disabled = true;
-    this._gui.succeed.disabled = true;
-    this._gui.drop.disabled = true;
-  } else {
-    this._gui.update.disabled = false;
-    this._gui.email.disabled = false;
-    this._gui.call.disabled = false;
-    this._gui.visit.disabled = false;
-    this._gui.succeed.disabled = false;
-    this._gui.drop.disabled = false;
-    this._gui.succeed.value = 'Succeed';
-    this._gui.drop.value = 'Drop';
-  }
-  this._gui.email.value = 'Email(' + (eNumber+1) + ')';
-  this._gui.call.value = 'Call(' + (pNumber+1) + ')';
-  this._gui.visit.value = 'Visit(' + (vNumber+1) + ')';
+  this._gui.email.value = 'Email (' + (eNumber+1) + ')';
+  this._gui.call.value = 'Call (' + (pNumber+1) + ')';
+  this._gui.visit.value = 'Visit (' + (vNumber+1) + ')';
   
   if (this._visitor.status == 1) {
-    this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
+    this._gui.title.appendChild(document.createTextNode(' (Succeed) '));
     var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
-    btn.id = this._unique + '_reverse_button';
     btn.style.fontFamily= 'Arial'
     btn.style.fontSize = '10pt';
     this._gui.title.appendChild(btn);
+    btn.onclick = function() { _self._visitor.status = 0;
+                               new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                             }
   } else if (this._visitor.status == -1) {
-    this._gui.title.appendChild(document.createTextNode(' (Failed)'));
+    this._gui.title.appendChild(document.createTextNode(' (Failed) '));
+    var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
+    btn.style.fontFamily= 'Arial'
+    btn.style.fontSize = '10pt';
+    this._gui.title.appendChild(btn);
+    btn.onclick = function() { _self._visitor.status = 0;
+                               new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                             }
   } else {
     if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
       this._gui.title.appendChild(document.createTextNode(' (Visited)'));
+    }
+    if (this._visitor.status == -2) {
+      this._gui.title.appendChild(document.createTextNode(' (Cancelled) '));
     }
   }
   if (this._visitor.brideEmail == '' && this._visitor.groomEmail == '') {
@@ -550,30 +627,22 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                              source: _self._visitor.source,
                                                              weddingDay: _self._visitor.weddingDay
                                                            }
-                                             var func = function() { _self._retrieveVisitor();
+                                             var func = function() { location.reload();
                                                                      window.open('http://dlmanage.co.nz/test/dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}))
                                                                    };
                                              new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { func(); } }, { pos: pos });
                                              return false;
                                            }
                                          };
-  this._gui.drop.onclick = function() { var pos, func1;
-                                        var operation = Operation.instance();
-                                        operation.visitId = _self._visitorId;
-                                        operation.cancelled = 0;
-                                        operation.operateType = this.value;
-                                        operation.operator = _self._operator.account;
-                                        func1 = function() { _self._retrieveVisitor(); _self._retrieveOperations(); };
-                                        pos = [window.screen.width/3, window.screen.height/3];
-                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Failed Reason'});
-                                        new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
-//                                        var r = window.confirm('Would you confirm to do this?');
-//                                        if (r) {
-//                                          var pos = DOMUtils.findPos(this);
-//                                          _self._visitor.status = -1;
-//                                          new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { _self._retrieveVisitor(); } }, { pos: pos });
-//                                          return false;
-//                                        }
+  this._gui.drop.onclick = function() { var r = window.confirm('Would you confirm to do this?');
+                                        if (r) {
+                                          var func1 = function() { location.reload();};
+                                          var pos = [window.screen.width/3, window.screen.height/3];
+                                          _self._visitor.disposal.userAccount = _self._operator.account;
+                                          _self._visitor.status = -1;
+                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Drop Reason'});
+                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, drop: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this) });
+                                        }
                                       };
 };
 

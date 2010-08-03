@@ -27,6 +27,9 @@ function classToOrm($class = NULL) {
     case 'visitor':
       require_once dirname(__FILE__) . '/ORMVisitor.class.php';
       return new ORMVisitor();
+    case 'visitorcancel':
+      require_once dirname(__FILE__) . '/ORMVisitorCancel.class.php';
+      return new ORMVisitorCancel();
     default:
       return NULL;
   }

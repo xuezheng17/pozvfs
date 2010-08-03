@@ -84,5 +84,9 @@ class Visitor {
    * @orm integer
    */
   public $status;
+  /**
+   * @orm composed_of one VisitorCancel
+   */
+  public $disposal;
 }
 ?>

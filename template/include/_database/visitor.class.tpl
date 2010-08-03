@@ -22,6 +22,7 @@ Visitor.instance = function() {
            source: '',
            firstVisitMethod: '',
            firstVisitDate: SimpleDate.create(),
-           status: 0
+           status: 0,
+           disposal: VisitorCancel.instance()
          }
 };
