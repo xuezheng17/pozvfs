@@ -7,6 +7,7 @@ ChartUtils.basic = function(div, result) {
   var data = [ { name: 'Succeeded', value: result.successVisitors },
                { name: 'Failed', value: result.dropVisitors },
                { name: 'In processing', value: result.progressingVisitors },
+               { name: 'Deleted', value: result.deletedVisitors },
              ];
   
   for (var i = 0, il = data.length; i < il; i++) {
@@ -14,7 +15,6 @@ ChartUtils.basic = function(div, result) {
     total += parseFloat(tmp.value, 10);
   }
   
-
   for (var i = 0, il = data.length; i < il; i++) {
     var tmp = data[i];
     tmp.displayName = tmp.name;

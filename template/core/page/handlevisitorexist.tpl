@@ -219,11 +219,17 @@ HandleVisitorExist.prototype._updateElements = function() {
   if (this._visitor.status == -1 || this._visitor.status == -2) {
     this._gui.reason.style.padding = '10px 0';
     var div = document.createElement('div');
-    div.style.fontWeight = 'bold';
     div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Drop'  : 'Cancel') + ' Reason (written by ' + this._visitor.cancelledOperator + ' on ' + SimpleDate.format(this._visitor.cancelledDate) + ')'));
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Drop'  : 'Cancel') + ' Reason Written by ' + this._visitor.cancelledOperator + ' On ' + SimpleDate.format(this._visitor.cancelledDate)));
     this._gui.reason.appendChild(div);
-    this._gui.reason.appendChild(MiscUtils.span(this._visitor.cancelledMessage));
+    this._gui.reason.style.margin = '0 0 30px 0';
+    this._gui.reason.style.fontWeight = 'bold';
+    this._gui.reason.style.fontSize = '15px';
+    this._gui.reason.style.color = '#FF0000';
+    var span = MiscUtils.span(this._visitor.cancelledMessage);
+    span.style.color = '#DD1324';
+    span.style.fontWeight = 'bold';
+    this._gui.reason.appendChild(span);
   }
   /* 结婚日期 */
   this._gui.weddingDay.value = (this._visitor.weddingDay) ? SimpleDate.format(this._visitor.weddingDay) : '';
@@ -576,7 +582,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.operator = _self._operator.account;
                                            func1 = function() {  _self._retrieveOperations(); };
                                            pos = [window.screen.width/3, window.screen.height/3];
-                                           tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                           tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Email Summary'});
                                            new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                            return false;
                                          }
@@ -589,7 +595,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         operation.operator = _self._operator.account;
                                         func1 = function() {  _self._retrieveOperations(); };
                                         pos = [window.screen.width/3, window.screen.height/3];
-                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                        tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Talking Summary'});
                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                         return false;
                                       };
@@ -601,7 +607,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          operation.operator = _self._operator.account;
                                          func1 = function() {  _self._retrieveOperations(); };
                                          pos = [window.screen.width/3, window.screen.height/3];
-                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
