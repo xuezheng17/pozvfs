@@ -90,7 +90,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('Tel/Mob:'));
+  td.appendChild(this._doc.createTextNode('Tel / Mob:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
@@ -112,7 +112,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('Tel/Mob:'));
+  td.appendChild(this._doc.createTextNode('Tel / Mob:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
