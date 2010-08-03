@@ -25,7 +25,7 @@ HandleVisitors.prototype._createElements = function() {
   td.style.textAlign = 'center';
   td.style.fontSize = '14px';
   td.style.fontWeight = 'bold';
-  td.appendChild(document.createTextNode('Show visitors by search or create '));
+  td.appendChild(document.createTextNode('Show Visitors by Search or Create '));
   var a = document.createElement('a');
   a.style.fontSize = '14px';
   a.style.fontWeight = 'normal';
