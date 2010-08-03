@@ -19,7 +19,6 @@
 {{include file='include/_database/ireception.class.tpl'}}
 {{include file='include/_database/iculture.class.tpl'}}
 {{include file='include/_database/iceremony.class.tpl'}}
-{{include file='include/_database/visitorcancel.class.tpl'}}
 {{include file='include/_database/visitor.class.tpl'}}
 {{include file='include/_metadata/visitormethod.meta.tpl'}}
 {{include file='core/page/handlevisitornew.tpl'}}

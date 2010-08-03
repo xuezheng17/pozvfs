@@ -5,7 +5,6 @@ class ORMVisitor extends ORMBase {
   }
 
   public function __toEpObject($myManager, $epObject, $object) {
-    require_once dirname(__FILE__) . '/ORMVisitorCancel.class.php';
     $epObject->trackId = isset($object->trackId) ? $object->trackId : '';
     $epObject->createdDate = (isset($object->createdDate) && $object->createdDate) ? SimpleDate::toStamp($object->createdDate) : 0;
     $epObject->creator = isset($object->creator) ? $object->creator : '';
@@ -27,18 +26,13 @@ class ORMVisitor extends ORMBase {
     $epObject->firstVisitMethod = isset($object->firstVisitMethod) ? $object->firstVisitMethod : '';
     $epObject->firstVisitDate = (isset($object->firstVisitDate) && $object->firstVisitDate) ? SimpleDate::toStamp($object->firstVisitDate) : 0;
     $epObject->status = isset($object->status) ? $object->status : 0;
-    if (isset($object->disposal) && $object->disposal) {
-        $epObject->disposal = $this->__getEpObject_4_lvl_1_object($myManager, $object->disposal, new ORMVisitorCancel(), 'VisitorCancel');
-    } else {
-      if (isset($epObject->disposal)) {
-        $my_manager->delete($epObject->disposal);
-      }
-    }
+    $epObject->cancelledDate = (isset($object->cancelledDate) && $object->cancelledDate) ? SimpleDate::toStamp($object->cancelledDate) : 0;
+    $epObject->cancelledOperator = isset($object->cancelledOperator) ? $object->cancelledOperator : '';
+    $epObject->cancelledMessage = isset($object->cancelledMessage) ? $object->cancelledMessage : '';
     return $epObject;
   }
 
   public function __toObject($myManager, $epObject, $object) {
-    require_once dirname(__FILE__) . '/ORMVisitorCancel.class.php';
     $object->id = $epObject->oid;
     $object->trackId = $epObject->trackId;
     $object->createdDate = ($epObject->createdDate != 0) ? SimpleDate::fromStamp($epObject->createdDate) : 0;
@@ -61,9 +55,9 @@ class ORMVisitor extends ORMBase {
     $object->firstVisitMethod = $epObject->firstVisitMethod;
     $object->firstVisitDate = ($epObject->firstVisitDate != 0) ? SimpleDate::fromStamp($epObject->firstVisitDate) : 0;
     $object->status = $epObject->status;
-    if (isset($epObject->disposal)) {
-      $object->disposal = $this->__getObject_4_lvl_1_ep_object($myManager, $epObject->disposal, new ORMVisitorCancel());
-    }
+    $object->cancelledDate = ($epObject->cancelledDate != 0) ? SimpleDate::fromStamp($epObject->cancelledDate) : 0;
+    $object->cancelledOperator = $epObject->cancelledOperator;
+    $object->cancelledMessage = $epObject->cancelledMessage;
     return $object;
   }
 }

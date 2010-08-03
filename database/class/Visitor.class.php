@@ -85,8 +85,18 @@ class Visitor {
    */
   public $status;
   /**
-   * @orm composed_of one VisitorCancel
+   * @orm date
    */
-  public $disposal;
+  public $cancelledDate;
+  /**
+   * @orm char(64)
+   */
+  public $cancelledOperator;
+  /**
+   * @orm char(4096)
+   */
+  public $cancelledMessage;
+  
+  
 }
 ?>
