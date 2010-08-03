@@ -20,6 +20,9 @@ ModulePagination.prototype._createElements = function() {
   var _self = this;
 
   this._gui = new Pagination(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
+  this._gui.next.disabled = true;
+  this._gui.previous.disabled = true;
+  
   this._makePagedResults(this._gui, this._page, this._total, this._limit, this._callbackFunc, this._context, this._doc);
 };
 
@@ -53,6 +56,13 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
   var numRange = 5;
   var i, il, a;
 
+  if (page > first) {
+    this._gui.previous.disabled = false;
+  }
+  if (page < last) {
+    this._gui.next.disabled = false;
+  }
+  
   i = prev;
   while ((i > (prev - (numRange + 1))) && (i >= 1)) {
     lowRange[lowRange.length] = i;
@@ -73,7 +83,7 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
   var _self = this
   var func = function() {
     if (isNaN(this._page)) {
-      window.alert('Not A Number');
+      window.alert('Not Number');
       return;
     }
     if (this._page > last || this._page < 1) {
@@ -143,7 +153,7 @@ ModulePagination.prototype._makePagedResults = function(gui, page, total, limit,
   gui.page.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                       if (code == 13) {
                                         if (isNaN(this.value)) {
-                                          window.alert('Not A Number');
+                                          window.alert('Not Number');
                                           return;
                                         }
                                         if (this.value > last || this.value < 1) {
