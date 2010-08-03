@@ -9,7 +9,8 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   
   this._operation = (options && options.item) ? options.item : null;
   this._visitor = (options && options.visitor) ? options.visitor : null;
-  this._drop = (options && options.drop) ? options.drop : false;
+  this._failed = (options && options.failed) ? options.failed : false;
+  this._deleted = (options && options.deleted) ? options.deleted : false;
   this._callbackFunc = (options && options.callbackFunc) ? options.callbackFunc : null;
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
   this._pos = (options && options.pos) ? options.pos : null;
@@ -29,7 +30,11 @@ ModuleDialogInput.prototype._createElements = function() {
                                           }
                                         };
   
-  this._gui.save.onclick = function() { if (_self._drop) {
+  this._gui.save.onclick = function() { if (_self._failed) {
+                                          _self._visitor.status = -1;
+                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                        } else if (_self._deleted) {
+                                          _self._visitor.status = -2;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
                                           new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
