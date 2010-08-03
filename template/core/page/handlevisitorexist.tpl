@@ -539,14 +539,12 @@ HandleVisitorExist.prototype._updateElements = function() {
     btn.onclick = function() { _self._visitor.status = 0;
                                new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                              }
-  } else {
-    if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
-      this._gui.title.appendChild(document.createTextNode(' (Visited)'));
-    }
-    if (this._visitor.status == -2) {
-      this._gui.title.appendChild(document.createTextNode(' (Cancelled) '));
-    }
+  } else if (this._visitor.status == -2) {
+    this._gui.title.appendChild(document.createTextNode(' (Cancelled) '));
+  } else if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
+    this._gui.title.appendChild(document.createTextNode(' (Visited)'));
   }
+
   if (this._visitor.brideEmail == '' && this._visitor.groomEmail == '') {
     this._gui.email.disabled = true;
     this._gui.email.style.width = '120px';
