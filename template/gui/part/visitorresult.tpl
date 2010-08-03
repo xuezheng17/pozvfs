@@ -175,11 +175,12 @@ VisitorResult.prototype._createElements = function() {
   td.style.height = '24px';
   td.style.width = '980px';
   td.colSpan = '5';
-  td.style.paddingRight = '40px';
+  td.style.textAlign = 'left';
+  td.style.padding = '0 18px';
   var table2 = this._doc.createElement('table');
   table2.style.width = '980px';
   table2.style.height = '24px';
-//  table2.border=1;
+  table2.border=1;
   table2.cellPadding = 0;
   table2.cellSpacing = 0;
   td.appendChild(table2);
@@ -187,8 +188,8 @@ VisitorResult.prototype._createElements = function() {
   tr=table2.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '122px';
-  td.style.textAlign = 'right';
+  td.style.width = '120px';
+  td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
   td.style.fontSize = '9pt';
@@ -198,7 +199,6 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -220,7 +220,6 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -242,7 +241,6 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -253,7 +251,7 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '65px';
+  td.style.width = '60px';
   td.style.textAlign = 'right';
   td.style.verticalAlign = 'bottom';
   td.style.fontWeight = 'bold';
@@ -264,7 +262,6 @@ VisitorResult.prototype._createElements = function() {
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
-  td.style.width = '125px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
   td.style.fontSize = '9pt';
@@ -283,7 +280,6 @@ VisitorResult.prototype._createElements = function() {
   var table1= this._doc.createElement('table');
   table1.style.width = '980px';
   table1.style.height = '28px';
-//  table1.border=1;
   table1.cellPadding = 0;
   table1.cellSpacing = 0;
   td.appendChild(table1);
