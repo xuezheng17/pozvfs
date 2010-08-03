@@ -9,6 +9,10 @@ class EmailTemplate {
    */
   public $name;
   /**
+   * @orm char(1024)
+   */
+  public $subject;
+  /**
    * @orm char(4096)
    */
   public $content;
