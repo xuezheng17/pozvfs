@@ -40,7 +40,7 @@ HandleEmailTemplates.prototype._updateElements = function() {
   DOMUtils.removeTableRows(this._gui.templates, 1);
   
   if (this._templates.length == 0) {
-    tr = this._gui._templates.insertRow(-1);
+    tr = this._gui.templates.insertRow(-1);
     td = tr.insertCell(-1);
     td.colSpan = 3;
     td.style.height = '24px';
