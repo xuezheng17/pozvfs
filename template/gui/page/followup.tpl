@@ -2,26 +2,27 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 30px;
-    margin: 13px 0 50px 0;
+  }
+  .{{$template|escape:'html'}}_td0 {
+    width: 480px;
+    height: 30px;
+    vertical-align:top;
   }
   .{{$template|escape:'html'}}_td1 {
-    width: 480px;
-    height: 10px;
+    width: 980px;
+    height:1px;
+    padding-right:22px;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 980px;
     height: 40px;
     text-align: center;
   }
-  .{{$template|escape:'html'}}_td3 {
-    width: 980px;
-    height: 5px;
+  .{{$template|escape:'html'}}_select {
+    width: 150px;
+    height: 20px;
   }
-  .{{$template|escape:'html'}}_td4 {
-    width: 980px;
-    height: 10px;
-    padding-right:22px;
-  }
+  
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
@@ -46,7 +47,12 @@
 
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td4" id= "{{$template|escape:'html'}}_page_div" align="right"></td>
+    <td class="{{$template|escape:'html'}}_td0">
+      <select id="{{$template|escape:'html'}}_sort_select" class="{{$template|escape:'html'}}_select"></select>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td1" id= "{{$template|escape:'html'}}_page_div" align="right"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td2" id= "{{$template|escape:'html'}}_visitors_div" colSpan="2" ></td>
