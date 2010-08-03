@@ -371,7 +371,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a  href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Close to wedding day</a>
+                  <a  href="?t=followup&m={%22a%22:3,%22b%22:2}&opts={%22follow%22:2}">Close to Wedding Day</a>
               </td>
               <td class="basemenus_td5">
                 |
