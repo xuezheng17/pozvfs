@@ -60,7 +60,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   
   this._gui.title.appendChild(document.createTextNode(' | '));
   span = document.createElement('span');
-  span.style.color = '#129834';
+  span.style.color = '#778899';
   span.appendChild(document.createTextNode('First Contact By ' + this._item.firstVisitMethod + ((this._item.firstVisitDate) ? ' On ' + SimpleDate.format(this._item.firstVisitDate) : '')));
   this._gui.title.appendChild(span);
   
