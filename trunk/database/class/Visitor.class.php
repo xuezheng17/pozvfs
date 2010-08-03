@@ -96,7 +96,5 @@ class Visitor {
    * @orm char(4096)
    */
   public $cancelledMessage;
-  
-  
 }
 ?>
