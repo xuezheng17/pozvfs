@@ -29,13 +29,15 @@ ModuleDialogInput.prototype._createElements = function() {
                                             _self._operation.content = this.value;
                                           }
                                         };
-  this._visitor.cancelledOperator = this._operator.account;
-  this._visitor.cancelledDate = this._now;
   this._gui.save.onclick = function() { if (_self._failed) {
                                           _self._visitor.status = -1;
+                                          _self._visitor.cancelledOperator = _self._operator.account;
+                                          _self._visitor.cancelledDate = _self._now;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else if (_self._deleted) {
                                           _self._visitor.status = -2;
+                                          _self._visitor.cancelledOperator = _self._operator.account;
+                                          _self._visitor.cancelledDate = _self._now;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
                                           new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
