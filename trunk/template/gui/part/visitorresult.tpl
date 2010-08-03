@@ -178,9 +178,8 @@ VisitorResult.prototype._createElements = function() {
   td.style.textAlign = 'left';
   td.style.padding = '0 18px';
   var table2 = this._doc.createElement('table');
-  table2.style.width = '944px';
   table2.style.height = '24px';
-  table2.border=1;
+//  table2.border=1;
   table2.cellPadding = 0;
   table2.cellSpacing = 0;
   table2.style.textAlign = 'left';
@@ -196,7 +195,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('Culture Background:'));
+  td.appendChild(this._doc.createTextNode('  Culture Background:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
@@ -238,7 +237,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('Reception Location:'));
+  td.appendChild(this._doc.createTextNode('  Reception Location:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
@@ -260,7 +259,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('Source:'));
+  td.appendChild(this._doc.createTextNode('  Source:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
