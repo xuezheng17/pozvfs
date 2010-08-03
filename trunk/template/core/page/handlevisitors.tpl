@@ -170,6 +170,9 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
   gui.failed.defaultChecked = this._search.failed;
   gui.failed.onclick = function() { _self._search.failed = this.checked;
                                   };
+  gui.deleted.defaultChecked = this._search.deleted;
+  gui.deleted.onclick = function() { _self._search.deleted = this.checked;
+                                   };
 
   gui.search.onclick = function() { _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this)); };
 };
@@ -181,20 +184,36 @@ HandleVisitors.prototype._toString = function(search) {
   str += (search.email == '') ? '' : ' AND ((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
   str += (search.id == '') ? '' : ((isNaN(search.id)) ? ' AND 1 = 0' : ' AND (v.e_oid=\'' + search.id + '\')');
   
-  if (search.inProgressingOnly && search.succeeded && search.failed) {
+  if (search.inProgressingOnly && search.succeeded && search.failed && search.deleted) {
+    str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -1) OR (v.status = -2))';
+  } else if (search.inProgressingOnly && search.succeeded && search.failed) {
     str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -1))';
+  } else if (search.inProgressingOnly && search.succeeded && search.deleted) {
+    str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -2))';
+  } else if (search.inProgressingOnly && search.failed && search.deleted) {
+    str += ' AND ((v.status = 0) OR (v.status = -1) OR (v.status = -2))';
+  } else if (search.succeeded && search.failed && search.deleted) {
+    str += ' AND ((v.status = 1) OR (v.status = -1) OR (v.status = -2))';
   } else if (search.inProgressingOnly && search.succeeded) {
     str += ' AND ((v.status = 0) OR (v.status = 1))';
   } else if (search.inProgressingOnly && search.failed) {
     str += ' AND ((v.status = 0) OR (v.status = -1))';
-  } else if (search.succeed && search.succeeded) {
+  } else if (search.inProgressingOnly && search.deleted) {
+    str += ' AND ((v.status = 0) OR (v.status = -2))';
+  } else if (search.succeeded && search.failed) {
     str += ' AND ((v.status = 1) OR (v.status = -1))';
+  } else if (search.succeeded && search.deleted) {
+    str += ' AND ((v.status = 1) OR (v.status = -2))';
+  } else if (search.failed && search.deleted) {
+    str += ' AND ((v.status = -1) OR (v.status = -2))';
   } else if (search.inProgressingOnly) {
     str += ' AND (v.status = 0)';
-  } else if (search.succeeded) {
+  }  else if (search.succeeded) {
     str += ' AND (v.status = 1)';
   } else if (search.failed) {
     str += ' AND (v.status = -1)';
+  } else if (search.deleted) {
+    str += ' AND (v.status = -2)';
   }
   return str;
 };
