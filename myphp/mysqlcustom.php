@@ -147,7 +147,7 @@ function followUp($myPdo) {
     $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
     $tmp->operations = array();
 
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     
