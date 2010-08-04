@@ -139,7 +139,7 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="2"></td>
   </tr>
   <tr>
-    <td style="padding: 10px 0 20px 0;font-size:15px;" colSpan="2"><a style="color:#FF0000;font-size:15px;font-weight:bold"href="?t=visitors&m={%22a%22:2,%22b%22:1}">Enter System Now</a> or automatically enter system in <span id="{{$template|escape:'html'}}_time_div">30</span> seconds</td>
+    <td style="padding: 10px 0 20px 0;font-size:15px;" colSpan="2"><a style="color:#FF0000;font-size:15px;font-weight:bold"href="?t=visitors&m={%22a%22:1,%22b%22:1}">Enter System Now</a> or automatically enter system in <span id="{{$template|escape:'html'}}_time_div">30</span> seconds</td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td1" >
