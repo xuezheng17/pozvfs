@@ -2,7 +2,7 @@ function AbstractPerformanceAttitude() {
 };
 
 AbstractPerformanceAttitude.gui = function(unique) {
-  return { search: { dateCreated: document.getElementById(unique + '_dateCreated_text'),
+  return { search: { dateCreated: document.getElementById(unique + '_dateFrom_text'),
                      dateTo: document.getElementById(unique + '_dateTo_text'),
                      search: document.getElementById(unique + '_search_button')
                    },
