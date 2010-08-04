@@ -429,10 +429,13 @@ HandleVisitorExist.prototype._updateElements = function() {
   }
   
   var pNumber = 0, eNumber = 0, vNumber = 0;
+  this._opera = [];
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
     var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
-
+    if (!operation.cancelled) {
+      this._opera[this._opera.length] = operation;
+    }
     if (type == 'call') {
       if (!operation.cancelled) {
         pNumber++;
@@ -601,7 +604,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
-                                           operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                           operation.prevOperator = (_self._opera.length == 0) ? _self._visitor.creator : _self._opera[_self._opera.length - 1].operator;
                                            operation.firstVisited = 0;
                                            pos = [window.screen.width/3, window.screen.height/3];
                                            tmp = new ModulePopupBox(document, document.body, 710, 500, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
@@ -614,7 +617,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
-                                           operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                           operation.prevOperator = (_self._opera.length == 0) ? _self._visitor.creator : _self._opera[_self._opera.length - 1].operator;
                                            operation.firstVisited = 0;
                                            func1 = function() {  _self._retrieveOperations(); };
                                            pos = [window.screen.width/3, window.screen.height/3];
@@ -629,7 +632,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         operation.cancelled = 0;
                                         operation.operateType = this.value;
                                         operation.operator = _self._operator.account;
-                                        operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                        operation.prevOperator = (_self._opera.length == 0) ? _self._visitor.creator : _self._opera[_self._opera.length - 1].operator;
                                         operation.firstVisited = 0;
                                         func1 = function() {  _self._retrieveOperations(); };
                                         pos = [window.screen.width/3, window.screen.height/3];
@@ -643,7 +646,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          operation.cancelled = 0;
                                          operation.operateType = this.value;
                                          operation.operator = _self._operator.account;
-                                         operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                         operation.prevOperator = (_self._opera.length == 0) ? _self._visitor.creator : _self._opera[_self._opera.length - 1].operator;
                                          operation.firstVisited = 1;
                                          func1 = function() {  _self._retrieveOperations(); };
                                          pos = [window.screen.width/3, window.screen.height/3];
