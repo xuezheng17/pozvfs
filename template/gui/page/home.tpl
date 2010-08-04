@@ -139,6 +139,9 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="2"></td>
   </tr>
   <tr>
+    <td style="padding: 10px 0 20px 0;font-size:15px;" colSpan="2"><a style="color:#FF0000;font-size:15px;font-weight:bold"href="?t=visitors&m={%22a%22:2,%22b%22:1}">Enter System Now</a> or automatically enter system in <span id="{{$template|escape:'html'}}_time_div">30</span> seconds</td>
+  </tr>
+  <tr>
     <td class="{{$template|escape:'html'}}_td1" >
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
@@ -157,9 +160,7 @@
         </tr>
       </table>
     </td>
-    <td class="{{$template|escape:'html'}}_td2">
-      <a href="?t=visitors&m={%22a%22:2,%22b%22:1}">Enter System</a>
-    </td>
   <tr>
 </table>
 <div id="{{$template|escape:'html'}}_graphy_div" class="{{$template|escape:'html'}}_table1" style="margin:30px 0 0 0;height:550px"></div>
+
