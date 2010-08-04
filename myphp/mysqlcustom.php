@@ -29,11 +29,11 @@ try {
     case 'followUp':
       followUp($myPdo);
       break;
-    case 'performance':
-      performance($myPdo);
+    case 'statAdvanced':
+      statAdvanced($myPdo);
       break;
-    case 'basic':
-      basic($myPdo);
+    case 'statBasic':
+      statBasic($myPdo);
       break;
     case 'performanceAttitude': 
       performanceAttitude($myPdo);
@@ -165,7 +165,7 @@ function followUp($myPdo) {
   echo json_encode($result);
 }
 
-function performance($myPdo) {
+function statAdvanced($myPdo) {
   global $tableVisitor;
   
   $function = MiscUtils::getParam('f', NULL);
@@ -222,7 +222,7 @@ function performance($myPdo) {
   echo json_encode($result);
 }
 
-function basic($myPdo) {
+function statBasic($myPdo) {
   global $tableVisitor;
   
   $function = MiscUtils::getParam('f', NULL);
@@ -274,7 +274,7 @@ function performanceAttitude($myPdo) {
   global $tableOperation, $tableUser;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $condition = MiscUtils::getParam('c', '1 = 1');
   $order = MiscUtils::getParam('o', 'o.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -295,33 +295,150 @@ function performanceAttitude($myPdo) {
   $result->queue = $queue;
   $result->condition = $condition;
   
-  
-  $sql = "SELECT DISTINCT u.e_oid AS id, u.account AS account FROM $tableUser AS u ";
+  $sql = "SELECT u.account AS account FROM $tableUser AS u ";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   
-  $sql1 = "SELECT DISTINCT o.e_oid AS id FROM $tableOperation AS o $condition ";
-  $stmt1 = $myPdo->prepare($sql1);
-  $stmt1->execute();
+  $result = array();
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operator AS operator FROM $tableOperation AS o $condition AND o.operator = '$tmp->account'";
+    
+    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition";
+    $stmt1 = $myPdo->prepare($sql1);
+    $stmt1->execute();
+    $tmp->total = 0;
+    if ($stmt1->rowCount() == 1) {
+      $tmp1 = $stmt1->fetch(PDO::FETCH_OBJ);
+      $tmp->total = $tmp1->total;
+    }
+    
+    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o WHERE o.operator='$tmp->account' $condition ";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
-    $tmp->operations = array();
-    $tmp->sum = $stmt1->rowCount();
-    $j = 0;
-    while ($j < $stmt2->rowCount()) {
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
-      $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
-      $tmp2->count = $stmt2->rowCount();
-      $tmp->operations[] = $tmp2;
-      $j++;
+      $tmp->value = $tmp2->total;
     }
-   $i++;
-   $result->data[] = $tmp;
+    $result[] = $tmp;
+    $i++;
   }
   echo json_encode($result);
 }
+
+function performancePE($myPdo) {
+  global $tableOperation, $tableUser;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', '1 = 1');
+  $order = MiscUtils::getParam('o', 'o.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (o.operatedDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (o.operatedDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT u.account AS account FROM $tableUser AS u ";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
+  $result = array();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    
+    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition";
+    $stmt1 = $myPdo->prepare($sql1);
+    $stmt1->execute();
+    $tmp->total = 0;
+    if ($stmt1->rowCount() == 1) {
+      $tmp1 = $stmt1->fetch(PDO::FETCH_OBJ);
+      $tmp->total = $tmp1->total;
+    }
+    
+    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o WHERE o.prevOperator='$tmp->account' AND o.firstVisited = 1 $condition ";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->value = $tmp2->total;
+    }
+    $result[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
+function performanceSales($myPdo) {
+  global $tableOperation, $tableUser, $tableVisitor;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', '1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (o.operatedDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (o.operatedDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT u.account AS account FROM $tableUser AS u ";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
+  $result = array();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    
+    $sql1 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v $condition";
+    $stmt1 = $myPdo->prepare($sql1);
+    $stmt1->execute();
+    $tmp->total = 0;
+    if ($stmt1->rowCount() == 1) {
+      $tmp1 = $stmt1->fetch(PDO::FETCH_OBJ);
+      $tmp->total = $tmp1->total;
+    }
+    
+    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v WHERE v.operator='$tmp->account' AND v.status = 1 $condition ";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->value = $tmp2->total;
+    }
+    $result[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
 ?>
