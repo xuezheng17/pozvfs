@@ -31,8 +31,6 @@ HandleHome.prototype._retrieveVisitor = function() {
 
 HandleHome.prototype._updateElements = function() {
   var unique, _self = this;
-  POZVFSUtils.clear(this._gui);
-  
   this._gui.visitors.appendChild(document.createTextNode(this._visitor.visitors));
   this._gui.succeedVisitors.appendChild(document.createTextNode(this._visitor.successVisitors));
   this._gui.dropVisitors.appendChild(document.createTextNode(this._visitor.dropVisitors));
@@ -40,4 +38,20 @@ HandleHome.prototype._updateElements = function() {
   this._gui.deletedVisitors.appendChild(document.createTextNode(this._visitor.deletedVisitors));
   
   ChartUtils.basic(this._gui.graphy, this._visitor);
+  this._time = 30;
+  this._change();
+};
+
+HandleHome.prototype._change = function() {
+  var _self = this;
+  setTimeout( function() { _self._time-- ;
+                           DOMUtils.removeChildElements(_self._gui.time);
+                           _self._gui.time.appendChild(document.createTextNode(_self._time));
+                           if (_self._time > 0) {
+                             _self._change();
+                           } else {
+                             location.href = '?t=visitors&m={\"a\":1,\"b\":1}';
+                           }
+                         }, 1000);
+  
 };
