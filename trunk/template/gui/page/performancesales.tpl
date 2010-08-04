@@ -148,7 +148,7 @@
       arguments.callee._loaded = true;
       var gui = AbstractPerformanceSales.gui('{{$template|escape:javascript}}');
       var options = { template: '{{$template|escape:'javascript'}}', option: '{{$options|escape:javascript}}' };
-      new HandlePerformanceSales(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), $options);
+      new HandlePerformanceSales(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), options);
     }
   //-->
 </script>
