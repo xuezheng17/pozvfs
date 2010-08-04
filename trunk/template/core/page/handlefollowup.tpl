@@ -23,9 +23,8 @@ function HandleFollowUp(gui, operator, now, options) {
     this._order = 'v.e_oid';
     this._query = 'ASC';
   } else if (this._cont == 5) {
-    var str = 'Visit (1)';
-    this._con = ' AND ((v.firstVisitMethod != \'Visitor\' AND 1 =1) OR (v.firstVisitMethod != \'Visitor\' AND o.firstVisited = 0 AND o.cancelled != 1))' ;
-    this._order = 'v.e_oid';
+    this._con = ' AND v.firstVisitMethod != \'Visitor\' AND o.firstVisited != 1 AND o.cancelled = 0' ;
+    this._order = 'o.e_oid';
     this._query = 'ASC';
   }
   
