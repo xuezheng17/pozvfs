@@ -1,7 +1,7 @@
-function AbstractPerformance() {
+function AbstractStatAdvanced() {
 };
 
-AbstractPerformance.gui = function(unique) {
+AbstractStatAdvanced.gui = function(unique) {
   return { visitors: document.getElementById(unique + '_visitors_div'),
            eVisitor: document.getElementById(unique + '_eVisitor_div'),
            eSucVisitor: document.getElementById(unique + '_eSucVisitor_div'),
