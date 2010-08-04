@@ -232,11 +232,11 @@ HandleVisitorNew.prototype._updateElements = function() {
                                           if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
                                             var str = '';
                                             if (!_self._visitor.weddingDay && !_self._visitor.firstVisitDate) {
-                                              str += '(Wedding Day, First Contact Date)';
+                                              str += 'Wedding Day and First Contact Date';
                                             } else if (!_self._visitor.weddingDay) {
-                                              str += '(Wedding Day)';
+                                              str += 'Wedding Day';
                                             } else if (!_self._visitor.firstVisitDate) {
-                                              str += '(First Contact Date)';
+                                              str += 'First Contact Date';
                                             }
                                             var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                             if (r) {
