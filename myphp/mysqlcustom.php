@@ -274,13 +274,13 @@ function performanceAttitude($myPdo) {
   global $tableOperation, $tableUser;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', '1 = 1');
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1 ');
   $order = MiscUtils::getParam('o', 'o.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
   $size = MiscUtils::getParam('s', 8);
   $pageSkip = ($page - 1) * $size;
-  
+
   $createdFrom = MiscUtils::getParam('from', NULL);
   $createdTo = MiscUtils::getParam('to', NULL);
 
@@ -298,8 +298,7 @@ function performanceAttitude($myPdo) {
   $sql = "SELECT u.account AS account FROM $tableUser AS u ";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
-  
-  $result = array();
+
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
@@ -313,7 +312,7 @@ function performanceAttitude($myPdo) {
       $tmp->total = $tmp1->total;
     }
     
-    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o WHERE o.operator='$tmp->account' $condition ";
+    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.operator='$tmp->account' AND o.cancelled = 0";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
@@ -321,7 +320,7 @@ function performanceAttitude($myPdo) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp->value = $tmp2->total;
     }
-    $result[] = $tmp;
+    $result->data[] = $tmp;
     $i++;
   }
   echo json_encode($result);
@@ -331,7 +330,7 @@ function performancePE($myPdo) {
   global $tableOperation, $tableUser;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', '1 = 1');
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
   $order = MiscUtils::getParam('o', 'o.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -355,8 +354,7 @@ function performancePE($myPdo) {
   $sql = "SELECT u.account AS account FROM $tableUser AS u ";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
-  
-  $result = array();
+
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
@@ -370,7 +368,7 @@ function performancePE($myPdo) {
       $tmp->total = $tmp1->total;
     }
     
-    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o WHERE o.prevOperator='$tmp->account' AND o.firstVisited = 1 $condition ";
+    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.prevOperator='$tmp->account' AND o.firstVisited = 1 AND o.cancelled = 0";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
@@ -378,7 +376,7 @@ function performancePE($myPdo) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp->value = $tmp2->total;
     }
-    $result[] = $tmp;
+    $result->data[] = $tmp;
     $i++;
   }
   echo json_encode($result);
@@ -388,7 +386,7 @@ function performanceSales($myPdo) {
   global $tableOperation, $tableUser, $tableVisitor;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', '1 = 1');
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
   $order = MiscUtils::getParam('o', 'v.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -413,7 +411,6 @@ function performanceSales($myPdo) {
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   
-  $result = array();
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
@@ -427,7 +424,7 @@ function performanceSales($myPdo) {
       $tmp->total = $tmp1->total;
     }
     
-    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v WHERE v.operator='$tmp->account' AND v.status = 1 $condition ";
+    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v $condition AND v.operator='$tmp->account' AND v.status = 1  ";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
@@ -435,7 +432,7 @@ function performanceSales($myPdo) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp->value = $tmp2->total;
     }
-    $result[] = $tmp;
+    $result->data[] = $tmp;
     $i++;
   }
   echo json_encode($result);

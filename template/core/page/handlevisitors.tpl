@@ -28,7 +28,7 @@ HandleVisitors.prototype._createElements = function() {
   var a = document.createElement('a');
   a.style.fontSize = '13px';
   a.style.fontWeight = 'normal';
-  a.href = '?t=visitornew&m={\"a\":2,\"b\":2}';
+  a.href = '?t=visitornew&m={\"a\":1,\"b\":2}';
   a.appendChild(document.createTextNode('New Visitor'));
   td.appendChild(a);
   

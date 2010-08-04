@@ -26,9 +26,9 @@ class ORMVisitor extends ORMBase {
     $epObject->firstVisitMethod = isset($object->firstVisitMethod) ? $object->firstVisitMethod : '';
     $epObject->firstVisitDate = (isset($object->firstVisitDate) && $object->firstVisitDate) ? SimpleDate::toStamp($object->firstVisitDate) : 0;
     $epObject->status = isset($object->status) ? $object->status : 0;
-    $epObject->cancelledDate = (isset($object->cancelledDate) && $object->cancelledDate) ? SimpleDate::toStamp($object->cancelledDate) : 0;
-    $epObject->cancelledOperator = isset($object->cancelledOperator) ? $object->cancelledOperator : '';
-    $epObject->cancelledMessage = isset($object->cancelledMessage) ? $object->cancelledMessage : '';
+    $epObject->operatorDate = (isset($object->operatorDate) && $object->operatorDate) ? SimpleDate::toStamp($object->operatorDate) : 0;
+    $epObject->operator = isset($object->operator) ? $object->operator : '';
+    $epObject->operatorMessage = isset($object->operatorMessage) ? $object->operatorMessage : '';
     return $epObject;
   }
 
@@ -55,9 +55,9 @@ class ORMVisitor extends ORMBase {
     $object->firstVisitMethod = $epObject->firstVisitMethod;
     $object->firstVisitDate = ($epObject->firstVisitDate != 0) ? SimpleDate::fromStamp($epObject->firstVisitDate) : 0;
     $object->status = $epObject->status;
-    $object->cancelledDate = ($epObject->cancelledDate != 0) ? SimpleDate::fromStamp($epObject->cancelledDate) : 0;
-    $object->cancelledOperator = $epObject->cancelledOperator;
-    $object->cancelledMessage = $epObject->cancelledMessage;
+    $object->operatorDate = ($epObject->operatorDate != 0) ? SimpleDate::fromStamp($epObject->operatorDate) : 0;
+    $object->operator = $epObject->operator;
+    $object->operatorMessage = $epObject->operatorMessage;
     return $object;
   }
 }

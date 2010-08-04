@@ -28,5 +28,13 @@ class Operation {
    * @orm char(5120)
    */
   public $content;
+  /**
+   * @orm char(64)
+   */
+  public $prevOperator;
+  /**
+   * @orm bool
+   */
+  public $firstVisited;
 }
 ?>

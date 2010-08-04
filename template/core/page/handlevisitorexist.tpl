@@ -123,7 +123,7 @@ HandleVisitorExist.prototype._retrieveVisitor = function() {
     this._visitor = Visitor.instance();
     this._visitor.weddingDay = '';
     this._visitor.firstVisitDate = '';
-    this._visitor.cancelledDate = '';
+    this._visitor.operatorDate = '';
     this._visitor.creator = this._operator.account;
     this._verifyData();
   }
@@ -192,10 +192,10 @@ HandleVisitorExist.prototype._updateElements = function() {
   }
 
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
-  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
+  this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 1, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
                                       };
   this._gui.back.onclick = function() { if (_self._visitor.id - 1 != 0) {
-                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1, menu: _self._menu, cont: _self._cont});
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 1, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: _self._visitor.id - 1, menu: _self._menu, cont: _self._cont});
                                         } else {
                                           window.alert('NO VISITOR 0');
                                         }
@@ -203,14 +203,14 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.number.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                               if (code == 13) {
                                                 if(POZVFSUtils.isNum(this.value)) {
-                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: this.value, menu: _self._menu, cont: _self._cont});
+                                                  location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 1, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: this.value, menu: _self._menu, cont: _self._cont});
                                                 } else {
                                                   window.alert('Input A Number Greater Than 0');
                                                 }
                                               }
                                             };
   this._gui.jump.onclick = function() { if(POZVFSUtils.isNum(_self._gui.number.value)) {
-                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 2, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value, menu: _self._menu, cont: _self._cont});
+                                          location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 1, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: _self._gui.number.value, menu: _self._menu, cont: _self._cont});
                                         } else {
                                           window.alert('Input A Number Greater Than 0');
                                         }
@@ -220,13 +220,13 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.reason.style.padding = '10px 0';
     var div = document.createElement('div');
     div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.cancelledOperator + ' On ' + SimpleDate.format(this._visitor.cancelledDate)));
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.operator + ' On ' + SimpleDate.format(this._visitor.operatorDate)));
     this._gui.reason.appendChild(div);
     this._gui.reason.style.margin = '0 0 30px 0';
     this._gui.reason.style.fontWeight = 'bold';
     this._gui.reason.style.fontSize = '15px';
     this._gui.reason.style.color = '#FF0000';
-    var span = MiscUtils.span(this._visitor.cancelledMessage);
+    var span = MiscUtils.span(this._visitor.operatorMessage);
     span.style.color = '#DD1324';
     span.style.fontWeight = 'bold';
     this._gui.reason.appendChild(span);
@@ -495,13 +495,17 @@ HandleVisitorExist.prototype._updateElements = function() {
       img.src = 'image/edit.png';
       img.style.cursor = 'pointer';
       img._operation = operation;
-      img.onclick = function() { var pos, func1, func2;
-                                 var operation = this._operation;
-                                 func1 = function() {  _self._retrieveOperations(); };
-                                 pos = [window.screen.width/3, window.screen.height/3];
-                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
-                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
-                                 return false;
+      img.onclick = function() { if (_self._operator.account == this._operation.operator) {
+                                   var pos, func1, func2;
+                                   var operation = this._operation;
+                                   func1 = function() {  _self._retrieveOperations(); };
+                                   pos = [window.screen.width/3, window.screen.height/3];
+                                   tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                   new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
+                                   return false;
+                                 } else {
+                                   window.alert('No Permission');
+                                 }
                                };
       td.appendChild(img);
     }
@@ -515,16 +519,20 @@ HandleVisitorExist.prototype._updateElements = function() {
       img.src = 'image/delete.png';
       img.style.cursor = 'pointer';
       img._operation = operation;
-      img.onclick = function() { this._operation.cancelled = 1;
-                                 var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf(' ('));
-                                 if (type == 'call') {
-                                   _self._pNumber -= 1;
-                                 } else if (type == 'email') {
-                                   _self._eNumber -= 1;
+      img.onclick = function() { if (_self._operator.account == this._operation.operator) {
+                                   this._operation.cancelled = 1;
+                                   var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf(' ('));
+                                   if (type == 'call') {
+                                     _self._pNumber -= 1;
+                                   } else if (type == 'email') {
+                                     _self._eNumber -= 1;
+                                   } else {
+                                     _self._vNumber -= 1;
+                                   }
+                                   new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
                                  } else {
-                                   _self._vNumber -= 1;
+                                   window.alert('No Permission');
                                  }
-                                 new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
                                };
       td.appendChild(img);
     }
@@ -540,8 +548,12 @@ HandleVisitorExist.prototype._updateElements = function() {
     btn.style.fontFamily= 'Arial'
     btn.style.fontSize = '10pt';
     this._gui.title.appendChild(btn);
-    btn.onclick = function() { _self._visitor.status = 0;
-                               new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+    btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
+                                 _self._visitor.status = 0;
+                                 new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                               } else {
+                                 window.alert('No Permission');
+                               }
                              }
   } else if (this._visitor.status == -1) {
     this._gui.title.appendChild(document.createTextNode(' (Failed) '));
@@ -549,11 +561,26 @@ HandleVisitorExist.prototype._updateElements = function() {
     btn.style.fontFamily= 'Arial'
     btn.style.fontSize = '10pt';
     this._gui.title.appendChild(btn);
-    btn.onclick = function() { _self._visitor.status = 0;
-                               new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+    btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
+                                 _self._visitor.status = 0;
+                                 new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                               } else {
+                                 window.alert('No Permission');
+                               }
                              }
   } else if (this._visitor.status == -2) {
     this._gui.title.appendChild(document.createTextNode(' (Deleted) '));
+    var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
+    btn.style.fontFamily= 'Arial'
+    btn.style.fontSize = '10pt';
+    this._gui.title.appendChild(btn);
+    btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
+                                 _self._visitor.status = 0;
+                                 new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                               } else {
+                                 window.alert('No Permission');
+                               }
+                             }
   } else if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
     this._gui.title.appendChild(document.createTextNode(' (Visited)'));
   }
@@ -574,6 +601,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
+                                           operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                           operation.firstVisited = 0;
                                            pos = [window.screen.width/3, window.screen.height/3];
                                            tmp = new ModulePopupBox(document, document.body, 710, 500, _self._operator, _self._now, { pos: pos, title: 'Send Email'});
                                            new ModuleEmailSend(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {operation: operation, visitor: _self._visitor, callbackFunc: function() {_self._retrieveOperations();}, popupBox: tmp, pos: DOMUtils.findPos(this)});
@@ -585,6 +614,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            operation.cancelled = 0;
                                            operation.operateType = this.value;
                                            operation.operator = _self._operator.account;
+                                           operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                           operation.firstVisited = 0;
                                            func1 = function() {  _self._retrieveOperations(); };
                                            pos = [window.screen.width/3, window.screen.height/3];
                                            tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Email Summary'});
@@ -598,6 +629,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         operation.cancelled = 0;
                                         operation.operateType = this.value;
                                         operation.operator = _self._operator.account;
+                                        operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                        operation.firstVisited = 0;
                                         func1 = function() {  _self._retrieveOperations(); };
                                         pos = [window.screen.width/3, window.screen.height/3];
                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Talking Summary'});
@@ -610,48 +643,63 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          operation.cancelled = 0;
                                          operation.operateType = this.value;
                                          operation.operator = _self._operator.account;
+                                         operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                         operation.firstVisited = 1;
                                          func1 = function() {  _self._retrieveOperations(); };
                                          pos = [window.screen.width/3, window.screen.height/3];
                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
-  this._gui.succeed.onclick = function() { window.alert('Disabled'); };
-//  this._gui.succeed.onclick = function() { var r = window.confirm('Would you confirm to do this?');
-//                                           if (r) {
-//                                             var pos = DOMUtils.findPos(this);
-//                                             _self._visitor.status = 1;
-//                                             var visitor = { fromVisitor: true,
-//                                                             brideName: _self._visitor.brideName,
-//                                                             brideAddress: _self._visitor.brideAddress,
-//                                                             bridePhone: _self._visitor.bridePhone,
-//                                                             brideMobile: _self._visitor.brideMobile,
-//                                                             brideEmail: _self._visitor.brideEmail,
-//                                                             groomName: _self._visitor.groomName,
-//                                                             groomAddress: _self._visitor.groomAddress,
-//                                                             groomPhone: _self._visitor.groomPhone,
-//                                                             groomMobile: _self._visitor.groomMobile,
-//                                                             groomEmail: _self._visitor.groomEmail,
-//                                                             culture: _self._visitor.culturalBackground,
-//                                                             ceremony: _self._visitor.ceremonyLocation,
-//                                                             reception: _self._visitor.receptionLocation,
-//                                                             source: _self._visitor.source,
-//                                                             weddingDay: _self._visitor.weddingDay
-//                                                           }
-//                                             var func = function() { location.reload();
-//                                                                     window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
-//                                                                   };
-//                                             new RequestUtils()._custom('isLogin', {}, function(result, params) { if (result.length == 1) { 
-//                                                                                                                    new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { func(); } }, { pos: pos });
-//                                                                                                                  } else {
-//                                                                                                                    pos = [window.screen.width/3, window.screen.height/3];
-//                                                                                                                    tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Sign In For DMS'});
-//                                                                                                                    new ModuleDialogSignIn(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { callbackFunc: func, popupBox: tmp, pos: DOMUtils.findPos(this)});
-//                                                                                                                  }
-//                                                                                                                }, {php: '../dms1/customphp/jsoncustom.php'});
-//                                             return false;
-//                                           }
-//                                         };
+  this._gui.succeed.onclick = function() { window.alert('Disabled'); 
+                                           if (vNumber == 0) {
+                                             var r = window.confirm('Automatically add a visiting operation');
+                                             if (r) {
+                                               var operation = Operation.instance();
+                                               operation.visitId = _self._visitorId;
+                                               operation.cancelled = 0;
+                                               operation.operateType = _self._gui.visit.value;
+                                               operation.operator = _self._operator.account;
+                                               operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
+                                               operation.firstVisited = 1;
+                                               new RequestUtils()._write('operation', [_self._operation], [], function() { }, null);
+                                             } 
+                                           }
+                                           var pos = DOMUtils.findPos(this);
+                                             
+                                             var visitor = { fromVisitor: true,
+                                                             brideName: _self._visitor.brideName,
+                                                             brideAddress: _self._visitor.brideAddress,
+                                                             bridePhone: _self._visitor.bridePhone,
+                                                             brideMobile: _self._visitor.brideMobile,
+                                                             brideEmail: _self._visitor.brideEmail,
+                                                             groomName: _self._visitor.groomName,
+                                                             groomAddress: _self._visitor.groomAddress,
+                                                             groomPhone: _self._visitor.groomPhone,
+                                                             groomMobile: _self._visitor.groomMobile,
+                                                             groomEmail: _self._visitor.groomEmail,
+                                                             culture: _self._visitor.culturalBackground,
+                                                             ceremony: _self._visitor.ceremonyLocation,
+                                                             reception: _self._visitor.receptionLocation,
+                                                             source: _self._visitor.source,
+                                                             weddingDay: _self._visitor.weddingDay
+                                                           }
+                                             var func = function() { location.reload();
+                                                                     window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+                                                                   };
+                                             new RequestUtils()._custom('isLogin', {visitor: visitor}, function(result, params) { if (result.length == 1) { 
+                                                                                                                    _self._visitor.status = 1;
+                                                                                                                    _self._visitor.operator = _self._operator.account;
+                                                                                                                    _self._visitor.operatorDate = _self._now;
+                                                                                                                    new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { func(); } }, { pos: pos });
+                                                                                                                  } else {
+                                                                                                                    pos = [window.screen.width/3, window.screen.height/3];
+                                                                                                                    tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Sign In For DMS'});
+                                                                                                                    new ModuleDialogSignIn(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { callbackFunc: func, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                                                                                                                  }
+                                                                                                                }, null);
+                                             return false;  
+                                         };
   this._gui.drop.onclick = function() { var func1 = function() { location.reload();};
                                         var pos = [window.screen.width/3, window.screen.height/3];
                                         tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Fail Reason'});

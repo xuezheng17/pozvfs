@@ -24,7 +24,7 @@ if ($logout === '') {
 }
 
 if (isset($_SESSION[OPERATOR])) {
-  $template = ($template == 'signin') ? 'home' : $template;
+  $template = ($template == 'signin') ? 'visitor' : $template;
   if ($menu == json_encode(array())) {
     $menu = new stdClass();
     $menu->a = 1;

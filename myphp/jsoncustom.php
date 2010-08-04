@@ -23,6 +23,9 @@ try {
     case 'sendEmail':
       sendEmail($myManager);
       break;
+    case 'isLogin':
+      isLogin();
+      break;
     default:
       break;
   }
@@ -149,5 +152,10 @@ function sendEmail($myManager) {
     }
   }
   echo json_encode($operation);
+}
+
+function isLogin() {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  echo json_encode($args);
 }
 ?>
