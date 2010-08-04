@@ -23,8 +23,8 @@ Visitor.instance = function() {
            firstVisitMethod: '',
            firstVisitDate: SimpleDate.create(),
            status: 0,
-           cancelledDate: SimpleDate.create(),
-           cancelledOperator: '',
-           cancelledMessage: ''
+           operatorDate: SimpleDate.create(),
+           operator: '',
+           operatorMessage: ''
          }
 };

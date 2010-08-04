@@ -8,6 +8,8 @@ Operation.instance = function() {
            operateType: '',
            operator: '',
            operatedDate: SimpleDate.create(),
-           content: ''
+           content: '',
+           prevOperator: '',
+           firstVisited: 0
          }
 };

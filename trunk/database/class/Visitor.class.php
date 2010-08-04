@@ -87,14 +87,14 @@ class Visitor {
   /**
    * @orm date
    */
-  public $cancelledDate;
+  public $operatorDate;
   /**
    * @orm char(64)
    */
-  public $cancelledOperator;
+  public $operator;
   /**
    * @orm char(4096)
    */
-  public $cancelledMessage;
+  public $operatorMessage;
 }
 ?>

@@ -7,7 +7,6 @@ function HandleFollowUp(gui, operator, now, options) {
   
   this._gui.sortDiv.style.visibility = 'collapse';
   
-  this._order = '';
   if (this._cont == 1) {
     this._order = 'o.operatedDate';
     this._query = 'ASC';
@@ -20,12 +19,12 @@ function HandleFollowUp(gui, operator, now, options) {
     this._con = ' Group By v.e_oid';
   } else if (this._cont == 4) {
     var str = 'Visit';
-    this._con = ' AND ((v.firstVisitMethod = \'Visitor\') OR (o.operateType LIKE \'%' + str + '%\'))';
+    this._con = ' AND ((v.firstVisitMethod = \'Visitor\') OR (o.firstVisited = 1))';
     this._order = 'v.e_oid';
     this._query = 'ASC';
   } else if (this._cont == 5) {
-    var str = 'Visit (1)' , str1 = 'Call', str2 = 'Email', str3 = '';
-    this._con = ' AND v.firstVisitMethod != \'Visitor\' AND o.operateType NOT LIKE \'%' + str + '%\' AND o.cancelled != 1' ;
+    var str = 'Visit (1)';
+    this._con = ' AND ((v.firstVisitMethod != \'Visitor\' AND 1 =1) OR (v.firstVisitMethod != \'Visitor\' AND o.firstVisited = 0 AND o.cancelled != 1))' ;
     this._order = 'v.e_oid';
     this._query = 'ASC';
   }
@@ -38,9 +37,7 @@ HandleFollowUp.prototype._createElements = function() {
   var _self = this;
   
     
-  if (this._cont == 4 || this._cont == 5) {
-    
-  } else {
+  if (this._cont == 1 || this._cont == 2 || this._cont == 3) {
     this._gui.sortDiv.style.visibility = 'visible';
     for (var i = 0, il = SortMethod.array().length; i < il; i++) {
       var method = SortMethod.array()[i];
@@ -104,6 +101,6 @@ HandleFollowUp.prototype._updateElements = function() {
     var tmp = this._visitors[i];
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
-    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp, menu: 3, cont: this._cont } );
+    new ModuleVisitorResult(document, td, 980, 60, this._operator, this._now, { item: tmp, menu: 2, cont: this._cont } );
   }
 };
