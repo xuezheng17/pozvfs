@@ -23,6 +23,7 @@
   }
   .{{$template|escape:'html'}}_table4 {
     width: 180px;
+    margin:10px 0 0 0;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
@@ -79,22 +80,13 @@
   }
   .{{$template|escape:'html'}}_td9 {
     width: 180px;
-    height: 28px;
-    text-align:center;
-    font-size: 10pt;
-    font-weight: bold;
-    font-family: Arial;
-    vertical-align:bottom;
-  }
-  .{{$template|escape:'html'}}_td10 {
-    width: 180px;
-    height: 23px;
+    height: 20px;
     text-align:left;
-    padding-left:35px;
+    padding-left:25px;
     font-size: 10pt;
     font-weight: bold;
     font-family: Arial;
-    vertical-align:bottom;
+    vertical-align:middle;
   }
   .{{$template|escape:'html'}}_td11 {
     width:130px;
@@ -181,7 +173,7 @@
           </td>
         </tr>
         <tr>
-          <td class="{{$template|escape:'html'}}_td10">To</td>
+          <td class="{{$template|escape:'html'}}_td9">To</td>
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td9">
