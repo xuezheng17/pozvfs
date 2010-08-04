@@ -15,7 +15,7 @@
     height:23px;
   }
   .basemenus_table4 {
-    height:16px;
+    height:13px;
   }
   .basemenus_table5 {
     height:16px;
@@ -106,7 +106,7 @@
     vertical-align: middle;
   }
   .basemenus_td6 {
-    height: 16px; 
+    height: 13px; 
     font-size:8pt;
     color:red;
     text-align: center;
