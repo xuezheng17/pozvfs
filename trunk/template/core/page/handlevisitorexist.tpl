@@ -561,7 +561,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   if (this._visitor.brideEmail == '' && this._visitor.groomEmail == '') {
     this._gui.email.disabled = true;
     this._gui.email.style.width = '120px';
-    this._gui.email.value = 'No EmailAddress';
+    this._gui.email.value = 'No Email Address';
   } else {
     this._gui.email.style.width = '67px';
   }

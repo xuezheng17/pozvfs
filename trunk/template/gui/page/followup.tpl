@@ -55,7 +55,7 @@
 
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td0">
+    <td id="{{$template|escape:'html'}}_sort_div" class="{{$template|escape:'html'}}_td0">
       <span class="{{$template|escape:'html'}}_title">Sort by</span>
       <select id="{{$template|escape:'html'}}_sort_select" class="{{$template|escape:'html'}}_select"></select>
     </td>

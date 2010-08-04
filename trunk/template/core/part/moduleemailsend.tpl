@@ -50,10 +50,10 @@ ModuleEmailSend.prototype._updateElements = function() {
   if (this._templates.length == 0) {
     this._gui.templateSelect.disabled = true;
     this._gui.templateDiv.style.padding = '0 0 0 5px';
-    this._gui.templateDiv.appendChild(document.createTextNode(' No eTemplate available?'));
+    this._gui.templateDiv.appendChild(document.createTextNode(' No template available? '));
     var a = document.createElement('a');
     a.href = '?t=emailtemplateedit&m={\"a\":5,\"b\":2}';
-    a.appendChild(document.createTextNode('add eTemplate'));
+    a.appendChild(document.createTextNode('Add Template'));
     this._gui.templateDiv.appendChild(a);
   }
   
