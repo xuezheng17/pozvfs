@@ -128,7 +128,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractHome.gui('{{$template|escape:'javascript'}}');
-      new AbstractHome(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      new HandleHome(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
