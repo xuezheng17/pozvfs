@@ -396,8 +396,8 @@ function performanceSales($myPdo) {
   $createdFrom = MiscUtils::getParam('from', NULL);
   $createdTo = MiscUtils::getParam('to', NULL);
 
-  $condition .= ($createdFrom) ? ' AND (o.operatedDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
-  $condition .= ($createdTo) ? ' AND (o.operatedDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  $condition .= ($createdFrom) ? ' AND (v.operatorDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.operatorDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
   
   $result = new stdClass();
   $result->data = array();
