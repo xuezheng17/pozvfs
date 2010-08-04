@@ -27,7 +27,7 @@ function HandleFollowUp(gui, operator, now, options) {
     var str = 'Visit (1)' , str1 = 'Call', str2 = 'Email', str3 = '';
     this._con = ' AND v.firstVisitMethod != \'Visitor\' AND o.operateType NOT LIKE \'%' + str + '%\' AND o.cancelled != 1' ;
     this._order = 'v.e_oid';
-    this._query = 'asc';
+    this._query = 'ASC';
   }
   
   this._createElements();
@@ -41,7 +41,7 @@ HandleFollowUp.prototype._createElements = function() {
   if (this._cont == 4 || this._cont == 5) {
     
   } else {
-    this._gui.sort.style.display = 'block';
+    this._gui.sort.style.display = 'inline';
     for (var i = 0, il = SortMethod.array().length; i < il; i++) {
       var method = SortMethod.array()[i];
       var option = new Option(method);
@@ -50,7 +50,7 @@ HandleFollowUp.prototype._createElements = function() {
         this._gui.sort.selectedIndex = this._gui.sort.options.length - 1;
       }
     }
-    this._gui.sort.onchange = function() { _self._query = this.options[this.selectedIndex].text;
+    this._gui.sort.onchange = function() { _self._query = (this.options[this.selectedIndex].text == Constant.Sort_Method_ASC) ? 'ASC' : 'DESC';
                                            _self._retrieveVisitors(1);
                                          };
   }
