@@ -46,7 +46,7 @@
   //-->
 </script>
 
-<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
+<table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" id="{{$template|escape:'html'}}_advanced_table">
   <tr>
     <td class="{{$template|escape:'html'}}_td1" >Visitors:</td> 
     <td class="{{$template|escape:'html'}}_td2" id="{{$template|escape:'html'}}_visitors_div"></td> 
