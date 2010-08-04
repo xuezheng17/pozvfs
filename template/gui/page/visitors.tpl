@@ -23,7 +23,7 @@
   }
   .{{$template|escape:'html'}}_td1 {
     width: 125px;
-    height: 29px;
+    height: 28px;
     text-align: right;
     vertical-align: bottom;
     padding-bottom:6px;
@@ -34,13 +34,13 @@
   }
   .{{$template|escape:'html'}}_td2 {
     width: 225px;
-    height: 29px;
+    height: 28px;
     text-align: center;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td3 {
     width: 125px;
-    height: 29px;
+    height: 28px;
     text-align: right;
     vertical-align: bottom;
     padding-bottom:6px;
@@ -81,7 +81,7 @@
   }
   .{{$template|escape:'html'}}_td8 {
     width: 980px;
-    height: 35px;
+    height: 36px;
     text-align:right;
     vertical-align:top;
     padding-right:38px;
