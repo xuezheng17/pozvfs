@@ -23,7 +23,9 @@
           <td class="base_td1" align="center">
             {{if $template != 'signin'}}
               {{include file="gui/basetoolbar.tpl"}}
-              {{include file="gui/basemenus.tpl"}}
+              {{if $template != 'home'}}
+                {{include file="gui/basemenus.tpl"}}
+              {{/if}}
             {{/if}}
               {{include file="gui/page/$template.tpl"}}
           </td>
