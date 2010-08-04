@@ -18,13 +18,12 @@ function HandleFollowUp(gui, operator, now, options) {
     this._query = 'ASC';
     this._con = ' Group By v.e_oid';
   } else if (this._cont == 4) {
-    var str = 'Visit';
-    this._con = ' AND ((v.firstVisitMethod = \'Visitor\') OR (o.firstVisited = 1))';
+    this._con = ' AND ((v.firstVisitMethod = \'Visitor\') OR (o.firstVisited = 1 AND o.cancelled = 0))';
     this._order = 'v.e_oid';
     this._query = 'ASC';
   } else if (this._cont == 5) {
-    this._con = ' AND v.firstVisitMethod != \'Visitor\' AND o.firstVisited != 1 AND o.cancelled = 0' ;
-    this._order = 'o.e_oid';
+    this._con = ' AND ((v.firstVisitMethod != \'Visitor\') AND (o.firstVisited = 0 AND o.cancelled = 0))' ;
+    this._order = 'v.e_oid';
     this._query = 'ASC';
   }
   
