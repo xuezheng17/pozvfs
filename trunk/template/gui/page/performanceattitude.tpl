@@ -108,10 +108,10 @@
   }
   .{{$template|escape:'html'}}_td11 {
     width:240px;
-    height:40px;
+    height:50px;
     text-align:right;
     padding-right:21px;
-    vertical-align:bottom;
+    vertical-align:middle;
     background-color:#c3d9ff;
   }
   .{{$template|escape:'html'}}_td12 {
@@ -121,7 +121,6 @@
     font-size: 10pt;
     font-family: Arial;
     vertical-align:bottom;
-    background-color:#c3d9ff;
   }
   .{{$template|escape:'html'}}_text {
     width:150px;
