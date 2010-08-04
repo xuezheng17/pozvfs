@@ -241,13 +241,13 @@ HandleVisitorNew.prototype._updateElements = function() {
                                             var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                             if (r) {
                                               var pos = DOMUtils.findPos(this);
-                                              new RequestUtils()._custom('addVisitor', {visitor: _self._visitor}, function(result, params) { if (result) { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: result.id});
+                                              new RequestUtils()._custom('addVisitor', {visitor: _self._visitor}, function(result, params) { if (result) { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: result.id});
                                                                                                                                                          };
                                                                                                                                            }, { pos: pos });
                                             }
                                           } else {
                                             var pos = DOMUtils.findPos(this);
-                                            new RequestUtils()._custom('addVisitor', {visitor: _self._visitor}, function(result, params) { if (result) { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 2, b: 1 }) + '&opts=' + MiscUtils.encode({id: result.id});
+                                            new RequestUtils()._custom('addVisitor', {visitor: _self._visitor}, function(result, params) { if (result) { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: result.id});
                                                                                                                                                        };
                                                                                                                                          }, { pos: pos });
                                           }
