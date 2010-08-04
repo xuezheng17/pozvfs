@@ -14,6 +14,7 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   this._callbackFunc = (options && options.callbackFunc) ? options.callbackFunc : null;
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
   this._pos = (options && options.pos) ? options.pos : null;
+  
   this._createElements();
 };
 
@@ -24,20 +25,20 @@ ModuleDialogInput.prototype._createElements = function() {
   
   this._gui.input.value = (this._operation && this._operation) ? this._operation.content : '';
   this._gui.input.onchange = function() { if (_self._failed || _self._deleted) {
-                                            _self._visitor.cancelledMessage = this.value;
+                                            _self._visitor.operatorMessage = this.value;
                                           } else {
                                             _self._operation.content = this.value;
                                           }
                                         };
   this._gui.save.onclick = function() { if (_self._failed) {
                                           _self._visitor.status = -1;
-                                          _self._visitor.cancelledOperator = _self._operator.account;
-                                          _self._visitor.cancelledDate = _self._now;
+                                          _self._visitor.operator = _self._operator.account;
+                                          _self._visitor.operatorDate = _self._now;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else if (_self._deleted) {
                                           _self._visitor.status = -2;
-                                          _self._visitor.cancelledOperator = _self._operator.account;
-                                          _self._visitor.cancelledDate = _self._now;
+                                          _self._visitor.operator = _self._operator.account;
+                                          _self._visitor.operatorDate = _self._now;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
                                           new RequestUtils()._write('operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
