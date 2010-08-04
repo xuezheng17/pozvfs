@@ -2,7 +2,8 @@ function AbstractStatAdvanced() {
 };
 
 AbstractStatAdvanced.gui = function(unique) {
-  return { visitors: document.getElementById(unique + '_visitors_div'),
+  return { advanced: document.getElementById(unique + '_advanced_table'),
+           visitors: document.getElementById(unique + '_visitors_div'),
            eVisitor: document.getElementById(unique + '_eVisitor_div'),
            eSucVisitor: document.getElementById(unique + '_eSucVisitor_div'),
            pVisitor: document.getElementById(unique + '_pVisitor_div'),
