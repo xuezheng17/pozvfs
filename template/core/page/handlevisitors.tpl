@@ -23,7 +23,6 @@ HandleVisitors.prototype._createElements = function() {
   td.style.width = '980px';
   td.style.height = '122px';
   td.style.textAlign = 'center';
-  td.style.fontSize = '13px';
   td.style.fontWeight = 'bold';
   td.appendChild(document.createTextNode('Show Visitors by Search or Create '));
   var a = document.createElement('a');
@@ -68,9 +67,8 @@ HandleVisitors.prototype._updateElements = function() {
     td.style.width = '980px';
     td.style.height = '122px';
     td.style.textAlign = 'center';
-    td.style.fontSize = '13px';
     td.style.fontWeight = 'bold';
-    td.appendChild(document.createTextNode('No result matches'));
+    td.appendChild(document.createTextNode('No Result Matches'));
   }
   for (var i = 0, il = this._visitors.length; i < il; i++) {
     var tmp = this._visitors[i];

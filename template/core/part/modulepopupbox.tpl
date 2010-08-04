@@ -74,6 +74,29 @@ ModulePopupBox.prototype._createElements = function() {
                                              this.className = 'popupUp';
                                            }
                                          };
+  
+  document.body.onmousemove = function() { if (_self._moveable) {
+                                           var evt = _self._getEvent();
+                                           var x = _self._moveLeft + evt.clientX - _self._moveX;
+                                           var y = _self._moveTop + evt.clientY - _self._moveY;
+                                           if ( x > 0 && ( x + _self._width < _self._iWidth) && y > 0 && (y + _self._height < _self._iHeight) ) {
+                                             _self._container2.style.left = x + "px";
+                                             _self._container2.style.top = y + "px";
+                                           }
+                                         }
+                                       };
+                                       
+  document.body.onmouseup = function () { if (_self._moveable) {
+                                           _self._doc.onmousemove = _self._docMouseMoveEvent;
+                                           _self._doc.onmouseup = _self._docMouseUpEvent;
+                                           _self._moveable = false;
+                                           _self._moveX = 0;
+                                           _self._moveY = 0;
+                                           _self._moveTop = 0;
+                                           _self._moveLeft = 0;
+                                           this.className = 'popupUp';
+                                         }
+                                       };
 };
 
 ModulePopupBox.prototype._getEvent = function() {

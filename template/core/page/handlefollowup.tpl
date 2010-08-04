@@ -5,7 +5,7 @@ function HandleFollowUp(gui, operator, now, options) {
   this._options = options;
   this._cont = (options && options.follow) ? options.follow : 0;
   
-  this._gui.sort.style.display = 'none';
+  this._gui.sortDiv.style.visibility = 'collapse';
   
   this._order = '';
   if (this._cont == 1) {
@@ -41,7 +41,7 @@ HandleFollowUp.prototype._createElements = function() {
   if (this._cont == 4 || this._cont == 5) {
     
   } else {
-    this._gui.sort.style.display = 'inline';
+    this._gui.sortDiv.style.visibility = 'visible';
     for (var i = 0, il = SortMethod.array().length; i < il; i++) {
       var method = SortMethod.array()[i];
       var option = new Option(method);
@@ -51,7 +51,7 @@ HandleFollowUp.prototype._createElements = function() {
       }
     }
     this._gui.sort.onchange = function() { _self._query = (this.options[this.selectedIndex].text == Constant.Sort_Method_ASC) ? 'ASC' : 'DESC';
-                                           _self._retrieveVisitors(1);
+                                           _self._retrieveVisitors(1, DOMUtils.findPos(this));
                                          };
   }
   
@@ -70,13 +70,13 @@ HandleFollowUp.prototype._verifyData = function() {
   }
 };
 
-HandleFollowUp.prototype._retrieveVisitors = function(page) { 
+HandleFollowUp.prototype._retrieveVisitors = function(page, pos) { 
   var _self = this;
   var args = '&c=LEFT JOIN np_Operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + ((this._con) ? this._con : '')  + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + '&o=' + ((this._order) ? this._order : '' ) + '&q=' + ((this._query) ? this._query : '');
   new RequestUtils()._mysql('followUp', args, function(result, params) { _self._visitors = result.data;
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);
-                                                                       }, null);
+                                                                       }, { pos: pos });
 };
 
 HandleFollowUp.prototype._updateElements = function() {
@@ -87,6 +87,7 @@ HandleFollowUp.prototype._updateElements = function() {
     new ModulePagination(document, this._gui.page, 500, 50, this._operator, this._now, {page: this._parameters.page, total: this._parameters.total, limit: this._parameters.size, callbackFunc: function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, context: this});
   }
   var table = document.createElement('table');
+  table.style.width = '100%';
   table.cellPadding = 0;
   table.cellSpacing = 0;
   this._gui.visitors.appendChild(table);
@@ -95,7 +96,8 @@ HandleFollowUp.prototype._updateElements = function() {
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
-    td.appendChild(document.createTextNode('Empty'));
+    td.style.fontWeight = 'bold';
+    td.appendChild(document.createTextNode('No Result Matches'));
   }
   
   for (var i = 0, il = this._visitors.length; i < il; i++) {
