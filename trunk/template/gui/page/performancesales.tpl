@@ -147,7 +147,8 @@
       }
       arguments.callee._loaded = true;
       var gui = AbstractPerformanceSales.gui('{{$template|escape:javascript}}');
-      new HandlePerformanceSales(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
+      var options = { template: '{{$template|escape:'javascript'}}', option: '{{$options|escape:javascript}}' };
+      new HandlePerformanceSales(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), $options);
     }
   //-->
 </script>
