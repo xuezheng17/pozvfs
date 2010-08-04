@@ -3,6 +3,7 @@ require_once dirname(__FILE__) . '/../common/common.inc.php';
 
 header('Content-Type: text/plain');
 
+$tableUser = 'np_User';
 $tableVisitor = 'np_Visitor';
 $tableOperation = 'np_Operation';
 
@@ -33,6 +34,15 @@ try {
       break;
     case 'basic':
       basic($myPdo);
+      break;
+    case 'performanceAttitude': 
+      performanceAttitude($myPdo);
+      break;
+    case 'performancePE': 
+      performancePE($myPdo);
+      break;
+    case 'performanceSales': 
+      performanceSales($myPdo);
       break;
     default:
       break;
@@ -257,6 +267,61 @@ function basic($myPdo) {
   $tmp->deletedVisitors = $stmt->rowCount();
   
   $result->data[] = $tmp;
+  echo json_encode($result);
+}
+
+function performanceAttitude($myPdo) {
+  global $tableOperation, $tableUser;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'o.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (o.operatedDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (o.operatedDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  
+  $sql = "SELECT DISTINCT u.e_oid AS id, u.account AS account FROM $tableUser AS u ";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
+  $sql1 = "SELECT DISTINCT o.e_oid AS id FROM $tableOperation AS o $condition ";
+  $stmt1 = $myPdo->prepare($sql1);
+  $stmt1->execute();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operator AS operator FROM $tableOperation AS o $condition AND o.operator = '$tmp->account'";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->operations = array();
+    $tmp->sum = $stmt1->rowCount();
+    $j = 0;
+    while ($j < $stmt2->rowCount()) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
+      $tmp2->count = $stmt2->rowCount();
+      $tmp->operations[] = $tmp2;
+      $j++;
+    }
+   $i++;
+   $result->data[] = $tmp;
+  }
   echo json_encode($result);
 }
 ?>
