@@ -121,6 +121,7 @@
     font-size: 10pt;
     font-family: Arial;
     vertical-align:bottom;
+    padding-left:25px;
   }
   .{{$template|escape:'html'}}_text {
     width:150px;
