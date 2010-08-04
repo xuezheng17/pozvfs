@@ -323,7 +323,7 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td11" colspan="4">
-      <input type="button" id="{{$template|escape:'html'}}_save_button" style = "width:66px;font-family:Arial;font-size:9pt;" value = "Save"></input>
+      <input type="button" id="{{$template|escape:'html'}}_save_button" style = "width:66px;font-family:Arial;font-size:9pt;" value = "Add"></input>
     </td>
   </tr>
 </table>

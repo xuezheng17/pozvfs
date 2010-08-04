@@ -9,6 +9,6 @@ define('Visitor_Method_Email', 'Email');
 define('Visitor_Method_Visitor', 'Visitor');
 
 /* @meta SortMethod(Sort_Method) */
-define('Sort_Method_ASC', 'ASC');
-define('Sort_Method_DESC', 'DESC');
+define('Sort_Method_ASC', 'Normal');
+define('Sort_Method_DESC', 'The Other Way Around');
 ?>
