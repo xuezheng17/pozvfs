@@ -275,7 +275,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p">
-                <a  href = "?t=statbasic&m={%22a%22:3,%22b%22:1}">Stats</a>
+                <a  href = "?t=statbasic&m={%22a%22:3,%22b%22:1}">Statistics</a>
               </td>
             </tr>
           </table>
@@ -291,7 +291,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href = "?t=statbasic&m={%22a%22:3,%22b%22:1}">Stats</a>
+                <a  href = "?t=statbasic&m={%22a%22:3,%22b%22:1}">Statistics</a>
               </td>
             </tr>
           </table>
@@ -316,8 +316,8 @@
                     <td >
                       <a  href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Performance</a>
                     </td>
-                    <td class="basemenus_td6">
-                      <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(beta)</a>
+                    <td class="basemenus_td6" style="padding: 0 0 0 5px;">
+                      <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(new)</a>
                     </td>
                   </tr>
                 </table>
@@ -341,8 +341,8 @@
                     <td >
                       <a  href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Performance</a>
                     </td>
-                    <td class="basemenus_td6">
-                      <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(beta)</a>
+                    <td class="basemenus_td6" style="padding: 0 0 0 5px;">
+                      <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(new)</a>
                     </td>
                   </tr>
                 </table>
@@ -510,10 +510,10 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Attitude</a>
+                        <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">General Performance</a>
                       </td>
                       <td class="basemenus_td6">
-                        <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(beta)</a>
+                        <span style="padding: 0 0 0 5px;">(new)</span>
                       </td>
                     </tr>
                   </table>
@@ -527,10 +527,10 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performancepe&m={%22a%22:4,%22b%22:2}">Phone / Email Performance</a>
+                        <a href = "?t=performancepe&m={%22a%22:4,%22b%22:2}">Phone/Email Performance</a>
                       </td>
                       <td class="basemenus_td6">
-                        <a href = "?t=performancepe&m={%22a%22:4,%22b%22:2}">(beta)</a>
+                        <span style="padding: 0 0 0 5px;">(new)</span>
                       </td>
                     </tr>
                   </table>
@@ -547,7 +547,7 @@
                         <a href = "?t=performancesales&m={%22a%22:4,%22b%22:3}">Sales Performance</a>
                       </td>
                       <td class="basemenus_td6">
-                        <a href = "?t=performancesales&m={%22a%22:4,%22b%22:3}">(beta)</a>
+                        <span style="padding: 0 0 0 5px;">(new)</span>
                       </td>
                     </tr>
                   </table>
