@@ -106,6 +106,7 @@
     vertical-align: middle;
   }
   .basemenus_td6 {
+    cursor: default;
     height: 13px; 
     font-size:8pt;
     color:red;
