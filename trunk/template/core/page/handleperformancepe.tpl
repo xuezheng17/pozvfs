@@ -68,6 +68,10 @@ HandlePerformancePE.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
     td.style.heigth = '24px';
+    td.appendChild(document.createTextNode(i + 1));
+    td = tr.insertCell(-1);
+    td.style.textAlign = 'center';
+    td.style.heigth = '24px';
     td.appendChild(document.createTextNode(tmp.account));
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';

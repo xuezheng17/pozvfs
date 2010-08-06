@@ -205,7 +205,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                         };
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
                                                          var func1 = function() { tmp._close();
-                                                                                  _self._visitor.cultureBackground = object.name;
+                                                                                  _self._visitor.culturalBackground = object.name;
                                                                                   new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
                                                                                 };
                                                          var func2 = function() { tmp._close();
