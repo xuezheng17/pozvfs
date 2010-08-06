@@ -180,9 +180,10 @@
     <td class="{{$template|escape:'html'}}_td5">
       <table class="{{$template|escape:'html'}}_table2" id="{{$template|escape:'html'}}_mains_table" cellPaddiing="0" cellSpacing="0">
         <tr>
-          <td class="{{$template|escape:'html'}}_td8">User</td>
-          <td class="{{$template|escape:'html'}}_td8">Succeeded Customers</td>
-          <td class="{{$template|escape:'html'}}_td8">Scale</td>
+          <td class="{{$template|escape:'html'}}_td8">Rank</td>
+          <td class="{{$template|escape:'html'}}_td8">Employee Name</td>
+          <td class="{{$template|escape:'html'}}_td8">No. of Customer contributed</td>
+          <td class="{{$template|escape:'html'}}_td8">Proportion</td>
         </tr>
       </table>
     </td>
