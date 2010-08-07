@@ -1,104 +1,42 @@
  <style>
   .{{$template|escape:'html'}}_table1 {
-    width: 348px;
-    height: 150px;
+    width: 372px;
+    height: 240px;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 348px;
-    height: 210px;
+    width: 372px;
+    height: 240px;
   }
-  .{{$template|escape:'html'}}_table3 {
-    width: 348px;
-    height: 210px;
-    text-align: center;
-    vertical-align: middle;
-    border:solid 1px #c7dbff;
-  }
-  .{{$template|escape:'html'}}_table4 {
-    width: 340px;
-    height: 202px;
-    text-align: center; 
-    background-color:#e8eefa;
-  }
-  
+
   .{{$template|escape:'html'}}_td1 {
-    width: 348px;
-    height: 128px;
+    width: 372px;
+    height: 88px;
     text-align: center;
     vertical-align: middle;
-    font-size: 18pt;
-    font-weight: 700;
-    color: #000000; 
-    font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 348px;
-    height: 210px;
-    text-align: center;
+    width: 372px;
+    height: 23px;
+    text-align: left;
     vertical-align: middle;
+    font-size: 10pt;
+    font-family: Arial;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 115px;
-    height: 66px;
+    width: 372px;
+    height: 56px;
     text-align: right;
-    padding-right:7px;
-    padding-bottom:6px;
-    vertical-align: bottom;
-    font-size: 10pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td4 {
-    width: 225px;
-    height: 66px;
-    text-align: left;
-    vertical-align: bottom;
-  }
-  .{{$template|escape:'html'}}_td5 {
-    width: 115px;
-    height: 40px;
-    text-align: right;
-    padding-right:7px;
-    vertical-align: bottom;
-    padding-bottom:6px;
-    font-size: 10pt;
-    color: #000000; 
-    font-family: Arial;
-  }
-  .{{$template|escape:'html'}}_td6 {
-    width: 225px;
-    height: 40px;
-    text-align: left;
-    vertical-align: bottom;
-  }
-  .{{$template|escape:'html'}}_td7 {
-    width: 115px;
-    height: 94px;
-  }
-  .{{$template|escape:'html'}}_td8 {
-    width: 225px;
-    height: 94px;
-    text-align: left;
     vertical-align: middle;
-    padding-bottom:20px;
   }
-  .{{$template|escape:'html'}}_td9 {
-    width: 339px;
-    height: 202px;
-    padding:3px;
-    text-align: right;
-    vertical-align: bottom;
-  }
-  .{{$template|escape:'html'}}_inputText{
-    width: 140px;
-    height: 16px;
+  .{{$template|escape:'html'}}_Text{
+    width: 372px;
+    height: 17px;
   }
   .{{$template|escape:'html'}}_btn{
-    font-family:Arial;
+    text-align:center;
     width:60px;
-    height:24px;
-    padding-bottom:15px;
-    
+    font-family:Arial;
+    font-size:10pt;
   }
 </style>
 
@@ -131,42 +69,28 @@
 <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table2" border=0>
   <tr>
     <td class="{{$template|escape:'html'}}_td1">
-      Dreamlife Visitor Service
+      <img src="image/logintitle.png"></img>
     </td>
   </tr>
   <tr>
+    <td class="{{$template|escape:'html'}}_td2">Account</td>
+  </tr>
+  <tr>
     <td class="{{$template|escape:'html'}}_td2">
-      <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table3" border=0> 
-        <tr>
-          <td class="{{$template|escape:'html'}}_td9">
-            <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table4" border=0>
-              <tr>
-                <td class="{{$template|escape:'html'}}_td3">
-                  Account:
-                </td>
-                <td class="{{$template|escape:'html'}}_td4">
-                  <input type="text" id="{{$template|escape:'html'}}_account_input" class="{{$template|escape:'html'}}_inputText"></input>
-                </td>
-              </tr>
-              <tr>
-                <td class="{{$template|escape:'html'}}_td5">
-                  Password:
-                </td>
-                <td class="{{$template|escape:'html'}}_td6">
-                  <input type="text" id="{{$template|escape:'html'}}_password_input" class="{{$template|escape:'html'}}_inputText"></input>
-                </td>
-              </tr>
-              <tr>
-                <td class="{{$template|escape:'html'}}_td7">
-                </td>
-                <td class="{{$template|escape:'html'}}_td8">
-                  <input type="button" id="{{$template|escape:'html'}}_login_button" class ="{{$template|escape:'html'}}_btn" value = "Login" ></input>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>  
-      </table>
+      <input type="text" class="{{$template|escape:'html'}}_Text" id="{{$template|escape:'html'}}_account_input"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td2">Password</td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td2">
+      <input type="text" class="{{$template|escape:'html'}}_Text" id="{{$template|escape:'html'}}_password_input"></input>
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td3">
+      <input type="button" id="{{$template|escape:'html'}}_login_button" value = "Login" class="{{$template|escape:'html'}}_btn"></input>
     </td>
   </tr>
 </table>
