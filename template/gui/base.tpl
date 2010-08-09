@@ -36,7 +36,7 @@
       {{include file="gui/basesubscript.tpl"}}
     </div>
     <div>
-      <table >
+      <table>
         <tr>
           <td ></td>
         </tr>
