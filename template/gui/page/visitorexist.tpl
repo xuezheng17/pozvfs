@@ -16,6 +16,7 @@
   .{{$template|escape:'html'}}_table4 {
     width: 980px;
     height: 100px;
+    margin: 0 0 35px 0;
   }
   .{{$template|escape:'html'}}_table5 {
     width: 980px;

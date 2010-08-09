@@ -2,6 +2,7 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     text-align: left;
+    margin: 0 0 50px 0;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 711px;

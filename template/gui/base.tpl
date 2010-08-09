@@ -8,7 +8,7 @@
       }
       .base_mainBg {
         width: 100%;
-        height: 800px;
+        height: 540px;
       }
       .base_td1 {
         vertical-align: top;
@@ -34,6 +34,13 @@
     </div>
     <div align="center">
       {{include file="gui/basesubscript.tpl"}}
+    </div>
+    <div>
+      <table >
+        <tr>
+          <td ></td>
+        </tr>
+      </table>
     </div>
   </body>
 </html>
