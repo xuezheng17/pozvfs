@@ -2,7 +2,7 @@
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 350px;
-    margin: 18px 0 0 0;
+    margin: 18px 0 70px 0;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 310px;

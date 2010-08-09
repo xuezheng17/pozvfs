@@ -2,7 +2,8 @@
 .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 40px;
-    text-align: left
+    text-align: left;
+    margin: 0 0 50px 0;
   }
   .{{$template|escape:'html'}}_table2 {
     width: 530px;

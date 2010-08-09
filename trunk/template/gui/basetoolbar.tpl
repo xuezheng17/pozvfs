@@ -8,7 +8,7 @@
     height: 20px;
     text-align: left;
     vertical-align: bottom;
-    padding:0 0 2px 7px;
+    padding:0 0 3px 7px;
   }
   .basetoolbar_cellTdLeft {
     height: 20px;
