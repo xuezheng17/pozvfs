@@ -512,7 +512,7 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Effort Achievements</a>
+                        <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Actions Achievements</a>
                       </td>
                       <td class="basemenus_td6">
                         <span style="padding: 0 0 0 5px;">(new)</span>
