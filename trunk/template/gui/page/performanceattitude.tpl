@@ -183,7 +183,7 @@
         <tr>
           <td class="{{$template|escape:'html'}}_td8">Rank</td>
           <td class="{{$template|escape:'html'}}_td8">Employee Name</td>
-          <td class="{{$template|escape:'html'}}_td8">No. of Follow up operations</td>
+          <td class="{{$template|escape:'html'}}_td8">No. of Follow up actions</td>
           <td class="{{$template|escape:'html'}}_td8">Proportion</td>
         </tr>
       </table>
