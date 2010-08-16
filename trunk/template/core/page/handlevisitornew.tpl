@@ -229,6 +229,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                      };
   /* Save */
   this._gui.save.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
+                                          _self._visitor.isVisited = (_self._visitor.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:javascript}}') ? true : false;
                                           if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
                                             var str = '';
                                             if (!_self._visitor.weddingDay && !_self._visitor.firstVisitDate) {

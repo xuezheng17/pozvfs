@@ -29,17 +29,26 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.appendChild(document.createTextNode(' - '));
   var span = document.createElement('span');
   span.style.color = '#891234';
-  var cnt = 0;
+  var visit = 0; noVisit = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
     var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
     if (type == 'visit') {
-      if (!operation.cancelled) {
-        cnt++;
-      }
+      visit++;
     }
   }
-  if (cnt || this._item.firstVisitMethod == 'Visitor') {
+  
+  for (var i = 0, il = this._item.operations.length; i < il; i++) {
+    var operation = this._item.operations[i];
+    var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
+    if (type != 'visit') {
+      noVisit++;
+    } else {
+      break;
+    }
+  }
+  
+  if (this._item.isVisited) {
     span.style.color = '#123489';
     span.appendChild(document.createTextNode('Visited'));
   } else {
@@ -78,11 +87,58 @@ ModuleVisitorResult.prototype._createElements = function() {
   span = document.createElement('span');
   span.style.color = '#123476';
   if (this._item.operations.length == 0) {
+    span = document.createElement('span');
     span.style.color = '#FF0000';
     span.appendChild(document.createTextNode('No Follow up actions'));
+    this._gui.title.appendChild(span);
   } else {
-    span.style.color = '#009900';
-    span.appendChild(document.createTextNode(this._item.operations.length + ' Follow up actions'));
+    if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
+      span.style.color = '#009900';
+      span.appendChild(document.createTextNode((this._item.operations.length)));
+      this._gui.title.appendChild(span);
+      span = document.createElement('span');
+      span.style.color = '#66cc66';
+      span.appendChild(document.createTextNode(' ( 0 ) '));
+      this._gui.title.appendChild(span);
+      span = document.createElement('span');
+      span.style.color = '#009900';
+      span.appendChild(document.createTextNode('Follow up actions'));
+      this._gui.title.appendChild(span);
+    } else {
+      if (visit == 0) {
+        span = document.createElement('span');
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode(this._item.operations.length + ' Follow up actions'));
+        this._gui.title.appendChild(span);
+      } else {
+        if (noVisit != 0) {
+          span.style.color = '#009900';
+          span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+          this._gui.title.appendChild(span);
+          span = document.createElement('span');
+          span.style.color = '#66cc66';
+          span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+          this._gui.title.appendChild(span);
+          span = document.createElement('span');
+          span.style.color = '#009900';
+          span.appendChild(document.createTextNode('Follow up actions'));
+          this._gui.title.appendChild(span);
+        } else {
+          span = document.createElement('span');
+          span.style.color = '#ff0000';
+          span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+          this._gui.title.appendChild(span);
+          span = document.createElement('span');
+          span.style.color = '#cc6666';
+          span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+          this._gui.title.appendChild(span);
+          span = document.createElement('span');
+          span.style.color = '#ff0000';
+          span.appendChild(document.createTextNode('Follow up actions'));
+          this._gui.title.appendChild(span);
+        }
+      }
+    }
   }
   this._gui.title.appendChild(span);
 

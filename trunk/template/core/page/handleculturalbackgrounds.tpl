@@ -60,7 +60,7 @@ HandleCulturalBackgrounds.prototype._updateElements = function() {
     td.style.padding = '0 0 0 20px';
     var a = document.createElement('a');
     a.href = '?t=culturalbackground&m=' + MiscUtils.encode({a: 4, b: 3}) + '&opts=' + MiscUtils.encode({id: object.id})
-    a.appendChild(document.createTextNode(object.name));
+    a.appendChild(document.createTextNode((object.name.length > 40) ? object.name.substring(0, 40) + '...' : object.name));
     td.appendChild(a);
     
     td = tr.insertCell(-1);

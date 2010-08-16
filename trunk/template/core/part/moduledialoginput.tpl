@@ -17,11 +17,7 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   this._pos = (options && options.pos) ? options.pos : null;
   
   this._gui = new DialogInput(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
-  if (this._failed) {
-    this._gui.opponent.style.display = 'inline';
-    this._gui.add.style.display = 'inline';
-  }
-  
+
   this._createElements();
 };
 
@@ -101,7 +97,7 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           _self._visitor.operatorDate = _self._now;
                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
-                                          new RequestUtils()._write('operation', [_self._operation], [], function() { if (_self._visited) {
+                                          new RequestUtils()._write('operation', [_self._operation], [], function() { if (_self._visited && !_self._visitor.isVisited) {
                                                                                                                         _self._visitor.isVisited = true;
                                                                                                                         new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                                                                                                       } else {
