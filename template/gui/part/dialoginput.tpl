@@ -16,23 +16,24 @@ DialogInput.prototype._createElements = function() {
   var gui, input, table, tr, td, _self = this;
   
   table = document.createElement('table');
-  table.style.width = '480px';
+  table.style.width = '470px';
   table.style.height = '24px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
+  table.style.margin = '0 5px';
   table.border=0;
-  table.style.marginTop = '3px'
+  table.style.marginTop = '8px'
   this._container.appendChild(table);
   
   if (this._options.failed) {
     tr=table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '21px';
-    td.style.width = '90px';
+    td.style.width = '65px';
     td.style.textAlign = 'right';
     td.style.verticalAlign = 'middle';
     td.style.paddingRight = '3px';
-    td.appendChild(this._doc.createTextNode('Fail Reason:'));
+    td.appendChild(this._doc.createTextNode('Opponent:'));
     td = tr.insertCell(-1);
     td.style.height = '21px';
     td.style.width = '150px';
@@ -45,7 +46,7 @@ DialogInput.prototype._createElements = function() {
     td.appendChild(select);
     td = tr.insertCell(-1);
     td.style.height = '21px';
-    td.style.width = '240px';
+    td.style.width = '250px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'bottom';
     var img = document.createElement('img');
@@ -61,7 +62,7 @@ DialogInput.prototype._createElements = function() {
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '200px';
-    td.style.width = '90px';
+    td.style.width = '65px';
     td.style.textAlign = 'right';
     td.style.verticalAlign = 'top';
     td.style.paddingRight = '3px';
@@ -72,14 +73,14 @@ DialogInput.prototype._createElements = function() {
     td.style.textAlign = 'center';
     input = document.createElement('textarea');
     input.id =  this._unique + '_input_text'
-    input.style.width = '394px';
+    input.style.width = '405px';
     input.rows = 10;
     td.appendChild(input);
     
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.colSpan = 3;
-    td.style.width = '480px';
+    td.style.width = '470px';
     var table2 = document.createElement('table');
     table2.style.width = '480px';
     table2.cellPadding = 0;
@@ -99,22 +100,25 @@ DialogInput.prototype._createElements = function() {
     input = DOMUtils.createInput('', '', 'button', 'Cancel', null);
     input.id = this._unique + '_cancel_button';
     td.appendChild(input);
+    tr = table.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.style.height = '6px';
   } else {
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
     input = document.createElement('textarea');
     input.id =  this._unique + '_input_text'
-    input.style.width = '480px';
+    input.style.width = '470px';
     input.rows = 10;
     td.appendChild(input);
     
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.colSpan = 3;
-    td.style.width = '480px';
+    td.style.width = '470px';
     var table2 = document.createElement('table');
-    table2.style.width = '480px';
+    table2.style.width = '470px';
     table2.cellPadding = 0;
     table2.cellSpacing = 0;
     td.appendChild(table2);
@@ -132,5 +136,9 @@ DialogInput.prototype._createElements = function() {
     input = DOMUtils.createInput('', '', 'button', 'Cancel', null);
     input.id = this._unique + '_cancel_button';
     td.appendChild(input);
+    
+    tr = table.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.style.height = '6px';
   }
 };
