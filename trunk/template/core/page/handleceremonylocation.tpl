@@ -46,6 +46,6 @@ HandleCeremonyLocation.prototype._updateElements = function() {
                                         } else { 
                                           new RequestUtils()._write('iceremony', [_self._ceremony], [], function() { location.href = '?t=ceremonylocations&m=' + MiscUtils.encode({ a: 4, b: 4 }); }, null); };
                                         }
-  this._gui.cancel.onclick = function() { history.back(); };
+  this._gui.back.onclick = function() { history.back(); };
 };
 

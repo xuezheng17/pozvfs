@@ -46,6 +46,6 @@ HandleReceptionLocation.prototype._updateElements = function() {
                                         } else { 
                                           new RequestUtils()._write('ireception', [_self._reception], [], function() { location.href = '?t=receptionlocations&m=' + MiscUtils.encode({ a: 4, b: 5 }); }, null); };
                                         }
-  this._gui.cancel.onclick = function() { history.back(); };
+  this._gui.back.onclick = function() { history.back(); };
 };
 
