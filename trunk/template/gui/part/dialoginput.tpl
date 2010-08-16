@@ -105,7 +105,7 @@ DialogInput.prototype._createElements = function() {
     td.style.textAlign = 'center';
     input = document.createElement('textarea');
     input.id =  this._unique + '_input_text'
-    input.style.width = '394px';
+    input.style.width = '480px';
     input.rows = 10;
     td.appendChild(input);
     
