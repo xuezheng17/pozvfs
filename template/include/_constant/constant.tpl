@@ -14,6 +14,9 @@ Constant.DOC_TYPE_LOOSE = 'loose';
 Constant.Visitor_Method_Phone = 'Phone';
 Constant.Visitor_Method_Email = 'Email';
 Constant.Visitor_Method_Visitor = 'Visitor';
-Constant.Sort_Method_ASC = 'Normal';
-Constant.Sort_Method_DESC = 'The Other Way Around';
+Constant.Order_Method_ASC = 'ASC';
+Constant.Order_Method_DESC = 'DESC';
+Constant.Sort_Method_Last_Updated = 'Last Updated';
+Constant.Sort_Method_Wedding_Day = 'Wedding Day';
+Constant.Sort_Method_FollowUp_Times = 'Follow Up Times';
 

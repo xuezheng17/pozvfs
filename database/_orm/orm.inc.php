@@ -15,6 +15,9 @@ function classToOrm($class = NULL) {
     case 'iculture':
       require_once dirname(__FILE__) . '/ORMICulture.class.php';
       return new ORMICulture();
+    case 'iopponent':
+      require_once dirname(__FILE__) . '/ORMIOpponent.class.php';
+      return new ORMIOpponent();
     case 'ireception':
       require_once dirname(__FILE__) . '/ORMIReception.class.php';
       return new ORMIReception();

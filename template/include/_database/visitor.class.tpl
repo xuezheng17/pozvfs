@@ -24,7 +24,9 @@ Visitor.instance = function() {
            firstVisitDate: SimpleDate.create(),
            status: 0,
            operatorDate: SimpleDate.create(),
+           opponent: '',
            operator: '',
-           operatorMessage: ''
+           operatorMessage: '',
+           isVisited: 0
          }
 };
