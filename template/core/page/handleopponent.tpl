@@ -46,6 +46,6 @@ HandleOpponent.prototype._updateElements = function() {
                                         } else { 
                                           new RequestUtils()._write('iopponent', [_self._opponent], [], function() { location.href = '?t=opponents&m=' + MiscUtils.encode({ a: 4, b: 7 }); }, null); };
                                         }
-  this._gui.cancel.onclick = function() { history.back(); };
+  this._gui.back.onclick = function() { history.back(); };
 };
 

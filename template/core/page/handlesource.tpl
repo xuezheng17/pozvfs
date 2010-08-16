@@ -46,6 +46,6 @@ HandleSource.prototype._updateElements = function() {
                                         } else { 
                                           new RequestUtils()._write('isource', [_self._source], [], function() { location.href = '?t=sources&m=' + MiscUtils.encode({ a: 4, b: 6 }); }, null); };
                                         }
-  this._gui.cancel.onclick = function() { history.back(); };
+  this._gui.back.onclick = function() { history.back(); };
 };
 

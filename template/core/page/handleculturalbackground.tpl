@@ -46,6 +46,6 @@ HandleCulturalBackground.prototype._updateElements = function() {
                                         } else { 
                                           new RequestUtils()._write('iculture', [_self._culture], [], function() { location.href = '?t=culturalbackgrounds&m=' + MiscUtils.encode({ a: 4, b: 3 }); }, null); };
                                         }
-  this._gui.cancel.onclick = function() { history.back(); };
+  this._gui.back.onclick = function() { history.back(); };
 };
 
