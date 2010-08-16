@@ -20,19 +20,71 @@ DialogInput.prototype._createElements = function() {
   table.style.height = '24px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
+  table.border=0;
+  table.style.marginTop = '3px'
   this._container.appendChild(table);
   
+  tr=table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '21px';
+  td.style.width = '90px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'middle';
+  td.style.paddingRight = '3px';
+  td.appendChild(this._doc.createTextNode('Fail Reason:'));
+  td = tr.insertCell(-1);
+  td.style.height = '21px';
+  td.style.width = '150px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'middle';
+  var select = this._doc.createElement('select');
+  select.id = this._unique + '_opponent_select';
+  select.style.height = '21px';
+  select.style.width = '150px';
+  td.appendChild(select);
+  td = tr.insertCell(-1);
+  td.style.height = '21px';
+  td.style.width = '240px';
+  td.style.textAlign = 'left';
+  td.style.verticalAlign = 'bottom';
+  var img = document.createElement('img');
+  img.src = 'image/add.png';
+  img.id = this._unique + '_add_button';
+  td.appendChild(img);
+  
   tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '2px';
+  
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '200px';
+  td.style.width = '90px';
+  td.style.textAlign = 'right';
+  td.style.verticalAlign = 'top';
+  td.style.paddingRight = '3px';
+  td.style.paddingTop = '3px';
+  td.appendChild(this._doc.createTextNode('Note:'));
   td = tr.insertCell(-1);
   td.colSpan = 2;
   td.style.textAlign = 'center';
   input = document.createElement('textarea');
   input.id =  this._unique + '_input_text'
-  input.style.width = '480px';
+  input.style.width = '394px';
   input.rows = 10;
   td.appendChild(input);
   
   tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.colSpan = 3;
+  td.style.width = '480px';
+  var table2 = document.createElement('table');
+  table2.style.width = '480px';
+  table2.cellPadding = 0;
+  table2.cellSpacing = 0;
+  td.appendChild(table2);
+  
+  tr = table2.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.width = '';
   td.align = 'right';
