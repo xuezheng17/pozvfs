@@ -24,9 +24,9 @@ HandleHome.prototype._verifyData = function() {
 
 HandleHome.prototype._retrieveVisitor = function() { 
   var _self = this;
-  new RequestUtils()._mysql('statBasic', '&s=99999', function(result, params) { _self._visitor = result.data[0];
-                                                                                _self._verifyData.call(_self);
-                                                                              }, null);
+  new RequestUtils()._mysql('home', '&s=99999', function(result, params) { _self._visitor = result.data[0];
+                                                                           _self._verifyData.call(_self);
+                                                                         }, null);
 };
 
 HandleHome.prototype._updateElements = function() {
