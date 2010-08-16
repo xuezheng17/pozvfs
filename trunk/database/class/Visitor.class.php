@@ -91,10 +91,18 @@ class Visitor {
   /**
    * @orm char(64)
    */
+  public $opponent;
+  /**
+   * @orm char(64)
+   */
   public $operator;
   /**
    * @orm char(4096)
    */
   public $operatorMessage;
+  /**
+   * @orm bool
+   */
+  public $isVisited;
 }
 ?>

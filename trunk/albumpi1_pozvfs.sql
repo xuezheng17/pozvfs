@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 05, 2010 at 03:09 AM
+-- Generation Time: Aug 16, 2010 at 08:11 AM
 -- Server version: 5.0.27
 -- PHP Version: 5.2.9-2
 
@@ -75,14 +75,15 @@ CREATE TABLE IF NOT EXISTS `np_iceremony` (
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `np_iceremony`
 --
 
 INSERT INTO `np_iceremony` (`e_oid`, `trackId`, `name`) VALUES
-(1, 'u949972293270', 's');
+(1, 'u949972293270', 's'),
+(2, 'u504547816390', 'cccccccccccccccccccccccccccccccc');
 
 -- --------------------------------------------------------
 
@@ -95,12 +96,34 @@ CREATE TABLE IF NOT EXISTS `np_iculture` (
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `np_iculture`
 --
 
+INSERT INTO `np_iculture` (`e_oid`, `trackId`, `name`) VALUES
+(1, 'u731126943085', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `np_iopponent`
+--
+
+CREATE TABLE IF NOT EXISTS `np_iopponent` (
+  `e_oid` int(12) NOT NULL auto_increment,
+  `trackId` varchar(64) default NULL,
+  `name` varchar(64) default NULL,
+  PRIMARY KEY  (`e_oid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `np_iopponent`
+--
+
+INSERT INTO `np_iopponent` (`e_oid`, `trackId`, `name`) VALUES
+(1, 'u477665579661', 'dlmanage.co.nz');
 
 -- --------------------------------------------------------
 
@@ -113,12 +136,14 @@ CREATE TABLE IF NOT EXISTS `np_ireception` (
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `np_ireception`
 --
 
+INSERT INTO `np_ireception` (`e_oid`, `trackId`, `name`) VALUES
+(1, 'u570235228656', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
 
 -- --------------------------------------------------------
 
@@ -131,12 +156,14 @@ CREATE TABLE IF NOT EXISTS `np_isource` (
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `np_isource`
 --
 
+INSERT INTO `np_isource` (`e_oid`, `trackId`, `name`) VALUES
+(1, 'u144446192273', 'ddddddddddddddddddddddddddddddddddd');
 
 -- --------------------------------------------------------
 
@@ -156,24 +183,28 @@ CREATE TABLE IF NOT EXISTS `np_operation` (
   `prevOperator` varchar(64) default NULL,
   `firstVisited` tinyint(1) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `np_operation`
 --
 
 INSERT INTO `np_operation` (`e_oid`, `trackId`, `visitId`, `cancelled`, `operateType`, `operator`, `operatedDate`, `content`, `prevOperator`, `firstVisited`) VALUES
-(1, 'u79194078997', '6', 0, 'Call (1)', 'test', 1280880000, 'xxx', '', 0),
-(2, 'u284964124376', '5', 0, 'Call (1)', 'test', 1280880000, 'cxcx', '', 0),
-(3, 'u1252058043055', '3', 0, 'Call (1)', 'user', 1280880000, 'xxxx', '', 0),
-(4, 'u912828468640', '2', 1, 'Call (1)', 'test', 1280880000, 'vcvc', '', 0),
-(5, 'u322813446666', '4', 0, 'Call (1)', 'user', 1280880000, 'DFD', '', 0),
-(6, 'u593966329748', '4', 0, 'Visit (1)', 'user', 1280880000, 'FDSF ', 'user', 1),
-(7, 'u867801431978', '2', 1, 'Visit (1)', 'user', 1280880000, 'vcvcv', '', 1),
-(8, 'u1116723042686', '2', 1, 'Visit (1)', 'user', 1280880000, 'vc', '', 1),
-(9, 'u597199630470', '2', 0, 'Visit (1)', 'user', 1280880000, 'fds', 'emma', 1),
-(10, 'u181888684304', '8', 0, 'Call (1)', 'emma', 1280880000, 'ieie ', 'user', 0),
-(11, 'u1167243189147', '7', 0, 'Email (1)', 'emma', 1280880000, 'hello \n  this is a test email !\n\n\n                       dreamLife opertion', 'test', 0);
+(1, 'u373789009168', '3', 0, 'Email (1)', 'test', 1281916800, 'fddsdf', '', 0),
+(2, 'u420741710597', '3', 1, 'Visit (1)', 'test', 1281916800, 'fdsfs', 'test', 1),
+(3, 'u1145631706006', '3', 1, 'Visit (1)', 'test', 1281916800, 'cc', 'test', 1),
+(4, 'u731287572539', '3', 1, 'Visit (1)', 'test', 1281916800, 'cx', 'test', 1),
+(5, 'u40930658770', '3', 1, 'Visit (1)', 'test', 1281916800, 'fdss', 'test', 1),
+(6, 'u424942058130', '3', 1, 'Call (1)', 'test', 1281916800, 'fsdfs', 'test', 0),
+(7, 'u99173181779', '3', 1, 'Visit (1)', 'test', 1281916800, 'fsdfs', 'test', 1),
+(8, 'u910329276894', '3', 1, 'Call (2)', 'test', 1281916800, 'sdfs', 'test', 0),
+(9, 'u392597566780', '3', 1, 'Call (3)', 'test', 1281916800, 'fdsfs', 'test', 0),
+(10, 'u495940872552', '3', 1, 'Visit (2)', 'test', 1281916800, 'fds', 'test', 1),
+(11, 'u399364625236', '3', 1, 'Call (2)', 'test', 1281916800, '121', 'test', 0),
+(12, 'u1009543848104', '1', 0, 'Visit (1)', 'test', 1281916800, 'dsfs', '', 1),
+(13, 'u1280612099532', '2', 0, 'Call (1)', 'test', 1281916800, 'cxcx', '', 0),
+(14, 'u1257502655272', '2', 1, 'Visit (1)', 'test', 1281916800, 'fsd', 'test', 1),
+(15, 'u312831787748', '2', 0, 'Visit (1)', 'test', 1281916800, 'dfs', 'test', 1);
 
 -- --------------------------------------------------------
 
@@ -230,19 +261,16 @@ CREATE TABLE IF NOT EXISTS `np_visitor` (
   `operatorDate` int(16) default NULL,
   `operator` varchar(64) default NULL,
   `operatorMessage` varchar(4096) default NULL,
+  `isVisited` tinyint(4) default NULL,
+  `opponent` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `np_visitor`
 --
 
-INSERT INTO `np_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`) VALUES
-(1, 'u1010803953216', 1280793600, 'emma', 1283212800, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Phone', 1280620800, -2, 1280793600, 'emma', 'fsfsfffsfsd'),
-(2, 'u1019438005858', 1280793600, 'emma', 1283126400, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', '', '', '', '', 'Visitor', 1280620800, 0, 1280880000, 'user', 'æˆ¿è´·é¦–ä»˜'),
-(3, 'u842115074563', 1280793600, 'emma', 1283212800, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Email', 1280620800, 0, 0, '', ''),
-(4, 'u518074974429', 1280793600, 'emma', 1285718400, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Phone', 1279670400, 0, 0, '', ''),
-(5, 'u640512020893', 1280793600, 'emma', 1285200000, 'å•Š', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Visitor', 1280534400, -2, 1280880000, 'user', 'è¾…å¯¼è´¹'),
-(6, 'u939197781887', 1280793600, 'emma', 1283212800, '', '', '', 'ns.zhangjianxin@gmail.com', '', '', '', '', '', '', '', '', '', '', 'Phone', 1280620800, -2, 1280880000, 'test', 'cxcxc'),
-(7, 'u502815738908', 1280880000, 'test', 1285804800, '', '', '', 'ns.zhangjianxin@gmail.com', '', '', '', '', '', '', '', '', '', '', 'Phone', 1280707200, 0, 1280880000, '', ''),
-(8, 'u820761298496', 1280880000, 'user', 1283212800, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Visitor', 1280707200, 0, 1280880000, '', '');
+INSERT INTO `np_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`) VALUES
+(1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, '', '', 1, ''),
+(2, 'u430247815599', 1281916800, 'test', 1283126400, 'b', '', 'b', 'b', 'b', '', 'b', 'b', 'b', '', '', '', '', '', 'Visitor', 1281830400, 0, 1281916800, '', '', 1, ''),
+(3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 0, '');

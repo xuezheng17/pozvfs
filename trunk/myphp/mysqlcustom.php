@@ -35,6 +35,9 @@ try {
     case 'statBasic':
       statBasic($myPdo);
       break;
+    case 'home':
+      home($myPdo);
+      break;
     case 'performanceAttitude': 
       performanceAttitude($myPdo);
       break;
@@ -85,7 +88,7 @@ function visitors($myPdo) {
   $stmt->execute();
   $result->total = $stmt->rowCount();
   
-  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
+  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status, v.isVisited as isVisited FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $i = 0;
@@ -94,8 +97,9 @@ function visitors($myPdo) {
     $tmp->createdDate = ($tmp->createdDate) ? SimpleDate::fromStamp($tmp->createdDate) : NULL;
     $tmp->weddingDay = ($tmp->weddingDay) ? SimpleDate::fromStamp($tmp->weddingDay) : NULL;
     $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
+    $tmp->isVisited = ($tmp->isVisited == 1) ? true : false;
     $tmp->operations = array();
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY o.operatedDate";
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 ORDER BY o.operatedDate";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $j = 0;
@@ -136,7 +140,7 @@ function followUp($myPdo) {
   $stmt->execute();
   $result->total = $stmt->rowCount();
   
-  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
+  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status, v.isVisited as isVisited FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $i = 0;
@@ -145,9 +149,10 @@ function followUp($myPdo) {
     $tmp->createdDate = ($tmp->createdDate) ? SimpleDate::fromStamp($tmp->createdDate) : NULL;
     $tmp->weddingDay = ($tmp->weddingDay) ? SimpleDate::fromStamp($tmp->weddingDay) : NULL;
     $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
+    $tmp->isVisited = ($tmp->isVisited == 1) ? true : false;
     $tmp->operations = array();
-
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId FROM $tableOperation AS o WHERE o.visitId = $tmp->id ORDER BY 'o.e_oid' $queue";
+    
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     
@@ -261,6 +266,49 @@ function statBasic($myPdo) {
   $stmt->execute();
   $tmp->progressingVisitors = $stmt->rowCount();
   
+  $result->data[] = $tmp;
+  echo json_encode($result);
+}
+
+function home($myPdo) {
+  global $tableVisitor;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->visitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 1";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->successVisitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = -1";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->dropVisitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 0";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->progressingVisitors = $stmt->rowCount();
+  
   $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = -2";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
@@ -303,7 +351,7 @@ function performanceAttitude($myPdo) {
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
     
-    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition";
+    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.cancelled = 0";
     $stmt1 = $myPdo->prepare($sql1);
     $stmt1->execute();
     $tmp->total = 0;
@@ -327,7 +375,7 @@ function performanceAttitude($myPdo) {
 }
 
 function performancePE($myPdo) {
-  global $tableOperation, $tableUser;
+  global $tableOperation, $tableUser, $tableVisitor;
   
   $function = MiscUtils::getParam('f', NULL);
   $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
@@ -359,7 +407,7 @@ function performancePE($myPdo) {
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
     
-    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition";
+    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o LEFT JOIN $tableVisitor AS v ON o.visitId = v.e_oid $condition AND v.firstVisitMethod != 'Visitor' AND o.cancelled = 0";
     $stmt1 = $myPdo->prepare($sql1);
     $stmt1->execute();
     $tmp->total = 0;

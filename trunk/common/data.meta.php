@@ -8,7 +8,12 @@ define('Visitor_Method_Phone', 'Phone');
 define('Visitor_Method_Email', 'Email');
 define('Visitor_Method_Visitor', 'Visitor');
 
+/* @meta OrderMethod(Order_Method) */
+define('Order_Method_ASC', 'ASC');
+define('Order_Method_DESC', 'DESC');
+
 /* @meta SortMethod(Sort_Method) */
-define('Sort_Method_ASC', 'Normal');
-define('Sort_Method_DESC', 'The Other Way Around');
+define('Sort_Method_Last_Updated', 'Last Updated');
+define('Sort_Method_Wedding_Day', 'Wedding Day');
+define('Sort_Method_FollowUp_Times', 'Follow Up Times');
 ?>
