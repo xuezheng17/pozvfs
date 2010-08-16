@@ -514,7 +514,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     var span1 = document.createElement('span');
     td.appendChild(span1);
     span1.style.lineHeight = '24px';
-    span1.appendChild(document.createTextNode(((operation.content) ? ((String(operation.content).length > 20) ? operation.content.substring(0, 20) + '......' : operation.content) : '(none)' )));
+    span1.appendChild(document.createTextNode(((operation.content) ? ((String(operation.content).length > 30) ? operation.content.substring(0, 30) + '...' : operation.content) : '(none)' )));
     if (!operation.cancelled && this._visitor.status == 0 && this._operator.account == operation.operator) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
@@ -530,18 +530,20 @@ HandleVisitorExist.prototype._updateElements = function() {
                                };
       td.appendChild(img);
     } else {
-      var img = document.createElement('img');
-      img.src = 'image/enlarge.png';
-      img.style.cursor = 'pointer';
-      img._operation = operation;
-      img.onclick = function() { var pos, func1;
-                                 pos = DOMUtils.findPos(this);
-                                 func1 = function() { tmp._close(); };
-                                 tmp = new ModulePopupBoxSimple(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos });
-                                 var span = MiscUtils.span(this._operation.content);
-                                 MiscUtils.dialog(tmp, span, func1);
-                               };
-      td.appendChild(img);
+      if (String(operation.content).length > 30) {
+        var img = document.createElement('img');
+        img.src = 'image/enlarge.png';
+        img.style.cursor = 'pointer';
+        img._operation = operation;
+        img.onclick = function() { var pos, func1;
+                                   pos = DOMUtils.findPos(this);
+                                   func1 = function() { tmp._close(); };
+                                   tmp = new ModulePopupBoxSimple(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos });
+                                   var span = MiscUtils.span(this._operation.content);
+                                   MiscUtils.dialog(tmp, span, func1);
+                                 };
+        td.appendChild(img);
+      }
     }
     
     td = tr.insertCell(-1);

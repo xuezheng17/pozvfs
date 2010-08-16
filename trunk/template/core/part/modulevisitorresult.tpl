@@ -86,57 +86,59 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.appendChild(document.createTextNode(' | '));
   span = document.createElement('span');
   span.style.color = '#123476';
-  if (this._item.operations.length == 0) {
+  if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
+    span.style.color = '#009900';
+    span.appendChild(document.createTextNode((this._item.operations.length)));
+    this._gui.title.appendChild(span);
     span = document.createElement('span');
-    span.style.color = '#FF0000';
-    span.appendChild(document.createTextNode('No Follow up actions'));
+    span.style.color = '#66cc66';
+    span.appendChild(document.createTextNode(' ( 0 ) '));
+    this._gui.title.appendChild(span);
+    span = document.createElement('span');
+    span.style.color = '#009900';
+    span.appendChild(document.createTextNode('Follow up actions'));
     this._gui.title.appendChild(span);
   } else {
-    if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
-      span.style.color = '#009900';
-      span.appendChild(document.createTextNode((this._item.operations.length)));
-      this._gui.title.appendChild(span);
+    if (this._item.operations.length == 0) {
       span = document.createElement('span');
-      span.style.color = '#66cc66';
-      span.appendChild(document.createTextNode(' ( 0 ) '));
-      this._gui.title.appendChild(span);
-      span = document.createElement('span');
-      span.style.color = '#009900';
-      span.appendChild(document.createTextNode('Follow up actions'));
+      span.style.color = '#FF0000';
+      span.appendChild(document.createTextNode('No Follow up actions'));
       this._gui.title.appendChild(span);
     } else {
-      if (visit == 0) {
+      if (visit == 0 && noVisit == 0) {
         span = document.createElement('span');
         span.style.color = '#009900';
         span.appendChild(document.createTextNode(this._item.operations.length + ' Follow up actions'));
         this._gui.title.appendChild(span);
+      } else if (visit != 0 && noVisit == 0) {
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+        this._gui.title.appendChild(span);
+        span = document.createElement('span');
+        span.style.color = '#66cc66';
+        span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+        this._gui.title.appendChild(span);
+        span = document.createElement('span');
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode('Follow up actions'));
+        this._gui.title.appendChild(span);
+      } else if (visit == 0 && noVisit != 0) {
+        span = document.createElement('span');
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode( this._item.operations.length + ' Follow up actions'));
+        this._gui.title.appendChild(span);
       } else {
-        if (noVisit != 0) {
-          span.style.color = '#009900';
-          span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
-          this._gui.title.appendChild(span);
-          span = document.createElement('span');
-          span.style.color = '#66cc66';
-          span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
-          this._gui.title.appendChild(span);
-          span = document.createElement('span');
-          span.style.color = '#009900';
-          span.appendChild(document.createTextNode('Follow up actions'));
-          this._gui.title.appendChild(span);
-        } else {
-          span = document.createElement('span');
-          span.style.color = '#ff0000';
-          span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
-          this._gui.title.appendChild(span);
-          span = document.createElement('span');
-          span.style.color = '#cc6666';
-          span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
-          this._gui.title.appendChild(span);
-          span = document.createElement('span');
-          span.style.color = '#ff0000';
-          span.appendChild(document.createTextNode('Follow up actions'));
-          this._gui.title.appendChild(span);
-        }
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+        this._gui.title.appendChild(span);
+        span = document.createElement('span');
+        span.style.color = '#66cc66';
+        span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+        this._gui.title.appendChild(span);
+        span = document.createElement('span');
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode('Follow up actions'));
+        this._gui.title.appendChild(span);
       }
     }
   }
