@@ -37,7 +37,7 @@ HandleHome.prototype._updateElements = function() {
   this._gui.progressingVisitors.appendChild(document.createTextNode(this._visitor.progressingVisitors));
   this._gui.deletedVisitors.appendChild(document.createTextNode(this._visitor.deletedVisitors));
   
-  ChartUtils.basic(this._gui.graphy, this._visitor);
+  ChartUtils.home(this._gui.graphy, this._visitor);
   this._time = 30;
   this._change();
 };
