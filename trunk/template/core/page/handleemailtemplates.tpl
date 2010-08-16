@@ -9,7 +9,7 @@ function HandleEmailTemplates(gui, operator, now, options) {
 
 HandleEmailTemplates.prototype._createElements = function() {
   var tr, td;
-  this._gui.addTemplate.onclick = function() { location.href = '?t=emailtemplateedit&m=' + JSON.stringify({ a: 5, b: 2 }); };
+  this._gui.addTemplate.onclick = function() { location.href = '?t=emailtemplateedit&m=' + JSON.stringify({ a: 4, b: 2 }); };
   tr = this._gui.templates.insertRow(-1);
   td = tr.insertCell(-1);
   td.appendChild(DOMUtils.getLoadingImage());
@@ -59,7 +59,7 @@ HandleEmailTemplates.prototype._updateElements = function() {
     td.style.height = '24px';
     td.style.padding = '0 0 0 20px';
     var a = document.createElement('a');
-    a.href = '?t=emailtemplateedit&m=' + MiscUtils.encode({a: 5, b: 2}) + '&opts=' + MiscUtils.encode({id: u.id})
+    a.href = '?t=emailtemplateedit&m=' + MiscUtils.encode({a: 4, b: 2}) + '&opts=' + MiscUtils.encode({id: u.id})
     a.appendChild(document.createTextNode((u.name.length > 20) ? u.name.substring(0, 20) + '...' : u.name));
     td.appendChild(a);
     
