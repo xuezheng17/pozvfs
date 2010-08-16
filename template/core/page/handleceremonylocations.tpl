@@ -42,6 +42,7 @@ HandleCeremonyLocations.prototype._updateElements = function() {
   if (this._ceremonys.length == 0) {
     tr = this._gui.mains.insertRow(-1);
     td = tr.insertCell(-1);
+    td.colSpan = 2;
     td.style.height = '24px';
     td.style.textAlign = 'center';
     td.style.backgroundColor = '#fff';
@@ -70,7 +71,7 @@ HandleCeremonyLocations.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('ireception', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('iceremony', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };
