@@ -583,6 +583,46 @@
                   <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>
                 </div>
               </td>
+              <td class="basemenus_td5">
+                |
+              </td>
+              <td>
+                <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href="?t=culturalbackgrounds&m={%22a%22:4,%22b%22:3}">Manage cBackground</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                |
+              </td>
+              <td>
+                <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href="?t=ceremonylocations&m={%22a%22:4,%22b%22:4}">Manage cLocation</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                |
+              </td>
+              <td>
+                <div {{if $menu->b == 5}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href="?t=receptionlocations&m={%22a%22:4,%22b%22:5}">Manage rLocation</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                |
+              </td>
+              <td>
+                <div {{if $menu->b == 6}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href="?t=sources&m={%22a%22:4,%22b%22:6}">Manage Source</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">
+                |
+              </td>
+              <td>
+                <div {{if $menu->b == 7}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href="?t=opponents&m={%22a%22:4,%22b%22:7}">Manage Opponent</a>
+                </div>
+              </td>
               <td class="basemenus_td4"></td>
             </tr>
           </table>
