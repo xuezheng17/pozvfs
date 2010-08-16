@@ -6,7 +6,7 @@
     margin: 0 0 50px 0;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 215px;
+    width: 375px;
     height: 25px;
     font-size: 12px;
     font-family: Arial;
@@ -35,7 +35,7 @@
     height: 25px;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 140px;
+    width: 300px;
     height: 25px;
     text-align: left;
     background-color:#e5ecf9;
