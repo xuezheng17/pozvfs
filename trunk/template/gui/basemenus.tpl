@@ -264,61 +264,6 @@
       </td>
     {{/if}}
     
-    
-    <td class="basemenus_td2"></td>
-    
-    {{if $menu->a == 4}} 
-      <td class="basemenus_td1Hilight">
-        <div class="basemenus_item">
-        <div class="row1"></div>
-        <div class="row2"></div>
-        <div class="row3"></div>
-        <div class="row4"></div>
-          <table cellPadding="0" cellSpacing="0">
-            <tr>
-              <td class="basemenus_p">
-                <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
-                  <tr>
-                    <td >
-                      <a  href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Achievements</a>
-                    </td>
-                    <td class="basemenus_td6" style="padding: 0 0 0 5px;">
-                      <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(new)</a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    {{else}}
-      <td class="basemenus_td1">
-        <div class="basemenus_item1">
-        <div class="row1"></div>
-        <div class="row2"></div>
-        <div class="row3"></div>
-        <div class="row4"></div>
-          <table cellPadding="0" cellSpacing="0">
-            <tr>
-              <td class="basemenus_ph" >
-                <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
-                  <tr>
-                    <td >
-                      <a  href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Achievements</a>
-                    </td>
-                    <td class="basemenus_td6" style="padding: 0 0 0 5px;">
-                      <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">(new)</a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    {{/if}}
-    
     <td class="basemenus_td2"></td>
       
     {{if $menu->a == 3}} 
@@ -357,7 +302,7 @@
   
     <td class="basemenus_td2"></td>
     
-    {{if $menu->a == 5}}
+    {{if $menu->a == 4}}
       <td class="basemenus_td1Hilight" >
         <div class="basemenus_item">
         <div class="row1"></div>
@@ -367,7 +312,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a  href="?t=users&m={%22a%22:5,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
               </td>
             </tr>
           </table>
@@ -383,7 +328,61 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href="?t=users&m={%22a%22:5,%22b%22:1}" >Administrator</a>
+                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    {{/if}}
+    
+    <td class="basemenus_td2"></td>
+    
+    {{if $menu->a == 5}} 
+      <td class="basemenus_td1Hilight">
+        <div class="basemenus_item">
+        <div class="row1"></div>
+        <div class="row2"></div>
+        <div class="row3"></div>
+        <div class="row4"></div>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_p">
+                <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
+                  <tr>
+                    <td >
+                      <a  href = "?t=performanceattitude&m={%22a%22:5,%22b%22:1}">Achievements</a>
+                    </td>
+                    <td class="basemenus_td6" style="padding: 0 0 0 5px;">
+                      <a href = "?t=performanceattitude&m={%22a%22:5,%22b%22:1}">(new)</a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    {{else}}
+      <td class="basemenus_td1">
+        <div class="basemenus_item1">
+        <div class="row1"></div>
+        <div class="row2"></div>
+        <div class="row3"></div>
+        <div class="row4"></div>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_ph" >
+                <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
+                  <tr>
+                    <td >
+                      <a  href = "?t=performanceattitude&m={%22a%22:5,%22b%22:1}">Achievements</a>
+                    </td>
+                    <td class="basemenus_td6" style="padding: 0 0 0 5px;">
+                      <a href = "?t=performanceattitude&m={%22a%22:5,%22b%22:1}">(new)</a>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
           </table>
@@ -500,7 +499,7 @@
   </div>
 {{/if}}
 
-{{if $menu->a == 4}}
+{{if $menu->a == 5}}
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
       <tr>
@@ -512,7 +511,7 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performanceattitude&m={%22a%22:4,%22b%22:1}">Actions Achievements</a>
+                        <a href = "?t=performanceattitude&m={%22a%22:5,%22b%22:1}">Actions Achievements</a>
                       </td>
                       <td class="basemenus_td6">
                         <span style="padding: 0 0 0 5px;">(new)</span>
@@ -529,7 +528,7 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performancepe&m={%22a%22:4,%22b%22:2}">Phone/Email Achievements</a>
+                        <a href = "?t=performancepe&m={%22a%22:5,%22b%22:2}">Phone/Email Achievements</a>
                       </td>
                       <td class="basemenus_td6">
                         <span style="padding: 0 0 0 5px;">(new)</span>
@@ -546,7 +545,7 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performancesales&m={%22a%22:4,%22b%22:3}">Sales Achievements</a>
+                        <a href = "?t=performancesales&m={%22a%22:5,%22b%22:3}">Sales Achievements</a>
                       </td>
                       <td class="basemenus_td6">
                         <span style="padding: 0 0 0 5px;">(new)</span>
@@ -564,7 +563,7 @@
   </div>
 {{/if}}
 
-{{if $menu->a == 5}}
+{{if $menu->a == 4}}
   <div align="center">
     <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0>
       <tr>
@@ -573,7 +572,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
-                  <a href="?t=users&m={%22a%22:5,%22b%22:1}">Manage User</a>
+                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">Manage User</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -581,7 +580,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=emailtemplates&m={%22a%22:5,%22b%22:2}">Manage eTemplate</a>
+                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
