@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2010 at 08:11 AM
+-- Generation Time: Aug 16, 2010 at 12:19 PM
 -- Server version: 5.0.27
 -- PHP Version: 5.2.9-2
 
@@ -82,7 +82,6 @@ CREATE TABLE IF NOT EXISTS `np_iceremony` (
 --
 
 INSERT INTO `np_iceremony` (`e_oid`, `trackId`, `name`) VALUES
-(1, 'u949972293270', 's'),
 (2, 'u504547816390', 'cccccccccccccccccccccccccccccccc');
 
 -- --------------------------------------------------------
@@ -142,8 +141,6 @@ CREATE TABLE IF NOT EXISTS `np_ireception` (
 -- Dumping data for table `np_ireception`
 --
 
-INSERT INTO `np_ireception` (`e_oid`, `trackId`, `name`) VALUES
-(1, 'u570235228656', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb');
 
 -- --------------------------------------------------------
 
@@ -183,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `np_operation` (
   `prevOperator` varchar(64) default NULL,
   `firstVisited` tinyint(1) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `np_operation`
@@ -202,9 +199,11 @@ INSERT INTO `np_operation` (`e_oid`, `trackId`, `visitId`, `cancelled`, `operate
 (10, 'u495940872552', '3', 1, 'Visit (2)', 'test', 1281916800, 'fds', 'test', 1),
 (11, 'u399364625236', '3', 1, 'Call (2)', 'test', 1281916800, '121', 'test', 0),
 (12, 'u1009543848104', '1', 0, 'Visit (1)', 'test', 1281916800, 'dsfs', '', 1),
-(13, 'u1280612099532', '2', 0, 'Call (1)', 'test', 1281916800, 'cxcx', '', 0),
+(13, 'u1280612099532', '2', 0, 'Call (1)', 'test', 1281916800, 'what is you r ifjemfkduiejflkd', '', 0),
 (14, 'u1257502655272', '2', 1, 'Visit (1)', 'test', 1281916800, 'fsd', 'test', 1),
-(15, 'u312831787748', '2', 0, 'Visit (1)', 'test', 1281916800, 'dfs', 'test', 1);
+(15, 'u312831787748', '2', 0, 'Visit (1)', 'test', 1281916800, 'dfs', 'test', 1),
+(16, 'u1133052530915', '1', 0, 'Call (1)', 'user', 1281916800, 'fds', 'test', 0),
+(17, 'u386974896193', '3', 0, 'Visit (1)', 'user', 1281916800, 'fdsf', 'test', 1);
 
 -- --------------------------------------------------------
 
@@ -271,6 +270,6 @@ CREATE TABLE IF NOT EXISTS `np_visitor` (
 --
 
 INSERT INTO `np_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`) VALUES
-(1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, '', '', 1, ''),
+(1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, 'user', 'cxcxc', 1, 'dlmanage.co.nz'),
 (2, 'u430247815599', 1281916800, 'test', 1283126400, 'b', '', 'b', 'b', 'b', '', 'b', 'b', 'b', '', '', '', '', '', 'Visitor', 1281830400, 0, 1281916800, '', '', 1, ''),
-(3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 0, '');
+(3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 1, '');
