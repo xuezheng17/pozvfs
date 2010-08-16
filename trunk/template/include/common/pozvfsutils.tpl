@@ -58,8 +58,8 @@ POZVFSUtils.search = function() {
            createdDateFrom: null,
            createdDateTo: null,
            inProgressingOnly: true,
-           succeeded: false,
-           failed: false,
-           deleted: false
+           succeeded: true,
+           failed: true,
+           deleted: true
          };
 };
