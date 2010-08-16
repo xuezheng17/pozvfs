@@ -24,6 +24,8 @@ DialogInput.prototype._createElements = function() {
   table.style.marginTop = '3px'
   this._container.appendChild(table);
   
+  {{if this._options.failed }}
+  {
   tr=table.insertRow(-1);
   td = tr.insertCell(-1);
   td.style.height = '21px';
@@ -50,6 +52,7 @@ DialogInput.prototype._createElements = function() {
   var img = document.createElement('img');
   img.src = 'image/add.png';
   img.id = this._unique + '_add_button';
+  img.style.cursor = 'pointer';
   td.appendChild(img);
   
   tr = table.insertRow(-1);
@@ -97,4 +100,40 @@ DialogInput.prototype._createElements = function() {
   input = DOMUtils.createInput('', '', 'button', 'Cancel', null);
   input.id = this._unique + '_cancel_button';
   td.appendChild(input);
+  }
+  {{else}}
+  {
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.textAlign = 'center';
+  input = document.createElement('textarea');
+  input.id =  this._unique + '_input_text'
+  input.style.width = '394px';
+  input.rows = 10;
+  td.appendChild(input);
+  
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.colSpan = 3;
+  td.style.width = '480px';
+  var table2 = document.createElement('table');
+  table2.style.width = '480px';
+  table2.cellPadding = 0;
+  table2.cellSpacing = 0;
+  td.appendChild(table2);
+  
+  tr = table2.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.width = '';
+  td.align = 'right';
+  input = DOMUtils.createInput('', '', 'button', 'Save', null);
+  input.id = this._unique + '_save_button';
+  td.appendChild(input);
+  td = tr.insertCell(-1);
+  td.style.width = '50px';
+  td.align = 'right';
+  input = DOMUtils.createInput('', '', 'button', 'Cancel', null);
+  input.id = this._unique + '_cancel_button';
+  td.appendChild(input);
+  }
 };
