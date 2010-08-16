@@ -217,15 +217,20 @@ HandleVisitorExist.prototype._updateElements = function() {
                                       };
   /*-- Drop Reason --*/
   if (this._visitor.status == -1 || this._visitor.status == -2) {
-    this._gui.reason.style.padding = '10px 0';
-    var div = document.createElement('div');
-    div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.operator + ' On ' + SimpleDate.format(this._visitor.operatorDate) + ((this._visitor.status == -1) ? ' , Opponent: ' + ((this._visitor.opponent) ? this._visitor.opponent : '') : '')));
-    this._gui.reason.appendChild(div);
-    this._gui.reason.style.margin = '0 0 30px 0';
     this._gui.reason.style.fontWeight = 'bold';
     this._gui.reason.style.fontSize = '15px';
     this._gui.reason.style.color = '#FF0000';
+    this._gui.reason.style.padding = '20px 0 40px 0';
+    var div = document.createElement('div');
+    div.style.margin = '0 0 10px 0';
+    div.appendChild(document.createTextNode((this._visitor.status == -1) ? 'Opponent: ' + ((this._visitor.opponent) ? this._visitor.opponent : '') : ''));
+    this._gui.reason.appendChild(div);
+    
+    var div = document.createElement('div');
+    div.style.margin = '10px 0 10px 0';
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.operator + ' On ' + SimpleDate.format(this._visitor.operatorDate)));
+    this._gui.reason.appendChild(div);
+    
     var span = MiscUtils.span(this._visitor.operatorMessage);
     span.style.color = '#DD1324';
     span.style.fontWeight = 'bold';
@@ -569,43 +574,49 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   if (this._visitor.status == 1) {
     this._gui.title.appendChild(document.createTextNode(' (Succeed) '));
-    var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
-    btn.style.fontFamily= 'Arial'
-    btn.style.fontSize = '10pt';
-    this._gui.title.appendChild(btn);
-    btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
-                                 _self._visitor.status = 0;
-                                 new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                               } else {
-                                 window.alert('No Permission');
+    if (this._visitor.operator == this._operator.account) {
+      var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
+      btn.style.fontFamily= 'Arial'
+      btn.style.fontSize = '10pt';
+      this._gui.title.appendChild(btn);
+      btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
+                                   _self._visitor.status = 0;
+                                   new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                                 } else {
+                                   window.alert('No Permission');
+                                 }
                                }
-                             }
+    }
   } else if (this._visitor.status == -1) {
     this._gui.title.appendChild(document.createTextNode(' (Failed) '));
-    var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
-    btn.style.fontFamily= 'Arial'
-    btn.style.fontSize = '10pt';
-    this._gui.title.appendChild(btn);
-    btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
-                                 _self._visitor.status = 0;
-                                 new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                               } else {
-                                 window.alert('No Permission');
-                               }
-                             }
+    if (this._visitor.operator == this._operator.account) {
+      var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
+      btn.style.fontFamily= 'Arial'
+      btn.style.fontSize = '10pt';
+      this._gui.title.appendChild(btn);
+      btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
+                                   _self._visitor.status = 0;
+                                   new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                                 } else {
+                                   window.alert('No Permission');
+                                 }
+                               };
+    }
   } else if (this._visitor.status == -2) {
     this._gui.title.appendChild(document.createTextNode(' (Deleted) '));
-    var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
-    btn.style.fontFamily= 'Arial'
-    btn.style.fontSize = '10pt';
-    this._gui.title.appendChild(btn);
-    btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
-                                 _self._visitor.status = 0;
-                                 new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                               } else {
-                                 window.alert('No Permission');
-                               }
-                             }
+    if (this._visitor.operator == this._operator.account) {
+      var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
+      btn.style.fontFamily= 'Arial'
+      btn.style.fontSize = '10pt';
+      this._gui.title.appendChild(btn);
+      btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
+                                   _self._visitor.status = 0;
+                                   new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                                 } else {
+                                   window.alert('No Permission');
+                                 }
+                               };
+    }
   } else if (this._visitor.isVisited) {
     this._gui.title.appendChild(document.createTextNode(' (Visited)'));
   }
