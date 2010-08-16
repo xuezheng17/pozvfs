@@ -94,7 +94,7 @@
       }
       arguments.callee._loaded = true;
       
-      var gui = AbstractCulturalBackgrounds('{{$template|escape:javascript}}');
+      var gui = AbstractCulturalBackgrounds.gui('{{$template|escape:javascript}}');
       new HandleCulturalBackgrounds(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
   //-->
