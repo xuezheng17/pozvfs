@@ -430,14 +430,14 @@
           <table class="basemenus_table3" cellPadding="0" cellSpacing="0" border=0>
             <tr>
               <td>
-                <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}">Visits</a>
               </td>
               <td class="basemenus_td5">
                 |
               </td>
               <td>
-                <div {{if $menu->b == 5}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href="?t=followup&m={%22a%22:2,%22b%22:2}&opts={%22follow%22:2}">No Visits</a>
               </td>
               <td class="basemenus_td4"></td>
