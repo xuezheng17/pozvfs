@@ -138,14 +138,12 @@
           <td class="{{$template|escape:'html'}}_td6">In processing</td>
           <td class="{{$template|escape:'html'}}_td4">Succeeded</td>
           <td class="{{$template|escape:'html'}}_td5">Failed</td>
-          <td class="{{$template|escape:'html'}}_td5">Deleted</td>
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td31" id="{{$template|escape:'html'}}_visitors_div"></td>
           <td class="{{$template|escape:'html'}}_td61" id="{{$template|escape:'html'}}_progressingVisitors_div"></td>
           <td class="{{$template|escape:'html'}}_td41" id="{{$template|escape:'html'}}_succeedVisitors_div"></td>
           <td class="{{$template|escape:'html'}}_td51" id="{{$template|escape:'html'}}_dropVisitors_div"></td>
-          <td class="{{$template|escape:'html'}}_td51" id="{{$template|escape:'html'}}_deletedVisitors_div"></td>
         </tr>
       </table>
     </td>
