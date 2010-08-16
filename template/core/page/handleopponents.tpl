@@ -59,8 +59,8 @@ HandleOpponents.prototype._updateElements = function() {
     td.style.height = '24px';
     td.style.padding = '0 0 0 20px';
     var a = document.createElement('a');
-    a.href = '?t=oppotent&m=' + MiscUtils.encode({a: 4, b: 7}) + '&opts=' + MiscUtils.encode({id: object.id})
-    a.appendChild(document.createTextNode(object.name));
+    a.href = '?t=opponent&m=' + MiscUtils.encode({a: 4, b: 7}) + '&opts=' + MiscUtils.encode({id: object.id})
+    a.appendChild(document.createTextNode((object.name.length > 40) ? object.name.substring(0, 40) + '...' : object.name));
     td.appendChild(a);
     
     td = tr.insertCell(-1);

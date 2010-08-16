@@ -220,7 +220,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.reason.style.padding = '10px 0';
     var div = document.createElement('div');
     div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.operator + ' On ' + SimpleDate.format(this._visitor.operatorDate)));
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.operator + ' On ' + SimpleDate.format(this._visitor.operatorDate) + ((this._visitor.status == -1) ? ' , Opponent: ' + ((this._visitor.opponent) ? this._visitor.opponent : '') : '')));
     this._gui.reason.appendChild(div);
     this._gui.reason.style.margin = '0 0 30px 0';
     this._gui.reason.style.fontWeight = 'bold';
@@ -388,6 +388,23 @@ HandleVisitorExist.prototype._updateElements = function() {
   /* Save */
   if (this._visitorId) {
     this._gui.update.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
+                                              if (_self._visitor.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:javascript}}') {
+                                                _self._visitor.isVisited = true;
+                                              } else {
+                                                var visit = 0;
+                                                for (var i = 0, il = _self._operations.length; i < il; i++) {
+                                                  var operation = _self._operations[i];
+                                                  var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
+                                                  if (type == 'visit') {
+                                                    visit++;
+                                                  }
+                                                }
+                                                if (visit == 0) {
+                                                  _self._visitor.isVisited = false;
+                                                } else {
+                                                  _self._visitor.isVisited = true;
+                                                }
+                                              }
                                               if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
                                                 var str = '';
                                                 if (!_self._visitor.weddingDay && !_self._visitor.firstVisitDate) {
@@ -493,22 +510,31 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.appendChild(span1);
     span1.style.lineHeight = '24px';
     span1.appendChild(document.createTextNode(((operation.content) ? ((String(operation.content).length > 20) ? operation.content.substring(0, 20) + '......' : operation.content) : '(none)' )));
-    if (!operation.cancelled && this._visitor.status == 0) {
+    if (!operation.cancelled && this._visitor.status == 0 && this._operator.account == operation.operator) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
       img.style.cursor = 'pointer';
       img._operation = operation;
-      img.onclick = function() { if (_self._operator.account == this._operation.operator) {
-                                   var pos, func1, func2;
-                                   var operation = this._operation;
-                                   func1 = function() {  _self._retrieveOperations(); };
-                                   pos = [window.screen.width/3, window.screen.height/3];
-                                   tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
-                                   new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
-                                   return false;
-                                 } else {
-                                   window.alert('No Permission');
-                                 }
+      img.onclick = function() { var pos, func1, func2;
+                                 var operation = this._operation;
+                                 func1 = function() {  _self._retrieveOperations(); };
+                                 pos = [window.screen.width/3, window.screen.height/3];
+                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Note'});
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp});
+                                 return false;
+                               };
+      td.appendChild(img);
+    } else {
+      var img = document.createElement('img');
+      img.src = 'image/enlarge.png';
+      img.style.cursor = 'pointer';
+      img._operation = operation;
+      img.onclick = function() { var pos, func1;
+                                 pos = DOMUtils.findPos(this);
+                                 func1 = function() { tmp._close(); };
+                                 tmp = new ModulePopupBoxSimple(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos });
+                                 var span = MiscUtils.span(this._operation.content);
+                                 MiscUtils.dialog(tmp, span, func1);
                                };
       td.appendChild(img);
     }
@@ -517,24 +543,20 @@ HandleVisitorExist.prototype._updateElements = function() {
     td.style.height = '24px';
     td.style.textAlign = 'center';
     td.style.verticalAlign = 'middle';
-    if (!operation.cancelled && this._visitor.status == 0) {
+    if (!operation.cancelled && this._visitor.status == 0 && this._operator.account == operation.operator) {
       var img = document.createElement('img');
       img.src = 'image/delete.png';
       img.style.cursor = 'pointer';
       img._operation = operation;
-      img.onclick = function() { if (_self._operator.account == this._operation.operator) {
-                                   this._operation.cancelled = 1;
-                                   var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf(' ('));
-                                   if (type == 'call') {
-                                     _self._pNumber -= 1;
-                                   } else if (type == 'email') {
-                                     _self._eNumber -= 1;
-                                   } else {
-                                     _self._vNumber -= 1;
-                                   }
-                                   new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
-                                 } else {
-                                   window.alert('No Permission');
+      img.onclick = function() { this._operation.cancelled = 1;
+                                 var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf(' (')).toLowerCase();
+                                 if (type == 'visit') {
+                                   vNumber -= 1;
+                                 }
+                                 new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
+                                 if (vNumber == 0) {
+                                   _self._visitor.isVisited = false;
+                                   new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
                                  }
                                };
       td.appendChild(img);
@@ -584,7 +606,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                  window.alert('No Permission');
                                }
                              }
-  } else if (vNumber || this._visitor.firstVisitMethod == 'Visitor') {
+  } else if (this._visitor.isVisited) {
     this._gui.title.appendChild(document.createTextNode(' (Visited)'));
   }
 
@@ -648,10 +670,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          operation.operator = _self._operator.account;
                                          operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                          operation.firstVisited = 1;
-                                         func1 = function() {  _self._retrieveOperations(); };
+                                         func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();};
                                          pos = [window.screen.width/3, window.screen.height/3];
                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
-                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, visited: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
   this._gui.succeed.onclick = function() { window.alert('Disabled'); 

@@ -5,51 +5,64 @@ function HandleFollowUp(gui, operator, now, options) {
   this._options = options;
   this._cont = (options && options.follow) ? options.follow : 0;
   
-  this._gui.sortDiv.style.visibility = 'collapse';
-  
   if (this._cont == 1) {
-    this._order = 'o.operatedDate';
-    this._query = 'ASC';
+    this._con = ' AND v.isVisited = 1';
   } else if (this._cont == 2) {
-    this._order = 'v.weddingday';
-    this._query = 'ASC';
-  } else if (this._cont == 3) {
-    this._order = ' COUNT(o.e_oid) ';
-    this._query = 'ASC';
-    this._con = ' Group By v.e_oid';
-  } else if (this._cont == 4) {
-    this._con = ' AND ((v.firstVisitMethod = \'Visitor\') OR (o.firstVisited = 1 AND o.cancelled = 0))';
-    this._order = 'v.e_oid';
-    this._query = 'ASC';
-  } else if (this._cont == 5) {
-    this._con = ' AND ((v.firstVisitMethod != \'Visitor\') AND (o.firstVisited = 0 AND o.cancelled = 0))' ;
-    this._order = 'v.e_oid';
-    this._query = 'ASC';
+    this._con = ' AND v.isVisited = 0' ;
   }
   
+  this._sort = '';
   this._createElements();
 }
 
 HandleFollowUp.prototype._createElements = function() {
   this._gui.visitors.appendChild(DOMUtils.getLoadingImage());
   var _self = this;
-  
-    
-  if (this._cont == 1 || this._cont == 2 || this._cont == 3) {
-    this._gui.sortDiv.style.visibility = 'visible';
-    for (var i = 0, il = SortMethod.array().length; i < il; i++) {
-      var method = SortMethod.array()[i];
-      var option = new Option(method);
-      this._gui.sort.options[this._gui.sort.options.length] = option;
-      if (option.text == this._query) {
-        this._gui.sort.selectedIndex = this._gui.sort.options.length - 1;
-      }
+
+  for (var i = 0, il = SortMethod.array().length; i < il; i++) {
+    var method = SortMethod.array()[i];
+    var option = new Option(method);
+    this._gui.sort.options[this._gui.sort.options.length] = option;
+    if (option.text == this._sort) {
+      this._gui.sort.selectedIndex = this._gui.sort.options.length - 1;
     }
-    this._gui.sort.onchange = function() { _self._query = (this.options[this.selectedIndex].text == Constant.Sort_Method_ASC) ? 'ASC' : 'DESC';
+  }
+  if (SortMethod.array().length > 0) {
+    if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_Last_Updated|escape:'javascript'}}') {
+      _self._order = 'o.operatedDate';
+    } else if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_Wedding_Day|escape:'javascript'}}') {
+      _self._order = 'v.weddingday';
+    } else if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
+      _self._order = ' COUNT(o.e_oid) ';
+      _self._con += ' Group By v.e_oid';
+    }
+    this._gui.sort.onchange = function() { if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_Last_Updated|escape:'javascript'}}') {
+                                             _self._order = 'o.operatedDate';
+                                           } else if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_Wedding_Day|escape:'javascript'}}') {
+                                             _self._order = 'v.weddingday';
+                                           } else if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
+                                             _self._order = ' COUNT(o.e_oid) ';
+                                             _self._con += ' Group By v.e_oid';
+                                           }
                                            _self._retrieveVisitors(1, DOMUtils.findPos(this));
                                          };
   }
-  
+
+  for (var i = 0, il = OrderMethod.array().length; i < il; i++) {
+    var method = OrderMethod.array()[i];
+    var option = new Option(method);
+    this._gui.order.options[this._gui.order.options.length] = option;
+    if (option.text == this._query) {
+      this._gui.order.selectedIndex = this._gui.order.options.length - 1;
+    }
+  }
+  if (OrderMethod.array().length > 0) {
+    this._query =  this._gui.order.options[this._gui.order.selectedIndex].text;
+    this._gui.order.onchange = function() { _self._query = this.options[this.selectedIndex].text;
+                                           _self._retrieveVisitors(1, DOMUtils.findPos(this));
+                                         };
+  }
+
   this._loadData();
 };
 
