@@ -1,7 +1,7 @@
 <?php
-class ORMISource extends ORMBase {
+class ORMisource extends ORMBase {
   public function __construct() {
-    parent::__construct('ISource');
+    parent::__construct('isource');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

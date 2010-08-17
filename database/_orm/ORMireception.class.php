@@ -1,7 +1,7 @@
 <?php
-class ORMICeremony extends ORMBase {
+class ORMireception extends ORMBase {
   public function __construct() {
-    parent::__construct('ICeremony');
+    parent::__construct('ireception');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

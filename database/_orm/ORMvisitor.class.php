@@ -1,7 +1,7 @@
 <?php
-class ORMVisitor extends ORMBase {
+class ORMvisitor extends ORMBase {
   public function __construct() {
-    parent::__construct('Visitor');
+    parent::__construct('visitor');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

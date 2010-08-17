@@ -1,7 +1,7 @@
 <?php
-class ORMIReception extends ORMBase {
+class ORMiculture extends ORMBase {
   public function __construct() {
-    parent::__construct('IReception');
+    parent::__construct('iculture');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

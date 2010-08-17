@@ -1,12 +1,14 @@
 <?php
-class ORMIOpponent extends ORMBase {
+class ORMemailtemplate extends ORMBase {
   public function __construct() {
-    parent::__construct('IOpponent');
+    parent::__construct('emailtemplate');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {
     $epObject->trackId = isset($object->trackId) ? $object->trackId : '';
     $epObject->name = isset($object->name) ? $object->name : '';
+    $epObject->subject = isset($object->subject) ? $object->subject : '';
+    $epObject->content = isset($object->content) ? $object->content : '';
     return $epObject;
   }
 
@@ -14,6 +16,8 @@ class ORMIOpponent extends ORMBase {
     $object->id = $epObject->oid;
     $object->trackId = $epObject->trackId;
     $object->name = $epObject->name;
+    $object->subject = $epObject->subject;
+    $object->content = $epObject->content;
     return $object;
   }
 }

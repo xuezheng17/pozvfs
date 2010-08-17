@@ -1,7 +1,7 @@
 <?php
-class ORMOperation extends ORMBase {
+class ORMoperation extends ORMBase {
   public function __construct() {
-    parent::__construct('Operation');
+    parent::__construct('operation');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {
