@@ -1,7 +1,7 @@
-function DateZone() {
+function datezone() {
 };
 
-DateZone.instance = function() {
+datezone.instance = function() {
   return { trackId: MiscUtils.unique(),
            start: SimpleDate.create(),
            end: SimpleDate.create(),

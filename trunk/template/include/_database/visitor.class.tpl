@@ -1,7 +1,7 @@
-function Visitor() {
+function visitor() {
 };
 
-Visitor.instance = function() {
+visitor.instance = function() {
   return { trackId: MiscUtils.unique(),
            createdDate: SimpleDate.create(),
            creator: '',

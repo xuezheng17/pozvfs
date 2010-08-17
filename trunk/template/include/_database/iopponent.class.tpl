@@ -1,7 +1,7 @@
-function IOpponent() {
+function iopponent() {
 };
 
-IOpponent.instance = function() {
+iopponent.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

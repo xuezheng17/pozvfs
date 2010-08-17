@@ -1,7 +1,7 @@
-function ICulture() {
+function iculture() {
 };
 
-ICulture.instance = function() {
+iculture.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }
