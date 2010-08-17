@@ -1,5 +1,5 @@
 <?php
-class IOpponent {
+class iopponent {
   /**
    * @orm char(64)
    */

@@ -1,5 +1,5 @@
 <?php
-class User {
+class user {
   /**
    * @orm char(64)
    */

@@ -1,5 +1,5 @@
 <?php
-class DateZone {
+class datezone {
   /**
    * @orm char(64)
    */

@@ -1,5 +1,5 @@
 <?php
-class EmailTemplate {
+class emailtemplate {
   /**
    * @orm char(64)
    */
