@@ -1,21 +1,19 @@
 <?php
-class ORMUser extends ORMBase {
+class ORMiopponent extends ORMBase {
   public function __construct() {
-    parent::__construct('User');
+    parent::__construct('iopponent');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {
     $epObject->trackId = isset($object->trackId) ? $object->trackId : '';
-    $epObject->account = isset($object->account) ? $object->account : '';
-    $epObject->password = isset($object->password) ? $object->password : '';
+    $epObject->name = isset($object->name) ? $object->name : '';
     return $epObject;
   }
 
   public function __toObject($myManager, $epObject, $object) {
     $object->id = $epObject->oid;
     $object->trackId = $epObject->trackId;
-    $object->account = $epObject->account;
-    $object->password = $epObject->password;
+    $object->name = $epObject->name;
     return $object;
   }
 }
