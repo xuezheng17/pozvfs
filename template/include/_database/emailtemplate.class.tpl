@@ -1,7 +1,7 @@
-function EmailTemplate() {
+function emailtemplate() {
 };
 
-EmailTemplate.instance = function() {
+emailtemplate.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: '',
            subject: '',

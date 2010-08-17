@@ -1,14 +1,9 @@
 {{include file='include/library/json/json2.tpl'}}
 {{include file='include/_metadata/visitormethod.meta.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
+{{include file='include/_constant/constant.tpl'}}
 {{include file='include/common/domutils.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
-{{include file='include/_database/visitor.class.tpl'}}
-{{include file='include/_database/isource.class.tpl'}}
-{{include file='include/_database/ireception.class.tpl'}}
-{{include file='include/_database/iculture.class.tpl'}}
-{{include file='include/_database/iceremony.class.tpl'}}
-{{include file='include/_constant/constant.tpl'}}
 {{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='gui/part/popupboxsimple.tpl'}}
 {{include file='core/part/modulepopupboxsimple.tpl'}}

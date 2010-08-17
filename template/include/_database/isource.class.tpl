@@ -1,7 +1,7 @@
-function ISource() {
+function isource() {
 };
 
-ISource.instance = function() {
+isource.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

@@ -1,7 +1,7 @@
-function Operation() {
+function operation() {
 };
 
-Operation.instance = function() {
+operation.instance = function() {
   return { trackId: MiscUtils.unique(),
            visitId: '',
            cancelled: 0,

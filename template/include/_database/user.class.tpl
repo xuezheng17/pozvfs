@@ -1,7 +1,7 @@
-function User() {
+function user() {
 };
 
-User.instance = function() {
+user.instance = function() {
   return { trackId: MiscUtils.unique(),
            account: '',
            password: ''

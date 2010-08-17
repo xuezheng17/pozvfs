@@ -1,7 +1,7 @@
-function IReception() {
+function ireception() {
 };
 
-IReception.instance = function() {
+ireception.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

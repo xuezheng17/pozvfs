@@ -2,7 +2,6 @@
 {{include file='include/common/domutils.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
-{{include file='include/_database/datezone.class.tpl'}}
 {{include file='include/_constant/constant.tpl'}}
 {{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='gui/part/popupboxsimple.tpl'}}

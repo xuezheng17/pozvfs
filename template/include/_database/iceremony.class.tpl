@@ -1,7 +1,7 @@
-function ICeremony() {
+function iceremony() {
 };
 
-ICeremony.instance = function() {
+iceremony.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }
