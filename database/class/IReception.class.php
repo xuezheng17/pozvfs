@@ -1,5 +1,5 @@
 <?php
-class IReception {
+class ireception {
   /**
    * @orm char(64)
    */
