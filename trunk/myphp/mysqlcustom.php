@@ -110,7 +110,7 @@ function visitors($myPdo) {
     $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
     $tmp->isVisited = ($tmp->isVisited == 1) ? true : false;
     $tmp->operations = array();
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 AND o.operateType != 'Custom Note' ORDER BY o.operatedDate";
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId, o.firstVisited as firstVisited FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 AND o.operateType != 'Custom Note' ORDER BY o.operatedDate";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $j = 0;
@@ -118,6 +118,7 @@ function visitors($myPdo) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp2->operatedDate = ($tmp2->operatedDate) ? SimpleDate::fromStamp($tmp2->operatedDate) : NULL;
       $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
+      $tmp2->firstVisited = ($tmp2->firstVisited == 1) ? true : false;
       $tmp->operations[] = $tmp2;
       $j++;
     }
@@ -163,7 +164,7 @@ function followUp($myPdo) {
     $tmp->isVisited = ($tmp->isVisited == 1) ? true : false;
     $tmp->operations = array();
     
-    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 AND o.operateType != 'Custom Note' ORDER BY 'o.e_oid' $queue";
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId, o.firstVisited as firstVisited FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 AND o.operateType != 'Custom Note' ORDER BY 'o.e_oid' $queue";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     
@@ -172,6 +173,7 @@ function followUp($myPdo) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp2->operatedDate = ($tmp2->operatedDate) ? SimpleDate::fromStamp($tmp2->operatedDate) : NULL;
       $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
+      $tmp2->firstVisited = ($tmp2->firstVisited == 1) ? true : false;
       $tmp->operations[] = $tmp2;
       $j++;
     }
