@@ -415,15 +415,21 @@ HandleVisitorExist.prototype._updateElements = function() {
   /* Save */
   if (this._visitorId) {
     this._gui.update.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
+                                              op = {};
                                               if (_self._visitor.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:javascript}}') {
                                                 _self._visitor.isVisited = true;
                                               } else {
-                                                var visit = 0;
+                                                var visit = 0; 
                                                 for (var i = 0, il = _self._operations.length; i < il; i++) {
                                                   var operation = _self._operations[i];
+                                                  if (operation.cancelled) {
+                                                    continue;
+                                                  }
                                                   var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
                                                   if (type == 'visit') {
                                                     visit++;
+                                                    op = operation;
+                                                    break;
                                                   }
                                                 }
                                                 if (visit == 0) {
@@ -432,6 +438,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                   _self._visitor.isVisited = true;
                                                 }
                                               }
+                                              var pos = DOMUtils.findPos(this);
                                               if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
                                                 var str = '';
                                                 if (!_self._visitor.weddingDay && !_self._visitor.firstVisitDate) {
@@ -443,12 +450,13 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                 }
                                                 var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                                 if (r) {
-                                                  var pos = DOMUtils.findPos(this);
-                                                  new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                                  op.firstVisited = 1;
+                                                  new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { new RequestUtils()._write('pz_operation', [op], [], function(result, params) { if (result) { _self._createElements(); }; }, null); }, { pos: pos });
                                                 }
                                               } else {
-                                                var pos = DOMUtils.findPos(this);
-                                                new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                                op.firstVisited = 1;
+                                                new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { new RequestUtils()._write('pz_operation', [op], [], function(result, params) { if (result) { _self._createElements(); }; }, null); }, { pos: pos });
+//                                                new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                               }
                                             } else {
                                               window.alert('CAN NOT BE EMPTY (First Contact Method)');
