@@ -5,7 +5,8 @@
     border:solid 3px #d5ddf3;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 470px;
+    width: 460px;
+    height:25px;
     text-align:left;
   }
   .{{$template|escape:'html'}}_table3 {
@@ -62,7 +63,7 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 20px;
+    width: 16px;
     height: 25px;
     text-align: center;
     vertical-align: middle;
@@ -104,6 +105,16 @@
     vertical-align: middle;
     font-size: 9pt;
     font-family: Arial;
+  }
+  .{{$template|escape:'html'}}_td12 {
+    width: 200px;
+    height: 20px;
+    vertical-align: bottom;
+  }
+  .{{$template|escape:'html'}}_td13 {
+    width: 200px;
+    height: 20px;
+    vertical-align: top;
   }
   .{{$template|escape:'html'}}_inputText {
     width: 200px;
@@ -174,11 +185,11 @@
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td5">from</td>
-          <td>
+          <td class="{{$template|escape:'html'}}_td12">
             <input type="text" id="{{$template|escape:'html'}}_weddingDayFrom_input" class="{{$template|escape:'html'}}_inputText"></input>
           </td>
           <td class="{{$template|escape:'html'}}_td6">to</td>
-          <td>
+          <td class="{{$template|escape:'html'}}_td12">
             <input type="text" id="{{$template|escape:'html'}}_weddingDayTo_input" class="{{$template|escape:'html'}}_inputText"></input>
           </td>
         </tr>
@@ -191,11 +202,11 @@
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td5">from</td>
-          <td>
+          <td class="{{$template|escape:'html'}}_td13">
             <input type="text" id="{{$template|escape:'html'}}_createdDateFrom_input" class="{{$template|escape:'html'}}_inputText"></input>
           </td>
           <td class="{{$template|escape:'html'}}_td6">to</td>
-          <td>
+          <td class="{{$template|escape:'html'}}_td13">
             <input type="text" id="{{$template|escape:'html'}}_createdDateTo_input" class="{{$template|escape:'html'}}_inputText"></input>
           </td>
         </tr>
