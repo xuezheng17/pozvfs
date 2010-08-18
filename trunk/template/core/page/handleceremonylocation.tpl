@@ -25,11 +25,11 @@ HandleCeremonyLocation.prototype._verifyData = function() {
 HandleCeremonyLocation.prototype._retrieveCeremony = function() {
   var _self = this;
   if (this._options.id) {
-    new RequestUtils()._read('iceremony', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._ceremony = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                  _self._verifyData.call(_self);
-                                                                                                                                }, null);
+    new RequestUtils()._read('pz_iceremony', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._ceremony = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                     _self._verifyData.call(_self);
+                                                                                                                                   }, null);
   } else {
-    this._ceremony = iceremony.instance();
+    this._ceremony = pz_iceremony.instance();
     this._verifyData();
   }
 };

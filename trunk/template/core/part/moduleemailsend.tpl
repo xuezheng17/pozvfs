@@ -37,9 +37,9 @@ ModuleEmailSend.prototype._verifyData = function() {
 
 ModuleEmailSend.prototype._retrieveTemplates = function() {
   var _self = this;
-  new RequestUtils()._read('emailtemplate', null, null, null, null, null, null, function(result, params) { _self._templates = result.data;
-                                                                                                           _self._verifyData.call(_self);
-                                                                                                         }, { php: this._php });
+  new RequestUtils()._read('pz_emailtemplate', null, null, null, null, null, null, function(result, params) { _self._templates = result.data;
+                                                                                                              _self._verifyData.call(_self);
+                                                                                                            }, { php: this._php });
 };
 
 ModuleEmailSend.prototype._updateElements = function() {

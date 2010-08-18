@@ -30,9 +30,9 @@ HandleEmailTemplates.prototype._verifyData = function() {
 
 HandleEmailTemplates.prototype._retrieveTemplates = function() {
   var _self = this;
-  new RequestUtils()._read('emailtemplate', null, null, null, null, 'd.name', null, function(result, params) { _self._templates = result.data;
-                                                                                                               _self._verifyData.call(_self);
-                                                                                                             }, null);
+  new RequestUtils()._read('pz_emailtemplate', null, null, null, null, 'd.name', null, function(result, params) { _self._templates = result.data;
+                                                                                                                  _self._verifyData.call(_self);
+                                                                                                                }, null);
 };
 
 HandleEmailTemplates.prototype._updateElements = function() {
@@ -76,7 +76,7 @@ HandleEmailTemplates.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._template = u;
-    img.onclick = function() { new RequestUtils()._write('emailtemplate', [], [this._template], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_emailtemplate', [], [this._template], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

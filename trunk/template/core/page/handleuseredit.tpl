@@ -25,11 +25,11 @@ HandleUserEdit.prototype._verifyData = function() {
 HandleUserEdit.prototype._retrieveUser = function() {
   var _self = this;
   if (this._options.id) {
-    new RequestUtils()._read('user', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._user = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                             _self._verifyData.call(_self);
-                                                                                                                           }, null);
+    new RequestUtils()._read('pz_user', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._user = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                _self._verifyData.call(_self);
+                                                                                                                              }, null);
   } else {
-    this._user = user.instance();
+    this._user = pz_user.instance();
     this._verifyData();
   }
 };
@@ -55,7 +55,7 @@ HandleUserEdit.prototype._updateElements = function() {
                                         if (_self._user.account == '' || _self._user.password == '') {
                                           window.alert(str.substring(0, str.length-2) + ' 不能为空');
                                         } else {
-                                          new RequestUtils()._write('user', [_self._user], [], function() { location.href = '?t=users&m=' + MiscUtils.encode({ a: 4, b: 1 }); }, null); 
+                                          new RequestUtils()._write('pz_user', [_self._user], [], function() { location.href = '?t=users&m=' + MiscUtils.encode({ a: 4, b: 1 }); }, null); 
                                         }
                                       };
   this._gui.back.onclick = function() { history.back(); };

@@ -42,9 +42,9 @@ ModuleDialogInput.prototype._verifyData = function() {
 
 ModuleDialogInput.prototype._retrieveOpponents = function() {
   var _self = this;
-  new RequestUtils()._read('iopponent', null, null, null, null, 'd.name', null, function(result, params) { _self._opponents = result.data;
-                                                                                                           _self._verifyData.call(_self);
-                                                                                                         }, null);
+  new RequestUtils()._read('pz_iopponent', null, null, null, null, 'd.name', null, function(result, params) { _self._opponents = result.data;
+                                                                                                              _self._verifyData.call(_self);
+                                                                                                            }, null);
 };
 
 ModuleDialogInput.prototype._updateElements = function() {
@@ -68,7 +68,7 @@ ModuleDialogInput.prototype._updateElements = function() {
     this._gui.add.onclick = function() { var object = isource.instance(); 
                                          var func1 = function() { tmp._close();
                                                                   _self._visitor.opponent = object.name;
-                                                                  new RequestUtils()._write('iopponent', [object], [], function() { _self._retrieveOpponents.call(_self); }, { pos: DOMUtils.findPos(_self._gui.add) });
+                                                                  new RequestUtils()._write('pz_iopponent', [object], [], function() { _self._retrieveOpponents.call(_self); }, { pos: DOMUtils.findPos(_self._gui.add) });
                                                                 };
                                          var func2 = function() { tmp._close(); };
                                          var pos = DOMUtils.findPos(this);
@@ -89,21 +89,21 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           _self._visitor.status = -1;
                                           _self._visitor.operator = _self._operator.account;
                                           _self._visitor.operatorDate = _self._now;
-                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                          new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                           
                                         } else if (_self._deleted) {
                                           _self._visitor.status = -2;
                                           _self._visitor.operator = _self._operator.account;
                                           _self._visitor.operatorDate = _self._now;
-                                          new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                          new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
-                                          new RequestUtils()._write('operation', [_self._operation], [], function() { if (_self._visited && !_self._visitor.isVisited) {
-                                                                                                                        _self._visitor.isVisited = true;
-                                                                                                                        new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
-                                                                                                                      } else {
-                                                                                                                        _self._callbackFunc(); 
-                                                                                                                      }
-                                                                                                                    }, { pos: _self._pos });
+                                          new RequestUtils()._write('pz_operation', [_self._operation], [], function() { if (_self._visited && !_self._visitor.isVisited) {
+                                                                                                                           _self._visitor.isVisited = true;
+                                                                                                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                                                                                                         } else {
+                                                                                                                           _self._callbackFunc(); 
+                                                                                                                         }
+                                                                                                                       }, { pos: _self._pos });
                                         }
                                         _self._popupBox._close();
                                       };

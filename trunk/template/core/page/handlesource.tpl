@@ -25,11 +25,11 @@ HandleSource.prototype._verifyData = function() {
 HandleSource.prototype._retrieveSource = function() {
   var _self = this;
   if (this._options.id) {
-    new RequestUtils()._read('isource', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._source = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                _self._verifyData.call(_self);
-                                                                                                                              }, null);
+    new RequestUtils()._read('pz_isource', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._source = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                   _self._verifyData.call(_self);
+                                                                                                                                 }, null);
   } else {
-    this._source = isource.instance();
+    this._source = pz_isource.instance();
     this._verifyData();
   }
 };
@@ -44,7 +44,7 @@ HandleSource.prototype._updateElements = function() {
   this._gui.save.onclick = function() { if (_self._source.name == '') { 
                                           window.alert('名称不能为空'); 
                                         } else { 
-                                          new RequestUtils()._write('isource', [_self._source], [], function() { location.href = '?t=sources&m=' + MiscUtils.encode({ a: 4, b: 6 }); }, null); };
+                                          new RequestUtils()._write('pz_isource', [_self._source], [], function() { location.href = '?t=sources&m=' + MiscUtils.encode({ a: 4, b: 6 }); }, null); };
                                         }
   this._gui.back.onclick = function() { history.back(); };
 };

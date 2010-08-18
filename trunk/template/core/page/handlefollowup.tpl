@@ -80,7 +80,7 @@ HandleFollowUp.prototype._verifyData = function() {
 
 HandleFollowUp.prototype._retrieveVisitors = function(page, pos) { 
   var _self = this;
-  var args = '&c=LEFT JOIN np_Operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + ((this._con) ? this._con : '')  + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + '&o=' + ((this._order) ? this._order : '' ) + '&q=' + ((this._query) ? this._query : '');
+  var args = '&c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + ((this._con) ? this._con : '')  + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + '&o=' + ((this._order) ? this._order : '' ) + '&q=' + ((this._query) ? this._query : '');
   new RequestUtils()._mysql('followUp', args, function(result, params) { _self._visitors = result.data;
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);

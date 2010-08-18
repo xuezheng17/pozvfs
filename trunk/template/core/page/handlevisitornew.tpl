@@ -5,7 +5,7 @@ function HandleVisitorNew(gui, operator, now, options) {
   this._options = options;
   
   this._popupBox = new PopupBox3();
-  this._visitor = Visitor.instance();
+  this._visitor = pz_visitor.instance();
   this._createElements();
 };
 
@@ -37,30 +37,30 @@ HandleVisitorNew.prototype._verifyData = function() {
 
 HandleVisitorNew.prototype._retrieveSources = function() {
   var _self = this;
-  new RequestUtils()._read('isource', null, null, null, null, null, null, function(result, params) { _self._sources = result.data;
-                                                                                                     _self._verifyData.call(_self);
-                                                                                                   }, null);
-};
-
-HandleVisitorNew.prototype._retrieveReceptions = function() {
-  var _self = this;
-  new RequestUtils()._read('ireception', null, null, null, null, null, null, function(result, params) { _self._receptions = result.data;
+  new RequestUtils()._read('pz_isource', null, null, null, null, null, null, function(result, params) { _self._sources = result.data;
                                                                                                         _self._verifyData.call(_self);
                                                                                                       }, null);
 };
 
+HandleVisitorNew.prototype._retrieveReceptions = function() {
+  var _self = this;
+  new RequestUtils()._read('pz_ireception', null, null, null, null, null, null, function(result, params) { _self._receptions = result.data;
+                                                                                                           _self._verifyData.call(_self);
+                                                                                                         }, null);
+};
+
 HandleVisitorNew.prototype._retrieveCultures = function() {
   var _self = this;
-  new RequestUtils()._read('iculture', null, null, null, null, null, null, function(result, params) { _self._cultures = result.data;
-                                                                                                      _self._verifyData.call(_self);
-                                                                                                    }, null);
+  new RequestUtils()._read('pz_iculture', null, null, null, null, null, null, function(result, params) { _self._cultures = result.data;
+                                                                                                         _self._verifyData.call(_self);
+                                                                                                       }, null);
 };
 
 HandleVisitorNew.prototype._retrieveCeremonys = function() {
   var _self = this;
-  new RequestUtils()._read('iceremony', null, null, null, null, null, null, function(result, params) { _self._ceremonys = result.data;
-                                                                                                       _self._verifyData.call(_self);
-                                                                                                     }, null);
+  new RequestUtils()._read('pz_iceremony', null, null, null, null, null, null, function(result, params) { _self._ceremonys = result.data;
+                                                                                                          _self._verifyData.call(_self);
+                                                                                                        }, null);
 };
 
 HandleVisitorNew.prototype._updateElements = function() {
@@ -181,7 +181,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.sourceAdd.onclick = function() { var object = ISource.instance(); 
                                              var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
-                                                                      new RequestUtils()._write('isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
+                                                                      new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
                                                                     };
                                              var func2 = function() { tmp._close();
                                                                     };
@@ -194,7 +194,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.receptionLocationAdd.onclick = function() { var object = IReception.instance();
                                                         var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
-                                                                                 new RequestUtils()._write('ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
+                                                                                 new RequestUtils()._write('pz_ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
                                                                                };
                                                         var func2 = function() { tmp._close();
                                                                                };
@@ -206,7 +206,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
                                                          var func1 = function() { tmp._close();
                                                                                   _self._visitor.culturalBackground = object.name;
-                                                                                  new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
+                                                                                  new RequestUtils()._write('pz_iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
                                                                                 };
                                                          var func2 = function() { tmp._close();
                                                                                 };
@@ -218,7 +218,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.ceremonyLocationAdd.onclick = function() { var object = ICeremony.instance();
                                                        var func1 = function() { tmp._close();
                                                                                 _self._visitor.ceremonyLocation = object.name;
-                                                                                new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
+                                                                                new RequestUtils()._write('pz_iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
                                                                               };
                                                        var func2 = function() { tmp._close();
                                                                               };

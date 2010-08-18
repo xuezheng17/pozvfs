@@ -30,9 +30,9 @@ HandleUsers.prototype._verifyData = function() {
 
 HandleUsers.prototype._retrieveUsers = function() {
   var _self = this;
-  new RequestUtils()._read('user', null, null, null, null, 'd.account', null, function(result, params) { _self._users = result.data;
-                                                                                                         _self._verifyData.call(_self);
-                                                                                                       }, null);
+  new RequestUtils()._read('pz_user', null, null, null, null, 'd.account', null, function(result, params) { _self._users = result.data;
+                                                                                                            _self._verifyData.call(_self);
+                                                                                                          }, null);
 };
 
 HandleUsers.prototype._updateElements = function() {
@@ -76,7 +76,7 @@ HandleUsers.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('user', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_user', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

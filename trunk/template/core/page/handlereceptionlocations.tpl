@@ -30,9 +30,9 @@ HandleReceptionLocations.prototype._verifyData = function() {
 
 HandleReceptionLocations.prototype._retrieveReceptions = function() {
   var _self = this;
-  new RequestUtils()._read('ireception', null, null, null, null, 'd.name', null, function(result, params) { _self._receptions = result.data;
-                                                                                                            _self._verifyData.call(_self);
-                                                                                                          }, null);
+  new RequestUtils()._read('pz_ireception', null, null, null, null, 'd.name', null, function(result, params) { _self._receptions = result.data;
+                                                                                                               _self._verifyData.call(_self);
+                                                                                                             }, null);
 };
 
 HandleReceptionLocations.prototype._updateElements = function() {
@@ -71,7 +71,7 @@ HandleReceptionLocations.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('ireception', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_ireception', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

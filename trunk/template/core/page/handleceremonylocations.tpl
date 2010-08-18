@@ -30,9 +30,9 @@ HandleCeremonyLocations.prototype._verifyData = function() {
 
 HandleCeremonyLocations.prototype._retrieveCeremonys = function() {
   var _self = this;
-  new RequestUtils()._read('iceremony', null, null, null, null, 'd.name', null, function(result, params) { _self._ceremonys = result.data;
-                                                                                                           _self._verifyData.call(_self);
-                                                                                                         }, null);
+  new RequestUtils()._read('pz_iceremony', null, null, null, null, 'd.name', null, function(result, params) { _self._ceremonys = result.data;
+                                                                                                              _self._verifyData.call(_self);
+                                                                                                            }, null);
 };
 
 HandleCeremonyLocations.prototype._updateElements = function() {
@@ -71,7 +71,7 @@ HandleCeremonyLocations.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('iceremony', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_iceremony', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

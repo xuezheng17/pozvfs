@@ -29,9 +29,13 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.appendChild(document.createTextNode(' - '));
   var span = document.createElement('span');
   span.style.color = '#891234';
-  var visit = 0; noVisit = 0;
+  var visit = 0; noVisit = 0; cusNote = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
+    if (operation.operateType == 'Custom Note') {
+      cusNote++;
+    }
+    
     var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
     if (type == 'visit') {
       visit++;

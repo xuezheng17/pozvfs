@@ -30,9 +30,9 @@ HandleOpponents.prototype._verifyData = function() {
 
 HandleOpponents.prototype._retrieveaOpponents = function() {
   var _self = this;
-  new RequestUtils()._read('iopponent', null, null, null, null, 'd.name', null, function(result, params) { _self._opponents = result.data;
-                                                                                                           _self._verifyData.call(_self);
-                                                                                                         }, null);
+  new RequestUtils()._read('pz_iopponent', null, null, null, null, 'd.name', null, function(result, params) { _self._opponents = result.data;
+                                                                                                              _self._verifyData.call(_self);
+                                                                                                            }, null);
 };
 
 HandleOpponents.prototype._updateElements = function() {
@@ -71,7 +71,7 @@ HandleOpponents.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('iopponent', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_iopponent', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };
