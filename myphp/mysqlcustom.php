@@ -38,6 +38,9 @@ try {
     case 'home':
       home($myPdo);
       break;
+    case 'statistics':
+      statistics($myPdo);
+      break;
     case 'performanceAttitude': 
       performanceAttitude($myPdo);
       break;
@@ -326,6 +329,44 @@ function home($myPdo) {
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $tmp->deletedVisitors = $stmt->rowCount();
+  
+  $result->data[] = $tmp;
+  echo json_encode($result);
+}
+
+function statistics($myPdo) {
+  global $tableVisitor;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->visitors = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.isVisited = 1";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->visited = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.isVisited = 0";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $tmp->nonvisited = $stmt->rowCount();
   
   $result->data[] = $tmp;
   echo json_encode($result);
