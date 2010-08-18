@@ -10,7 +10,7 @@ AbstractPerformanceSales.gui = function(unique) {
            dateZone: { dateCreated: document.getElementById(unique + '_from_text'),
                        dateTo: document.getElementById(unique + '_to_text'),
                        create: document.getElementById(unique + '_create_button'),
-                       result: document.getElementById(unique + '_result_div')
+                       result: document.getElementById(unique + '_result_table')
                      }
          };
 };
