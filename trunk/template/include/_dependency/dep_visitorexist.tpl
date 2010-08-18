@@ -23,6 +23,8 @@
 {{include file='core/part/moduledialogiobject.tpl'}}
 {{include file='api/part/abstractdialoginput.tpl'}}
 {{include file='gui/part/dialoginput.tpl'}}
+{{include file='include/_database/pz_iopponent.class.tpl'}}
+{{include file='include/_database/pz_icategory.class.tpl'}}
 {{include file='core/part/moduledialoginput.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
 {{include file='include/common/dateselect.tpl'}}

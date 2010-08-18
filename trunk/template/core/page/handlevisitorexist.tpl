@@ -583,12 +583,11 @@ HandleVisitorExist.prototype._updateElements = function() {
       btn.style.fontFamily= 'Arial'
       btn.style.fontSize = '10pt';
       this._gui.title.appendChild(btn);
-      btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
-                                   _self._visitor.status = 0;
-                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                                 } else {
-                                   window.alert('No Permission');
-                                 }
+      btn.onclick = function() { _self._visitor.status = 0;
+                                 _self._visitor.operator = '';
+                                 _self._visitor.operatorDate = '';
+                                 _self._visitor.operatorMessage = '';
+                                 new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                                }
     }
   } else if (this._visitor.status == -1) {
@@ -598,12 +597,13 @@ HandleVisitorExist.prototype._updateElements = function() {
       btn.style.fontFamily= 'Arial'
       btn.style.fontSize = '10pt';
       this._gui.title.appendChild(btn);
-      btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
-                                   _self._visitor.status = 0;
-                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                                 } else {
-                                   window.alert('No Permission');
-                                 }
+      btn.onclick = function() { _self._visitor.status = 0;
+                                 _self._visitor.opponent = '';
+                                 _self._visitor.category = '';
+                                 _self._visitor.operator = '';
+                                 _self._visitor.operatorDate = '';
+                                 _self._visitor.operatorMessage = '';
+                                 new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                                };
     }
   } else if (this._visitor.status == -2) {
@@ -613,12 +613,11 @@ HandleVisitorExist.prototype._updateElements = function() {
       btn.style.fontFamily= 'Arial'
       btn.style.fontSize = '10pt';
       this._gui.title.appendChild(btn);
-      btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
-                                   _self._visitor.status = 0;
-                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                                 } else {
-                                   window.alert('No Permission');
-                                 }
+      btn.onclick = function() { _self._visitor.status = 0;
+                                 _self._visitor.operator = '';
+                                 _self._visitor.operatorDate = '';
+                                 _self._visitor.operatorMessage = '';
+                                 new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                                };
     }
   } else if (this._visitor.isVisited) {

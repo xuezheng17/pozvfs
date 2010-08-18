@@ -28,6 +28,7 @@ class ORMpz_visitor extends ORMBase {
     $epObject->status = isset($object->status) ? $object->status : 0;
     $epObject->operatorDate = (isset($object->operatorDate) && $object->operatorDate) ? SimpleDate::toStamp($object->operatorDate) : 0;
     $epObject->opponent = isset($object->opponent) ? $object->opponent : '';
+    $epObject->category = isset($object->category) ? $object->category : '';
     $epObject->operator = isset($object->operator) ? $object->operator : '';
     $epObject->operatorMessage = isset($object->operatorMessage) ? $object->operatorMessage : '';
     $epObject->isVisited = isset($object->isVisited) ? $object->isVisited : 0;
@@ -59,6 +60,7 @@ class ORMpz_visitor extends ORMBase {
     $object->status = $epObject->status;
     $object->operatorDate = ($epObject->operatorDate != 0) ? SimpleDate::fromStamp($epObject->operatorDate) : 0;
     $object->opponent = $epObject->opponent;
+    $object->category = $epObject->category;
     $object->operator = $epObject->operator;
     $object->operatorMessage = $epObject->operatorMessage;
     $object->isVisited = $epObject->isVisited;
