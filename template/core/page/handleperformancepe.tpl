@@ -121,7 +121,8 @@ HandlePerformancePE.prototype._updateElements = function() {
     tr.className = (tr.rowIndex % 2 == 0) ? 'rowodd' : 'roweven';
     td = tr.insertCell(-1);
     td.style.height = '24px';
-    td.style.textAlign = 'center';
+    td.style.textAlign = 'left';
+    td.style.padding = '0 0 0 10px';
     var a = document.createElement('a');
     a.href = '#';
     a._date = date;
