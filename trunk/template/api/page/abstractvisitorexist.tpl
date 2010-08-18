@@ -32,6 +32,7 @@ AbstractVisitorExist.gui = function(unique) {
            update: document.getElementById(unique + '_update_button'),
            remove: document.getElementById(unique + '_delete_button'),
            operations: document.getElementById(unique + '_operations_table'),
+           customNote: document.getElementById(unique + '_customNote_button'),
            email: document.getElementById(unique + '_email_button'),
            call: document.getElementById(unique + '_call_button'),
            visit:document.getElementById(unique + '_visit_button'),
