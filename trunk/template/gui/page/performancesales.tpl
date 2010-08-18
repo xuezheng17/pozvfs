@@ -131,7 +131,7 @@
     white-space:nowrap;
   }
   .{{$template|escape:'html'}}_td14 {
-    width:128px;
+    width:136px;
     padding-left:10px;
     height: 22px;
     font-size: 10pt;
@@ -141,7 +141,7 @@
     background-color:#e8e8e8;
   }
   .{{$template|escape:'html'}}_td15 {
-    width:28px;
+    width:20px;
     height: 22px;
     text-align:center;
     background-color:#e8e8e8;
