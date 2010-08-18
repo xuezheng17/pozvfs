@@ -147,7 +147,17 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.visit.disabled = true;
     this._gui.drop.disabled = true;
     this._gui.succeed.disabled = true;
+    this._gui.remove.disabled = true;
     this._gui.update.disabled = true;
+    this._gui.customNote.disabled = true;
+    this._gui.update.style.display = 'none';
+    this._gui.remove.style.display = 'none';
+    this._gui.email.style.display = 'none';
+    this._gui.call.style.display = 'none';
+    this._gui.visit.style.display = 'none';
+    this._gui.succeed.style.display = 'none';
+    this._gui.drop.style.display = 'none';
+    this._gui.customNote.style.display = 'none';
   } else if (this._visitor.status == -1 || this._visitor.status == -2){
     this._gui.update.disabled = true;
     this._gui.email.disabled = true;
@@ -155,6 +165,16 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.visit.disabled = true;
     this._gui.succeed.disabled = true;
     this._gui.drop.disabled = true;
+    this._gui.remove.disabled = true;
+    this._gui.customNote.disabled = true;
+    this._gui.update.style.display = 'none';
+    this._gui.remove.style.display = 'none';
+    this._gui.email.style.display = 'none';
+    this._gui.call.style.display = 'none';
+    this._gui.visit.style.display = 'none';
+    this._gui.succeed.style.display = 'none';
+    this._gui.drop.style.display = 'none';
+    this._gui.customNote.style.display = 'none';
   } else {
     this._gui.weddingDay.disabled = false;
     this._gui.brideName.disabled = false;
@@ -698,26 +718,34 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          operation.operateType = 'Visit (' + (vNumber+1) + ')';
                                          operation.operator = _self._operator.account;
                                          operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
-                                         operation.firstVisited = 1;
+                                         operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
                                          func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();};
                                          pos = [window.screen.width/3, window.screen.height/3];
                                          tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, visited: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
-  this._gui.succeed.onclick = function() { window.alert('Disabled'); 
-//                                           if (vNumber == 0) {
-//                                             var r = window.confirm('Automatically add a visiting operation');
-//                                             if (r) {
-//                                               var operation = pz_operation.instance();
-//                                               operation.visitId = _self._visitorId;
-//                                               operation.cancelled = 0;
-//                                               operation.operateType = _self._gui.visit.value;
-//                                               operation.operator = _self._operator.account;
-//                                               operation.prevOperator = (_self._operations.length == 0) ? '' : _self._operations[_self._operations.length - 1].operator;
-//                                               operation.firstVisited = 1;
-//                                               new RequestUtils()._write('operation', [_self._operation], [], function() { }, null);
-//                                             } 
+  this._gui.succeed.onclick = function() { if (_self._visitor.isVisited) {
+                                             window.alert('Disabled');
+                                           } else {
+                                             var r = window.confirm('Automatically add a visiting operation');
+                                             if (r) {
+                                               var operation = pz_operation.instance();
+                                               operation.visitId = _self._visitorId;
+                                               operation.cancelled = 0;
+                                               operation.operateType = 'Visit (1)';
+                                               operation.operator = _self._operator.account;
+                                               operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
+                                               operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
+                                               func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();};
+                                               pos = [window.screen.width/3, window.screen.height/3];
+                                               tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
+                                               new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                                               return false;
+                                             } else {
+                                               window.alert('Disabled');
+                                             }
+                                           }
 //                                           }
 //                                           var pos = DOMUtils.findPos(this);
 //                                             
