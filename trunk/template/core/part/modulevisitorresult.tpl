@@ -30,23 +30,48 @@ ModuleVisitorResult.prototype._createElements = function() {
   var span = document.createElement('span');
   span.style.color = '#891234';
   var visit = 0; noVisit = 0;
+  var id = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
-    var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
-    if (type == 'visit') {
-      visit++;
+    if (operation.cancelled) {
+      continue;
+    }
+    if (operation.firstVisited) {
+      id = operation.id;
     }
   }
-  
-  for (var i = 0, il = this._item.operations.length; i < il; i++) {
-    var operation = this._item.operations[i];
-    var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
-    if (type != 'visit') {
-      noVisit++;
-    } else {
-      break;
+  var before = []; after = [];
+  for (var j = 0, jl = this._item.operations.length; j < jl; j++) {
+    var operation = this._item.operations[j];
+    if (operation.cancelled) {
+      continue;
+    }
+    if (id != 0) {
+      if (parseInt(operation.id) < parseInt(id)) {
+        before[before.length] = operation;
+      } else if (parseInt(operation.id) > parseInt(id)){
+        after[after.length] = operation;
+      }
     }
   }
+
+//  for (var i = 0, il = this._item.operations.length; i < il; i++) {
+//    var operation = this._item.operations[i];
+//    var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
+//    if (type == 'visit') {
+//      visit++;
+//    }
+//  }
+//  
+//  for (var i = 0, il = this._item.operations.length; i < il; i++) {
+//    var operation = this._item.operations[i];
+//    var type = operation.operateType.substring(0, operation.operateType.indexOf(' (')).toLowerCase();
+//    if (type != 'visit') {
+//      noVisit++;
+//    } else {
+//      break;
+//    }
+//  }
   
   if (this._item.isVisited) {
     span.style.color = '#123489';
@@ -86,11 +111,20 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.appendChild(document.createTextNode(' | '));
   span = document.createElement('span');
   span.style.color = '#123476';
+  this._gui.title.appendChild(span);
+  
   if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
     if (this._item.operations.length == 0) {
+      span.style.color = '#ff0000';
+      span.appendChild(document.createTextNode((this._item.operations.length)));
+      this._gui.title.appendChild(span);
+      span = document.createElement('span');
+      span.style.color = '#cc66cc';
+      span.appendChild(document.createTextNode(' ( 0 ) '));
+      this._gui.title.appendChild(span);
       span = document.createElement('span');
       span.style.color = '#ff0000';
-      span.appendChild(document.createTextNode('No Follow up actions'));
+      span.appendChild(document.createTextNode('Follow up actions'));
       this._gui.title.appendChild(span);
     } else {
       span.style.color = '#009900';
@@ -112,24 +146,24 @@ ModuleVisitorResult.prototype._createElements = function() {
       span.appendChild(document.createTextNode('No Follow up actions'));
       this._gui.title.appendChild(span);
     } else {
-      if (noVisit == 0 && (this._item.operations.length - noVisit - 1) == 0) {
-        span = document.createElement('span');
-        span.style.color = '#ff0000';
-        span.appendChild(document.createTextNode('No Follow up actions'));
-        this._gui.title.appendChild(span);
-      } else if ((this._item.operations.length - noVisit - 1) != 0) {
-        span.style.color = '#009900';
-        span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+      if (this._item.isVisited) {
+        span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
+        span.appendChild(document.createTextNode(after.length));
         this._gui.title.appendChild(span);
         span = document.createElement('span');
-        span.style.color = '#66cc66';
-        span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+        span.style.color = (after.length == 0) ? '#cc66cc' : '#66cc66';
+        span.appendChild(document.createTextNode(' ( ' + before.length + ' ) '));
         this._gui.title.appendChild(span);
         span = document.createElement('span');
-        span.style.color = '#009900';
+        span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
         span.appendChild(document.createTextNode('Follow up actions'));
         this._gui.title.appendChild(span);
+      } else {
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode((this._item.operations.length + ' Follow up actions')));
+        this._gui.title.appendChild(span);
       }
+      
 //      if (visit == 0 && noVisit == 0) {
 //        span = document.createElement('span');
 //        span.style.color = '#ff0000';
@@ -167,7 +201,7 @@ ModuleVisitorResult.prototype._createElements = function() {
 //      }
     }
   }
-  this._gui.title.appendChild(span);
+  
 
   if (this._item.status == 1) {
     this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
