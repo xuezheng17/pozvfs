@@ -1,16 +1,15 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    margin: 10px 0 0 0;
+    margin: 18px 0 0 0;
+    border:solid 3px #d5ddf3;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 480px;
-    height: 25px;
+    width: 470px;
     text-align:left;
   }
   .{{$template|escape:'html'}}_table3 {
-    width: 492px;
-    height: 25px;
+    width: 460px;
     margin-left:-5px;
   }
   .{{$template|escape:'html'}}_table4 {
@@ -25,9 +24,9 @@
   }
   .{{$template|escape:'html'}}_td1 {
     width: 125px;
-    height: 22px;
+    height: 25px;
     text-align: left;
-    padding-left:13px;
+    padding:0 0 3px 15px;
     vertical-align: middle;
     font-size: 9pt;
     font-weight: bold;
@@ -35,14 +34,14 @@
   }
   .{{$template|escape:'html'}}_td2 {
     width: 90px;
-    padding-left:36px;
+    padding-left:25px;
     text-align: left;
     font-size:9pt;
     height: 25px;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 854px;
+    width: 865px;
     height: 25px;
     text-align: left;
     vertical-align: middle;
@@ -63,7 +62,7 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 28px;
+    width: 20px;
     height: 25px;
     text-align: center;
     vertical-align: middle;
@@ -78,20 +77,18 @@
     vertical-align:middle;
   }
   .{{$template|escape:'html'}}_td8 {
-    width: 105px;
-    height: 35px;
+    height: 23px;
     text-align: left;
     vertical-align: middle;
-    padding-left:5px;
+    padding:0 20px 0 5px;
     font-size: 9pt;
-    font-weight: bold;
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td9 {
-    width:980px
-    height: 45px;
-    text-align:left;
-    padding-left:645px;
+    width:980px;
+    height: 40px;
+    text-align: right;
+    padding:0 18px 8px 0;
     vertical-align:middle;
   }
   .{{$template|escape:'html'}}_td10 {
@@ -99,9 +96,18 @@
     padding:5px 30px 5px 0;
     vertical-align:middle;
   }
+  .{{$template|escape:'html'}}_td11 {
+    width: 125px;
+    height: 22px;
+    text-align: left;
+    padding-left:25px;
+    vertical-align: middle;
+    font-size: 9pt;
+    font-family: Arial;
+  }
   .{{$template|escape:'html'}}_inputText {
-    width: 210px;
-    height: 16px;
+    width: 200px;
+    height: 15px;
   }
 </style>
 
@@ -130,7 +136,7 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" colSpan="2">Any of these criteria</td>
+    <td class="{{$template|escape:'html'}}_td1" colSpan="2">Find visitors that have any of these criteria</td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Visitor No:</td>
@@ -197,7 +203,19 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" align="left" colSpan="2">
+    <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td1" colSpan="2">Any one or more of these status</td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td11" align="left" colSpan="2">
       <table class="{{$template|escape:'html'}}_table3" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td7">
@@ -207,7 +225,7 @@
           <td class="{{$template|escape:'html'}}_td7">
             <input type="checkbox" id = "{{$template|escape:'html'}}_succeededOnly_input"></input>
           </td>
-          <td class="{{$template|escape:'html'}}_td8">Succeeded </td>
+          <td class="{{$template|escape:'html'}}_td8">Booked Customer </td>
           <td class="{{$template|escape:'html'}}_td7">
             <input type="checkbox" id = "{{$template|escape:'html'}}_failedOnly_input"></input>
           </td>
