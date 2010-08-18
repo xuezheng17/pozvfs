@@ -1,5 +1,5 @@
 <?php
-class isource {
+class pz_isource {
   /**
    * @orm char(64)
    */

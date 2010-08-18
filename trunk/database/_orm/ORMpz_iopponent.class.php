@@ -1,7 +1,7 @@
 <?php
-class ORMicategory extends ORMBase {
+class ORMpz_iopponent extends ORMBase {
   public function __construct() {
-    parent::__construct('icategory');
+    parent::__construct('pz_iopponent');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

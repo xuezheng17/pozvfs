@@ -1,7 +1,7 @@
 <?php
-class ORMdatezone extends ORMBase {
+class ORMpz_datezone extends ORMBase {
   public function __construct() {
-    parent::__construct('datezone');
+    parent::__construct('pz_datezone');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

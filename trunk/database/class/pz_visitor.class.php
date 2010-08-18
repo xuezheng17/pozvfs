@@ -1,5 +1,5 @@
 <?php
-class visitor {
+class pz_visitor {
   /**
    * @orm char(64)
    */

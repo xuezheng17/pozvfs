@@ -1,5 +1,5 @@
 <?php
-class icategory {
+class pz_ireception {
   /**
    * @orm char(64)
    */
