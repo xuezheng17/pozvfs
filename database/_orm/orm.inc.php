@@ -9,6 +9,9 @@ function classToOrm($class = NULL) {
     case 'emailtemplate':
       require_once dirname(__FILE__) . '/ORMemailtemplate.class.php';
       return new ORMemailtemplate();
+    case 'icategory':
+      require_once dirname(__FILE__) . '/ORMicategory.class.php';
+      return new ORMicategory();
     case 'iceremony':
       require_once dirname(__FILE__) . '/ORMiceremony.class.php';
       return new ORMiceremony();
