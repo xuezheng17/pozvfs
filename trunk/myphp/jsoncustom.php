@@ -37,7 +37,7 @@ $myManager->commit_t();
 function login($myManager) {
   $args = json_decode(MiscUtils::decryptParam('a', '[]'));
   
-  $orm = classToOrm('user');
+  $orm = classToOrm('pz_user');
   $result = $orm->find($myManager, NULL, NULL, NULL, NULL, "d.account = '$args->account' AND d.password = '$args->password'", NULL);
   if (count($result->data) == 1) {
     $user = $result->data[0];
@@ -54,7 +54,7 @@ function login($myManager) {
 function addVisitor($myManager) {
   $args = json_decode(MiscUtils::decryptParam('a', '[]'));
   
-  $orm = classToOrm('visitor');
+  $orm = classToOrm('pz_visitor');
   $epVisitor = $orm->add($myManager, $args->visitor);
   $myManager->commit_t();
   $myManager->start_t();
@@ -105,7 +105,7 @@ function visitors($myManager) {
   $condition .= ($createdFrom) ? ' AND (d.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
   $condition .= ($createdTo) ? ' AND (d.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
   
-  $orm = classToOrm('visitor');
+  $orm = classToOrm('pz_visitor');
   if ($orm) {
     try {
       $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
@@ -120,7 +120,7 @@ function visitors($myManager) {
 function sendEmail($myManager) {
   $args = json_decode(MiscUtils::decryptParam('a', '[]'));
   
-  $orm = classToOrm('operation');
+  $orm = classToOrm('pz_operation');
   $epOperation = $orm->add($myManager, $args->operation);
   $myManager->commit_t();
   $myManager->start_t();
