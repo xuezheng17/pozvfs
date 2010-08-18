@@ -18,6 +18,7 @@
   }
   .{{$template|escape:'html'}}_table5 {
     width: 980px;
+    margin-bottom:30px;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
