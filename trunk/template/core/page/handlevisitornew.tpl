@@ -187,7 +187,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                                     };
                                              pos = DOMUtils.findPos(this);
                                              tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                             var dialog = new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'isource', title: 'Sources', item: object });
+                                             var dialog = new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_isource', title: 'Sources', item: object });
                                              MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                              
                                            };
@@ -200,7 +200,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                                                };
                                                         pos = DOMUtils.findPos(this);
                                                         tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'ireception', title: 'Reception Location', item: object });
+                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_ireception', title: 'Reception Location', item: object });
                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                         };
   this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
@@ -212,7 +212,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                                                 };
                                                          pos = DOMUtils.findPos(this);
                                                          tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iculture', title: 'Cultural Background', item: object });
+                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iculture', title: 'Cultural Background', item: object });
                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
   this._gui.ceremonyLocationAdd.onclick = function() { var object = ICeremony.instance();
@@ -224,7 +224,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                                               };
                                                        pos = DOMUtils.findPos(this);
                                                        tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                                       new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iceremony', title: 'Ceremony Location', item: object });
+                                                       new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iceremony', title: 'Ceremony Location', item: object });
                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                      };
   /* Save */
