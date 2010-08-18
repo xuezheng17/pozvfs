@@ -65,7 +65,7 @@ ModuleDialogInput.prototype._updateElements = function() {
       this._gui.opponent.onchange = function() { _self._visitor.opponent = this.options[this.selectedIndex].text; };
     }
     
-    this._gui.add.onclick = function() { var object = ISource.instance(); 
+    this._gui.add.onclick = function() { var object = isource.instance(); 
                                          var func1 = function() { tmp._close();
                                                                   _self._visitor.opponent = object.name;
                                                                   new RequestUtils()._write('iopponent', [object], [], function() { _self._retrieveOpponents.call(_self); }, { pos: DOMUtils.findPos(_self._gui.add) });
