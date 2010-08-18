@@ -405,7 +405,7 @@ function performanceAttitude($myPdo) {
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
     
-    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.cancelled = 0";
+    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.cancelled = 0 AND o.operateType != 'Custom Note' AND o.firstVisited = 0";
     $stmt1 = $myPdo->prepare($sql1);
     $stmt1->execute();
     $tmp->total = 0;
@@ -414,7 +414,7 @@ function performanceAttitude($myPdo) {
       $tmp->total = $tmp1->total;
     }
     
-    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.operator='$tmp->account' AND o.cancelled = 0";
+    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.operator='$tmp->account' AND o.cancelled = 0 AND o.operateType != 'Custom Note' AND o.firstVisited = 0";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
@@ -461,7 +461,7 @@ function performancePE($myPdo) {
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
     
-    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o LEFT JOIN $tableVisitor AS v ON o.visitId = v.e_oid $condition AND v.firstVisitMethod != 'Visitor' AND o.cancelled = 0";
+    $sql1 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o LEFT JOIN $tableVisitor AS v ON o.visitId = v.e_oid $condition AND v.firstVisitMethod != 'Visitor' AND o.cancelled = 0 AND o.operateType != 'Custom Note'";
     $stmt1 = $myPdo->prepare($sql1);
     $stmt1->execute();
     $tmp->total = 0;
@@ -470,7 +470,7 @@ function performancePE($myPdo) {
       $tmp->total = $tmp1->total;
     }
     
-    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.prevOperator='$tmp->account' AND o.firstVisited = 1 AND o.cancelled = 0";
+    $sql2 = "SELECT COUNT(o.e_oid) AS total FROM $tableOperation AS o $condition AND o.prevOperator='$tmp->account' AND o.firstVisited = 1 AND o.cancelled = 0 AND o.operateType != 'Custom Note' ";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
