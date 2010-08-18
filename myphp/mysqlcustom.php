@@ -67,13 +67,24 @@ function visitors($myPdo) {
 
   $datefrom = MiscUtils::getParam('datefrom', NULL);
   $dateto = MiscUtils::getParam('dateto', NULL);
-  $createdFrom = MiscUtils::getParam('from', NULL);
-  $createdTo = MiscUtils::getParam('to', NULL);
-
-  $condition .= ($datefrom) ? ' AND (v.weddingDay >= \'' . SimpleDate::toStamp(json_decode($datefrom)) . '\')' : '';
-  $condition .= ($dateto) ? ' AND (v.weddingDay <= \'' . SimpleDate::toStamp(json_decode($dateto)) . '\')' : '';
-  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
-  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  $createdfrom = MiscUtils::getParam('from', NULL);
+  $createdto = MiscUtils::getParam('to', NULL);
+  
+  if ($datefrom && $dateto) {
+    $condition .= ' OR ((v.weddingDay >= \'' . SimpleDate::toStamp(json_decode($datefrom)) . '\')' . ' AND (v.weddingDay <= \'' . SimpleDate::toStamp(json_decode($dateto)) . '\'))';
+  } else if ($datefrom) {
+    $condition .= ' OR (v.weddingDay >= \'' . SimpleDate::toStamp(json_decode($datefrom)) . '\')';
+  } else if ($dateto) {
+    $condition .= ' OR (v.weddingDay <= \'' . SimpleDate::toStamp(json_decode($dateto)) . '\')';
+  }
+  
+  if ($createdfrom && $createdto) {
+    $condition .= ' OR ((v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdfrom)) . '\')' . ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdto)) . '\'))';
+  } else if ($createdfrom) {
+    $condition .= ' OR (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdfrom)) . '\')';
+  } else if ($createdto) {
+    $condition .= ' OR (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdto)) . '\')';
+  }
 
   $result = new stdClass();
   $result->data = array();
