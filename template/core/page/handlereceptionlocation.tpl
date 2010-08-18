@@ -25,11 +25,11 @@ HandleReceptionLocation.prototype._verifyData = function() {
 HandleReceptionLocation.prototype._retrieveReception = function() {
   var _self = this;
   if (this._options.id) {
-    new RequestUtils()._read('ireception', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._reception = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                   _self._verifyData.call(_self);
-                                                                                                                                 }, null);
+    new RequestUtils()._read('pz_ireception', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._reception = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                      _self._verifyData.call(_self);
+                                                                                                                                    }, null);
   } else {
-    this._reception = ireception.instance();
+    this._reception = pz_ireception.instance();
     this._verifyData();
   }
 };
@@ -44,7 +44,7 @@ HandleReceptionLocation.prototype._updateElements = function() {
   this._gui.save.onclick = function() { if (_self._reception.name == '') { 
                                           window.alert('名称不能为空'); 
                                         } else { 
-                                          new RequestUtils()._write('ireception', [_self._reception], [], function() { location.href = '?t=receptionlocations&m=' + MiscUtils.encode({ a: 4, b: 5 }); }, null); };
+                                          new RequestUtils()._write('pz_ireception', [_self._reception], [], function() { location.href = '?t=receptionlocations&m=' + MiscUtils.encode({ a: 4, b: 5 }); }, null); };
                                         }
   this._gui.back.onclick = function() { history.back(); };
 };

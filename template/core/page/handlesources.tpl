@@ -30,9 +30,9 @@ HandleSources.prototype._verifyData = function() {
 
 HandleSources.prototype._retrieveSources = function() {
   var _self = this;
-  new RequestUtils()._read('isource', null, null, null, null, 'd.name', null, function(result, params) { _self._sources = result.data;
-                                                                                                         _self._verifyData.call(_self);
-                                                                                                       }, null);
+  new RequestUtils()._read('pz_isource', null, null, null, null, 'd.name', null, function(result, params) { _self._sources = result.data;
+                                                                                                            _self._verifyData.call(_self);
+                                                                                                          }, null);
 };
 
 HandleSources.prototype._updateElements = function() {
@@ -71,7 +71,7 @@ HandleSources.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('isource', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_isource', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

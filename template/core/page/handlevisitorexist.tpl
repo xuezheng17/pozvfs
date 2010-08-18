@@ -15,6 +15,7 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._gui.visit.style.display = 'none';
   this._gui.succeed.style.display = 'none';
   this._gui.drop.style.display = 'none';
+  this._gui.customNote.style.display = 'none';
   
   this._gui.weddingDay.disabled = true;
   this._gui.brideName.disabled = true;
@@ -75,52 +76,52 @@ HandleVisitorExist.prototype._verifyData = function() {
 
 HandleVisitorExist.prototype._retrieveSources = function() {
   var _self = this;
-  new RequestUtils()._read('isource', null, null, null, null, null, null, function(result, params) { _self._sources = result.data;
-                                                                                                     _self._verifyData.call(_self);
-                                                                                                   }, null);
-};
-
-HandleVisitorExist.prototype._retrieveReceptions = function() {
-  var _self = this;
-  new RequestUtils()._read('ireception', null, null, null, null, null, null, function(result, params) { _self._receptions = result.data;
+  new RequestUtils()._read('pz_isource', null, null, null, null, null, null, function(result, params) { _self._sources = result.data;
                                                                                                         _self._verifyData.call(_self);
                                                                                                       }, null);
 };
 
+HandleVisitorExist.prototype._retrieveReceptions = function() {
+  var _self = this;
+  new RequestUtils()._read('pz_ireception', null, null, null, null, null, null, function(result, params) { _self._receptions = result.data;
+                                                                                                           _self._verifyData.call(_self);
+                                                                                                         }, null);
+};
+
 HandleVisitorExist.prototype._retrieveCultures = function() {
   var _self = this;
-  new RequestUtils()._read('iculture', null, null, null, null, null, null, function(result, params) { _self._cultures = result.data;
-                                                                                                      _self._verifyData.call(_self);
-                                                                                                    }, null);
+  new RequestUtils()._read('pz_iculture', null, null, null, null, null, null, function(result, params) { _self._cultures = result.data;
+                                                                                                         _self._verifyData.call(_self);
+                                                                                                       }, null);
 };
 
 HandleVisitorExist.prototype._retrieveCeremonys = function() {
   var _self = this;
-  new RequestUtils()._read('iceremony', null, null, null, null, null, null, function(result, params) { _self._ceremonys = result.data;
-                                                                                                       _self._verifyData.call(_self);
-                                                                                                     }, null);
+  new RequestUtils()._read('pz_iceremony', null, null, null, null, null, null, function(result, params) { _self._ceremonys = result.data;
+                                                                                                          _self._verifyData.call(_self);
+                                                                                                        }, null);
 };
 
 HandleVisitorExist.prototype._retrieveOperations = function() {
   var _self = this;
-  new RequestUtils()._read('operation', null, 'd.visitId = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._operations = result.data;
-                                                                                                                                           _self._verifyData.call(_self);
-                                                                                                                                         }, null);
+  new RequestUtils()._read('pz_operation', null, 'd.visitId = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._operations = result.data;
+                                                                                                                                              _self._verifyData.call(_self);
+                                                                                                                                            }, null);
 };
 
 HandleVisitorExist.prototype._retrieveVisitor = function() {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                        if (!_self._visitor) {
-                                                                                                                                          window.alert('NO VISITOR ' + _self._visitorId);
-                                                                                                                                          history.back();
-                                                                                                                                          return;
-                                                                                                                                        }
-                                                                                                                                        _self._verifyData.call(_self);
-                                                                                                                                      }, null);
+    new RequestUtils()._read('pz_visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                           if (!_self._visitor) {
+                                                                                                                                             window.alert('NO VISITOR ' + _self._visitorId);
+                                                                                                                                             history.back();
+                                                                                                                                             return;
+                                                                                                                                           }
+                                                                                                                                           _self._verifyData.call(_self);
+                                                                                                                                         }, null);
   } else {
-    this._visitor = visitor.instance();
+    this._visitor = pz_visitor.instance();
     this._visitor.weddingDay = '';
     this._visitor.firstVisitDate = '';
     this._visitor.operatorDate = '';
@@ -189,6 +190,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.visit.style.display = 'block';
     this._gui.succeed.style.display = 'block';
     this._gui.drop.style.display = 'block';
+    this._gui.customNote.style.display = 'block';
   }
 
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
@@ -344,7 +346,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.sourceAdd.onclick = function() { var object = isource.instance(); 
                                              var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
-                                                                      new RequestUtils()._write('isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
+                                                                      new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
                                                                     };
                                              var func2 = function() { tmp._close();
                                                                     };
@@ -356,7 +358,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.receptionLocationAdd.onclick = function() { var object = ireception.instance();
                                                         var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
-                                                                                 new RequestUtils()._write('ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
+                                                                                 new RequestUtils()._write('pz_ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
                                                                                };
                                                         var func2 = function() { tmp._close();
                                                                                };
@@ -368,7 +370,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.culturalBackgroundAdd.onclick = function() { var object = iculture.instance();
                                                          var func1 = function() { tmp._close();
                                                                                   _self._visitor.culturalBackground = object.name;
-                                                                                  new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
+                                                                                  new RequestUtils()._write('pz_iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
                                                                                 };
                                                          var func2 = function() { tmp._close();
                                                                                 };
@@ -380,7 +382,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.ceremonyLocationAdd.onclick = function() { var object = iceremony.instance();
                                                        var func1 = function() { tmp._close();
                                                                                 _self._visitor.ceremonyLocation = object.name;
-                                                                                new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
+                                                                                new RequestUtils()._write('pz_iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
                                                                               };
                                                        var func2 = function() { tmp._close();
                                                                               };
@@ -422,11 +424,11 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                 var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                                 if (r) {
                                                   var pos = DOMUtils.findPos(this);
-                                                  new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                                  new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                                 }
                                               } else {
                                                 var pos = DOMUtils.findPos(this);
-                                                new RequestUtils()._write('visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                                new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
                                               }
                                             } else {
                                               window.alert('CAN NOT BE EMPTY (First Contact Method)');
@@ -560,10 +562,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                  if (type == 'visit') {
                                    vNumber -= 1;
                                  }
-                                 new RequestUtils()._write('operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
+                                 new RequestUtils()._write('pz_operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
                                  if (vNumber == 0) {
                                    _self._visitor.isVisited = false;
-                                   new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
+                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
                                  }
                                };
       td.appendChild(img);
@@ -583,7 +585,7 @@ HandleVisitorExist.prototype._updateElements = function() {
       this._gui.title.appendChild(btn);
       btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
                                    _self._visitor.status = 0;
-                                   new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                                  } else {
                                    window.alert('No Permission');
                                  }
@@ -598,7 +600,7 @@ HandleVisitorExist.prototype._updateElements = function() {
       this._gui.title.appendChild(btn);
       btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
                                    _self._visitor.status = 0;
-                                   new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                                  } else {
                                    window.alert('No Permission');
                                  }
@@ -613,7 +615,7 @@ HandleVisitorExist.prototype._updateElements = function() {
       this._gui.title.appendChild(btn);
       btn.onclick = function() { if (_self._visitor.operator == _self._operator.account) {
                                    _self._visitor.status = 0;
-                                   new RequestUtils()._write('visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
                                  } else {
                                    window.alert('No Permission');
                                  }
@@ -631,25 +633,25 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.email.style.width = '67px';
   }
   
-//  this._gui.customerNote.onclick = function() { var pos, func1, func2;
-//                                                var operation = operation.instance();
-//                                                operation.visitId = _self._visitorId;
-//                                                operation.cancelled = 0;
-//                                                operation.operateType = 'Custom Note';
-//                                                operation.operator = _self._operator.account;
-//                                                operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
-//                                                operation.firstVisited = 0;
-//                                                func1 = function() {  _self._retrieveOperations(); };
-//                                                pos = [window.screen.width/3, window.screen.height/3];
-//                                                tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Talking Summary'});
-//                                                new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
-//                                                return false;
-//                                              };
+  this._gui.customNote.onclick = function() { var pos, func1, func2;
+                                              var operation = pz_operation.instance();
+                                              operation.visitId = _self._visitorId;
+                                              operation.cancelled = 0;
+                                              operation.operateType = 'Custom Note';
+                                              operation.operator = _self._operator.account;
+                                              operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
+                                              operation.firstVisited = 0;
+                                              func1 = function() {  _self._retrieveOperations(); };
+                                              pos = [window.screen.width/3, window.screen.height/3];
+                                              tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Talking Summary'});
+                                              new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                                              return false;
+                                            };
 
   this._gui.email.onclick = function() { var r = window.confirm('Would you like to email via our system?');
                                          if (r) {
                                            var pos, func1, func2;
-                                           var operation = operation.instance();
+                                           var operation = pz_operation.instance();
                                            operation.visitId = _self._visitorId;
                                            operation.cancelled = 0;
                                            operation.operateType = 'Email (' + (eNumber+1) + ')';
@@ -662,7 +664,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            return false;
                                          } else {
                                            var pos, func1, func2;
-                                           var operation = operation.instance();
+                                           var operation = pz_operation.instance();
                                            operation.visitId = _self._visitorId;
                                            operation.cancelled = 0;
                                            operation.operateType = 'Email (' + (eNumber+1) + ')';
@@ -677,7 +679,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          }
                                        };
   this._gui.call.onclick = function() { var pos, func1, func2;
-                                        var operation = operation.instance();
+                                        var operation = pz_operation.instance();
                                         operation.visitId = _self._visitorId;
                                         operation.cancelled = 0;
                                         operation.operateType = 'Call (' + (pNumber+1) + ')';
@@ -691,7 +693,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         return false;
                                       };
   this._gui.visit.onclick = function() { var pos, func1;
-                                         var operation = operation.instance();
+                                         var operation = pz_operation.instance();
                                          operation.visitId = _self._visitorId;
                                          operation.cancelled = 0;
                                          operation.operateType = 'Visit (' + (vNumber+1) + ')';
@@ -708,7 +710,7 @@ HandleVisitorExist.prototype._updateElements = function() {
 //                                           if (vNumber == 0) {
 //                                             var r = window.confirm('Automatically add a visiting operation');
 //                                             if (r) {
-//                                               var operation = operation.instance();
+//                                               var operation = pz_operation.instance();
 //                                               operation.visitId = _self._visitorId;
 //                                               operation.cancelled = 0;
 //                                               operation.operateType = _self._gui.visit.value;

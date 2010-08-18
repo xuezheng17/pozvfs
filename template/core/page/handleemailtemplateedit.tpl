@@ -25,11 +25,11 @@ HandleEmailTemplateEdit.prototype._verifyData = function() {
 HandleEmailTemplateEdit.prototype._retrieveTemplate = function() {
   var _self = this;
   if (this._options.id) {
-    new RequestUtils()._read('emailtemplate', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._template = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                      _self._verifyData.call(_self);
-                                                                                                                                    }, null);
+    new RequestUtils()._read('pz_emailtemplate', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._template = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                         _self._verifyData.call(_self);
+                                                                                                                                       }, null);
   } else {
-    this._template = emailtemplate.instance();
+    this._template = pz_emailtemplate.instance();
     this._verifyData();
   }
 };
@@ -60,7 +60,7 @@ HandleEmailTemplateEdit.prototype._updateElements = function() {
                                         if (_self._template.name == '' || _self._template.subject == '' || _self._template.content == '') {
                                           window.alert(str.substring(0, str.length-2) + ' can not be empty');
                                         } else {
-                                          new RequestUtils()._write('emailtemplate', [_self._template], [], function() { location.href = '?t=emailtemplates&m=' + JSON.stringify({ a: 4, b: 2 }); }, null); 
+                                          new RequestUtils()._write('pz_emailtemplate', [_self._template], [], function() { location.href = '?t=emailtemplates&m=' + JSON.stringify({ a: 4, b: 2 }); }, null); 
                                         }
                                       };
   this._gui.back.onclick = function() { history.back(); };

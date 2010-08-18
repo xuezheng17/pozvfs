@@ -30,7 +30,7 @@ HandleCategorys.prototype._verifyData = function() {
 
 HandleCategorys.prototype._retrieveaCategorys = function() {
   var _self = this;
-  new RequestUtils()._read('icategory', null, null, null, null, 'd.name', null, function(result, params) { _self._categorys = result.data;
+  new RequestUtils()._read('pz_icategory', null, null, null, null, 'd.name', null, function(result, params) { _self._categorys = result.data;
                                                                                                            _self._verifyData.call(_self);
                                                                                                          }, null);
 };
@@ -71,7 +71,7 @@ HandleCategorys.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('icategory', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_icategory', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

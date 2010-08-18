@@ -25,11 +25,11 @@ HandleOpponent.prototype._verifyData = function() {
 HandleOpponent.prototype._retrieveOpponent = function() {
   var _self = this;
   if (this._options.id) {
-    new RequestUtils()._read('iopponent', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._opponent = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                  _self._verifyData.call(_self);
-                                                                                                                                }, null);
+    new RequestUtils()._read('pz_iopponent', null, 'd.oid = ' + this._options.id, null, null, null, null, function(result, params) { _self._opponent = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                     _self._verifyData.call(_self);
+                                                                                                                                   }, null);
   } else {
-    this._opponent = iopponent.instance();
+    this._opponent = pz_iopponent.instance();
     this._verifyData();
   }
 };
@@ -44,7 +44,7 @@ HandleOpponent.prototype._updateElements = function() {
   this._gui.save.onclick = function() { if (_self._opponent.name == '') { 
                                           window.alert('名称不能为空'); 
                                         } else { 
-                                          new RequestUtils()._write('iopponent', [_self._opponent], [], function() { location.href = '?t=opponents&m=' + MiscUtils.encode({ a: 4, b: 7 }); }, null); };
+                                          new RequestUtils()._write('pz_iopponent', [_self._opponent], [], function() { location.href = '?t=opponents&m=' + MiscUtils.encode({ a: 4, b: 7 }); }, null); };
                                         }
   this._gui.back.onclick = function() { history.back(); };
 };

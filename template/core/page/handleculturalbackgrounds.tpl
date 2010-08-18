@@ -30,9 +30,9 @@ HandleCulturalBackgrounds.prototype._verifyData = function() {
 
 HandleCulturalBackgrounds.prototype._retrieveCultures = function() {
   var _self = this;
-  new RequestUtils()._read('iculture', null, null, null, null, 'd.name', null, function(result, params) { _self._cultures = result.data;
-                                                                                                          _self._verifyData.call(_self);
-                                                                                                        }, null);
+  new RequestUtils()._read('pz_iculture', null, null, null, null, 'd.name', null, function(result, params) { _self._cultures = result.data;
+                                                                                                             _self._verifyData.call(_self);
+                                                                                                           }, null);
 };
 
 HandleCulturalBackgrounds.prototype._updateElements = function() {
@@ -71,7 +71,7 @@ HandleCulturalBackgrounds.prototype._updateElements = function() {
     img.src = 'image/delete.png';
     img.style.cursor = 'pointer';
     img._object = object;
-    img.onclick = function() { new RequestUtils()._write('iculture', [], [this._object], function() { _self._createElements(); }, null); };
+    img.onclick = function() { new RequestUtils()._write('pz_iculture', [], [this._object], function() { _self._createElements(); }, null); };
     td.appendChild(img);
   }
 };

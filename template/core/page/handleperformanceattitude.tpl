@@ -44,9 +44,9 @@ HandlePerformanceAttitude.prototype._retrieveOperations = function(page, conditi
 
 HandlePerformanceAttitude.prototype._retrieveDateZones = function() {
   var _self = this;
-  new RequestUtils()._read('datezone', null, 'd.page=\'' + this._options.template + '\'', null, null, null, null, function(result, params) { _self._dateZones = result.data;
-                                                                                                                                             _self._verifyData.call(_self);
-                                                                                                                                           }, null);
+  new RequestUtils()._read('pz_datezone', null, 'd.page=\'' + this._options.template + '\'', null, null, null, null, function(result, params) { _self._dateZones = result.data;
+                                                                                                                                                _self._verifyData.call(_self);
+                                                                                                                                              }, null);
 };
 
 HandlePerformanceAttitude.prototype._updateElements = function() {
@@ -102,7 +102,7 @@ HandlePerformanceAttitude.prototype._updateElements = function() {
                                                      date.start = _self._dateZone.created;
                                                      date.end = _self._dateZone.to;
                                                      date.page = _self._options.template;
-                                                     new RequestUtils()._write('datezone', [date], [], function(date, params) { _self._retrieveDateZones.call(_self);}, DOMUtils.findPos(this));
+                                                     new RequestUtils()._write('pz_datezone', [date], [], function(date, params) { _self._retrieveDateZones.call(_self);}, DOMUtils.findPos(this));
                                                    } else {
                                                      window.alert('DATE CAN NOT BE EMPTY');
                                                    }
@@ -137,7 +137,7 @@ HandlePerformanceAttitude.prototype._updateElements = function() {
     span.appendChild(document.createTextNode('(x)'));
     span.style.cursor = 'pointer';
     span._date = date;
-    span.onclick = function() { new RequestUtils()._write('datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
+    span.onclick = function() { new RequestUtils()._write('pz_datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
                               };
     td.appendChild(span);
   }
