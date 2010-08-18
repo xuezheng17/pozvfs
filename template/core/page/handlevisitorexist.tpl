@@ -570,9 +570,9 @@ HandleVisitorExist.prototype._updateElements = function() {
     }
   }
   
-  this._gui.email.value = 'Email (' + (eNumber+1) + ')';
-  this._gui.call.value = 'Call (' + (pNumber+1) + ')';
-  this._gui.visit.value = 'Visit (' + (vNumber+1) + ')';
+  this._gui.email.value = 'Email (' + eNumber + ')';
+  this._gui.call.value = 'Call (' + pNumber + ')';
+  this._gui.visit.value = 'Visit (' + vNumber + ')';
   
   if (this._visitor.status == 1) {
     this._gui.title.appendChild(document.createTextNode(' (Succeed) '));
@@ -631,13 +631,28 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.email.style.width = '67px';
   }
   
+//  this._gui.customerNote.onclick = function() { var pos, func1, func2;
+//                                                var operation = operation.instance();
+//                                                operation.visitId = _self._visitorId;
+//                                                operation.cancelled = 0;
+//                                                operation.operateType = 'Custom Note';
+//                                                operation.operator = _self._operator.account;
+//                                                operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
+//                                                operation.firstVisited = 0;
+//                                                func1 = function() {  _self._retrieveOperations(); };
+//                                                pos = [window.screen.width/3, window.screen.height/3];
+//                                                tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Talking Summary'});
+//                                                new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+//                                                return false;
+//                                              };
+  
   this._gui.email.onclick = function() { var r = window.confirm('Would you like to email via our system?');
                                          if (r) {
                                            var pos, func1, func2;
-                                           var operation = Operation.instance();
+                                           var operation = operation.instance();
                                            operation.visitId = _self._visitorId;
                                            operation.cancelled = 0;
-                                           operation.operateType = this.value;
+                                           operation.operateType = 'Email (' + (eNumber+1) + ')';
                                            operation.operator = _self._operator.account;
                                            operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                            operation.firstVisited = 0;
@@ -647,10 +662,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            return false;
                                          } else {
                                            var pos, func1, func2;
-                                           var operation = Operation.instance();
+                                           var operation = operation.instance();
                                            operation.visitId = _self._visitorId;
                                            operation.cancelled = 0;
-                                           operation.operateType = this.value;
+                                           operation.operateType = 'Email (' + (eNumber+1) + ')';
                                            operation.operator = _self._operator.account;
                                            operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                            operation.firstVisited = 0;
@@ -662,10 +677,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          }
                                        };
   this._gui.call.onclick = function() { var pos, func1, func2;
-                                        var operation = Operation.instance();
+                                        var operation = operation.instance();
                                         operation.visitId = _self._visitorId;
                                         operation.cancelled = 0;
-                                        operation.operateType = this.value;
+                                        operation.operateType = 'Call (' + (pNumber+1) + ')';
                                         operation.operator = _self._operator.account;
                                         operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                         operation.firstVisited = 0;
@@ -676,10 +691,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         return false;
                                       };
   this._gui.visit.onclick = function() { var pos, func1;
-                                         var operation = Operation.instance();
+                                         var operation = operation.instance();
                                          operation.visitId = _self._visitorId;
                                          operation.cancelled = 0;
-                                         operation.operateType = this.value;
+                                         operation.operateType = 'Visit (' + (vNumber+1) + ')';
                                          operation.operator = _self._operator.account;
                                          operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                          operation.firstVisited = 1;
@@ -693,7 +708,7 @@ HandleVisitorExist.prototype._updateElements = function() {
 //                                           if (vNumber == 0) {
 //                                             var r = window.confirm('Automatically add a visiting operation');
 //                                             if (r) {
-//                                               var operation = Operation.instance();
+//                                               var operation = operation.instance();
 //                                               operation.visitId = _self._visitorId;
 //                                               operation.cancelled = 0;
 //                                               operation.operateType = _self._gui.visit.value;
