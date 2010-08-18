@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 16, 2010 at 12:19 PM
+-- Generation Time: Aug 18, 2010 at 02:10 AM
 -- Server version: 5.0.27
 -- PHP Version: 5.2.9-2
 
@@ -22,10 +22,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_datezone`
+-- Table structure for table `np_pz_datezone`
 --
 
-CREATE TABLE IF NOT EXISTS `np_datezone` (
+CREATE TABLE IF NOT EXISTS `np_pz_datezone` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `start` int(16) default NULL,
@@ -35,20 +35,20 @@ CREATE TABLE IF NOT EXISTS `np_datezone` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `np_datezone`
+-- Dumping data for table `np_pz_datezone`
 --
 
-INSERT INTO `np_datezone` (`e_oid`, `trackId`, `start`, `end`, `page`) VALUES
+INSERT INTO `np_pz_datezone` (`e_oid`, `trackId`, `start`, `end`, `page`) VALUES
 (3, 'u990882985018', 1280620800, 1280707200, 'performanceattitude'),
 (4, 'u1037935317953', 1280620800, 1283126400, 'performancesales');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_emailtemplate`
+-- Table structure for table `np_pz_emailtemplate`
 --
 
-CREATE TABLE IF NOT EXISTS `np_emailtemplate` (
+CREATE TABLE IF NOT EXISTS `np_pz_emailtemplate` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
@@ -58,19 +58,37 @@ CREATE TABLE IF NOT EXISTS `np_emailtemplate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `np_emailtemplate`
+-- Dumping data for table `np_pz_emailtemplate`
 --
 
-INSERT INTO `np_emailtemplate` (`e_oid`, `trackId`, `name`, `subject`, `content`) VALUES
+INSERT INTO `np_pz_emailtemplate` (`e_oid`, `trackId`, `name`, `subject`, `content`) VALUES
 (1, 'u395597339381', 'test email', 'this is a test email', 'hello \n  this is a test email !\n\n\n                       dreamLife opertion');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_iceremony`
+-- Table structure for table `np_pz_icategory`
 --
 
-CREATE TABLE IF NOT EXISTS `np_iceremony` (
+CREATE TABLE IF NOT EXISTS `np_pz_icategory` (
+  `e_oid` int(12) NOT NULL auto_increment,
+  `trackId` varchar(64) default NULL,
+  `name` varchar(64) default NULL,
+  PRIMARY KEY  (`e_oid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `np_pz_icategory`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `np_pz_iceremony`
+--
+
+CREATE TABLE IF NOT EXISTS `np_pz_iceremony` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
@@ -78,19 +96,19 @@ CREATE TABLE IF NOT EXISTS `np_iceremony` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `np_iceremony`
+-- Dumping data for table `np_pz_iceremony`
 --
 
-INSERT INTO `np_iceremony` (`e_oid`, `trackId`, `name`) VALUES
+INSERT INTO `np_pz_iceremony` (`e_oid`, `trackId`, `name`) VALUES
 (2, 'u504547816390', 'cccccccccccccccccccccccccccccccc');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_iculture`
+-- Table structure for table `np_pz_iculture`
 --
 
-CREATE TABLE IF NOT EXISTS `np_iculture` (
+CREATE TABLE IF NOT EXISTS `np_pz_iculture` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
@@ -98,19 +116,19 @@ CREATE TABLE IF NOT EXISTS `np_iculture` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `np_iculture`
+-- Dumping data for table `np_pz_iculture`
 --
 
-INSERT INTO `np_iculture` (`e_oid`, `trackId`, `name`) VALUES
+INSERT INTO `np_pz_iculture` (`e_oid`, `trackId`, `name`) VALUES
 (1, 'u731126943085', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_iopponent`
+-- Table structure for table `np_pz_iopponent`
 --
 
-CREATE TABLE IF NOT EXISTS `np_iopponent` (
+CREATE TABLE IF NOT EXISTS `np_pz_iopponent` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
@@ -118,37 +136,37 @@ CREATE TABLE IF NOT EXISTS `np_iopponent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `np_iopponent`
+-- Dumping data for table `np_pz_iopponent`
 --
 
-INSERT INTO `np_iopponent` (`e_oid`, `trackId`, `name`) VALUES
+INSERT INTO `np_pz_iopponent` (`e_oid`, `trackId`, `name`) VALUES
 (1, 'u477665579661', 'dlmanage.co.nz');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_ireception`
+-- Table structure for table `np_pz_ireception`
 --
 
-CREATE TABLE IF NOT EXISTS `np_ireception` (
+CREATE TABLE IF NOT EXISTS `np_pz_ireception` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `np_ireception`
+-- Dumping data for table `np_pz_ireception`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_isource`
+-- Table structure for table `np_pz_isource`
 --
 
-CREATE TABLE IF NOT EXISTS `np_isource` (
+CREATE TABLE IF NOT EXISTS `np_pz_isource` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
@@ -156,19 +174,19 @@ CREATE TABLE IF NOT EXISTS `np_isource` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `np_isource`
+-- Dumping data for table `np_pz_isource`
 --
 
-INSERT INTO `np_isource` (`e_oid`, `trackId`, `name`) VALUES
+INSERT INTO `np_pz_isource` (`e_oid`, `trackId`, `name`) VALUES
 (1, 'u144446192273', 'ddddddddddddddddddddddddddddddddddd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_operation`
+-- Table structure for table `np_pz_operation`
 --
 
-CREATE TABLE IF NOT EXISTS `np_operation` (
+CREATE TABLE IF NOT EXISTS `np_pz_operation` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `visitId` varchar(64) default NULL,
@@ -180,13 +198,13 @@ CREATE TABLE IF NOT EXISTS `np_operation` (
   `prevOperator` varchar(64) default NULL,
   `firstVisited` tinyint(1) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
--- Dumping data for table `np_operation`
+-- Dumping data for table `np_pz_operation`
 --
 
-INSERT INTO `np_operation` (`e_oid`, `trackId`, `visitId`, `cancelled`, `operateType`, `operator`, `operatedDate`, `content`, `prevOperator`, `firstVisited`) VALUES
+INSERT INTO `np_pz_operation` (`e_oid`, `trackId`, `visitId`, `cancelled`, `operateType`, `operator`, `operatedDate`, `content`, `prevOperator`, `firstVisited`) VALUES
 (1, 'u373789009168', '3', 0, 'Email (1)', 'test', 1281916800, 'fddsdf', '', 0),
 (2, 'u420741710597', '3', 1, 'Visit (1)', 'test', 1281916800, 'fdsfs', 'test', 1),
 (3, 'u1145631706006', '3', 1, 'Visit (1)', 'test', 1281916800, 'cc', 'test', 1),
@@ -203,15 +221,17 @@ INSERT INTO `np_operation` (`e_oid`, `trackId`, `visitId`, `cancelled`, `operate
 (14, 'u1257502655272', '2', 1, 'Visit (1)', 'test', 1281916800, 'fsd', 'test', 1),
 (15, 'u312831787748', '2', 0, 'Visit (1)', 'test', 1281916800, 'dfs', 'test', 1),
 (16, 'u1133052530915', '1', 0, 'Call (1)', 'user', 1281916800, 'fds', 'test', 0),
-(17, 'u386974896193', '3', 0, 'Visit (1)', 'user', 1281916800, 'fdsf', 'test', 1);
+(17, 'u386974896193', '3', 0, 'Visit (1)', 'user', 1281916800, 'fdsf', 'test', 1),
+(18, 'u615781258579', '3', 0, 'Call (1)', 'test', 1282089600, 'fdssdfs', 'user', 0),
+(19, 'u47891775492', '3', 0, 'Custom Note', 'test', 1282089600, 'dfdsfs', 'test', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_user`
+-- Table structure for table `np_pz_user`
 --
 
-CREATE TABLE IF NOT EXISTS `np_user` (
+CREATE TABLE IF NOT EXISTS `np_pz_user` (
   `e_oid` int(11) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `account` varchar(64) default NULL,
@@ -220,10 +240,10 @@ CREATE TABLE IF NOT EXISTS `np_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `np_user`
+-- Dumping data for table `np_pz_user`
 --
 
-INSERT INTO `np_user` (`e_oid`, `trackId`, `account`, `password`) VALUES
+INSERT INTO `np_pz_user` (`e_oid`, `trackId`, `account`, `password`) VALUES
 (2, 'u1088097874798', 'test', 'test'),
 (3, 'u69364137208', 'user', 'user'),
 (4, 'u570822602782', 'emma', 'emma');
@@ -231,10 +251,10 @@ INSERT INTO `np_user` (`e_oid`, `trackId`, `account`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `np_visitor`
+-- Table structure for table `np_pz_visitor`
 --
 
-CREATE TABLE IF NOT EXISTS `np_visitor` (
+CREATE TABLE IF NOT EXISTS `np_pz_visitor` (
   `e_oid` int(12) NOT NULL auto_increment,
   `trackId` varchar(64) default NULL,
   `createdDate` int(16) default NULL,
@@ -266,10 +286,10 @@ CREATE TABLE IF NOT EXISTS `np_visitor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `np_visitor`
+-- Dumping data for table `np_pz_visitor`
 --
 
-INSERT INTO `np_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`) VALUES
+INSERT INTO `np_pz_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`) VALUES
 (1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, 'user', 'cxcxc', 1, 'dlmanage.co.nz'),
 (2, 'u430247815599', 1281916800, 'test', 1283126400, 'b', '', 'b', 'b', 'b', '', 'b', 'b', 'b', '', '', '', '', '', 'Visitor', 1281830400, 0, 1281916800, '', '', 1, ''),
 (3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 1, '');
