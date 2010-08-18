@@ -1,5 +1,5 @@
 <?php
-class user {
+class pz_icategory {
   /**
    * @orm char(64)
    */
@@ -7,10 +7,6 @@ class user {
   /**
    * @orm char(64)
    */
-  public $account;
-  /**
-   * @orm char(64)
-   */
-  public $password;
+  public $name;
 }
 ?>

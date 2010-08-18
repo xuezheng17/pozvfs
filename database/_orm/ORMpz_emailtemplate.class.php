@@ -1,7 +1,7 @@
 <?php
-class ORMemailtemplate extends ORMBase {
+class ORMpz_emailtemplate extends ORMBase {
   public function __construct() {
-    parent::__construct('emailtemplate');
+    parent::__construct('pz_emailtemplate');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

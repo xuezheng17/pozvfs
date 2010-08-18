@@ -1,5 +1,5 @@
 <?php
-class iceremony {
+class pz_iceremony {
   /**
    * @orm char(64)
    */

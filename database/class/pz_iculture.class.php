@@ -1,5 +1,5 @@
 <?php
-class iculture {
+class pz_iculture {
   /**
    * @orm char(64)
    */

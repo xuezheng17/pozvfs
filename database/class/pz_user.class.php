@@ -1,5 +1,5 @@
 <?php
-class iopponent {
+class pz_user {
   /**
    * @orm char(64)
    */
@@ -7,6 +7,10 @@ class iopponent {
   /**
    * @orm char(64)
    */
-  public $name;
+  public $account;
+  /**
+   * @orm char(64)
+   */
+  public $password;
 }
 ?>

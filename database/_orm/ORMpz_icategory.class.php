@@ -1,7 +1,7 @@
 <?php
-class ORMireception extends ORMBase {
+class ORMpz_icategory extends ORMBase {
   public function __construct() {
-    parent::__construct('ireception');
+    parent::__construct('pz_icategory');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

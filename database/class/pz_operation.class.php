@@ -1,5 +1,5 @@
 <?php
-class operation {
+class pz_operation {
   /**
    * @orm char(64)
    */

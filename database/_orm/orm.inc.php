@@ -3,39 +3,39 @@ require_once dirname(__FILE__) . '/ORMBase.class.php';
 function classToOrm($class = NULL) {
   $class = strtolower($class);
   switch ($class) {
-    case 'datezone':
-      require_once dirname(__FILE__) . '/ORMdatezone.class.php';
-      return new ORMdatezone();
-    case 'emailtemplate':
-      require_once dirname(__FILE__) . '/ORMemailtemplate.class.php';
-      return new ORMemailtemplate();
-    case 'icategory':
-      require_once dirname(__FILE__) . '/ORMicategory.class.php';
-      return new ORMicategory();
-    case 'iceremony':
-      require_once dirname(__FILE__) . '/ORMiceremony.class.php';
-      return new ORMiceremony();
-    case 'iculture':
-      require_once dirname(__FILE__) . '/ORMiculture.class.php';
-      return new ORMiculture();
-    case 'iopponent':
-      require_once dirname(__FILE__) . '/ORMiopponent.class.php';
-      return new ORMiopponent();
-    case 'ireception':
-      require_once dirname(__FILE__) . '/ORMireception.class.php';
-      return new ORMireception();
-    case 'isource':
-      require_once dirname(__FILE__) . '/ORMisource.class.php';
-      return new ORMisource();
-    case 'operation':
-      require_once dirname(__FILE__) . '/ORMoperation.class.php';
-      return new ORMoperation();
-    case 'user':
-      require_once dirname(__FILE__) . '/ORMuser.class.php';
-      return new ORMuser();
-    case 'visitor':
-      require_once dirname(__FILE__) . '/ORMvisitor.class.php';
-      return new ORMvisitor();
+    case 'pz_datezone':
+      require_once dirname(__FILE__) . '/ORMpz_datezone.class.php';
+      return new ORMpz_datezone();
+    case 'pz_emailtemplate':
+      require_once dirname(__FILE__) . '/ORMpz_emailtemplate.class.php';
+      return new ORMpz_emailtemplate();
+    case 'pz_icategory':
+      require_once dirname(__FILE__) . '/ORMpz_icategory.class.php';
+      return new ORMpz_icategory();
+    case 'pz_iceremony':
+      require_once dirname(__FILE__) . '/ORMpz_iceremony.class.php';
+      return new ORMpz_iceremony();
+    case 'pz_iculture':
+      require_once dirname(__FILE__) . '/ORMpz_iculture.class.php';
+      return new ORMpz_iculture();
+    case 'pz_iopponent':
+      require_once dirname(__FILE__) . '/ORMpz_iopponent.class.php';
+      return new ORMpz_iopponent();
+    case 'pz_ireception':
+      require_once dirname(__FILE__) . '/ORMpz_ireception.class.php';
+      return new ORMpz_ireception();
+    case 'pz_isource':
+      require_once dirname(__FILE__) . '/ORMpz_isource.class.php';
+      return new ORMpz_isource();
+    case 'pz_operation':
+      require_once dirname(__FILE__) . '/ORMpz_operation.class.php';
+      return new ORMpz_operation();
+    case 'pz_user':
+      require_once dirname(__FILE__) . '/ORMpz_user.class.php';
+      return new ORMpz_user();
+    case 'pz_visitor':
+      require_once dirname(__FILE__) . '/ORMpz_visitor.class.php';
+      return new ORMpz_visitor();
     default:
       return NULL;
   }

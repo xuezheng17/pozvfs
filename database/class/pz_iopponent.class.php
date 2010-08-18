@@ -1,5 +1,5 @@
 <?php
-class ireception {
+class pz_iopponent {
   /**
    * @orm char(64)
    */

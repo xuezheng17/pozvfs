@@ -1,7 +1,7 @@
 <?php
-class ORMiceremony extends ORMBase {
+class ORMpz_isource extends ORMBase {
   public function __construct() {
-    parent::__construct('iceremony');
+    parent::__construct('pz_isource');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

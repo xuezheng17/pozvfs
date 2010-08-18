@@ -1,7 +1,7 @@
 <?php
-class ORMiopponent extends ORMBase {
+class ORMpz_iculture extends ORMBase {
   public function __construct() {
-    parent::__construct('iopponent');
+    parent::__construct('pz_iculture');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {

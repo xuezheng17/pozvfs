@@ -1,7 +1,7 @@
 <?php
-class ORMiculture extends ORMBase {
+class ORMpz_iceremony extends ORMBase {
   public function __construct() {
-    parent::__construct('iculture');
+    parent::__construct('pz_iceremony');
   }
 
   public function __toEpObject($myManager, $epObject, $object) {
