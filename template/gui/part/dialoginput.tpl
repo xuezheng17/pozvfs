@@ -20,19 +20,18 @@ DialogInput.prototype._createElements = function() {
   table.style.height = '24px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
-  table.style.margin = '0 5px';
+  table.style.margin = '8px 8px 0';
   table.border=0;
-  table.style.marginTop = '8px'
   this._container.appendChild(table);
   
   if (this._options.failed) {
     tr=table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '21px';
-    td.style.width = '65px';
+    td.style.width = '63px';
     td.style.textAlign = 'right';
     td.style.verticalAlign = 'middle';
-    td.style.paddingRight = '3px';
+    td.style.padding = '0 3px 1px 0';
     td.appendChild(this._doc.createTextNode('Opponent:'));
     td = tr.insertCell(-1);
     td.style.height = '21px';
@@ -46,7 +45,7 @@ DialogInput.prototype._createElements = function() {
     td.appendChild(select);
     td = tr.insertCell(-1);
     td.style.height = '21px';
-    td.style.width = '250px';
+    td.style.width = '252px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'bottom';
     var img = document.createElement('img');
@@ -59,10 +58,43 @@ DialogInput.prototype._createElements = function() {
     td = tr.insertCell(-1);
     td.style.height = '2px';
     
+    tr=table.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.style.height = '21px';
+    td.style.width = '63px';
+    td.style.textAlign = 'right';
+    td.style.verticalAlign = 'middle';
+    td.style.padding = '0 3px 1px 0 ';
+    td.appendChild(this._doc.createTextNode('Category:'));
+    td = tr.insertCell(-1);
+    td.style.height = '21px';
+    td.style.width = '150px';
+    td.style.textAlign = 'left';
+    td.style.verticalAlign = 'middle';
+    var select = this._doc.createElement('select');
+    select.id = this._unique + '_category_select';
+    select.style.height = '21px';
+    select.style.width = '150px';
+    td.appendChild(select);
+    td = tr.insertCell(-1);
+    td.style.height = '21px';
+    td.style.width = '252px';
+    td.style.textAlign = 'left';
+    td.style.verticalAlign = 'bottom';
+    var img = document.createElement('img');
+    img.src = 'image/add.png';
+    img.id = this._unique + '_addcategory_button';
+    img.style.cursor = 'pointer';
+    td.appendChild(img);
+    
+    tr = table.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.style.height = '2px';
+    
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.style.height = '200px';
-    td.style.width = '65px';
+    td.style.width = '63px';
     td.style.textAlign = 'right';
     td.style.verticalAlign = 'top';
     td.style.paddingRight = '3px';
@@ -73,16 +105,16 @@ DialogInput.prototype._createElements = function() {
     td.style.textAlign = 'center';
     input = document.createElement('textarea');
     input.id =  this._unique + '_input_text'
-    input.style.width = '405px';
+    input.style.width = '407px';
     input.rows = 10;
     td.appendChild(input);
     
     tr = table.insertRow(-1);
     td = tr.insertCell(-1);
     td.colSpan = 3;
-    td.style.width = '470px';
+    td.style.width = '476px';
     var table2 = document.createElement('table');
-    table2.style.width = '480px';
+    table2.style.width = '476px';
     table2.cellPadding = 0;
     table2.cellSpacing = 0;
     td.appendChild(table2);
