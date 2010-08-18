@@ -95,6 +95,10 @@ class pz_visitor {
   /**
    * @orm char(64)
    */
+  public $category;
+  /**
+   * @orm char(64)
+   */
   public $operator;
   /**
    * @orm char(4096)

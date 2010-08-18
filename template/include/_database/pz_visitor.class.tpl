@@ -25,6 +25,7 @@ pz_visitor.instance = function() {
            status: 0,
            operatorDate: SimpleDate.create(),
            opponent: '',
+           category: '',
            operator: '',
            operatorMessage: '',
            isVisited: 0
