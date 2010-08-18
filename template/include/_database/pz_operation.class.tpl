@@ -1,7 +1,7 @@
-function operation() {
+function pz_operation() {
 };
 
-operation.instance = function() {
+pz_operation.instance = function() {
   return { trackId: MiscUtils.unique(),
            visitId: '',
            cancelled: 0,

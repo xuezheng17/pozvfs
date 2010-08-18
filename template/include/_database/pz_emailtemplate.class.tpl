@@ -1,7 +1,7 @@
-function emailtemplate() {
+function pz_emailtemplate() {
 };
 
-emailtemplate.instance = function() {
+pz_emailtemplate.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: '',
            subject: '',
