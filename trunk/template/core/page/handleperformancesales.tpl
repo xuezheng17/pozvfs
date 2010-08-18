@@ -122,7 +122,8 @@ HandlePerformanceSales.prototype._updateElements = function() {
     tr.className = (tr.rowIndex % 2 == 0) ? 'rowodd' : 'roweven';
     td = tr.insertCell(-1);
     td.style.height = '24px';
-    td.style.textAlign = 'center';
+    td.style.textAlign = 'left';
+    td.style.padding = '0 0 0 10px';
     var a = document.createElement('a');
     a.href = '#';
     a._date = date;
@@ -134,7 +135,6 @@ HandlePerformanceSales.prototype._updateElements = function() {
                            };
     td.appendChild(a);
     td = tr.insertCell(-1);
-    td.style.width = '20px';
     td.style.textAlign = 'center';
     var span = document.createElement('img');
     span.src = 'image/delete.png';
