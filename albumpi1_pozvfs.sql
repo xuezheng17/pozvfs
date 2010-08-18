@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 18, 2010 at 02:28 AM
+-- Generation Time: Aug 18, 2010 at 09:55 AM
 -- Server version: 5.0.27
 -- PHP Version: 5.2.9-2
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `np_pz_datezone` (
   `end` int(16) default NULL,
   `page` varchar(256) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `np_pz_datezone`
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `np_pz_datezone` (
 
 INSERT INTO `np_pz_datezone` (`e_oid`, `trackId`, `start`, `end`, `page`) VALUES
 (3, 'u990882985018', 1280620800, 1280707200, 'performanceattitude'),
-(4, 'u1037935317953', 1280620800, 1283126400, 'performancesales');
+(4, 'u1037935317953', 1280620800, 1283126400, 'performancesales'),
+(5, 'u528257078792', 1281225600, 1281916800, 'performanceattitude');
 
 -- --------------------------------------------------------
 
@@ -75,14 +76,15 @@ CREATE TABLE IF NOT EXISTS `np_pz_icategory` (
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `np_pz_icategory`
 --
 
 INSERT INTO `np_pz_icategory` (`e_oid`, `trackId`, `name`) VALUES
-(1, 'u192937180297', 'category1');
+(1, 'u192937180297', 'category1'),
+(2, 'u172601940226', 'category2');
 
 -- --------------------------------------------------------
 
@@ -200,32 +202,29 @@ CREATE TABLE IF NOT EXISTS `np_pz_operation` (
   `prevOperator` varchar(64) default NULL,
   `firstVisited` tinyint(1) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `np_pz_operation`
 --
 
 INSERT INTO `np_pz_operation` (`e_oid`, `trackId`, `visitId`, `cancelled`, `operateType`, `operator`, `operatedDate`, `content`, `prevOperator`, `firstVisited`) VALUES
-(1, 'u373789009168', '3', 0, 'Email (1)', 'test', 1281916800, 'fddsdf', '', 0),
-(2, 'u420741710597', '3', 1, 'Visit (1)', 'test', 1281916800, 'fdsfs', 'test', 1),
-(3, 'u1145631706006', '3', 1, 'Visit (1)', 'test', 1281916800, 'cc', 'test', 1),
-(4, 'u731287572539', '3', 1, 'Visit (1)', 'test', 1281916800, 'cx', 'test', 1),
-(5, 'u40930658770', '3', 1, 'Visit (1)', 'test', 1281916800, 'fdss', 'test', 1),
-(6, 'u424942058130', '3', 1, 'Call (1)', 'test', 1281916800, 'fsdfs', 'test', 0),
-(7, 'u99173181779', '3', 1, 'Visit (1)', 'test', 1281916800, 'fsdfs', 'test', 1),
-(8, 'u910329276894', '3', 1, 'Call (2)', 'test', 1281916800, 'sdfs', 'test', 0),
-(9, 'u392597566780', '3', 1, 'Call (3)', 'test', 1281916800, 'fdsfs', 'test', 0),
-(10, 'u495940872552', '3', 1, 'Visit (2)', 'test', 1281916800, 'fds', 'test', 1),
-(11, 'u399364625236', '3', 1, 'Call (2)', 'test', 1281916800, '121', 'test', 0),
-(12, 'u1009543848104', '1', 0, 'Visit (1)', 'test', 1281916800, 'dsfs', '', 1),
-(13, 'u1280612099532', '2', 0, 'Call (1)', 'test', 1281916800, 'what is you r ifjemfkduiejflkd', '', 0),
-(14, 'u1257502655272', '2', 1, 'Visit (1)', 'test', 1281916800, 'fsd', 'test', 1),
-(15, 'u312831787748', '2', 0, 'Visit (1)', 'test', 1281916800, 'dfs', 'test', 1),
-(16, 'u1133052530915', '1', 0, 'Call (1)', 'user', 1281916800, 'fds', 'test', 0),
-(17, 'u386974896193', '3', 0, 'Visit (1)', 'user', 1281916800, 'fdsf', 'test', 1),
-(18, 'u615781258579', '3', 0, 'Call (1)', 'test', 1282089600, 'fdssdfs', 'user', 0),
-(19, 'u47891775492', '3', 0, 'Custom Note', 'test', 1282089600, 'dfdsfs', 'test', 0);
+(1, 'u929531416048', '1', 0, 'Call (1)', 'test', 1282089600, 'xxx', '', 0),
+(2, 'u288921422912', '1', 0, 'Visit (1)', 'test', 1282089600, 'dfsfs', 'test', 1),
+(3, 'u1037101274405', '1', 0, 'Call (2)', 'test', 1282089600, 'fdfs', 'test', 0),
+(4, 'u831668747257', '1', 0, 'Visit (2)', 'test', 1282089600, 'fds', 'test', 0),
+(5, 'u610222180605', '2', 0, 'Call (1)', 'test', 1282089600, 'dfd', '', 0),
+(6, 'u1104316515474', '2', 1, 'Visit (1)', 'test', 1282089600, 'fdsf', 'test', 1),
+(7, '', '', 0, '', '', 0, '', '', 1),
+(8, 'u1060755549166', '2', 1, 'Visit (2)', 'test', 1282089600, 'cxcx', 'test', 0),
+(9, '', '', 0, '', '', 0, '', '', 1),
+(10, 'u958515279957', '2', 0, 'Visit (1)', 'test', 1282089600, 'cxcs', 'test', 1),
+(11, '', '', 0, '', '', 0, '', '', 1),
+(12, '', '', 0, '', '', 0, '', '', 1),
+(13, '', '', 0, '', '', 0, '', '', 1),
+(14, 'u257724217042', '3', 0, 'Visit (1)', 'test', 1282089600, 'vcvc', '', 1),
+(15, 'u603808691397', '3', 0, 'Call (1)', 'test', 1282089600, 'fdsfs', 'test', 0),
+(16, 'u292604706005', '3', 0, 'Visit (2)', 'test', 1282089600, 'fdsfsfds', 'test', 0);
 
 -- --------------------------------------------------------
 
@@ -293,6 +292,6 @@ CREATE TABLE IF NOT EXISTS `np_pz_visitor` (
 --
 
 INSERT INTO `np_pz_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`, `category`) VALUES
-(1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, 'user', 'cxcxc', 1, '', NULL),
-(2, 'u430247815599', 1281916800, 'test', 1283126400, 'b', '', 'b', 'b', 'b', '', 'b', 'b', 'b', '', '', '', '', '', 'Visitor', 1281830400, 0, 1281916800, '', '', 1, '', NULL),
-(3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 1, '', NULL);
+(1, 'u1243556884378', 1282089600, 'test', 1283212800, '1', '1', '1', '', '1', '', '', '', '', '', '', '', '', '', 'Phone', 1280620800, 0, 1282089600, '', '', 1, '', ''),
+(2, 'u236578880906', 1282089600, 'test', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Phone', 0, 0, 1282089600, '', '', 1, '', ''),
+(3, 'u996143500590', 1282089600, 'test', 0, 'c', 'c', 'c', '', 'cc', '', '', '', '', '', '', '', '', '', 'Email', 0, 0, 1282089600, '', '', 1, '', '');
