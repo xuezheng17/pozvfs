@@ -29,7 +29,7 @@ HandleUserEdit.prototype._retrieveUser = function() {
                                                                                                                              _self._verifyData.call(_self);
                                                                                                                            }, null);
   } else {
-    this._user = User.instance();
+    this._user = user.instance();
     this._verifyData();
   }
 };

@@ -29,7 +29,7 @@ HandleSource.prototype._retrieveSource = function() {
                                                                                                                                 _self._verifyData.call(_self);
                                                                                                                               }, null);
   } else {
-    this._source = ISource.instance();
+    this._source = isource.instance();
     this._verifyData();
   }
 };

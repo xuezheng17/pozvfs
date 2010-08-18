@@ -29,7 +29,7 @@ HandleEmailTemplateEdit.prototype._retrieveTemplate = function() {
                                                                                                                                       _self._verifyData.call(_self);
                                                                                                                                     }, null);
   } else {
-    this._template = EmailTemplate.instance();
+    this._template = emailtemplate.instance();
     this._verifyData();
   }
 };

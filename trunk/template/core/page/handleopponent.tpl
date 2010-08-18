@@ -29,7 +29,7 @@ HandleOpponent.prototype._retrieveOpponent = function() {
                                                                                                                                   _self._verifyData.call(_self);
                                                                                                                                 }, null);
   } else {
-    this._opponent = IOpponent.instance();
+    this._opponent = iopponent.instance();
     this._verifyData();
   }
 };
