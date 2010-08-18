@@ -1,8 +1,7 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
     width: 980px;
-    height: 143px;
-    margin: 23px 0 0 0;
+    margin: 15px 0 0 0;
     background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_table2 {
@@ -19,15 +18,15 @@
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 8px;
+    height: 15px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 125px;
-    height: 28px;
-    text-align: right;
+    height: 23px;
+    text-align: left;
     vertical-align: bottom;
     padding-bottom:6px;
-    font-size: 10pt;
+    font-size: 9pt;
     font-weight: bold;
     color: #000000; 
     font-family: Arial;
@@ -121,7 +120,7 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1">Visitor No:</td>
+    <td class="{{$template|escape:'html'}}_td1">Any of these criteria</td>
     <td class="{{$template|escape:'html'}}_td2">
        <input type="text" id="{{$template|escape:'html'}}_visitorNo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
