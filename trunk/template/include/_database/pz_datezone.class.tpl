@@ -1,7 +1,7 @@
-function datezone() {
+function pz_datezone() {
 };
 
-datezone.instance = function() {
+pz_datezone.instance = function() {
   return { trackId: MiscUtils.unique(),
            start: SimpleDate.create(),
            end: SimpleDate.create(),

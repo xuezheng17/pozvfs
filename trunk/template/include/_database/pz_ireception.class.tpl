@@ -1,7 +1,7 @@
-function isource() {
+function pz_ireception() {
 };
 
-isource.instance = function() {
+pz_ireception.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

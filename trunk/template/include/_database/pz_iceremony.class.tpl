@@ -1,7 +1,7 @@
-function iceremony() {
+function pz_iceremony() {
 };
 
-iceremony.instance = function() {
+pz_iceremony.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

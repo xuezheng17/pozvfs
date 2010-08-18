@@ -1,7 +1,7 @@
-function iopponent() {
+function pz_iculture() {
 };
 
-iopponent.instance = function() {
+pz_iculture.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

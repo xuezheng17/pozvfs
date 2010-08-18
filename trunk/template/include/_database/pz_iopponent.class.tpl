@@ -1,7 +1,7 @@
-function icategory() {
+function pz_iopponent() {
 };
 
-icategory.instance = function() {
+pz_iopponent.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

@@ -1,7 +1,7 @@
-function iculture() {
+function pz_icategory() {
 };
 
-iculture.instance = function() {
+pz_icategory.instance = function() {
   return { trackId: MiscUtils.unique(),
            name: ''
          }

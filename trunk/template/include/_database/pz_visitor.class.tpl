@@ -1,7 +1,7 @@
-function visitor() {
+function pz_visitor() {
 };
 
-visitor.instance = function() {
+pz_visitor.instance = function() {
   return { trackId: MiscUtils.unique(),
            createdDate: SimpleDate.create(),
            creator: '',

@@ -1,7 +1,7 @@
-function user() {
+function pz_user() {
 };
 
-user.instance = function() {
+pz_user.instance = function() {
   return { trackId: MiscUtils.unique(),
            account: '',
            password: ''
