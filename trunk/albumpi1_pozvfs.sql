@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 18, 2010 at 02:10 AM
+-- Generation Time: Aug 18, 2010 at 02:28 AM
 -- Server version: 5.0.27
 -- PHP Version: 5.2.9-2
 
@@ -75,12 +75,14 @@ CREATE TABLE IF NOT EXISTS `np_pz_icategory` (
   `trackId` varchar(64) default NULL,
   `name` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `np_pz_icategory`
 --
 
+INSERT INTO `np_pz_icategory` (`e_oid`, `trackId`, `name`) VALUES
+(1, 'u192937180297', 'category1');
 
 -- --------------------------------------------------------
 
@@ -282,6 +284,7 @@ CREATE TABLE IF NOT EXISTS `np_pz_visitor` (
   `operatorMessage` varchar(4096) default NULL,
   `isVisited` tinyint(4) default NULL,
   `opponent` varchar(64) default NULL,
+  `category` varchar(64) default NULL,
   PRIMARY KEY  (`e_oid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -289,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `np_pz_visitor` (
 -- Dumping data for table `np_pz_visitor`
 --
 
-INSERT INTO `np_pz_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`) VALUES
-(1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, 'user', 'cxcxc', 1, 'dlmanage.co.nz'),
-(2, 'u430247815599', 1281916800, 'test', 1283126400, 'b', '', 'b', 'b', 'b', '', 'b', 'b', 'b', '', '', '', '', '', 'Visitor', 1281830400, 0, 1281916800, '', '', 1, ''),
-(3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 1, '');
+INSERT INTO `np_pz_visitor` (`e_oid`, `trackId`, `createdDate`, `creator`, `weddingDay`, `brideName`, `bridePhone`, `brideMobile`, `brideEmail`, `brideAddress`, `groomName`, `groomPhone`, `groomMobile`, `groomEmail`, `groomAddress`, `culturalBackground`, `ceremonyLocation`, `receptionLocation`, `source`, `firstVisitMethod`, `firstVisitDate`, `status`, `operatorDate`, `operator`, `operatorMessage`, `isVisited`, `opponent`, `category`) VALUES
+(1, 'u284446300656', 1281916800, 'test', 1283212800, '1', '1', '', '1', '', '1', '', '1', '1', '', '', '', '', '', 'Email', 1281916800, 0, 1281916800, 'user', 'cxcxc', 1, '', NULL),
+(2, 'u430247815599', 1281916800, 'test', 1283126400, 'b', '', 'b', 'b', 'b', '', 'b', 'b', 'b', '', '', '', '', '', 'Visitor', 1281830400, 0, 1281916800, '', '', 1, '', NULL),
+(3, 'u424367865289', 1281916800, 'test', 0, 'x', '', 'x', '', 'x', '', 'x', '', 'x', '', '', '', '', '', 'Phone', 0, 0, 1281916800, '', '', 1, '', NULL);
