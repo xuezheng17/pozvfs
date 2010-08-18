@@ -534,6 +534,9 @@
     <td class="{{$template|escape:'html'}}_td20">
       <input type="button" id="{{$template|escape:'html'}}_drop_button" class="{{$template|escape:'html'}}_btn" value = "Fail"></input>
     </td>
+    <td class="{{$template|escape:'html'}}_td20">
+      <input type="button" id="{{$template|escape:'html'}}_customNote_button" style="font-size:10pt;" value = "Custom Note"></input>
+    </td>
     </tr>
     </table>
     </td>
