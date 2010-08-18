@@ -135,8 +135,8 @@ function readClasses($file, $fp) {
   global $classes;
 
   $matches = array();
-  if (preg_match_all('/^function ([A-Z]+\w+)\(.*\) {/m', $fp, $matches)
-      || preg_match_all('/^([A-Z]+\w+) = function\(\) {/m', $fp, $matches)
+  if (preg_match_all('/^function (\w+)\(.*\) {/m', $fp, $matches)
+      || preg_match_all('/^(\w+) = function\(\) {/m', $fp, $matches)
       || preg_match_all('/(JSON)\s*=\s*function\(\)/', $fp, $matches)) {
     $classes[$matches[1][0]] = $file;
     //echo "  Found: {$matches[1][0]} in $file\n";
