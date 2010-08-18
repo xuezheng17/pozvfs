@@ -10,6 +10,7 @@
 {{include file='include/common/requestutils.tpl'}}
 {{include file='include/common/pozvfsutils.tpl'}}
 {{include file='include/common/dateselect.tpl'}}
+{{include file='include/_database/operation.class.tpl'}}
 {{include file='api/part/abstractvisitorresult.tpl'}}
 {{include file='gui/part/visitorresult.tpl'}}
 {{include file='core/part/modulevisitorresult.tpl'}}

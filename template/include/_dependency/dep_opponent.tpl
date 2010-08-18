@@ -1,6 +1,7 @@
 {{include file='include/library/json/json2.tpl'}}
 {{include file='include/common/domutils.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
+{{include file='include/_database/iopponent.class.tpl'}}
 {{include file='include/_constant/constant.tpl'}}
 {{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='gui/part/popupboxsimple.tpl'}}
