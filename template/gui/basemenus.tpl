@@ -601,6 +601,15 @@
                   <a href="?t=opponents&m={%22a%22:4,%22b%22:7}">Manage Opponent</a>
                 </div>
               </td>
+              <td class="basemenus_td5">
+                |
+              </td>
+              <td>
+                <div {{if $menu->b == 8}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href="?t=categorys&m={%22a%22:4,%22b%22:8}">Manage Category</a>
+                </div>
+              </td>
+              
               <td class="basemenus_td4"></td>
             </tr>
           </table>
