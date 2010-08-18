@@ -73,7 +73,7 @@ ModuleDialogInput.prototype._updateElements = function() {
                                          var func2 = function() { tmp._close(); };
                                          var pos = DOMUtils.findPos(this);
                                          var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iopponent', title: 'Opponents', item: object });
+                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iopponent', title: 'Opponents', item: object });
                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                        };
   }
@@ -99,7 +99,7 @@ ModuleDialogInput.prototype._updateElements = function() {
                                         } else {
                                           new RequestUtils()._write('pz_operation', [_self._operation], [], function() { if (_self._visited && !_self._visitor.isVisited) {
                                                                                                                            _self._visitor.isVisited = true;
-                                                                                                                           new RequestUtils()._write('visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                                                                                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                                                                                                          } else {
                                                                                                                            _self._callbackFunc(); 
                                                                                                                          }
