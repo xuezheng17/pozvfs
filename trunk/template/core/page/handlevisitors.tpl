@@ -43,7 +43,11 @@ HandleVisitors.prototype._verifyData = function() {
 
 HandleVisitors.prototype._retrieveVisitors = function(page, condition, datefrom, dateto, from, to, pos) {
   var _self = this;
-  var args = ((condition) ?  '&c=' + encodeURIComponent(condition) : '') + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + ((datefrom) ?  '&datefrom=' + datefrom : '') + ((dateto) ?  '&dateto=' + dateto : '') + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
+  if (condition) {
+    var tmp = condition.indexOf('WHERE');
+    condition = condition.substr((tmp != -1) ? tmp + 6 : 0);
+  }
+  var args = ((condition) ?  '&c=WHERE ' + encodeURIComponent(condition) : '') + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + ((datefrom) ?  '&datefrom=' + datefrom : '') + ((dateto) ?  '&dateto=' + dateto : '') + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
   new RequestUtils()._mysql('visitors', args, function(result, params) { _self._visitors = result.data; 
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);
@@ -54,6 +58,7 @@ HandleVisitors.prototype._updateElements = function() {
   var unique, _self = this;
   DOMUtils.removeChildElements(this._gui.page);
   DOMUtils.removeChildElements(this._gui.visitors);
+  console.log(this._parameters.condition);
   if (this._parameters.total > this._parameters.size) {
     new ModulePagination(document, this._gui.page, 500, 50, this._operator, this._now, {page: this._parameters.page, total: this._parameters.total, limit: this._parameters.size, callbackFunc: function(page, condition) { _self._retrieveVisitors.call(_self, page, _self._parameters.condition); }, context: this});
   }
@@ -176,43 +181,118 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
 };
 
 HandleVisitors.prototype._toString = function(search) {
-  var str = 'WHERE 1 = 1';
-  str += (search.name == '') ? '' : ' AND ((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
-  str += (search.phone == '') ? '' : ' AND ((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
-  str += (search.email == '') ? '' : ' AND ((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
-  str += (search.id == '') ? '' : ((isNaN(search.id)) ? ' AND 1 = 0' : ' AND (v.e_oid=\'' + search.id + '\')');
+  var str = '';
+  
+  if (search.id != '') {
+    str +=  '(v.e_oid=\'' + search.id + '\')';
+  }
+  if (str != '') {
+    if (search.name != '') {
+      str += ' OR ' + '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
+    }
+  } else {
+    if (search.name != '') {
+      str += '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
+    }
+  }
+  if (str != '') {
+    if (search.phone != '') {
+      str += ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+    }
+  } else {
+    if (search.phone != '') {
+      str += '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+    }
+  }
+  if (str != '') {
+    if (search.email != '') {
+      str += ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+    }
+  } else {
+    if (search.email != '') {
+      str += '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+    }
+  }
+  
+//  var str = 'WHERE ';
+//  if (search.id == '' && search.phone == '' && search.name == '' && search.email == '') {
+//    str += '1=0';
+//  } else if (search.phone == '' && search.name == '' && search.email == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))';
+//  } else if (search.id == '' && search.name == '' && search.email == '') {
+//    str += '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+//  } else if (search.id == '' && search.phone == '' && search.email == '') {
+//    str += '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
+//  } else if (search.id == '' && search.phone == '' && search.name == '') {
+//    str += '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+//  } else if (search.name == '' && search.email == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+//  } else if (search.phone == '' && search.email == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
+//  } else if (search.phone == '' && search.name == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+//  } else if (search.id == '' && search.email == '') {
+//    str +=  '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+//  } else if (search.id == '' && search.name == '') {
+//    str +=  '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+//  } else if (search.id == '' && search.phone == '') {
+//    str +=  '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))' + ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+//  } else if (search.id == '') {
+//    str +=  '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))' + ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+//  } else if (search.phone == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))' + ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+//  } else if (search.name == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+//  } else if (search.email == '') {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
+//  } else {
+//    str +=  '((v.e_oid=\'' + search.id + '\'))' + ' OR ' + '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))' + ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))' + ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+//  }
+  
+  if (str != '') {
+    str += ' AND ';
+  } else {
+    if (!search.createdDateTo && !search.createdDateFrom && !search.weddingDayTo && !search.weddingDayFrom) {
+      str += '';
+    } else {
+      str += '1 = 0 AND ';
+    }
+  }
   
   if (search.inProgressingOnly && search.succeeded && search.failed && search.deleted) {
-    str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -1) OR (v.status = -2))';
+    str += '((v.status = 0) OR (v.status = 1) OR (v.status = -1) OR (v.status = -2))';
   } else if (search.inProgressingOnly && search.succeeded && search.failed) {
-    str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -1))';
+    str += '((v.status = 0) OR (v.status = 1) OR (v.status = -1))';
   } else if (search.inProgressingOnly && search.succeeded && search.deleted) {
-    str += ' AND ((v.status = 0) OR (v.status = 1) OR (v.status = -2))';
+    str += '((v.status = 0) OR (v.status = 1) OR (v.status = -2))';
   } else if (search.inProgressingOnly && search.failed && search.deleted) {
-    str += ' AND ((v.status = 0) OR (v.status = -1) OR (v.status = -2))';
+    str += '((v.status = 0) OR (v.status = -1) OR (v.status = -2))';
   } else if (search.succeeded && search.failed && search.deleted) {
-    str += ' AND ((v.status = 1) OR (v.status = -1) OR (v.status = -2))';
+    str += '((v.status = 1) OR (v.status = -1) OR (v.status = -2))';
   } else if (search.inProgressingOnly && search.succeeded) {
-    str += ' AND ((v.status = 0) OR (v.status = 1))';
+    str += '((v.status = 0) OR (v.status = 1))';
   } else if (search.inProgressingOnly && search.failed) {
-    str += ' AND ((v.status = 0) OR (v.status = -1))';
+    str += '((v.status = 0) OR (v.status = -1))';
   } else if (search.inProgressingOnly && search.deleted) {
-    str += ' AND ((v.status = 0) OR (v.status = -2))';
+    str += '((v.status = 0) OR (v.status = -2))';
   } else if (search.succeeded && search.failed) {
-    str += ' AND ((v.status = 1) OR (v.status = -1))';
+    str += '((v.status = 1) OR (v.status = -1))';
   } else if (search.succeeded && search.deleted) {
-    str += ' AND ((v.status = 1) OR (v.status = -2))';
+    str += '((v.status = 1) OR (v.status = -2))';
   } else if (search.failed && search.deleted) {
-    str += ' AND ((v.status = -1) OR (v.status = -2))';
+    str += '((v.status = -1) OR (v.status = -2))';
   } else if (search.inProgressingOnly) {
-    str += ' AND (v.status = 0)';
+    str += '(v.status = 0)';
   }  else if (search.succeeded) {
-    str += ' AND (v.status = 1)';
+    str += '(v.status = 1)';
   } else if (search.failed) {
-    str += ' AND (v.status = -1)';
+    str += '(v.status = -1)';
   } else if (search.deleted) {
-    str += ' AND (v.status = -2)';
+    str += '(v.status = -2)';
+  } else {
+    str += '1=0';
   }
+  
   return str;
 };
 
