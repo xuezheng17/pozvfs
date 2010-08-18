@@ -120,7 +120,7 @@ HandleVisitorExist.prototype._retrieveVisitor = function() {
                                                                                                                                         _self._verifyData.call(_self);
                                                                                                                                       }, null);
   } else {
-    this._visitor = Visitor.instance();
+    this._visitor = visitor.instance();
     this._visitor.weddingDay = '';
     this._visitor.firstVisitDate = '';
     this._visitor.operatorDate = '';
@@ -341,7 +341,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   }
   if (this._visitor.status == 0) {
   /* 添加Source等信息 */
-  this._gui.sourceAdd.onclick = function() { var object = ISource.instance(); 
+  this._gui.sourceAdd.onclick = function() { var object = isource.instance(); 
                                              var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
                                                                       new RequestUtils()._write('isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
@@ -353,7 +353,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                              new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'isource', title: 'Sources', item: object });
                                              MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                            };
-  this._gui.receptionLocationAdd.onclick = function() { var object = IReception.instance();
+  this._gui.receptionLocationAdd.onclick = function() { var object = ireception.instance();
                                                         var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
                                                                                  new RequestUtils()._write('ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
@@ -365,7 +365,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'ireception', title: 'Reception Location', item: object });
                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                       };
-  this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
+  this._gui.culturalBackgroundAdd.onclick = function() { var object = iculture.instance();
                                                          var func1 = function() { tmp._close();
                                                                                   _self._visitor.culturalBackground = object.name;
                                                                                   new RequestUtils()._write('iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
@@ -377,7 +377,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                          new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'iculture', title: 'Cultural Background', item: object });
                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
-  this._gui.ceremonyLocationAdd.onclick = function() { var object = ICeremony.instance();
+  this._gui.ceremonyLocationAdd.onclick = function() { var object = iceremony.instance();
                                                        var func1 = function() { tmp._close();
                                                                                 _self._visitor.ceremonyLocation = object.name;
                                                                                 new RequestUtils()._write('iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
@@ -645,7 +645,7 @@ HandleVisitorExist.prototype._updateElements = function() {
 //                                                new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
 //                                                return false;
 //                                              };
-  
+
   this._gui.email.onclick = function() { var r = window.confirm('Would you like to email via our system?');
                                          if (r) {
                                            var pos, func1, func2;

@@ -29,7 +29,7 @@ HandleCeremonyLocation.prototype._retrieveCeremony = function() {
                                                                                                                                   _self._verifyData.call(_self);
                                                                                                                                 }, null);
   } else {
-    this._ceremony = ICeremony.instance();
+    this._ceremony = iceremony.instance();
     this._verifyData();
   }
 };

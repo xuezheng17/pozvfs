@@ -29,7 +29,7 @@ HandleCulturalBackground.prototype._retrieveCulture = function() {
                                                                                                                                  _self._verifyData.call(_self);
                                                                                                                                }, null);
   } else {
-    this._culture = ICulture.instance();
+    this._culture = iculture.instance();
     this._verifyData();
   }
 };

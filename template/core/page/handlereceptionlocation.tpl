@@ -29,7 +29,7 @@ HandleReceptionLocation.prototype._retrieveReception = function() {
                                                                                                                                    _self._verifyData.call(_self);
                                                                                                                                  }, null);
   } else {
-    this._reception = IReception.instance();
+    this._reception = ireception.instance();
     this._verifyData();
   }
 };
