@@ -119,7 +119,7 @@ HandlePerformanceSales.prototype._updateElements = function() {
   for (var i = 0, il = this._dateZones.length; i < il; i++) {
     var date = this._dateZones[i];
     tr = this._gui.dateZone.result.insertRow(-1);
-    tr.className = (tr.rowIndex % 2 == 0) ? 'rowodd' : 'roweven';
+    tr.style.backgroundColor = (tr.rowIndex % 2 == 0) ? '#f5f5f5' : '#ffffff';
     td = tr.insertCell(-1);
     td.style.height = '24px';
     td.style.textAlign = 'left';
