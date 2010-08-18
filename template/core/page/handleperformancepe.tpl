@@ -52,7 +52,7 @@ HandlePerformancePE.prototype._retrieveDateZones = function() {
 HandlePerformancePE.prototype._updateElements = function() {
   var unique, _self = this;
   DOMUtils.removeTableRows(this._gui.mains, 1);
-  POZVFSUtils.clear(this._gui.dateZone);
+  DOMUtils.removeTableRows(this._gui.dateZone.result, 1);
   
   if (this._operations.length == 0) {
     tr = this._gui.mains.insertRow(-1);
@@ -98,7 +98,7 @@ HandlePerformancePE.prototype._updateElements = function() {
                                                    return false;
                                                  };
   this._gui.dateZone.create.onclick = function() { if (_self._dateZone.created &&_self._dateZone.to) {
-                                                     var date = DateZone.instance();
+                                                     var date = pz_datezone.instance();
                                                      date.start = _self._dateZone.created;
                                                      date.end = _self._dateZone.to;
                                                      date.page = _self._options.template;
@@ -107,18 +107,20 @@ HandlePerformancePE.prototype._updateElements = function() {
                                                      window.alert('DATE CAN NOT BE EMPTY');
                                                    }
                                                  };
-  var table = document.createElement('table');
-  table.style.width = '166px';
-  table.cellPadding = 0;
-  table.cellSpacing = 0;
-  this._gui.dateZone.result.appendChild(table);
+  if (this._dateZones.length == 0) {
+    tr = this._gui.dateZone.result.insertRow(-1);
+    td = tr.insertCell(-1);
+    td.colSpan = 2;
+    td.style.height = '24px';
+    td.style.textAlign = 'center';
+    td.appendChild(document.createTextNode('Empty'));
+  }
   for (var i = 0, il = this._dateZones.length; i < il; i++) {
     var date = this._dateZones[i];
-    tr = table.insertRow(-1);
+    tr = this._gui.dateZone.result.insertRow(-1);
     tr.className = (tr.rowIndex % 2 == 0) ? 'rowodd' : 'roweven';
     td = tr.insertCell(-1);
-    td.style.width = '146px';
-    td.style.height = '20px';
+    td.style.height = '24px';
     td.style.textAlign = 'center';
     var a = document.createElement('a');
     a.href = '#';
@@ -131,15 +133,14 @@ HandlePerformancePE.prototype._updateElements = function() {
                            };
     td.appendChild(a);
     td = tr.insertCell(-1);
-    td.style.width = '20px';
     td.style.textAlign = 'center';
-    var span = document.createElement('span');
-    span.appendChild(document.createTextNode('(x)'));
-    span.style.cursor = 'pointer';
-    span._date = date;
-    span.onclick = function() { new RequestUtils()._write('pz_datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
+    var img = document.createElement('img');
+    img.src = 'image/delete.png';
+    img.style.cursor = 'pointer';
+    img._date = date;
+    img.onclick = function() { new RequestUtils()._write('pz_datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
                               };
-    td.appendChild(span);
+    td.appendChild(img);
   }
 
   this._operationSearch(this._gui, function(condition, from, to) { _self._retrieveOperations.call(_self, 1, condition, from, to); });
