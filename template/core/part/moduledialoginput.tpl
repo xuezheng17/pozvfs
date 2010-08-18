@@ -9,6 +9,7 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   
   this._operation = (options && options.item) ? options.item : null;
   this._visitor = (options && options.visitor) ? options.visitor : null;
+  this._succeed = (options && options.succeed) ? options.succeed : false;
   this._failed = (options && options.failed) ? options.failed : false;
   this._deleted = (options && options.deleted) ? options.deleted : false;
   this._visited = (options && options.visited) ? options.visited : false;
@@ -126,7 +127,6 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           _self._visitor.operator = _self._operator.account;
                                           _self._visitor.operatorDate = _self._now;
                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
-                                          
                                         } else if (_self._deleted) {
                                           _self._visitor.status = -2;
                                           _self._visitor.operator = _self._operator.account;
@@ -135,6 +135,12 @@ ModuleDialogInput.prototype._updateElements = function() {
                                         } else {
                                           new RequestUtils()._write('pz_operation', [_self._operation], [], function() { if (_self._visited && !_self._visitor.isVisited) {
                                                                                                                            _self._visitor.isVisited = true;
+                                                                                                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                                                                                                         } else if (_self._succeed) {
+                                                                                                                           _self._visitor.isVisited = true;
+                                                                                                                           _self._visitor.status = 1;
+                                                                                                                           _self._visitor.operator = _self._operator.account;
+                                                                                                                           _self._visitor.operatorDate = _self._now;
                                                                                                                            new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                                                                                                          } else {
                                                                                                                            _self._callbackFunc(); 
