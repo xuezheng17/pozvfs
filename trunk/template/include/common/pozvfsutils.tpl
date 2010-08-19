@@ -50,9 +50,17 @@ POZVFSUtils.isNum = function(value) {
 
 POZVFSUtils.search = function() {
   return { id: '',
+           id1: '',
+           id2: '',
            name: '',
+           name1: '',
+           name2: '',
            phone: '',
+           phone1: '',
+           phone2: '',
            email: '',
+           email1: '',
+           email2: '',
            weddingDayFrom: null,
            weddingDayTo: null,
            createdDateFrom: null,
