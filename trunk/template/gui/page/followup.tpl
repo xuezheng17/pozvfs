@@ -6,8 +6,7 @@
   }
   .{{$template|escape:'html'}}_td0 {
     padding: 20px 0 10px 0;
-    width: 980px;
-    vertical-align:center;
+    width: 280px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
@@ -64,11 +63,12 @@
       <span class="{{$template|escape:'html'}}_title">Order by</span>
       <select id="{{$template|escape:'html'}}_order_select" class="{{$template|escape:'html'}}_select"></select>
     </td>
+    <td style="width:400px"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" id= "{{$template|escape:'html'}}_page_div" align="right"></td>
+    <td class="{{$template|escape:'html'}}_td1" id= "{{$template|escape:'html'}}_page_div" align="left" colSpan="3"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td2" id= "{{$template|escape:'html'}}_visitors_div" colSpan="2" ></td>
+    <td class="{{$template|escape:'html'}}_td2" id= "{{$template|escape:'html'}}_visitors_div" colSpan="3" ></td>
   </tr>
 </table>
