@@ -211,7 +211,7 @@
           </td>
         </tr>
         <tr>
-          <td style="height:560px;vertical-align:top;" id="{{$template|escape:'html'}}_graphy_div" colSpan="6"></td>
+          <td style="height:600px;vertical-align:top;" id="{{$template|escape:'html'}}_graphy_div" colSpan="6"></td>
       </table>
     </td>
     <td class="{{$template|escape:'html'}}_td7">
