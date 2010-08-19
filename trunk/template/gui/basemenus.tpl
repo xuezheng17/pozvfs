@@ -466,7 +466,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=statadvanced&m={%22a%22:3,%22b%22:2}">Advanced</a>
+                  <a href = "?t=statistics&m={%22a%22:3,%22b%22:3}">Visiting</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -474,7 +474,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=statistics&m={%22a%22:3,%22b%22:3}">Statistics</a>
+                  <a href = "?t=statadvanced&m={%22a%22:3,%22b%22:2}">More</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
@@ -559,7 +559,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
-                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">Manage User</a>
+                  <a href="?t=users&m={%22a%22:4,%22b%22:1}">User</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -567,7 +567,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">Manage eTemplate</a>
+                  <a href="?t=emailtemplates&m={%22a%22:4,%22b%22:2}">eTemplate</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -575,7 +575,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=culturalbackgrounds&m={%22a%22:4,%22b%22:3}">Manage Cultural</a>
+                  <a href="?t=culturalbackgrounds&m={%22a%22:4,%22b%22:3}">Cultural Background</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -583,7 +583,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=ceremonylocations&m={%22a%22:4,%22b%22:4}">Manage Ceremony</a>
+                  <a href="?t=ceremonylocations&m={%22a%22:4,%22b%22:4}">Ceremony Location</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -591,7 +591,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 5}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=receptionlocations&m={%22a%22:4,%22b%22:5}">Manage Reception</a>
+                  <a href="?t=receptionlocations&m={%22a%22:4,%22b%22:5}">Reception Location</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -599,7 +599,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 6}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=sources&m={%22a%22:4,%22b%22:6}">Manage Source</a>
+                  <a href="?t=sources&m={%22a%22:4,%22b%22:6}">Source</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -607,7 +607,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 7}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=opponents&m={%22a%22:4,%22b%22:7}">Manage Opponent</a>
+                  <a href="?t=opponents&m={%22a%22:4,%22b%22:7}">Opponent</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -615,7 +615,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 8}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=categorys&m={%22a%22:4,%22b%22:8}">Manage Category</a>
+                  <a href="?t=categorys&m={%22a%22:4,%22b%22:8}">Category</a>
                 </div>
               </td>
               

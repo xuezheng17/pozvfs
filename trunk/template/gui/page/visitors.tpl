@@ -30,7 +30,7 @@
     text-align: left;
     padding:0 0 3px 15px;
     vertical-align: middle;
-    font-size: 9pt;
+    font-size: 10pt;
     font-weight: bold;
     font-family: Arial;
   }
@@ -224,7 +224,7 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" colSpan="2">Any one or more of these status</td>
+    <td class="{{$template|escape:'html'}}_td1" colSpan="2">And one or more of these status</td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td11" align="left" colSpan="2">

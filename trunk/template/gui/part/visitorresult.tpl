@@ -191,17 +191,17 @@ VisitorResult.prototype._createElements = function() {
 //  td.style.width = '117px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontWeight = 'bold';
-  td.style.fontSize = '9pt';
+  //td.style.fontWeight = 'bold';
+  td.style.fontSize = '10pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('  Culture Background:'));
+  td.appendChild(this._doc.createTextNode('Culture Background:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '9pt';
+  td.style.fontSize = '10pt';
   td.style.fontFamily= 'Arial';
   var div8 = this._doc.createElement('div');
   div8.id = this._unique + '_cultureback_div';
@@ -212,8 +212,8 @@ VisitorResult.prototype._createElements = function() {
 //  td.style.width = '117px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontWeight = 'bold';
-  td.style.fontSize = '9pt';
+  //td.style.fontWeight = 'bold';
+  td.style.fontSize = '10pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
   td.appendChild(this._doc.createTextNode('Ceremony Location:'));
@@ -222,7 +222,7 @@ VisitorResult.prototype._createElements = function() {
   td.style.height = '24px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '9pt';
+  td.style.fontSize = '10pt';
   td.style.fontFamily= 'Arial';
   var div9 = this._doc.createElement('div');
   div9.id = this._unique + '_cerelocation_div';
@@ -233,17 +233,17 @@ VisitorResult.prototype._createElements = function() {
 //  td.style.width = '117px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontWeight = 'bold';
-  td.style.fontSize = '9pt';
+  //td.style.fontWeight = 'bold';
+  td.style.fontSize = '10pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('  Reception Location:'));
+  td.appendChild(this._doc.createTextNode('Reception Location:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontSize = '9pt';
+  td.style.fontSize = '10pt';
   td.style.fontFamily= 'Arial';
   var div10 = this._doc.createElement('div');
   div10.id = this._unique + '_receplocation_div';
@@ -255,11 +255,11 @@ VisitorResult.prototype._createElements = function() {
   td.style.textAlign = 'right';
   td.style.textAlign = 'left';
   td.style.verticalAlign = 'bottom';
-  td.style.fontWeight = 'bold';
+  //td.style.fontWeight = 'bold';
   td.style.fontSize = '9pt';
   td.style.fontFamily= 'Arial';
   td.style.paddingRight = '6px';
-  td.appendChild(this._doc.createTextNode('  Source:'));
+  td.appendChild(this._doc.createTextNode('Source:'));
   
   td = tr.insertCell(-1);
   td.style.height = '24px';
