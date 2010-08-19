@@ -92,7 +92,7 @@
     width:980px;
     height: 40px;
     text-align: right;
-    padding:0 18px 8px 0;
+    padding:0 15px 8px 0;
     vertical-align:middle;
   }
   .{{$template|escape:'html'}}_td10 {
@@ -175,7 +175,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_visitorNo2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:18px"></td>
+    <td style="width:12px"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Name:</td>
@@ -190,7 +190,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_name2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:18px"></td>
+    <td style="width:12px"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Phone:</td>
@@ -205,7 +205,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_phone2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:18px"></td>
+    <td style="width:12px"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Email:</td>
@@ -220,7 +220,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_email2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:18px"></td>
+    <td style="width:12px"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colSpan="7"></td>
