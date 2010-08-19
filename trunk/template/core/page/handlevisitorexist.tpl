@@ -212,7 +212,9 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.drop.style.display = 'block';
     this._gui.customNote.style.display = 'block';
   }
-
+  
+  MiscUtils.sort(this._operations, ['id']);
+  
   this._gui.title.appendChild(document.createTextNode('No. ' + POZVFSUtils.visitorId(this._visitor.id) + ' ' + this._visitor.firstVisitMethod));
   this._gui.next.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: (_self._menu) ? _self._menu : 1, b: (_self._cont) ? _self._cont : 1 }) + '&opts=' + MiscUtils.encode({id: parseInt(_self._visitor.id, 10) + 1, menu: _self._menu, cont: _self._cont});
                                       };
@@ -245,7 +247,12 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.reason.style.padding = '20px 0 40px 0';
     var div = document.createElement('div');
     div.style.margin = '0 0 10px 0';
-    div.appendChild(document.createTextNode((this._visitor.status == -1) ? 'Opponent: ' + ((this._visitor.opponent) ? this._visitor.opponent : '') : ''));
+    div.appendChild(document.createTextNode((this._visitor.status == -1) ? ((this._visitor.opponent) ? 'Opponent: ' + this._visitor.opponent : '') : ''));
+    this._gui.reason.appendChild(div);
+    
+    var div = document.createElement('div');
+    div.style.margin = '0 0 10px 0';
+    div.appendChild(document.createTextNode((this._visitor.status == -1) ? ((this._visitor.category) ? 'Category: ' + this._visitor.category : '') : ''));
     this._gui.reason.appendChild(div);
     
     var div = document.createElement('div');
@@ -457,8 +464,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   var pNumber = 0, eNumber = 0, vNumber = 0;
   this._opera = [];
-  MiscUtils.sort(this._operations, ['id']);
-  
+
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
     var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
@@ -725,9 +731,14 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                            source: _self._visitor.source,
                                                            weddingDay: _self._visitor.weddingDay
                                                          };
+                                           func1 = function() { location.reload();
+                                                                window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+                                                              };
                                            if (_self._visitor.isVisited) {
-                                             window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
-//                                             window.alert('Disabled');
+                                             _self._visitor.status = 1;
+                                             _self._visitor.operator = _self._operator.account;
+                                             _self._visitor.operatorDate = _self._now;
+                                             new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { func1(); } }, { pos: DOMUtils.findPos(this) });
                                            } else {
                                              var r = window.confirm('Automatically add a visiting operation');
                                              if (r) {
@@ -738,9 +749,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                operation.operator = _self._operator.account;
                                                operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                                operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
-                                               func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();
-                                                                    window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
-                                                                  };
+                                               
                                                pos = [window.screen.width/3, window.screen.height/3];
                                                tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
                                                new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
