@@ -6,15 +6,16 @@ AbstractStatistics.gui = function(unique) {
                      dateTo: document.getElementById(unique + '_dateTo_text'),
                      search: document.getElementById(unique + '_search_button')
                    },
-           visitors: document.getElementById(unique + '_visitors_div'),
-           visit: document.getElementById(unique + '_visit_div'),
-           noVisit: document.getElementById(unique + '_noVisit_div'),
+           mains: { visitors: document.getElementById(unique + '_visitors_div'),
+                    visit: document.getElementById(unique + '_visit_div'),
+                    noVisit: document.getElementById(unique + '_noVisit_div'),
+                    graphy: document.getElementById(unique + '_graphy_div')
+                  },
            dateZone: { dateCreated: document.getElementById(unique + '_from_text'),
                        dateTo: document.getElementById(unique + '_to_text'),
                        create: document.getElementById(unique + '_create_button'),
                        result: document.getElementById(unique + '_result_table')
-                     },
-           graphy: document.getElementById(unique + '_graphy_div')
+                     }
          };
 };
 
