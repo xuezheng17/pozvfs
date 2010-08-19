@@ -96,10 +96,46 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
                                            }
                                          };
   
+  gui.visitorNo1.value = this._search.id1;
+  gui.visitorNo1.onkeydown = function() { _self._search.id1 = this.value; };
+  gui.visitorNo1.onchange = function() { _self._search.id1 = this.value; };
+  gui.visitorNo1.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                           if (code == 13) {
+                                             _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                           }
+                                         };
+  
+  gui.visitorNo2.value = this._search.id2;
+  gui.visitorNo2.onkeydown = function() { _self._search.id2 = this.value; };
+  gui.visitorNo2.onchange = function() { _self._search.id2 = this.value; };
+  gui.visitorNo2.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                           if (code == 13) {
+                                             _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                           }
+                                         };
+  
   gui.name.value = this._search.name;
   gui.name.onkeydown = function() { _self._search.name = this.value; };
   gui.name.onchange = function() { _self._search.name = this.value; };
   gui.name.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                      if (code == 13) {
+                                        _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                      }
+                                    };
+  
+  gui.name1.value = this._search.name1;
+  gui.name1.onkeydown = function() { _self._search.name1 = this.value; };
+  gui.name1.onchange = function() { _self._search.name1 = this.value; };
+  gui.name1.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                      if (code == 13) {
+                                        _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                      }
+                                    };
+  
+  gui.name2.value = this._search.name2;
+  gui.name2.onkeydown = function() { _self._search.name2 = this.value; };
+  gui.name2.onchange = function() { _self._search.name2 = this.value; };
+  gui.name2.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                       if (code == 13) {
                                         _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
                                       }
@@ -114,10 +150,46 @@ HandleVisitors.prototype._visitorSearch = function(gui, callbackFunc) {
                                        }
                                      };
   
+  gui.phone1.value = this._search.phone1;
+  gui.phone1.onkeydown = function() { _self._search.phone1 = this.value; };
+  gui.phone1.onchange = function() { _self._search.phone1 = this.value; };
+  gui.phone1.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                        if (code == 13) {
+                                          _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                        }
+                                      };
+  
+  gui.phone2.value = this._search.phone2;
+  gui.phone2.onkeydown = function() { _self._search.phone2 = this.value; };
+  gui.phone2.onchange = function() { _self._search.phone2 = this.value; };
+  gui.phone2.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                       if (code == 13) {
+                                         _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                       }
+                                     };
+  
   gui.email.value = this._search.email;
   gui.email.onkeydown = function() { _self._search.email = this.value; };
   gui.email.onchange = function() { _self._search.email = this.value; };
   gui.email.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                       if (code == 13) {
+                                         _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                       }
+                                     };
+  
+  gui.email1.value = this._search.email1;
+  gui.email1.onkeydown = function() { _self._search.email1 = this.value; };
+  gui.email1.onchange = function() { _self._search.email1 = this.value; };
+  gui.email1.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
+                                       if (code == 13) {
+                                         _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
+                                       }
+                                     };
+  
+  gui.email2.value = this._search.email2;
+  gui.email2.onkeydown = function() { _self._search.email2 = this.value; };
+  gui.email2.onchange = function() { _self._search.email2 = this.value; };
+  gui.email2.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                        if (code == 13) {
                                          _self._callbackFunc.call(_self, _self._toString(_self._search), (_self._search.weddingDayFrom) ? JSON.stringify(_self._search.weddingDayFrom) : null, (_self._search.weddingDayTo) ? JSON.stringify(_self._search.weddingDayTo) : null, (_self._search.createdDateFrom) ? JSON.stringify(_self._search.createdDateFrom) : null, (_self._search.createdDateTo) ? JSON.stringify(_self._search.createdDateTo) : null, DOMUtils.findPos(this));
                                        }
@@ -186,6 +258,25 @@ HandleVisitors.prototype._toString = function(search) {
     str +=  '(v.e_oid=\'' + search.id + '\')';
   }
   if (str != '') {
+    if (search.id1 != '') {
+      str += ' OR ' + '(v.e_oid=\'' + search.id1 + '\')';
+    }
+  } else {
+    if (search.id1 != '') {
+      str +=  '(v.e_oid=\'' + search.id1 + '\')';
+    }
+  }
+  if (str != '') {
+    if (search.id2 != '') {
+      str += ' OR ' + '(v.e_oid=\'' + search.id2 + '\')';
+    }
+  } else {
+    if (search.id2 != '') {
+      str +=  '(v.e_oid=\'' + search.id2 + '\')';
+    }
+  }
+  
+  if (str != '') {
     if (search.name != '') {
       str += ' OR ' + '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
     }
@@ -194,6 +285,25 @@ HandleVisitors.prototype._toString = function(search) {
       str += '((v.brideName LIKE \'%' + search.name + '%\') OR (v.groomName LIKE \'%' + search.name + '%\'))';
     }
   }
+  if (str != '') {
+    if (search.name1 != '') {
+      str += ' OR ' + '((v.brideName LIKE \'%' + search.name1 + '%\') OR (v.groomName LIKE \'%' + search.name1 + '%\'))';
+    }
+  } else {
+    if (search.name1 != '') {
+      str += '((v.brideName LIKE \'%' + search.name1 + '%\') OR (v.groomName LIKE \'%' + search.name1 + '%\'))';
+    }
+  }
+  if (str != '') {
+    if (search.name2 != '') {
+      str += ' OR ' + '((v.brideName LIKE \'%' + search.name2 + '%\') OR (v.groomName LIKE \'%' + search.name2 + '%\'))';
+    }
+  } else {
+    if (search.name2 != '') {
+      str += '((v.brideName LIKE \'%' + search.name2 + '%\') OR (v.groomName LIKE \'%' + search.name2 + '%\'))';
+    }
+  }
+  
   if (str != '') {
     if (search.phone != '') {
       str += ' OR ' + '((v.bridePhone LIKE \'%' + search.phone + '%\') OR (v.brideMobile LIKE \'%' + search.phone + '%\') OR (v.groomPhone LIKE \'%' + search.phone + '%\') OR (v.groomMobile LIKE \'%' + search.phone + '%\'))';
@@ -204,12 +314,49 @@ HandleVisitors.prototype._toString = function(search) {
     }
   }
   if (str != '') {
+    if (search.phone1 != '') {
+      str += ' OR ' + '((v.bridePhone LIKE \'%' + search.phone1 + '%\') OR (v.brideMobile LIKE \'%' + search.phone1 + '%\') OR (v.groomPhone LIKE \'%' + search.phone1 + '%\') OR (v.groomMobile LIKE \'%' + search.phone1 + '%\'))';
+    }
+  } else {
+    if (search.phone1 != '') {
+      str += '((v.bridePhone LIKE \'%' + search.phone1 + '%\') OR (v.brideMobile LIKE \'%' + search.phone1 + '%\') OR (v.groomPhone LIKE \'%' + search.phone1 + '%\') OR (v.groomMobile LIKE \'%' + search.phone1 + '%\'))';
+    }
+  }
+  if (str != '') {
+    if (search.phone2 != '') {
+      str += ' OR ' + '((v.bridePhone LIKE \'%' + search.phone2 + '%\') OR (v.brideMobile LIKE \'%' + search.phone2 + '%\') OR (v.groomPhone LIKE \'%' + search.phone2 + '%\') OR (v.groomMobile LIKE \'%' + search.phone2 + '%\'))';
+    }
+  } else {
+    if (search.phone2 != '') {
+      str += '((v.bridePhone LIKE \'%' + search.phone2 + '%\') OR (v.brideMobile LIKE \'%' + search.phone2 + '%\') OR (v.groomPhone LIKE \'%' + search.phone2 + '%\') OR (v.groomMobile LIKE \'%' + search.phone2 + '%\'))';
+    }
+  }
+  
+  if (str != '') {
     if (search.email != '') {
       str += ' OR ' + '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
     }
   } else {
     if (search.email != '') {
       str += '((v.brideEmail LIKE \'%' + search.email + '%\') OR (v.groomEmail LIKE \'%' + search.email + '%\'))';
+    }
+  }
+  if (str != '') {
+    if (search.email1 != '') {
+      str += ' OR ' + '((v.brideEmail LIKE \'%' + search.email1 + '%\') OR (v.groomEmail LIKE \'%' + search.email1 + '%\'))';
+    }
+  } else {
+    if (search.email1 != '') {
+      str += '((v.brideEmail LIKE \'%' + search.email1 + '%\') OR (v.groomEmail LIKE \'%' + search.email1 + '%\'))';
+    }
+  }
+  if (str != '') {
+    if (search.email2 != '') {
+      str += ' OR ' + '((v.brideEmail LIKE \'%' + search.email2 + '%\') OR (v.groomEmail LIKE \'%' + search.email2 + '%\'))';
+    }
+  } else {
+    if (search.email2 != '') {
+      str += '((v.brideEmail LIKE \'%' + search.email2 + '%\') OR (v.groomEmail LIKE \'%' + search.email2 + '%\'))';
     }
   }
   
