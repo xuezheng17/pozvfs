@@ -36,7 +36,7 @@ HandleFollowUp.prototype._createElements = function() {
       _self._con = '';
     } else if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
       _self._order = ' COUNT(o.e_oid) ';
-      _self._con = ' Group By v.e_oid';
+      _self._con = ' AND o.cancelled = 0 Group By v.e_oid';
     }
     this._gui.sort.onchange = function() { if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_Last_Updated|escape:'javascript'}}') {
                                              _self._order = 'o.operatedDate';
@@ -46,7 +46,7 @@ HandleFollowUp.prototype._createElements = function() {
                                              _self._con = '';
                                            } else if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
                                              _self._order = ' COUNT(o.e_oid) ';
-                                             _self._con = ' Group By v.e_oid';
+                                             _self._con = ' AND o.cancelled = 0 Group By v.e_oid';
                                            }
                                            _self._retrieveVisitors(1, DOMUtils.findPos(this));
                                          };
