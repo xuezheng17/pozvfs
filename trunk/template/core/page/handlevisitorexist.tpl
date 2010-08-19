@@ -363,7 +363,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   }
   if (this._visitor.status == 0) {
   /* 添加Source等信息 */
-  this._gui.sourceAdd.onclick = function() { var object = isource.instance(); 
+  this._gui.sourceAdd.onclick = function() { var object = pz_isource.instance(); 
                                              var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
                                                                       new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
@@ -375,7 +375,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                              new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_isource', title: 'Sources', item: object });
                                              MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                            };
-  this._gui.receptionLocationAdd.onclick = function() { var object = ireception.instance();
+  this._gui.receptionLocationAdd.onclick = function() { var object = pz_ireception.instance();
                                                         var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
                                                                                  new RequestUtils()._write('pz_ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
@@ -387,7 +387,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_ireception', title: 'Reception Location', item: object });
                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                       };
-  this._gui.culturalBackgroundAdd.onclick = function() { var object = iculture.instance();
+  this._gui.culturalBackgroundAdd.onclick = function() { var object = pz_iculture.instance();
                                                          var func1 = function() { tmp._close();
                                                                                   _self._visitor.culturalBackground = object.name;
                                                                                   new RequestUtils()._write('pz_iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
@@ -399,7 +399,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                          new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iculture', title: 'Cultural Background', item: object });
                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
-  this._gui.ceremonyLocationAdd.onclick = function() { var object = iceremony.instance();
+  this._gui.ceremonyLocationAdd.onclick = function() { var object = pz_iceremony.instance();
                                                        var func1 = function() { tmp._close();
                                                                                 _self._visitor.ceremonyLocation = object.name;
                                                                                 new RequestUtils()._write('pz_iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
@@ -733,8 +733,26 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, visited: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
-  this._gui.succeed.onclick = function() { if (_self._visitor.isVisited) {
-                                             window.alert('Disabled');
+  this._gui.succeed.onclick = function() { var visitor = { fromVisitor: true,
+                                                           brideName: _self._visitor.brideName,
+                                                           brideAddress: _self._visitor.brideAddress,
+                                                           bridePhone: _self._visitor.bridePhone,
+                                                           brideMobile: _self._visitor.brideMobile,
+                                                           brideEmail: _self._visitor.brideEmail,
+                                                           groomName: _self._visitor.groomName,
+                                                           groomAddress: _self._visitor.groomAddress,
+                                                           groomPhone: _self._visitor.groomPhone,
+                                                           groomMobile: _self._visitor.groomMobile,
+                                                           groomEmail: _self._visitor.groomEmail,
+                                                           culture: _self._visitor.culturalBackground,
+                                                           ceremony: _self._visitor.ceremonyLocation,
+                                                           reception: _self._visitor.receptionLocation,
+                                                           source: _self._visitor.source,
+                                                           weddingDay: _self._visitor.weddingDay
+                                                         };
+                                           if (_self._visitor.isVisited) {
+                                             window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+//                                             window.alert('Disabled');
                                            } else {
                                              var r = window.confirm('Automatically add a visiting operation');
                                              if (r) {
@@ -745,7 +763,9 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                operation.operator = _self._operator.account;
                                                operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                                operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
-                                               func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();};
+                                               func1 = function() { _self._retrieveOperations(); _self._retrieveVisitor();
+                                                                    window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+                                                                  };
                                                pos = [window.screen.width/3, window.screen.height/3];
                                                tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
                                                new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
