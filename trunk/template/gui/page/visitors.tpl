@@ -169,11 +169,11 @@
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_visitorNo_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_visitorNo1_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_visitorNo_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_visitorNo2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td style="width:18px"></td>
   </tr>
@@ -184,11 +184,11 @@
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_name_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_name1_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_name_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_name2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td style="width:18px"></td>
   </tr>
@@ -199,11 +199,11 @@
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_phone_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_phone1_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_phone_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_phone2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td style="width:18px"></td>
   </tr>
@@ -214,11 +214,11 @@
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_email_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_email1_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_email_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_email2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td style="width:18px"></td>
   </tr>
