@@ -3,7 +3,9 @@ function HandleStatBasic(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
-  
+  this._search = { dateFrom: '',
+                   dateTo: ''
+                 };
   this._createElements();
 }
 
@@ -43,7 +45,7 @@ HandleStatBasic.prototype._updateElements = function() {
   var unique, _self = this;
   POZVFSUtils.clear(this._gui.mains);
   DOMUtils.removeTableRows(this._gui.dateZone.result, 1);
-  
+
   this._gui.mains.visitors.appendChild(document.createTextNode(this._visitor.visitors));
   this._gui.mains.succeedVisitors.appendChild(document.createTextNode(this._visitor.successVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.successVisitors / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));
   this._gui.mains.dropVisitors.appendChild(document.createTextNode(this._visitor.dropVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.dropVisitors / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));

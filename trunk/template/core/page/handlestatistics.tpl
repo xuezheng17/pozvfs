@@ -3,7 +3,9 @@ function HandleStatistics(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
-  
+  this._search = { dateFrom: '',
+                   dateTo: ''
+                 };
   this._createElements();
 }
 
