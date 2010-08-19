@@ -133,19 +133,18 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           _self._visitor.operatorDate = _self._now;
                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
-                                          new RequestUtils()._write('pz_operation', [_self._operation], [], function() { if (_self._visited && !_self._visitor.isVisited) {
-                                                                                                                           _self._visitor.isVisited = true;
-                                                                                                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
-                                                                                                                         } else if (_self._succeed) {
-                                                                                                                           _self._visitor.isVisited = true;
-                                                                                                                           _self._visitor.status = 1;
-                                                                                                                           _self._visitor.operator = _self._operator.account;
-                                                                                                                           _self._visitor.operatorDate = _self._now;
-                                                                                                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
-                                                                                                                         } else {
-                                                                                                                           _self._callbackFunc(); 
-                                                                                                                         }
-                                                                                                                       }, { pos: _self._pos });
+                                          if (_self._visited && !_self._visitor.isVisited) {
+                                            _self._visitor.isVisited = true;
+                                            new RequesUtils()._custom('succeeded', {operation: _self._operation, visitor: _self._visitor}, function(result, params) { _self._callbackFunc(); }, { pos: _self._pos });
+                                          } else if (_self._succeed) {
+                                            _self._visitor.isVisited = true;
+                                            _self._visitor.status = 1;
+                                            _self._visitor.operator = _self._operator.account;
+                                            _self._visitor.operatorDate = _self._now;
+                                            new RequesUtils()._custom('succeeded', {operation: _self._operation, visitor: _self._visitor}, function(result, params) { _self._callbackFunc(); }, { pos: _self._pos });
+                                          } else {
+                                            new RequestUtils()._write('pz_operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos }); 
+                                          }
                                         }
                                         _self._popupBox._close();
                                       };
