@@ -57,12 +57,11 @@
   .{{$template|escape:'html'}}_td5 {
     width: 30px;
     height: 25px;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     font-size: 9pt;
     color: #999999; 
     font-family: Arial;
-    padding-right:3px;
   }
   .{{$template|escape:'html'}}_td6 {
     width: 20px;
