@@ -15,9 +15,6 @@
 {{include file='api/part/abstractpopupbox.tpl'}}
 {{include file='gui/part/popupbox.tpl'}}
 {{include file='core/part/modulepopupbox.tpl'}}
-{{include file='api/part/abstractsignin.tpl'}}
-{{include file='gui/part/dialogsignin.tpl'}}
-{{include file='core/part/moduledialogsignin.tpl'}}
 {{include file='api/part/abstractdialogiobject.tpl'}}
 {{include file='gui/part/dialogiobject.tpl'}}
 {{include file='core/part/moduledialogiobject.tpl'}}
