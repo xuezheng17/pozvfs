@@ -2,11 +2,18 @@
 .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 50px;
-    margin: 0 0 50px 0;
+    margin: 15px 0 50px 0;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 23px;
+    height: 40px;
+    text-align: left;
+    padding-left:15px;
+    vertical-align: center;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
@@ -20,11 +27,11 @@
     font-family: Arial;
   }
   .{{$template|escape:'html'}}_td2 {
-    width: 83px;
+    width: 45px;
     height: 30px;
-    text-align: right;
+    text-align: left;
     vertical-align: middle;
-    padding-right:3px;
+    padding-left:15px;
     font-size: 10pt;
     font-weight: bold;
     color: #000000; 
@@ -79,7 +86,7 @@
 
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td0" colSpan="3" ></td> 
+    <td class="{{$template|escape:'html'}}_td0" colSpan="3" >Ceremony Location</td> 
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td2">Name:</td>
