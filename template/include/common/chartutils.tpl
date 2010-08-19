@@ -48,7 +48,7 @@ ChartUtils.statistics = function(div, result) {
   var total = 0;
   
   var data = [ { name: 'Visited', value: result.visited },
-               { name: 'NonVisited', value: result.nonvisited },
+               { name: 'No Visited', value: result.nonvisited },
              ];
   
   for (var i = 0, il = data.length; i < il; i++) {
