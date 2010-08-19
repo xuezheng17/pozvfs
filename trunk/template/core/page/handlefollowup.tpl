@@ -30,16 +30,20 @@ HandleFollowUp.prototype._createElements = function() {
   if (SortMethod.array().length > 0) {
     if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_Last_Updated|escape:'javascript'}}') {
       _self._order = 'o.operatedDate';
+      _self._con = '';
     } else if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_Wedding_Day|escape:'javascript'}}') {
       _self._order = 'v.weddingday';
+      _self._con = '';
     } else if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
       _self._order = ' COUNT(o.e_oid) ';
       _self._con += ' Group By v.e_oid';
     }
     this._gui.sort.onchange = function() { if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_Last_Updated|escape:'javascript'}}') {
                                              _self._order = 'o.operatedDate';
+                                             _self._con = '';
                                            } else if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_Wedding_Day|escape:'javascript'}}') {
                                              _self._order = 'v.weddingday';
+                                             _self._con = '';
                                            } else if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
                                              _self._order = ' COUNT(o.e_oid) ';
                                              _self._con += ' Group By v.e_oid';
@@ -56,11 +60,12 @@ HandleFollowUp.prototype._createElements = function() {
       this._gui.order.selectedIndex = this._gui.order.options.length - 1;
     }
   }
+  
   if (OrderMethod.array().length > 0) {
-    this._query =  this._gui.order.options[this._gui.order.selectedIndex].text;
-    this._gui.order.onchange = function() { _self._query = this.options[this.selectedIndex].text;
-                                           _self._retrieveVisitors(1, DOMUtils.findPos(this));
-                                         };
+    this._query = (this._gui.order.options[this._gui.order.selectedIndex].text == '{{$smarty.const.Order_Method_ASC|escape:'javascript'}}') ? 'ASC' : 'DESC';
+    this._gui.order.onchange = function() { _self._query = (this.options[this.selectedIndex].text == '{{$smarty.const.Order_Method_ASC|escape:'javascript'}}') ? 'ASC' : 'DESC';
+                                            _self._retrieveVisitors(1, DOMUtils.findPos(this));
+                                          };
   }
 
   this._loadData();
