@@ -135,8 +135,8 @@
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0">
         <tr>
           <td class="{{$template|escape:'html'}}_td3">Total</td>
-          <td class="{{$template|escape:'html'}}_td6">Visit</td>
-          <td class="{{$template|escape:'html'}}_td4">Not visit</td>
+          <td class="{{$template|escape:'html'}}_td6">Visited</td>
+          <td class="{{$template|escape:'html'}}_td4">No Visited</td>
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td31" id="{{$template|escape:'html'}}_visitors_div"></td>
