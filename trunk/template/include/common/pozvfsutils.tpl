@@ -71,3 +71,43 @@ POZVFSUtils.search = function() {
            deleted: true
          };
 };
+
+POZVFSUtils.synchronise = function(visitor, operations, options) {
+  var index = (options && options.index) ? options.index : 0;
+  var opera = null;
+  MiscUtils.sort(operations, ['id']);
+  if (visitor.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:javascript}}') {
+    visitor.isVisited = true;
+    for (var i = index, il = operations.length; i < il; i++) {
+      var operation = operations[i];
+      if (operation.cancelled) {
+        continue;
+      }
+      if (operation.firstVisited) {
+        operation.firstVisited = false;
+        opera = operation;
+      }
+    }
+  } else {
+    for (var i = index, il = operations.length; i < il; i++) {
+      var operation = operations[i];
+      if (operation.cancelled) {
+        continue;
+      }
+      var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
+      if (type == 'visit') {
+        opera = operation;
+        break;
+      }
+    }
+    if (!opera) {
+      visitor.isVisited = false;
+    } else {
+      opera.firstVisited = true;
+      visitor.isVisited = true;
+    }
+  }
+  return { visitor: visitor,
+           operation: opera
+         }
+};
