@@ -5,7 +5,7 @@
     border:solid 3px #d5ddf3;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 460px;
+    width: 575px;
     height:25px;
     text-align:left;
   }
@@ -37,15 +37,16 @@
   .{{$template|escape:'html'}}_td2 {
     width: 90px;
     padding-left:25px;
+    padding-right:5px;
     text-align: left;
     font-size:9pt;
     height: 25px;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td3 {
-    width: 865px;
+    width: 200px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td4 {
@@ -57,14 +58,15 @@
   .{{$template|escape:'html'}}_td5 {
     width: 30px;
     height: 25px;
-    text-align: left;
+    text-align: center;
     vertical-align: middle;
     font-size: 9pt;
     color: #999999; 
     font-family: Arial;
+    padding-right:3px;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 16px;
+    width: 20px;
     height: 25px;
     text-align: center;
     vertical-align: middle;
@@ -117,8 +119,18 @@
     height: 20px;
     vertical-align: top;
   }
+  .{{$template|escape:'html'}}_td14 {
+    width: 15px;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 9pt;
+    font-weight:bold;
+    color: #999999; 
+    font-family: Arial;
+  }
   .{{$template|escape:'html'}}_inputText {
-    width: 200px;
+    width: 255px;
     height: 15px;
   }
 </style>
@@ -148,41 +160,77 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" colSpan="2">Find visitors that have any of these criteria</td>
+    <td class="{{$template|escape:'html'}}_td1" colSpan="6">Find visitors that have any of these criteria</td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Visitor No:</td>
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_visitorNo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-  </tr>
-  <tr>
-    <td  class="{{$template|escape:'html'}}_td2">Phone:</td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
     <td class="{{$template|escape:'html'}}_td3">
-       <input type="text" id="{{$template|escape:'html'}}_phone_input" class="{{$template|escape:'html'}}_inputText"></input>
+       <input type="text" id="{{$template|escape:'html'}}_visitorNo_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_visitorNo_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td style="width:18px"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Name:</td>
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_name_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_name_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_name_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td style="width:18px"></td>
+  </tr>
+  <tr>
+    <td  class="{{$template|escape:'html'}}_td2">Phone:</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_phone_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_phone_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_phone_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td style="width:18px"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Email:</td>
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_email_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_email_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td  class="{{$template|escape:'html'}}_td14">OR</td>
+    <td class="{{$template|escape:'html'}}_td3">
+       <input type="text" id="{{$template|escape:'html'}}_email_input" class="{{$template|escape:'html'}}_inputText"></input>
+    </td>
+    <td style="width:18px"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
+    <td class="{{$template|escape:'html'}}_td0" colSpan="7"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" colSpan="2">Or any of these date factors</td>
+    <td class="{{$template|escape:'html'}}_td1" colSpan="7">Or any of these date factors</td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Wedding Date:</td>
-    <td class="{{$template|escape:'html'}}_td3" align="left">
+    <td class="{{$template|escape:'html'}}_td3" align="left" colSpan="5">
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td5">from</td>
@@ -199,7 +247,7 @@
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Created Date:</td>
-    <td class="{{$template|escape:'html'}}_td3" align="left">
+    <td class="{{$template|escape:'html'}}_td3" align="left" colSpan="5">
       <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td5">from</td>
@@ -224,10 +272,10 @@
     <td class="{{$template|escape:'html'}}_td0" colSpan="6"></td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td1" colSpan="2">And one or more of these status</td>
+    <td class="{{$template|escape:'html'}}_td1" colSpan="6">And one or more of these status</td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td11" align="left" colSpan="2">
+    <td class="{{$template|escape:'html'}}_td11" align="left" colSpan="7">
       <table class="{{$template|escape:'html'}}_table3" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
           <td class="{{$template|escape:'html'}}_td7">
@@ -251,7 +299,7 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td9" colSpan="2">
+    <td class="{{$template|escape:'html'}}_td9" colSpan="7">
       <input type="button" value="Search" id = "{{$template|escape:'html'}}_search_button"></input>
     </td>
   </tr>
