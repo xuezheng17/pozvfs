@@ -5,7 +5,6 @@
     border:solid 3px #d5ddf3;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 575px;
     height:25px;
     text-align:left;
   }
@@ -120,17 +119,20 @@
     vertical-align: top;
   }
   .{{$template|escape:'html'}}_td14 {
-    width: 20px;
     height: 25px;
     text-align: center;
     vertical-align: middle;
+    padding:0 6px;
     font-size: 9pt;
     font-weight:bold;
     color: #999999; 
     font-family: Arial;
   }
+  .{{$template|escape:'html'}}_td15 {
+    width: 200px;
+  }
   .{{$template|escape:'html'}}_inputText {
-    width: 255px;
+    width: 200px;
     height: 15px;
   }
 </style>
@@ -175,7 +177,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_visitorNo2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:12px"></td>
+    <td class="{{$template|escape:'html'}}_td15"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Name:</td>
@@ -190,7 +192,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_name2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:12px"></td>
+    <td class="{{$template|escape:'html'}}_td15"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Phone:</td>
@@ -205,7 +207,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_phone2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:12px"></td>
+    <td class="{{$template|escape:'html'}}_td15"></td>
   </tr>
   <tr>
     <td  class="{{$template|escape:'html'}}_td2">Email:</td>
@@ -220,7 +222,7 @@
     <td class="{{$template|escape:'html'}}_td3">
        <input type="text" id="{{$template|escape:'html'}}_email2_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
-    <td style="width:12px"></td>
+    <td class="{{$template|escape:'html'}}_td15"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td0" colSpan="7"></td>
