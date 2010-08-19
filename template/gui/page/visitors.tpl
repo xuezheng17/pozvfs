@@ -120,7 +120,7 @@
     vertical-align: top;
   }
   .{{$template|escape:'html'}}_td14 {
-    width: 15px;
+    width: 20px;
     height: 25px;
     text-align: center;
     vertical-align: middle;
