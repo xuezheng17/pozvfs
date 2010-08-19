@@ -205,9 +205,9 @@
               </tr>
               <tr>
                 <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_visitors_div"></td>
-                <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_succeedVisitors_div"> </td>
+                <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_progressingVisitors_div"> </td>
+                <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_succeedVisitors_div"></td>
                 <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_dropVisitors_div"></td>
-                <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_progressingVisitors_div"></td>
               </tr>
             </table>
           </td>
