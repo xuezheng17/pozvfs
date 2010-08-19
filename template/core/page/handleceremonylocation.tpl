@@ -44,7 +44,7 @@ HandleCeremonyLocation.prototype._updateElements = function() {
   this._gui.save.onclick = function() { if (_self._ceremony.name == '') { 
                                           window.alert('名称不能为空'); 
                                         } else { 
-                                          new RequestUtils()._write('iceremony', [_self._ceremony], [], function() { location.href = '?t=ceremonylocations&m=' + MiscUtils.encode({ a: 4, b: 4 }); }, null); };
+                                          new RequestUtils()._write('pz_iceremony', [_self._ceremony], [], function() { location.href = '?t=ceremonylocations&m=' + MiscUtils.encode({ a: 4, b: 4 }); }, null); };
                                         }
   this._gui.back.onclick = function() { history.back(); };
 };
