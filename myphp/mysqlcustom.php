@@ -253,7 +253,14 @@ function statBasic($myPdo) {
   $page = MiscUtils::getParam('p', START);
   $size = MiscUtils::getParam('s', 8);
   $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
 
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  
   $result = new stdClass();
   $result->data = array();
   $result->page = $page;
@@ -344,7 +351,13 @@ function statistics($myPdo) {
   $page = MiscUtils::getParam('p', START);
   $size = MiscUtils::getParam('s', 8);
   $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
 
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
   $result = new stdClass();
   $result->data = array();
   $result->page = $page;
