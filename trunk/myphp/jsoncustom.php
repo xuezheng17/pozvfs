@@ -26,6 +26,15 @@ try {
     case 'isLogin':
       isLogin();
       break;
+    case 'updateVisitor':
+      updateVisitor($myManager);
+      break;
+    case 'removeOperation':
+      removeOperation($myManager);
+      break;
+    case 'succeeded':
+      succeeded($myManager);
+      break;
     default:
       break;
   }
@@ -154,8 +163,70 @@ function sendEmail($myManager) {
   echo json_encode($operation);
 }
 
-function isLogin() {
+function updateVisitor($myManager) {
   $args = json_decode(MiscUtils::decryptParam('a', '[]'));
-  echo json_encode($args);
+  $orm = classToOrm('pz_operation');
+  $orm1 = classToOrm('pz_visitor');
+  if ($orm && $orm1) {
+    try {
+      if ($args->operation != NULL) {
+        $orm->update($myManager, $args->operation);
+      }
+      if ($args->visitor) {
+        $orm1->update($myManager, $args->visitor);
+      }
+      $myManager->commit_t();
+      $myManager->start_t();
+      echo json_encode(array());
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function removeOperation($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  $orm = classToOrm('pz_operation');
+  $orm1 = classToOrm('pz_visitor');
+  if ($orm && $orm1) {
+    try {
+      if ($args->current != NULL) {
+        $orm->update($myManager, $args->current);
+      }
+      if ($args->next != NULL) {
+        $orm->update($myManager, $args->next);
+      }
+      if ($args->visitor != NULL) {
+        $orm1->update($myManager, $args->visitor);
+      }
+      $myManager->commit_t();
+      $myManager->start_t();
+      echo json_encode(array());
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function succeeded($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
+  $orm = classToOrm('pz_operation');
+  $orm1 = classToOrm('pz_visitor');
+  if ($orm && $orm1) {
+    try {
+      if ($args->operation != NULL) {
+        $orm->update($myManager, $args->operation);
+      }
+      if ($args->visitor) {
+        $orm1->update($myManager, $args->visitor);
+      }
+      $myManager->commit_t();
+      $myManager->start_t();
+      echo json_encode(array());
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
 }
 ?>
