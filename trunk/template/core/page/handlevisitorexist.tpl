@@ -362,82 +362,60 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.ceremonyLocation.onchange = function() { _self._visitor.ceremonyLocation = this.options[this.selectedIndex].text; };
   }
   if (this._visitor.status == 0) {
-  /* 添加Source等信息 */
-  this._gui.sourceAdd.onclick = function() { var object = pz_isource.instance(); 
-                                             var func1 = function() { tmp._close();
-                                                                      _self._visitor.source = object.name;
-                                                                      new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
-                                                                    };
-                                             var func2 = function() { tmp._close();
-                                                                    };
-                                             var pos = DOMUtils.findPos(this);
-                                             var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                             new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_isource', title: 'Sources', item: object });
-                                             MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
-                                           };
-  this._gui.receptionLocationAdd.onclick = function() { var object = pz_ireception.instance();
-                                                        var func1 = function() { tmp._close();
-                                                                                 _self._visitor.receptionLocation = object.name;
-                                                                                 new RequestUtils()._write('pz_ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
-                                                                               };
-                                                        var func2 = function() { tmp._close();
-                                                                               };
-                                                        var pos = DOMUtils.findPos(this);
-                                                        var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                                        new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_ireception', title: 'Reception Location', item: object });
-                                                        MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
-                                                      };
-  this._gui.culturalBackgroundAdd.onclick = function() { var object = pz_iculture.instance();
+    /* 添加Source等信息 */
+    this._gui.sourceAdd.onclick = function() { var object = pz_isource.instance(); 
+                                               var func1 = function() { tmp._close();
+                                                                        _self._visitor.source = object.name;
+                                                                        new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
+                                                                      };
+                                               var func2 = function() { tmp._close();
+                                                                      };
+                                               var pos = DOMUtils.findPos(this);
+                                               var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                               new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_isource', title: 'Sources', item: object });
+                                               MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                             };
+    this._gui.receptionLocationAdd.onclick = function() { var object = pz_ireception.instance();
+                                                          var func1 = function() { tmp._close();
+                                                                                   _self._visitor.receptionLocation = object.name;
+                                                                                   new RequestUtils()._write('pz_ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
+                                                                                 };
+                                                          var func2 = function() { tmp._close();
+                                                                                 };
+                                                          var pos = DOMUtils.findPos(this);
+                                                          var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                          new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_ireception', title: 'Reception Location', item: object });
+                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                                        };
+    this._gui.culturalBackgroundAdd.onclick = function() { var object = pz_iculture.instance();
+                                                           var func1 = function() { tmp._close();
+                                                                                    _self._visitor.culturalBackground = object.name;
+                                                                                    new RequestUtils()._write('pz_iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
+                                                                                  };
+                                                           var func2 = function() { tmp._close();
+                                                                                  };
+                                                           var pos = DOMUtils.findPos(this);
+                                                           var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                                                           new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iculture', title: 'Cultural Background', item: object });
+                                                           MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
+                                                         };
+    this._gui.ceremonyLocationAdd.onclick = function() { var object = pz_iceremony.instance();
                                                          var func1 = function() { tmp._close();
-                                                                                  _self._visitor.culturalBackground = object.name;
-                                                                                  new RequestUtils()._write('pz_iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
+                                                                                  _self._visitor.ceremonyLocation = object.name;
+                                                                                  new RequestUtils()._write('pz_iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
                                                                                 };
                                                          var func2 = function() { tmp._close();
                                                                                 };
                                                          var pos = DOMUtils.findPos(this);
                                                          var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iculture', title: 'Cultural Background', item: object });
+                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iceremony', title: 'Ceremony Location', item: object });
                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
-  this._gui.ceremonyLocationAdd.onclick = function() { var object = pz_iceremony.instance();
-                                                       var func1 = function() { tmp._close();
-                                                                                _self._visitor.ceremonyLocation = object.name;
-                                                                                new RequestUtils()._write('pz_iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
-                                                                              };
-                                                       var func2 = function() { tmp._close();
-                                                                              };
-                                                       var pos = DOMUtils.findPos(this);
-                                                       var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
-                                                       new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iceremony', title: 'Ceremony Location', item: object });
-                                                       MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
-                                                     };
   }
   /* Save */
   if (this._visitorId) {
     this._gui.update.onclick = function() { if (_self._visitor.firstVisitMethod != '') {
-                                              op = {};
-                                              if (_self._visitor.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:javascript}}') {
-                                                _self._visitor.isVisited = true;
-                                              } else {
-                                                var visit = 0; 
-                                                for (var i = 0, il = _self._operations.length; i < il; i++) {
-                                                  var operation = _self._operations[i];
-                                                  if (operation.cancelled) {
-                                                    continue;
-                                                  }
-                                                  var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
-                                                  if (type == 'visit') {
-                                                    visit++;
-                                                    op = operation;
-                                                    break;
-                                                  }
-                                                }
-                                                if (visit == 0) {
-                                                  _self._visitor.isVisited = false;
-                                                } else {
-                                                  _self._visitor.isVisited = true;
-                                                }
-                                              }
+                                              var object = POZVFSUtils.synchronise(_self._visitor, _self._operations, {index : 0});
                                               var pos = DOMUtils.findPos(this);
                                               if (!_self._visitor.weddingDay || !_self._visitor.firstVisitDate) {
                                                 var str = '';
@@ -450,13 +428,10 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                 }
                                                 var r = window.confirm('NO ' + str + ', ' + 'CONTINUE?');
                                                 if (r) {
-                                                  op.firstVisited = 1;
-                                                  new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { new RequestUtils()._write('pz_operation', [op], [], function(result, params) { if (result) { _self._createElements(); }; }, null); }, { pos: pos });
+                                                  new RequestUtils()._custom('updateVisitor', {visitor: object.visitor, operation: object.operation}, function(result, params) { location.reload(); }, { pos: pos });
                                                 }
                                               } else {
-                                                op.firstVisited = 1;
-                                                new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { new RequestUtils()._write('pz_operation', [op], [], function(result, params) { if (result) { _self._createElements(); }; }, null); }, { pos: pos });
-//                                                new RequestUtils()._write('pz_visitor', [_self._visitor], [], function(result, params) { if (result) { _self._createElements(); }; }, { pos: pos });
+                                                new RequestUtils()._custom('updateVisitor', {visitor: object.visitor, operation: object.operation}, function(result, params) { /*location.reload();*/ }, { pos: pos });
                                               }
                                             } else {
                                               window.alert('CAN NOT BE EMPTY (First Contact Method)');
@@ -482,6 +457,8 @@ HandleVisitorExist.prototype._updateElements = function() {
   
   var pNumber = 0, eNumber = 0, vNumber = 0;
   this._opera = [];
+  MiscUtils.sort(this._operations, ['id']);
+  
   for (var i = 0, il = this._operations.length; i < il; i++) {
     var operation = this._operations[i];
     var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
@@ -585,16 +562,14 @@ HandleVisitorExist.prototype._updateElements = function() {
       img.src = 'image/delete.png';
       img.style.cursor = 'pointer';
       img._operation = operation;
+      img._index = i;
       img.onclick = function() { this._operation.cancelled = 1;
                                  var type = this._operation.operateType.substring(0, this._operation.operateType.indexOf(' (')).toLowerCase();
                                  if (type == 'visit') {
                                    vNumber -= 1;
+                                   var object = POZVFSUtils.synchronise(_self._visitor, _self._operations, {index : this._index});
                                  }
-                                 new RequestUtils()._write('pz_operation', [this._operation], [], function() { _self._retrieveOperations(); }, null);
-                                 if (vNumber == 0) {
-                                   _self._visitor.isVisited = false;
-                                   new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._retrieveVisitor(); }, null);
-                                 }
+                                 new RequestUtils()._custom('removeOperation', { current: this._operation, next: (object && object.operation) ? object.operation : null, visitor: (object && object.visitor) ? object.visitor : null }, function(result, params) { location.reload(); }, null);
                                };
       td.appendChild(img);
     }
