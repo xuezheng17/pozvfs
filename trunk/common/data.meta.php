@@ -9,8 +9,8 @@ define('Visitor_Method_Email', 'Email');
 define('Visitor_Method_Visitor', 'Visitor');
 
 /* @meta OrderMethod(Order_Method) */
-define('Order_Method_ASC', 'ASC');
-define('Order_Method_DESC', 'DESC');
+define('Order_Method_ASC', 'Ascend');
+define('Order_Method_DESC', 'Descend');
 
 /* @meta SortMethod(Sort_Method) */
 define('Sort_Method_Last_Updated', 'Last Updated');
