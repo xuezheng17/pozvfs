@@ -5,11 +5,12 @@
     margin: 0 0 50px 0;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 711px;
+    width: 721px;
     height: 25px;
     font-size: 10pt;
     font-family: Arial;
     text-align: left;
+    margin:-8px 0 0 0;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
   }
@@ -21,7 +22,7 @@
     height: 28px;
   }
   .{{$template|escape:'html'}}_table4 {
-    width: 240px;
+    width: 220px;
   }
   .{{$template|escape:'html'}}_table5 {
     border-top:solid 1px #ccc;
@@ -55,12 +56,12 @@
   }
   .{{$template|escape:'html'}}_td3 {
     height: 28px;
-    width:100px;
+    width:150px;
     text-align: center;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td4 {
-    width: 550px;
+    width: 150px;
     height: 28px;
     vertical-align:top;
   }
@@ -75,10 +76,10 @@
     height: 25px;
   }
   .{{$template|escape:'html'}}_td7 {
-    width: 240px;
+    width: 220px;
   }
   .{{$template|escape:'html'}}_td8 {
-    width: 185px;
+    width: 186px;
     height: 25px;
     text-align:center;
     font-size: 10pt;
@@ -87,41 +88,41 @@
     background-color:#e5ecf9;
   }
   .{{$template|escape:'html'}}_td9 {
-    height: 25px;
+    height: 20px;
     text-align:left;
-    padding-left:55px;
+    padding-left:30px;
     font-size: 10pt;
     font-weight: bold;
     font-family: Arial;
-    vertical-align:middle;
+    vertical-align: bottom;
+    padding-bottom:3px;
   }
   .{{$template|escape:'html'}}_td10 {
-    height: 30px;
+    height: 20px;
     text-align:left;
-    padding-left:55px;
-    padding-bottom:3px;
+    padding-left:30px;
     font-size: 10pt;
     font-weight: bold;
     font-family: Arial;
-    vertical-align:center;
+    vertical-align: bottom;
+    padding-bottom:4px;
   }
   .{{$template|escape:'html'}}_td11 {
-    height:50px;
+    height:40px;
     text-align:right;
-    padding-right:17px;
+    padding-right:15px;
     vertical-align:middle;
   }
   .{{$template|escape:'html'}}_td12 {
     height: 15px;
     text-align:left;
-    padding-left:55px;
+    padding-left:30px;
     font-size: 10pt;
     font-family: Arial;
     vertical-align:bottom;
   }
   .{{$template|escape:'html'}}_td13 {
-    width:20px;
-    padding:0 8px;
+    padding:0 4px;
     height: 28px;
     text-align:right;
     font-size: 10pt;
@@ -147,7 +148,7 @@
     background-color:#e8e8e8;
   }
   .{{$template|escape:'html'}}_text {
-    width:150px;
+    width:170px;
     height:16px;
   }
   .{{$template|escape:'html'}}_text2 {
@@ -184,21 +185,21 @@
     <td class="{{$template|escape:'html'}}_td4" colSpan="3">
       <table class="{{$template|escape:'html'}}_table3" cellPaddiing="0" cellSpacing="0" border=0>
         <tr>
-          <td class="{{$template|escape:'html'}}_td1" >Date From:</td>
+          <td class="{{$template|escape:'html'}}_td1" >Date From</td>
           <td class="{{$template|escape:'html'}}_td2" >
             <input type="text" id="{{$template|escape:'html'}}_dateFrom_text" class="{{$template|escape:'html'}}_text"></input>
           </td>
-          <td class="{{$template|escape:'html'}}_td13" >To:</td>
+          <td class="{{$template|escape:'html'}}_td13" >To</td>
           <td class="{{$template|escape:'html'}}_td2" >
             <input type="text" id="{{$template|escape:'html'}}_dateTo_text" class="{{$template|escape:'html'}}_text"></input>
           </td>
           <td class="{{$template|escape:'html'}}_td3" >
             <input type="button" id="{{$template|escape:'html'}}_search_button" style="width:67px;font-family:Arial;font-size:10pt;" value = "Search"></input>
           </td>
-          <td style="width:500px" ></td>
+          <td style="width:160px" ></td>
         </tr>
         <tr>
-          <td class="{{$template|escape:'html'}}_td5" colSpan="6">
+          <td class="{{$template|escape:'html'}}_td5" colSpan="6" valign="top">
             <table class="{{$template|escape:'html'}}_table2" id="{{$template|escape:'html'}}_mains_table" cellPaddiing="0" cellSpacing="0">
               <tr>
                 <td class="{{$template|escape:'html'}}_td8">Rank</td>

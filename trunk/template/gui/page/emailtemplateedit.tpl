@@ -2,11 +2,18 @@
 .{{$template|escape:'html'}}_table1 {
     width: 980px;
     height: 525px;
-    margin: 0 0 50px 0;
+    margin: 15px 0 50px 0;
   }
   .{{$template|escape:'html'}}_td0 {
     width: 980px;
-    height: 23px;
+    height: 40px;
+    text-align: left;
+    padding-left:12px;
+    vertical-align: center;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #000000; 
+    font-family: Arial;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
@@ -92,7 +99,7 @@
 
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" border=0>
   <tr>
-    <td class="{{$template|escape:'html'}}_td0" colSpan="3" ></td> 
+    <td class="{{$template|escape:'html'}}_td0" colSpan="3" >EmailTemplate</td> 
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td6">Name:</td>
@@ -109,7 +116,7 @@
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
   <tr>
-    <td style="width:3px" colSpan="3"></td>
+    <td style="height:4px" colSpan="3"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td2">Content:</td>
