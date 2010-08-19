@@ -6,9 +6,9 @@ function HandleFollowUp(gui, operator, now, options) {
   this._cont = (options && options.follow) ? options.follow : 0;
   
   if (this._cont == 1) {
-    this._con = ' AND v.isVisited = 1';
+    this._conc = ' AND v.isVisited = 1';
   } else if (this._cont == 2) {
-    this._con = ' AND v.isVisited = 0' ;
+    this._conc = ' AND v.isVisited = 0' ;
   }
   
   this._sort = '';
@@ -36,7 +36,7 @@ HandleFollowUp.prototype._createElements = function() {
       _self._con = '';
     } else if (this._gui.sort.options[this._gui.sort.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
       _self._order = ' COUNT(o.e_oid) ';
-      _self._con += ' Group By v.e_oid';
+      _self._con = ' Group By v.e_oid';
     }
     this._gui.sort.onchange = function() { if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_Last_Updated|escape:'javascript'}}') {
                                              _self._order = 'o.operatedDate';
@@ -46,7 +46,7 @@ HandleFollowUp.prototype._createElements = function() {
                                              _self._con = '';
                                            } else if (this.options[this.selectedIndex].text == '{{$smarty.const.Sort_Method_FollowUp_Times|escape:'javascript'}}') {
                                              _self._order = ' COUNT(o.e_oid) ';
-                                             _self._con += ' Group By v.e_oid';
+                                             _self._con = ' Group By v.e_oid';
                                            }
                                            _self._retrieveVisitors(1, DOMUtils.findPos(this));
                                          };
@@ -85,7 +85,7 @@ HandleFollowUp.prototype._verifyData = function() {
 
 HandleFollowUp.prototype._retrieveVisitors = function(page, pos) { 
   var _self = this;
-  var args = '&c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + ((this._con) ? this._con : '')  + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + '&o=' + ((this._order) ? this._order : '' ) + '&q=' + ((this._query) ? this._query : '');
+  var args = '&c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + this._conc + ((this._con) ? this._con : '')  + '&p=' + page + '&s={{$smarty.const.SIZE|escape:'javascript'}}' + '&o=' + ((this._order) ? this._order : '' ) + '&q=' + ((this._query) ? this._query : '');
   new RequestUtils()._mysql('followUp', args, function(result, params) { _self._visitors = result.data;
                                                                          _self._parameters = result;
                                                                          _self._verifyData.call(_self);
