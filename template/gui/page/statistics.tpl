@@ -120,7 +120,8 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractStatistics.gui('{{$template|escape:'javascript'}}');
-      new HandleStatistics(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), JSON.parse('{{$options|escape:javascript}}'));
+      var options = { template: '{{$template|escape:'javascript'}}', option: '{{$options|escape:javascript}}' };
+      new HandleStatistics(gui, JSON.parse('{{$operator|escape:javascript}}'), JSON.parse('{{$now|escape:javascript}}'), options);
     }
   //-->
 </script>
