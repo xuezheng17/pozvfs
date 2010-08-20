@@ -200,7 +200,7 @@
               <tr>
                 <td class="{{$template|escape:'html'}}_td8">Total</td>
                 <td class="{{$template|escape:'html'}}_td8">In processing </td>
-                <td class="{{$template|escape:'html'}}_td8">Succeeded</td>
+                <td class="{{$template|escape:'html'}}_td8">Booked Customer</td>
                 <td class="{{$template|escape:'html'}}_td8">Failed</td>
               </tr>
               <tr>

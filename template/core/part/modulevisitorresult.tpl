@@ -204,7 +204,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   
 
   if (this._item.status == 1) {
-    this._gui.title.appendChild(document.createTextNode(' (Succeed)'));
+    this._gui.title.appendChild(document.createTextNode(' (Booked Customer)'));
   } else if (this._item.status == -1) {
     this._gui.title.appendChild(document.createTextNode(' (Failed)'));
   } else if (this._item.status == -2) {

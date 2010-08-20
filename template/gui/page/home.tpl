@@ -147,7 +147,7 @@
         <tr>
           <td class="{{$template|escape:'html'}}_td3">Total</td>
           <td class="{{$template|escape:'html'}}_td6">In processing</td>
-          <td class="{{$template|escape:'html'}}_td4">Succeeded</td>
+          <td class="{{$template|escape:'html'}}_td4">Booked Customer</td>
           <td class="{{$template|escape:'html'}}_td5">Failed</td>
           <td class="{{$template|escape:'html'}}_td5">Deleted</td>
         </tr>
