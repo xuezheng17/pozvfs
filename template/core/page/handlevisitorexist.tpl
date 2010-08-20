@@ -241,10 +241,16 @@ HandleVisitorExist.prototype._updateElements = function() {
                                       };
   /*-- Drop Reason --*/
   if (this._visitor.status == -1 || this._visitor.status == -2) {
-    this._gui.reason.style.fontWeight = 'bold';
-    this._gui.reason.style.fontSize = '15px';
     this._gui.reason.style.color = '#FF0000';
     this._gui.reason.style.padding = '20px 0 40px 0';
+    
+    var div = document.createElement('div');
+    div.style.margin = '10px 0 10px 0';
+    div.style.fontWeight = 'bold';
+    div.style.fontSize = '15px';
+    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason (' + this._visitor.operator + ' ' + SimpleDate.format(this._visitor.operatorDate) + ')'));
+    this._gui.reason.appendChild(div);
+    
     var div = document.createElement('div');
     div.style.margin = '0 0 10px 0';
     div.appendChild(document.createTextNode((this._visitor.status == -1) ? ((this._visitor.opponent) ? 'Opponent: ' + this._visitor.opponent : '') : ''));
@@ -255,14 +261,8 @@ HandleVisitorExist.prototype._updateElements = function() {
     div.appendChild(document.createTextNode((this._visitor.status == -1) ? ((this._visitor.category) ? 'Category: ' + this._visitor.category : '') : ''));
     this._gui.reason.appendChild(div);
     
-    var div = document.createElement('div');
-    div.style.margin = '10px 0 10px 0';
-    div.appendChild(document.createTextNode(((this._visitor.status == -1) ? 'Failed'  : 'Deleted') + ' Reason Written by ' + this._visitor.operator + ' On ' + SimpleDate.format(this._visitor.operatorDate)));
-    this._gui.reason.appendChild(div);
-    
     var span = MiscUtils.span(this._visitor.operatorMessage);
     span.style.color = '#DD1324';
-    span.style.fontWeight = 'bold';
     this._gui.reason.appendChild(span);
   }
   /* 结婚日期 */
@@ -438,7 +438,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                   new RequestUtils()._custom('updateVisitor', {visitor: object.visitor, operation: object.operation}, function(result, params) { location.reload(); }, { pos: pos });
                                                 }
                                               } else {
-                                                new RequestUtils()._custom('updateVisitor', {visitor: object.visitor, operation: object.operation}, function(result, params) { /*location.reload();*/ }, { pos: pos });
+                                                new RequestUtils()._custom('updateVisitor', {visitor: object.visitor, operation: object.operation}, function(result, params) { location.reload(); }, { pos: pos });
                                               }
                                             } else {
                                               window.alert('CAN NOT BE EMPTY (First Contact Method)');
@@ -700,7 +700,9 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                         return false;
                                       };
-  this._gui.visit.onclick = function() { var pos, func1;
+  this._gui.visit.onclick = function() { window.alert('Temporarily disabled (because test failed)');
+                                         return;
+                                         var pos, func1;
                                          var operation = pz_operation.instance();
                                          operation.visitId = _self._visitorId;
                                          operation.cancelled = 0;
@@ -714,7 +716,9 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, visited: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
-  this._gui.succeed.onclick = function() { var visitor = { fromVisitor: true,
+  this._gui.succeed.onclick = function() { window.alert('Temporarily disabled (because test failed)');
+                                           return;
+                                           var visitor = { fromVisitor: true,
                                                            brideName: _self._visitor.brideName,
                                                            brideAddress: _self._visitor.brideAddress,
                                                            bridePhone: _self._visitor.bridePhone,

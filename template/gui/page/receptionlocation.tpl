@@ -33,7 +33,6 @@
     vertical-align: middle;
     padding-left:15px;
     font-size: 10pt;
-    font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }

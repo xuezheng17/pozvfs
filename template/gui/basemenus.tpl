@@ -474,7 +474,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=statadvanced&m={%22a%22:3,%22b%22:3}">More</a>
+                  <a href = "?t=statadvanced&m={%22a%22:3,%22b%22:3}">More info</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
