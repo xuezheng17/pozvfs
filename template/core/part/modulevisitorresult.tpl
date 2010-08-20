@@ -112,103 +112,102 @@ ModuleVisitorResult.prototype._createElements = function() {
   span = document.createElement('span');
   span.style.color = '#123476';
   this._gui.title.appendChild(span);
-  
-  if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
-    if (this._item.operations.length == 0) {
-      span.style.color = '#ff0000';
-      span.appendChild(document.createTextNode((this._item.operations.length)));
-      this._gui.title.appendChild(span);
-      span = document.createElement('span');
-      span.style.color = '#cc66cc';
-      span.appendChild(document.createTextNode(' ( 0 ) '));
-      this._gui.title.appendChild(span);
-      span = document.createElement('span');
-      span.style.color = '#ff0000';
-      span.appendChild(document.createTextNode('Follow up actions'));
-      this._gui.title.appendChild(span);
-    } else {
-      span.style.color = '#009900';
-      span.appendChild(document.createTextNode((this._item.operations.length)));
-      this._gui.title.appendChild(span);
-      span = document.createElement('span');
-      span.style.color = '#66cc66';
-      span.appendChild(document.createTextNode(' ( 0 ) '));
-      this._gui.title.appendChild(span);
-      span = document.createElement('span');
-      span.style.color = '#009900';
-      span.appendChild(document.createTextNode('Follow up actions'));
-      this._gui.title.appendChild(span);
-    }
+
+  if (this._item.status == 1) {
+    this._gui.title.appendChild(document.createTextNode('Booked Customer'));
+  } else if (this._item.status == -1) {
+    this._gui.title.appendChild(document.createTextNode('Failed'));
+  } else if (this._item.status == -2) {
+    this._gui.title.appendChild(document.createTextNode('Deleted'));
   } else {
-    if (this._item.operations.length == 0) {
-      span = document.createElement('span');
-      span.style.color = '#FF0000';
-      span.appendChild(document.createTextNode('No Follow up actions'));
-      this._gui.title.appendChild(span);
-    } else {
-      if (this._item.isVisited) {
-        span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
-        span.appendChild(document.createTextNode(after.length));
+    if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
+      if (this._item.operations.length == 0) {
+        span.style.color = '#ff0000';
+        span.appendChild(document.createTextNode((this._item.operations.length)));
         this._gui.title.appendChild(span);
         span = document.createElement('span');
-        span.style.color = (after.length == 0) ? '#cc66cc' : '#66cc66';
-        span.appendChild(document.createTextNode(' ( ' + before.length + ' ) '));
+        span.style.color = '#cc66cc';
+        span.appendChild(document.createTextNode(' ( 0 ) '));
         this._gui.title.appendChild(span);
         span = document.createElement('span');
-        span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
+        span.style.color = '#ff0000';
         span.appendChild(document.createTextNode('Follow up actions'));
         this._gui.title.appendChild(span);
       } else {
         span.style.color = '#009900';
-        span.appendChild(document.createTextNode((this._item.operations.length + ' Follow up actions')));
+        span.appendChild(document.createTextNode((this._item.operations.length)));
+        this._gui.title.appendChild(span);
+        span = document.createElement('span');
+        span.style.color = '#66cc66';
+        span.appendChild(document.createTextNode(' ( 0 ) '));
+        this._gui.title.appendChild(span);
+        span = document.createElement('span');
+        span.style.color = '#009900';
+        span.appendChild(document.createTextNode('Follow up actions'));
         this._gui.title.appendChild(span);
       }
-      
-//      if (visit == 0 && noVisit == 0) {
-//        span = document.createElement('span');
-//        span.style.color = '#ff0000';
-//        span.appendChild(document.createTextNode(this._item.operations.length + ' Follow up actions'));
-//        this._gui.title.appendChild(span);
-//      } else if (visit != 0 && noVisit == 0) {
-//        span.style.color = '#009900';
-//        span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
-//        this._gui.title.appendChild(span);
-//        span = document.createElement('span');
-//        span.style.color = '#66cc66';
-//        span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
-//        this._gui.title.appendChild(span);
-//        span = document.createElement('span');
-//        span.style.color = '#009900';
-//        span.appendChild(document.createTextNode('Follow up actions'));
-//        this._gui.title.appendChild(span);
-//      } else if (visit == 0 && noVisit != 0) {
-//        span = document.createElement('span');
-//        span.style.color = '#009900';
-//        span.appendChild(document.createTextNode( this._item.operations.length + ' Follow up actions'));
-//        this._gui.title.appendChild(span);
-//      } else {
-//        span.style.color = '#009900';
-//        span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
-//        this._gui.title.appendChild(span);
-//        span = document.createElement('span');
-//        span.style.color = '#66cc66';
-//        span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
-//        this._gui.title.appendChild(span);
-//        span = document.createElement('span');
-//        span.style.color = '#009900';
-//        span.appendChild(document.createTextNode('Follow up actions'));
-//        this._gui.title.appendChild(span);
-//      }
+    } else {
+      if (this._item.operations.length == 0) {
+        span = document.createElement('span');
+        span.style.color = '#FF0000';
+        span.appendChild(document.createTextNode('No Follow up actions'));
+        this._gui.title.appendChild(span);
+      } else {
+        if (this._item.isVisited) {
+          span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
+          span.appendChild(document.createTextNode(after.length));
+          this._gui.title.appendChild(span);
+          span = document.createElement('span');
+          span.style.color = (after.length == 0) ? '#cc66cc' : '#66cc66';
+          span.appendChild(document.createTextNode(' ( ' + before.length + ' ) '));
+          this._gui.title.appendChild(span);
+          span = document.createElement('span');
+          span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
+          span.appendChild(document.createTextNode('Follow up actions'));
+          this._gui.title.appendChild(span);
+        } else {
+          span.style.color = '#009900';
+          span.appendChild(document.createTextNode((this._item.operations.length + ' Follow up actions')));
+          this._gui.title.appendChild(span);
+        }
+        
+//        if (visit == 0 && noVisit == 0) {
+//          span = document.createElement('span');
+//          span.style.color = '#ff0000';
+//          span.appendChild(document.createTextNode(this._item.operations.length + ' Follow up actions'));
+//          this._gui.title.appendChild(span);
+//        } else if (visit != 0 && noVisit == 0) {
+//          span.style.color = '#009900';
+//          span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+//          this._gui.title.appendChild(span);
+//          span = document.createElement('span');
+//          span.style.color = '#66cc66';
+//          span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+//          this._gui.title.appendChild(span);
+//          span = document.createElement('span');
+//          span.style.color = '#009900';
+//          span.appendChild(document.createTextNode('Follow up actions'));
+//          this._gui.title.appendChild(span);
+//        } else if (visit == 0 && noVisit != 0) {
+//          span = document.createElement('span');
+//          span.style.color = '#009900';
+//          span.appendChild(document.createTextNode( this._item.operations.length + ' Follow up actions'));
+//          this._gui.title.appendChild(span);
+//        } else {
+//          span.style.color = '#009900';
+//          span.appendChild(document.createTextNode((this._item.operations.length - noVisit - 1)));
+//          this._gui.title.appendChild(span);
+//          span = document.createElement('span');
+//          span.style.color = '#66cc66';
+//          span.appendChild(document.createTextNode(' ( ' + noVisit + ' ) '));
+//          this._gui.title.appendChild(span);
+//          span = document.createElement('span');
+//          span.style.color = '#009900';
+//          span.appendChild(document.createTextNode('Follow up actions'));
+//          this._gui.title.appendChild(span);
+//        }
+      }
     }
-  }
-  
-
-  if (this._item.status == 1) {
-    this._gui.title.appendChild(document.createTextNode(' (Booked Customer)'));
-  } else if (this._item.status == -1) {
-    this._gui.title.appendChild(document.createTextNode(' (Failed)'));
-  } else if (this._item.status == -2) {
-    this._gui.title.appendChild(document.createTextNode(' (Deleted)'));
   }
   
   this._gui.brideName.appendChild(this._doc.createTextNode(this._item.brideName));
