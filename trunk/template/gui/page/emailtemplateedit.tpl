@@ -34,7 +34,6 @@
     padding-top:4px;
     padding-right:3px;
     font-size: 10pt;
-    font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
@@ -63,7 +62,6 @@
     padding-top:3px;
     padding-right:3px;
     font-size: 10pt;
-    font-weight: bold;
     color: #000000; 
     font-family: Arial;
   }
