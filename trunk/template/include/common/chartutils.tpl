@@ -4,7 +4,7 @@ function ChartUtils() {
 ChartUtils.basic = function(div, result) {
   var total = 0;
   
-  var data = [ { name: 'Succeeded', value: result.successVisitors },
+  var data = [ { name: 'Booked Customer', value: result.successVisitors },
                { name: 'Failed', value: result.dropVisitors },
                { name: 'In processing', value: result.progressingVisitors },
              ];
@@ -25,7 +25,7 @@ ChartUtils.basic = function(div, result) {
 ChartUtils.home = function(div, result) {
   var total = 0;
   
-  var data = [ { name: 'Succeeded', value: result.successVisitors },
+  var data = [ { name: 'Booked Customer', value: result.successVisitors },
                { name: 'Failed', value: result.dropVisitors },
                { name: 'In processing', value: result.progressingVisitors },
                { name: 'Deleted', value: result.deletedVisitors },

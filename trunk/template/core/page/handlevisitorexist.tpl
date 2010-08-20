@@ -586,7 +586,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.visit.value = 'Visit (' + vNumber + ')';
   
   if (this._visitor.status == 1) {
-    this._gui.title.appendChild(document.createTextNode(' (Succeed) '));
+    this._gui.title.appendChild(document.createTextNode(' (Booked Customer) '));
     if (this._visitor.operator == this._operator.account) {
       var btn = DOMUtils.createInput('', '', 'button', 'Reverse', null)
       btn.style.fontFamily= 'Arial'
