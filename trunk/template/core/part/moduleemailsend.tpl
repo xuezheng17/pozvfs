@@ -81,7 +81,7 @@ ModuleEmailSend.prototype._updateElements = function() {
   this._gui.content.onchange = function() { _self._email.content = this.value };
   
   this._gui.send.onclick = function() { if(_self._email.subject && _self._email.content) {
-                                          _self._operation.content = _self._email.content;
+                                          _self._operation.content = 'To: ' + ((_self._visitor.brideEmail != '') ? _self._visitor.brideEmail : (_self._visitor.groomEmail != '') ? _self._visitor.groomEmail : '') + '\n\n' + _self._email.content;
                                           new RequestUtils()._custom('sendEmail', {operation: _self._operation, visitor: _self._visitor, email: _self._email}, function() { _self._callbackFunc(); }, { pos: _self._pos });
                                           _self._popupBox._close();
                                        } else {
