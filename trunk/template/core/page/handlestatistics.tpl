@@ -47,8 +47,8 @@ HandleStatistics.prototype._updateElements = function() {
   DOMUtils.removeTableRows(this._gui.dateZone.result, 1);
   
   this._gui.mains.visitors.appendChild(document.createTextNode(this._visitor.visitors));
-  this._gui.mains.visit.appendChild(document.createTextNode(this._visitor.visited + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.visited / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));
-  this._gui.mains.noVisit.appendChild(document.createTextNode(this._visitor.nonvisited + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.nonvisited / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));
+  this._gui.mains.visit.appendChild(document.createTextNode(this._visitor.visited + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.visited / this._visitor.visitors) * 100).toFixed(1) + '%)' : ' (0%)')));
+  this._gui.mains.noVisit.appendChild(document.createTextNode(this._visitor.nonvisited + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.nonvisited / this._visitor.visitors) * 100).toFixed(1) + '%)' : ' (0%)')));
   
   ChartUtils.statistics(this._gui.mains.graphy, this._visitor);
   
