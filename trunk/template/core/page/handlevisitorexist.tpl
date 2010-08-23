@@ -743,7 +743,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                                                         location.reload();
                                                                                       };
                                                                 var span = document.createElement('span');
-                                                                span = MiscUtils.span(str);
+                                                                span = MiscUtils.span('Did the system redirect you to Dreamlife Manage System?\nIf not, you have to manually add the new customer.');
                                                                 MiscUtils.dialog(tmp, span, func);
                                                               };
                                            if (_self._visitor.isVisited) {
