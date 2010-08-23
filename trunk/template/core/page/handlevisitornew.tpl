@@ -178,7 +178,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   }
 
   /* 添加Source等信息 */
-  this._gui.sourceAdd.onclick = function() { var object = ISource.instance(); 
+  this._gui.sourceAdd.onclick = function() { var object = pz_isource.instance(); 
                                              var func1 = function() { tmp._close();
                                                                       _self._visitor.source = object.name;
                                                                       new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
@@ -191,7 +191,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                              MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                              
                                            };
-  this._gui.receptionLocationAdd.onclick = function() { var object = IReception.instance();
+  this._gui.receptionLocationAdd.onclick = function() { var object = pz_ireception.instance();
                                                         var func1 = function() { tmp._close();
                                                                                  _self._visitor.receptionLocation = object.name;
                                                                                  new RequestUtils()._write('pz_ireception', [object], [], function() { _self._retrieveReceptions.call(_self); }, { pos: DOMUtils.findPos(_self._gui.receptionLocationAdd) });
@@ -203,7 +203,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                         new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_ireception', title: 'Reception Location', item: object });
                                                         MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                         };
-  this._gui.culturalBackgroundAdd.onclick = function() { var object = ICulture.instance();
+  this._gui.culturalBackgroundAdd.onclick = function() { var object = pz_iculture.instance();
                                                          var func1 = function() { tmp._close();
                                                                                   _self._visitor.culturalBackground = object.name;
                                                                                   new RequestUtils()._write('pz_iculture', [object], [], function() { _self._retrieveCultures.call(_self); }, { pos: DOMUtils.findPos(_self._gui.culturalBackgroundAdd) });
@@ -215,7 +215,7 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                          new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_iculture', title: 'Cultural Background', item: object });
                                                          MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                        };
-  this._gui.ceremonyLocationAdd.onclick = function() { var object = ICeremony.instance();
+  this._gui.ceremonyLocationAdd.onclick = function() { var object = pz_iceremony.instance();
                                                        var func1 = function() { tmp._close();
                                                                                 _self._visitor.ceremonyLocation = object.name;
                                                                                 new RequestUtils()._write('pz_iceremony', [object], [], function() { _self._retrieveCeremonys.call(_self); }, { pos: DOMUtils.findPos(_self._gui.ceremonyLocationAdd) });
