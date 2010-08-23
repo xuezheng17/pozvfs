@@ -700,8 +700,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                         return false;
                                       };
-  this._gui.visit.onclick = function() { window.alert('Temporarily disabled (test failed)');
-                                         return;
+  this._gui.visit.onclick = function() { //window.alert('Temporarily disabled (test failed)');
+                                         //return;
                                          var pos, func1;
                                          var operation = pz_operation.instance();
                                          operation.visitId = _self._visitorId;
@@ -716,8 +716,8 @@ HandleVisitorExist.prototype._updateElements = function() {
                                          new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, visited: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                          return false;
                                        };
-  this._gui.succeed.onclick = function() { window.alert('Temporarily disabled (because test failed)');
-                                           return;
+  this._gui.succeed.onclick = function() { //window.alert('Temporarily disabled (because test failed)');
+                                           //return;
                                            var visitor = { fromVisitor: true,
                                                            brideName: _self._visitor.brideName,
                                                            brideAddress: _self._visitor.brideAddress,
@@ -735,70 +735,33 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                            source: _self._visitor.source,
                                                            weddingDay: _self._visitor.weddingDay
                                                          };
-//                                           func1 = function() { location.reload();
-//                                                                window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
-//                                                              };
-                                           new RequestUtils()._custom('isLogin', '', function(result, params) { if (result.length == 1) {
-                                                                                                                   var op = result[0];
-                                                                                                                   func1 = function() { location.reload();
-                                                                                                                                        if (op.type == 'Manager Assistant') {
-                                                                                                                                          window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
-                                                                                                                                        } else {
-                                                                                                                                          window.open('../dms1/?p=pageaserv&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
-                                                                                                                                        }
-                                                                                                                                      };
-                                                                                                                   if (_self._visitor.isVisited) {
-                                                                                                                     _self._visitor.status = 1;
-                                                                                                                     _self._visitor.operator = _self._operator.account;
-                                                                                                                     _self._visitor.operatorDate = _self._now;
-                                                                                                                     new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { func1(); } }, { pos: DOMUtils.findPos(this) });
-                                                                                                                   } else {
-                                                                                                                     var r = window.confirm('Automatically add a visiting operation');
-                                                                                                                     if (r) {
-                                                                                                                       var operation = pz_operation.instance();
-                                                                                                                       operation.visitId = _self._visitorId;
-                                                                                                                       operation.cancelled = 0;
-                                                                                                                       operation.operateType = 'Visit (1)';
-                                                                                                                       operation.operator = _self._operator.account;
-                                                                                                                       operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
-                                                                                                                       operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
-                                                                                                                       pos = [window.screen.width/3, window.screen.height/3];
-                                                                                                                       tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
-                                                                                                                       new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
-                                                                                                                       return false;
-                                                                                                                     } else {
-                                                                                                                       window.alert('Disabled');
-                                                                                                                     }
-                                                                                                                   }
-                                                                                                                  } else {
-                                                                                                                    window.alert('系统检测到您还未登录DMS1系统, 请先登录');
-                                                                                                                  }
-                                                                                                                }, {php: '../dms1/customphp/jsoncustom.php'});
-                                           return false;  
-//                                           if (_self._visitor.isVisited) {
-//                                             _self._visitor.status = 1;
-//                                             _self._visitor.operator = _self._operator.account;
-//                                             _self._visitor.operatorDate = _self._now;
-//                                             new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { func1(); } }, { pos: DOMUtils.findPos(this) });
-//                                           } else {
-//                                             var r = window.confirm('Automatically add a visiting operation');
-//                                             if (r) {
-//                                               var operation = pz_operation.instance();
-//                                               operation.visitId = _self._visitorId;
-//                                               operation.cancelled = 0;
-//                                               operation.operateType = 'Visit (1)';
-//                                               operation.operator = _self._operator.account;
-//                                               operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
-//                                               operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
-//                                               
-//                                               pos = [window.screen.width/3, window.screen.height/3];
-//                                               tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
-//                                               new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
-//                                               return false;
-//                                             } else {
-//                                               window.alert('Disabled');
-//                                             }
-//                                           }
+                                           func1 = function() { location.reload();
+                                                                window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+                                                              };
+                                           if (_self._visitor.isVisited) {
+                                             _self._visitor.status = 1;
+                                             _self._visitor.operator = _self._operator.account;
+                                             _self._visitor.operatorDate = _self._now;
+                                             new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { func1(); } }, { pos: DOMUtils.findPos(this) });
+                                           } else {
+                                             var r = window.confirm('Automatically add a visiting operation');
+                                             if (r) {
+                                               var operation = pz_operation.instance();
+                                               operation.visitId = _self._visitorId;
+                                               operation.cancelled = 0;
+                                               operation.operateType = 'Visit (1)';
+                                               operation.operator = _self._operator.account;
+                                               operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
+                                               operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
+                                               
+                                               pos = [window.screen.width/3, window.screen.height/3];
+                                               tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
+                                               new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                                               return false;
+                                             } else {
+                                               window.alert('Disabled');
+                                             }
+                                           }
                                          };
   this._gui.drop.onclick = function() { var func1 = function() { location.reload();};
                                         var pos = [window.screen.width/3, window.screen.height/3];
