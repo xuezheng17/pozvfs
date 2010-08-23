@@ -700,7 +700,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                         new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {item: operation, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                         return false;
                                       };
-  this._gui.visit.onclick = function() { window.alert('Temporarily disabled (because test failed)');
+  this._gui.visit.onclick = function() { window.alert('Temporarily disabled (test failed)');
                                          return;
                                          var pos, func1;
                                          var operation = pz_operation.instance();
