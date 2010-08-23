@@ -14,7 +14,6 @@
 {{include file='core/part/moduledialogiobject.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
 {{include file='include/common/dateselect.tpl'}}
-{{include file='include/common/popupbox.tpl'}}
 {{include file='include/_database/pz_visitor.class.tpl'}}
 {{include file='include/_database/pz_isource.class.tpl'}}
 {{include file='include/_database/pz_ireception.class.tpl'}}
