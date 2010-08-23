@@ -45,11 +45,11 @@ HandleStatBasic.prototype._updateElements = function() {
   var unique, _self = this;
   POZVFSUtils.clear(this._gui.mains);
   DOMUtils.removeTableRows(this._gui.dateZone.result, 1);
-
-  this._gui.mains.visitors.appendChild(document.createTextNode(this._visitor.visitors));
-  this._gui.mains.succeedVisitors.appendChild(document.createTextNode(this._visitor.successVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.successVisitors / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));
-  this._gui.mains.dropVisitors.appendChild(document.createTextNode(this._visitor.dropVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.dropVisitors / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));
-  this._gui.mains.progressingVisitors.appendChild(document.createTextNode(this._visitor.progressingVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.progressingVisitors / this._visitor.visitors) * 100).toFixed(0) + '%)' : ' (0%)')));
+  var total = this._visitor.visitors - this._visitor.deletedVisitors;
+  this._gui.mains.visitors.appendChild(document.createTextNode(total));
+  this._gui.mains.succeedVisitors.appendChild(document.createTextNode(this._visitor.successVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.successVisitors / total) * 100).toFixed(1) + '%)' : ' (0%)')));
+  this._gui.mains.dropVisitors.appendChild(document.createTextNode(this._visitor.dropVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.dropVisitors / total) * 100).toFixed(1) + '%)' : ' (0%)')));
+  this._gui.mains.progressingVisitors.appendChild(document.createTextNode(this._visitor.progressingVisitors + ((this._visitor.visitors != 0) ? ' (' + ((this._visitor.progressingVisitors / total) * 100).toFixed(1) + '%)' : ' (0%)')));
   
   ChartUtils.basic(this._gui.mains.graphy, this._visitor);
   
