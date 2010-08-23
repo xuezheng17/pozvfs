@@ -150,7 +150,7 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           } else  {
                                             new RequestUtils()._write('pz_operation', [_self._operation], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                           }
-                                        }
+                                        } 
                                         _self._popupBox._close();
                                       };
   this._gui.cancel.onclick = function() { _self._popupBox._close(); };

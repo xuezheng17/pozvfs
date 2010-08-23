@@ -15,7 +15,7 @@ function ModuleEmailSend(doc, container, width, height, operator, now, options) 
   this._email = { name: '',
                   subject: '',
                   content: ''
-                };
+                }; 
   this._createElements();
 };
 

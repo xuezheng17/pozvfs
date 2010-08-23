@@ -219,7 +219,7 @@ function succeeded($myManager) {
         $orm->add($myManager, $args->operation);
       }
       if ($args->visitor) {
-        $orm1->update($myManager, $args->visitor);
+        $orm1->update($myManager, $args->visitor); 
       }
       $myManager->commit_t();
       $myManager->start_t();
