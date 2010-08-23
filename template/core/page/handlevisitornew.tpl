@@ -3,9 +3,7 @@ function HandleVisitorNew(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
-  
-  this._popupBox = new PopupBox3();
-  this._visitor = pz_visitor.instance();
+
   this._createElements();
 };
 
@@ -13,6 +11,12 @@ HandleVisitorNew.prototype._createElements = function() {
   var pos = [window.screen.width / 2, window.screen.height / 5];
   this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
   MiscUtils.load(this._popupBox, 'Loading data...');
+  
+  this._visitor = pz_visitor.instance();
+  this._visitor.weddingDay = '';
+  this._visitor.firstVisitDate = '';
+  this._visitor.cancelledDate = '';
+  this._visitor.creator = this._operator.account;
   
   this._loadData();
 };
@@ -67,11 +71,6 @@ HandleVisitorNew.prototype._updateElements = function() {
   var _self = this, table, tr, td;
   this._popupBox._close();
   POZVFSUtils.clear(this._gui);
-
-  this._visitor.weddingDay = '';
-  this._visitor.firstVisitDate = '';
-  this._visitor.cancelledDate = '';
-  this._visitor.creator = this._operator.account;
   
   /* 结婚日期 */
   this._gui.weddingDay.value = (this._visitor.weddingDay) ? SimpleDate.format(this._visitor.weddingDay) : '';
