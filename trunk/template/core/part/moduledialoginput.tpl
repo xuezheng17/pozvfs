@@ -143,8 +143,7 @@ ModuleDialogInput.prototype._updateElements = function() {
                                             _self._visitor.operator = _self._operator.account;
                                             _self._visitor.operatorDate = _self._now;
                                             new RequestUtils()._custom('succeeded', {operation: _self._operation, visitor: _self._visitor}, function(result, params) { _self._callbackFunc(); }, { pos: _self._pos });
-                                          }
-                                          if (_self._visited) {
+                                          } else if (_self._visited) {
                                             if (!_self._visitor.isVisited) {
                                               _self._visitor.isVisited = true;
                                               new RequestUtils()._custom('succeeded', {operation: _self._operation, visitor: _self._visitor}, function(result, params) { _self._callbackFunc(); }, { pos: _self._pos });
