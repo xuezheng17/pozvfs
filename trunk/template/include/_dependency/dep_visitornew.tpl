@@ -16,5 +16,9 @@
 {{include file='include/common/dateselect.tpl'}}
 {{include file='include/common/popupbox.tpl'}}
 {{include file='include/_database/pz_visitor.class.tpl'}}
+{{include file='include/_database/pz_isource.class.tpl'}}
+{{include file='include/_database/pz_ireception.class.tpl'}}
+{{include file='include/_database/pz_iculture.class.tpl'}}
+{{include file='include/_database/pz_iceremony.class.tpl'}}
 {{include file='include/_metadata/visitormethod.meta.tpl'}}
 {{include file='core/page/handlevisitornew.tpl'}}
