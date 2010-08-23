@@ -155,7 +155,7 @@ function followUp($myPdo) {
   $stmt->execute();
   $result->total = $stmt->rowCount();
   
-  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status, v.isVisited as isVisited FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
+  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.bridePhone AS bridePhone, v.brideMobile AS brideMobile, v.brideEmail AS brideEmail, v.groomName AS groomName, v.groomPhone AS groomPhone, v.groomMobile AS groomMobile, v.groomEmail AS groomEmail, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status, v.isVisited as isVisited, v.culturalBackground as culturalBackground, v.ceremonyLocation as ceremonyLocation, v.receptionLocation as receptionLocation, v.source as source FROM $tableVisitor AS v $condition ORDER BY $order $queue LIMIT $pageSkip, $size";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $i = 0;
