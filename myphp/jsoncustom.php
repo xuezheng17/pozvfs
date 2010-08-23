@@ -141,11 +141,11 @@ function sendEmail($myManager) {
     require_once dirname(__FILE__) . '/../library/phpMailer/class.phpmailer.php';
     $mailer = new PHPMailer();
     $mailer->IsSMTP();
-    $mailer->Host = 'ssl://smtp.gmail.com:465';
+    $mailer->Host = 'mail.dlmanage.co.nz';
     $mailer->SMTPAuth = true;
-    $mailer->Username = 'dreamlife.customerservice@gmail.com';
+    $mailer->Username = 'dreamlife.customerservice@dlmanage.co.nz';
     $mailer->Password = 'luckybox4mail';
-    $mailer->From = 'dreamlife.customerservice@gmail.com';
+    $mailer->From = 'dreamlife.customerservice@dlmanage.co.nz';
     $mailer->FromName = 'Dreamlife';
     $mailer->Body = $content;
     $mailer->Subject = $subject;
