@@ -61,6 +61,7 @@ ModuleDialogInput.prototype._updateElements = function() {
   var _self = this;
   DOMUtils.removeChildElements(this._gui.opponent);
   DOMUtils.removeChildElements(this._gui.category);
+  
   if (this._failed) {
     this._gui.opponent.options[this._gui.opponent.options.length] = new Option('');
     for (var i = 0, il = this._opponents.length; i < il; i++) {
@@ -114,8 +115,11 @@ ModuleDialogInput.prototype._updateElements = function() {
                                                  MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
                                                };
   }
-  
-  this._gui.input.value = (this._operation && this._operation) ? this._operation.content : '';
+  if (this._failed) {
+    this._gui.input.value = this._visitor.operatorMessage;
+  } else {
+    this._gui.input.value = (this._operation && this._operation.content) ? this._operation.content : '';
+  }
   this._gui.input.onchange = function() { if (_self._failed || _self._deleted) {
                                             _self._visitor.operatorMessage = this.value;
                                           } else {

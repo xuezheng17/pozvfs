@@ -737,7 +737,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                          };
                                            func1 = function() { var str = 'http://dlmanage.co.nz/test/dms1/?t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor});
                                                                 window.open(str);
-                                                                var pos = [window.screen.width/3, window.screen.height/3];
+                                                                var pos = DOMUtils.findPos(_self._gui.succeed);
                                                                 var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
                                                                 var func = function() { tmp._close(); 
                                                                                         location.reload();
