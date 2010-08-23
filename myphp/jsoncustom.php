@@ -216,7 +216,7 @@ function succeeded($myManager) {
   if ($orm && $orm1) {
     try {
       if ($args->operation != NULL) {
-        $orm->update($myManager, $args->operation);
+        $orm->add($myManager, $args->operation);
       }
       if ($args->visitor) {
         $orm1->update($myManager, $args->visitor);
