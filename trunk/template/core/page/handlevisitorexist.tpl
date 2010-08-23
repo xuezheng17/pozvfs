@@ -735,8 +735,16 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                            source: _self._visitor.source,
                                                            weddingDay: _self._visitor.weddingDay
                                                          };
-                                           func1 = function() { location.reload();
-                                                                window.open('../dms1/?p=pageasst&t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor}));
+                                           func1 = function() { var str = 'http://dlmanage.co.nz/test/dms1/?t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor});
+                                                                window.open(str);
+                                                                var pos = [window.screen.width/3, window.screen.height/3];
+                                                                var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
+                                                                var func = function() { tmp._close(); 
+                                                                                        location.reload();
+                                                                                      };
+                                                                var span = document.createElement('span');
+                                                                span = MiscUtils.span(str);
+                                                                MiscUtils.dialog(tmp, span, func);
                                                               };
                                            if (_self._visitor.isVisited) {
                                              _self._visitor.status = 1;
@@ -753,7 +761,6 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                operation.operator = _self._operator.account;
                                                operation.prevOperator = (_self._opera.length == 0) ? '' : _self._opera[_self._opera.length - 1].operator;
                                                operation.firstVisited = (_self._visitor.isVisited) ? 0 : 1;
-                                               
                                                pos = [window.screen.width/3, window.screen.height/3];
                                                tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Visiting Summary'});
                                                new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, item: operation, succeed: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
