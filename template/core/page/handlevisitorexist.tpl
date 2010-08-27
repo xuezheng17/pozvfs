@@ -527,7 +527,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     var span1 = document.createElement('span');
     td.appendChild(span1);
     span1.style.lineHeight = '24px';
-    span1.appendChild(document.createTextNode(((operation.content) ? ((String(operation.content).length > 30) ? operation.content.substring(0, 30) + '...' : operation.content) : '(none)' )));
+    span1.appendChild(document.createTextNode(((operation.content) ? ((String(operation.content).length > 100) ? operation.content.substring(0, 100) + '...' : operation.content) : '(none)' )));
     if (!operation.cancelled && this._visitor.status == 0 && this._operator.account == operation.operator) {
       var img = document.createElement('img');
       img.src = 'image/edit.png';
@@ -543,7 +543,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                };
       td.appendChild(img);
     } else {
-      if (String(operation.content).length > 30) {
+      if (String(operation.content).length > 100) {
         var img = document.createElement('img');
         img.src = 'image/enlarge.png';
         img.style.cursor = 'pointer';
@@ -738,13 +738,23 @@ HandleVisitorExist.prototype._updateElements = function() {
                                            func1 = function() { var str = 'http://dlmanage.co.nz/dms1/?t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor});
                                                                 window.open(str);
                                                                 var pos = DOMUtils.findPos(_self._gui.succeed);
-                                                                var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos});
-                                                                var func = function() { tmp._close(); 
-                                                                                        location.reload();
-                                                                                      };
+                                                                tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Confirmation'});
+                                                                tmp._gui.panel.style.fontSize = '13px';
                                                                 var span = document.createElement('span');
-                                                                span = MiscUtils.span('Did the system redirect you to Dreamlife Manage System?\nIf not, you have to manually add the new customer.');
-                                                                MiscUtils.dialog(tmp, span, func);
+                                                                span = MiscUtils.span('Did you Successfully Add the New Customer?\nIf not, you have to manually ');
+                                                                var a = document.createElement('a');
+                                                                a.style.fontSize = '13px';
+                                                                a.href = str;
+                                                                a.appendChild(document.createTextNode('Add New Customer'));
+                                                                var btn = DOMUtils.createInput(null, null, 'button', 'Close', null);
+                                                                btn.style.margin = '20px 0 0 0';
+                                                                btn.onclick = function() { tmp._close(); 
+                                                                                           location.reload();
+                                                                                         };
+                                                                tmp._gui.panel.appendChild(span);
+                                                                tmp._gui.panel.appendChild(a);
+                                                                tmp._gui.panel.appendChild(document.createElement('br'));
+                                                                tmp._gui.panel.appendChild(btn);
                                                               };
                                            if (_self._visitor.isVisited) {
                                              _self._visitor.status = 1;
@@ -752,7 +762,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                              _self._visitor.operatorDate = _self._now;
                                              new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { func1(); } }, { pos: DOMUtils.findPos(this) });
                                            } else {
-                                             var r = window.confirm('Automatically add a visiting operation');
+                                             var r = window.confirm('No visits, add a visit?');
                                              if (r) {
                                                var operation = pz_operation.instance();
                                                operation.visitId = _self._visitorId;
