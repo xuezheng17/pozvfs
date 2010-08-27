@@ -592,11 +592,10 @@ HandleVisitorExist.prototype._updateElements = function() {
       btn.style.fontFamily= 'Arial'
       btn.style.fontSize = '10pt';
       this._gui.title.appendChild(btn);
-      btn.onclick = function() { _self._visitor.status = 0;
-                                 _self._visitor.operator = '';
-                                 _self._visitor.operatorDate = '';
-                                 _self._visitor.operatorMessage = '';
-                                 new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
+      btn.onclick = function() { func1 = function() { location.reload(); };
+                                 pos = [window.screen.width/3, window.screen.height/5];
+                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Reverse Summary'});
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, reverse: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
                                }
     }
   } else if (this._visitor.status == -1) {
@@ -606,14 +605,11 @@ HandleVisitorExist.prototype._updateElements = function() {
       btn.style.fontFamily= 'Arial'
       btn.style.fontSize = '10pt';
       this._gui.title.appendChild(btn);
-      btn.onclick = function() { _self._visitor.status = 0;
-                                 _self._visitor.opponent = '';
-                                 _self._visitor.category = '';
-                                 _self._visitor.operator = '';
-                                 _self._visitor.operatorDate = '';
-                                 _self._visitor.operatorMessage = '';
-                                 new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                               };
+      btn.onclick = function() { func1 = function() { location.reload(); };
+                                 pos = [window.screen.width/3, window.screen.height/5];
+                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Reverse Summary'});
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, reverse: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                               }
     }
   } else if (this._visitor.status == -2) {
     this._gui.title.appendChild(document.createTextNode(' (Deleted) '));
@@ -622,17 +618,33 @@ HandleVisitorExist.prototype._updateElements = function() {
       btn.style.fontFamily= 'Arial'
       btn.style.fontSize = '10pt';
       this._gui.title.appendChild(btn);
-      btn.onclick = function() { _self._visitor.status = 0;
-                                 _self._visitor.operator = '';
-                                 _self._visitor.operatorDate = '';
-                                 _self._visitor.operatorMessage = '';
-                                 new RequestUtils()._write('pz_visitor', [_self._visitor], [],  function(result, params) { if (result) { location.reload(); } }, { pos: DOMUtils.findPos(this) });
-                               };
+      btn.onclick = function() { func1 = function() { location.reload(); };
+                                 pos = [window.screen.width/3, window.screen.height/5];
+                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Reverse Summary'});
+                                 new ModuleDialogInput(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {visitor: _self._visitor, reverse: true, callbackFunc: func1, popupBox: tmp, pos: DOMUtils.findPos(this)});
+                               }
     }
   } else if (this._visitor.isVisited) {
     this._gui.title.appendChild(document.createTextNode(' (Visited)'));
   }
-
+  
+  /* Reverse Reason */
+  if (this._visitor.reverses.length != 0) {
+    var a = document.createElement('a');
+    a.style.padding = '0 0 0 10px';
+    a.href = '#';
+    a.appendChild(document.createTextNode('Log'));
+    a.onclick = function() { var object = pz_isource.instance(); 
+                             var func1 = function() { tmp._close(); };
+                             var pos = DOMUtils.findPos(this);
+                             var tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
+                             new ModuleDialogHistory(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, {items: _self._visitor.reverses, title: 'Reverse History'});
+                             MiscUtils.dialog(tmp, null, func1);
+                             return false;
+                           };
+    this._gui.title.appendChild(a);
+  }
+  /*              */
   if (this._visitor.brideEmail == '' && this._visitor.groomEmail == '') {
     this._gui.email.disabled = true;
     this._gui.email.style.width = '120px';
