@@ -27,6 +27,8 @@ DialogHistory.prototype._createElements = function() {
   td.style.height = '24px';
   td.style.textAlign = 'center';
   td.style.verticalAlign = 'middle';
+  td.style.fontWeight = 'bold';
+  td.style.fontSize = '14px';
   td.id = this._unique + '_title_div';
   
  
