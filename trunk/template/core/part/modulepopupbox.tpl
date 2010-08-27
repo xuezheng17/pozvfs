@@ -45,6 +45,7 @@ ModulePopupBox.prototype._createElements = function() {
   this._iWidth = this._container.clientWidth;
   this._iHeight = this._container.clientHeight;
   
+  this._gui.menu.onmouseover = function() { this.className = 'popupMove'; };
   this._gui.menu.onmousedown = function() { var evt = _self._getEvent();
                                             _self._moveable = true;
                                             _self._moveX = evt.clientX;
