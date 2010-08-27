@@ -5,6 +5,7 @@ class ORMpz_visitor extends ORMBase {
   }
 
   public function __toEpObject($myManager, $epObject, $object) {
+    require_once dirname(__FILE__) . '/ORMpz_ireverse.class.php';
     $epObject->trackId = isset($object->trackId) ? $object->trackId : '';
     $epObject->createdDate = (isset($object->createdDate) && $object->createdDate) ? SimpleDate::toStamp($object->createdDate) : 0;
     $epObject->creator = isset($object->creator) ? $object->creator : '';
@@ -32,10 +33,17 @@ class ORMpz_visitor extends ORMBase {
     $epObject->operator = isset($object->operator) ? $object->operator : '';
     $epObject->operatorMessage = isset($object->operatorMessage) ? $object->operatorMessage : '';
     $epObject->isVisited = isset($object->isVisited) ? $object->isVisited : 0;
+    if (isset($epObject->reverses)) {
+      $epObject->reverses->removeAll();
+      foreach ($object->reverses as &$item) {
+        $epObject->reverses[] = $this->__getEpObject_4_lvl_1_object($myManager, $item, new ORMpz_ireverse(), 'pz_ireverse');
+      }
+    }
     return $epObject;
   }
 
   public function __toObject($myManager, $epObject, $object) {
+    require_once dirname(__FILE__) . '/ORMpz_ireverse.class.php';
     $object->id = $epObject->oid;
     $object->trackId = $epObject->trackId;
     $object->createdDate = ($epObject->createdDate != 0) ? SimpleDate::fromStamp($epObject->createdDate) : 0;
@@ -64,6 +72,12 @@ class ORMpz_visitor extends ORMBase {
     $object->operator = $epObject->operator;
     $object->operatorMessage = $epObject->operatorMessage;
     $object->isVisited = $epObject->isVisited;
+    $object->reverses = array();
+    if (isset($epObject->reverses)) {
+      foreach ($epObject->reverses as &$item) {
+        $object->reverses[] = $this->__getObject_4_lvl_1_ep_object($myManager, $item, new ORMpz_ireverse());
+      }
+    }
     return $object;
   }
 }

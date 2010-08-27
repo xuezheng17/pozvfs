@@ -13,9 +13,11 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   this._failed = (options && options.failed) ? options.failed : false;
   this._deleted = (options && options.deleted) ? options.deleted : false;
   this._visited = (options && options.visited) ? options.visited : false;
+  this._reverse = (options && options.reverse) ? options.reverse : false;
   this._callbackFunc = (options && options.callbackFunc) ? options.callbackFunc : null;
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
   this._pos = (options && options.pos) ? options.pos : null;
+  this._reverse = pz_ireverse.instance();
   
   this._gui = new DialogInput(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
 
@@ -122,6 +124,8 @@ ModuleDialogInput.prototype._updateElements = function() {
   }
   this._gui.input.onchange = function() { if (_self._failed || _self._deleted) {
                                             _self._visitor.operatorMessage = this.value;
+                                          } else if (_self._reverse) {
+                                            _self._reverse.content = this.value;
                                           } else {
                                             _self._operation.content = this.value;
                                           }
@@ -135,6 +139,21 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           _self._visitor.status = -2;
                                           _self._visitor.operator = _self._operator.account;
                                           _self._visitor.operatorDate = _self._now;
+                                          new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
+                                        } else if (_self._reverse) {
+                                          if (_self._reverse.content == '') {
+                                            window.alert('Empty');
+                                            return;
+                                          }
+                                          _self._visitor.status = 0;
+                                          _self._visitor.opponent = '';
+                                          _self._visitor.category = '';
+                                          _self._visitor.operator = '';
+                                          _self._visitor.operatorDate = '';
+                                          _self._visitor.operatorMessage = '';
+                                          _self._reverse.operator = _self._operator.account;
+                                          _self._reverse.date = _self._now;
+                                          _self._visitor.reverses[_self._visitor.reverses.length] = _self._reverse;
                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
                                         } else {
                                           if (_self._succeed) {

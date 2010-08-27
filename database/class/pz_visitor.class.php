@@ -108,5 +108,9 @@ class pz_visitor {
    * @orm bool
    */
   public $isVisited;
+  /**
+   * @orm has many pz_ireverse
+   */
+  public $reverses;
 }
 ?>

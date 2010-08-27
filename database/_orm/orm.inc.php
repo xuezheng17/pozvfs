@@ -24,6 +24,9 @@ function classToOrm($class = NULL) {
     case 'pz_ireception':
       require_once dirname(__FILE__) . '/ORMpz_ireception.class.php';
       return new ORMpz_ireception();
+    case 'pz_ireverse':
+      require_once dirname(__FILE__) . '/ORMpz_ireverse.class.php';
+      return new ORMpz_ireverse();
     case 'pz_isource':
       require_once dirname(__FILE__) . '/ORMpz_isource.class.php';
       return new ORMpz_isource();
