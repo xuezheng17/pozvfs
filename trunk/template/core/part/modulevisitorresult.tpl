@@ -29,12 +29,16 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.appendChild(document.createTextNode(' - '));
   var span = document.createElement('span');
   span.style.color = '#891234';
-  var visit = 0; noVisit = 0;
+  var visit = 0; noVisit = 0; noExist = 0;
   var id = 0;
   for (var i = 0, il = this._item.operations.length; i < il; i++) {
     var operation = this._item.operations[i];
     if (operation.cancelled) {
       continue;
+    }
+    var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
+    if (type == 'visit' || operation.operateType == 'Custom Note') {
+      noExist++;
     }
     if (operation.firstVisited) {
       id = operation.id;
@@ -43,7 +47,8 @@ ModuleVisitorResult.prototype._createElements = function() {
   var before = []; after = [];
   for (var j = 0, jl = this._item.operations.length; j < jl; j++) {
     var operation = this._item.operations[j];
-    if (operation.cancelled) {
+    var type = (operation.operateType.substring(0, operation.operateType.indexOf(' ('))).toLowerCase();
+    if (operation.cancelled || type == 'visit') {
       continue;
     }
     if (id != 0) {
@@ -121,9 +126,9 @@ ModuleVisitorResult.prototype._createElements = function() {
     this._gui.title.appendChild(document.createTextNode('Deleted'));
   } else {
     if (this._item.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
-      if (this._item.operations.length == 0) {
+      if (this._item.operations.length - noExist == 0) {
         span.style.color = '#ff0000';
-        span.appendChild(document.createTextNode((this._item.operations.length)));
+        span.appendChild(document.createTextNode((this._item.operations.length - noExist)));
         this._gui.title.appendChild(span);
         span = document.createElement('span');
         span.style.color = '#cc66cc';
@@ -135,7 +140,7 @@ ModuleVisitorResult.prototype._createElements = function() {
         this._gui.title.appendChild(span);
       } else {
         span.style.color = '#009900';
-        span.appendChild(document.createTextNode((this._item.operations.length)));
+        span.appendChild(document.createTextNode((this._item.operations.length - noExist)));
         this._gui.title.appendChild(span);
         span = document.createElement('span');
         span.style.color = '#66cc66';
