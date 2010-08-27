@@ -16,10 +16,27 @@ DialogHistory.prototype._createElements = function() {
   
   table = document.createElement('table');
   table.style.width = '500px';
-  table.style.height = '100px';
+  table.style.height = '24px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
-  table.id = this._unique + '_mains_table';
   this._container.appendChild(table);
   
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.textAlign = 'center';
+  td.style.verticalAlign = 'middle';
+  td.id = this._unique + '_title_div';
+  
+  tr = table.insertRow(-1);
+  td = tr.insertCell(-1);
+  var itable = document.createElement('table');
+  itable.style.width = '500px';
+  itable.cellPadding = 0;
+  itable.cellSpacing = 0;
+  itable.id = this._unique + '_mains_table';
+  td.appendChild(itable);
+  
+  gui = GuiDialogHistory.instance(this._unique, this._item);
+  new HandleDialogHistory(gui, this._item, this._options);
 };
