@@ -32,7 +32,7 @@ DialogInput.prototype._createElements = function() {
     td.style.textAlign = 'right';
     td.style.verticalAlign = 'middle';
     td.style.padding = '0 3px 1px 0';
-    td.appendChild(this._doc.createTextNode('Opponent:'));
+    td.appendChild(this._doc.createTextNode('Competitor:'));
     td = tr.insertCell(-1);
     td.style.height = '21px';
     td.style.width = '150px';

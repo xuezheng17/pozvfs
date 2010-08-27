@@ -607,7 +607,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 7}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=opponents&m={%22a%22:4,%22b%22:7}">Opponent</a>
+                  <a href="?t=opponents&m={%22a%22:4,%22b%22:7}">Competitor</a>
                 </div>
               </td>
               <td class="basemenus_td5">
