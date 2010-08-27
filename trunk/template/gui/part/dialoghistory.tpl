@@ -37,6 +37,4 @@ DialogHistory.prototype._createElements = function() {
   itable.id = this._unique + '_mains_table';
   td.appendChild(itable);
   
-  gui = GuiDialogHistory.instance(this._unique, this._item);
-  new HandleDialogHistory(gui, this._item, this._options);
 };
