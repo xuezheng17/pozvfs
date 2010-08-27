@@ -23,6 +23,7 @@ DialogHistory.prototype._createElements = function() {
   
   tr = table.insertRow(-1);
   td = tr.insertCell(-1);
+  td.style.width = '500px';
   td.style.height = '24px';
   td.style.textAlign = 'center';
   td.style.verticalAlign = 'middle';
@@ -30,6 +31,7 @@ DialogHistory.prototype._createElements = function() {
   
   tr = table.insertRow(-1);
   td = tr.insertCell(-1);
+  td.style.width = '500px';
   var itable = document.createElement('table');
   itable.style.width = '500px';
   itable.cellPadding = 0;
