@@ -36,7 +36,7 @@ DialogHistory.prototype._createElements = function() {
   var contentTop = document.createElement('table');
   contentTop.style.backgroundColor = '#ebebe3';
   contentTop.style.width = '500px';
-  contentTop.style.height = '10px';
+  contentTop.style.height = '9px';
   contentTop.cellPadding = 0;
   contentTop.cellSpacing = 0;
   td.appendChild(contentTop);
@@ -57,6 +57,19 @@ DialogHistory.prototype._createElements = function() {
   itable.cellSpacing = 0;
   itable.id = this._unique + '_mains_table';
   td.appendChild(itable);
+  
+  tr = itable.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.style.width = '100px';
+  td.style.height = '1px';
+  
+  td = tr.insertCell(-1);
+  td.style.width = '100px';
+  td.style.height = '1px';
+  
+  td = tr.insertCell(-1);
+  td.style.width = '300px';
+  td.style.height = '1px';
   
   var contentBottom = document.createElement('table');
   contentBottom.style.backgroundColor = '#ebebe3';
