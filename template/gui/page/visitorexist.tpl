@@ -529,7 +529,7 @@
       <input type="button" id="{{$template|escape:'html'}}_visit_button" class="{{$template|escape:'html'}}_btn"  value = "Visit"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td20">
-      <input type="button" id="{{$template|escape:'html'}}_succeed_button" value = "Add Customer"></input>
+      <input type="button" id="{{$template|escape:'html'}}_succeed_button" value = "Book Customer"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td20">
       <input type="button" id="{{$template|escape:'html'}}_drop_button" class="{{$template|escape:'html'}}_btn" value = "Fail"></input>
