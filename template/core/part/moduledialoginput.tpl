@@ -13,7 +13,7 @@ function ModuleDialogInput(doc, container, width, height, operator, now, options
   this._failed = (options && options.failed) ? options.failed : false;
   this._deleted = (options && options.deleted) ? options.deleted : false;
   this._visited = (options && options.visited) ? options.visited : false;
-  this._reverse = (options && options.reverse) ? options.reverse : false;
+  this._rever = (options && options.reverse) ? options.reverse : false;
   this._callbackFunc = (options && options.callbackFunc) ? options.callbackFunc : null;
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
   this._pos = (options && options.pos) ? options.pos : null;
@@ -124,7 +124,7 @@ ModuleDialogInput.prototype._updateElements = function() {
   }
   this._gui.input.onchange = function() { if (_self._failed || _self._deleted) {
                                             _self._visitor.operatorMessage = this.value;
-                                          } else if (_self._reverse) {
+                                          } else if (_self._rever) {
                                             _self._reverse.content = this.value;
                                           } else {
                                             _self._operation.content = this.value;
@@ -140,7 +140,7 @@ ModuleDialogInput.prototype._updateElements = function() {
                                           _self._visitor.operator = _self._operator.account;
                                           _self._visitor.operatorDate = _self._now;
                                           new RequestUtils()._write('pz_visitor', [_self._visitor], [], function() { _self._callbackFunc(); }, { pos: _self._pos });
-                                        } else if (_self._reverse) {
+                                        } else if (_self._rever) {
                                           if (_self._reverse.content == '') {
                                             window.alert('Empty');
                                             return;
