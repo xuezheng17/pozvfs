@@ -747,7 +747,7 @@ HandleVisitorExist.prototype._updateElements = function() {
                                                            source: _self._visitor.source,
                                                            weddingDay: _self._visitor.weddingDay
                                                          };
-                                           func1 = function() { var str = 'http://dlmanage.co.nz/dms1/?t=pagecustomer&m=' + MiscUtils.encode({ a: 2, b: 2 }) + '&opts=' + MiscUtils.encode({visitor: visitor});
+                                           func1 = function() { var str = 'http://www.dreamlifesydmanage.com/index.php?option=com_customer&customer_type=wedding&opts=' + MiscUtils.encode({visitor: visitor});
                                                                 window.open(str);
                                                                 var pos = DOMUtils.findPos(_self._gui.succeed);
                                                                 tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Confirmation'});
