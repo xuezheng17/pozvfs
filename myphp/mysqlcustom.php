@@ -371,17 +371,17 @@ function statistics($myPdo) {
   $result->queue = $queue;
   $result->condition = $condition;
   
-  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition";
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.status = 0";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $tmp->visitors = $stmt->rowCount();
   
-  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.isVisited = 1";
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.isVisited = 1 AND v.status = 0";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $tmp->visited = $stmt->rowCount();
   
-  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.isVisited = 0";
+  $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition AND v.isVisited = 0 AND v.status = 0";
   $stmt = $myPdo->prepare($sql);
   $stmt->execute();
   $tmp->nonvisited = $stmt->rowCount();
