@@ -200,7 +200,7 @@
               <tr>
                 <td class="{{$template|escape:'html'}}_td8">Total</td>
                 <td class="{{$template|escape:'html'}}_td8">Visited </td>
-                <td class="{{$template|escape:'html'}}_td8">No visited</td>
+                <td class="{{$template|escape:'html'}}_td8">Not visited</td>
               </tr>
               <tr>
                 <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_visitors_div"></td>

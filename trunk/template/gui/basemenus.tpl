@@ -204,7 +204,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a  href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Visitor</a>
+                <a  href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Enquiry</a>
               </td>
             </tr>
           </table>
@@ -220,7 +220,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Visitor</a>
+                <a  href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Enquiry</a>
               </td>
             </tr>
           </table>
@@ -411,7 +411,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=visitornew&m={%22a%22:1,%22b%22:2}">New Visitor</a>
+                  <a href = "?t=visitornew&m={%22a%22:1,%22b%22:2}">New Enquiry</a>
                 </div>
               <td class="basemenus_td4"></td>
             </tr>
@@ -431,14 +431,14 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}">Visits</a>
+                  <a href="?t=followup&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}">Visited</a>
               </td>
               <td class="basemenus_td5">
                 |
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href="?t=followup&m={%22a%22:2,%22b%22:2}&opts={%22follow%22:2}">No Visits</a>
+                  <a href="?t=followup&m={%22a%22:2,%22b%22:2}&opts={%22follow%22:2}">Not Visited</a>
               </td>
               <td class="basemenus_td4"></td>
             </tr>
@@ -515,7 +515,7 @@
                   <table class="basemenus_table4"  cellPadding="0" cellSpacing="0" border=0>
                     <tr>
                       <td >
-                        <a href = "?t=performancepe&m={%22a%22:5,%22b%22:2}">Phone/Email Achievements</a>
+                        <a href = "?t=performancepe&m={%22a%22:5,%22b%22:2}">Visit Achievements</a>
                       </td>
                       <td class="basemenus_td6">
                         <span style="padding: 0 0 0 5px;">(new)</span>
