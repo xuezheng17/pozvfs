@@ -104,22 +104,22 @@ HandleVisitorExist.prototype._retrieveCeremonys = function() {
 
 HandleVisitorExist.prototype._retrieveOperations = function() {
   var _self = this;
-  new RequestUtils()._read('pz_operation', null, 'd.visitId = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._operations = result.data;
-                                                                                                                                              _self._verifyData.call(_self);
-                                                                                                                                            }, null);
+  new RequestUtils()._read('pz_operation', null, 'd.visitId = ' + this._visitorId , null, null, null, null, function(result, params) { _self._operations = result.data;
+                                                                                                                                       _self._verifyData.call(_self);
+                                                                                                                                     }, null);
 };
 
 HandleVisitorExist.prototype._retrieveVisitor = function() {
   var _self = this;
   if (this._visitorId) {
-    new RequestUtils()._read('pz_visitor', null, 'd.oid = \'' + this._visitorId + '\'', null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
-                                                                                                                                           if (!_self._visitor) {
-                                                                                                                                             window.alert('NO VISITOR ' + _self._visitorId);
-                                                                                                                                             history.back();
-                                                                                                                                             return;
-                                                                                                                                           }
-                                                                                                                                           _self._verifyData.call(_self);
-                                                                                                                                         }, null);
+    new RequestUtils()._read('pz_visitor', null, 'd.oid =' + this._visitorId, null, null, null, null, function(result, params) { _self._visitor = (result.data.length == 1) ? result.data[0] : null;
+                                                                                                                                 if (!_self._visitor) {
+                                                                                                                                   window.alert('NO VISITOR ' + _self._visitorId);
+                                                                                                                                   history.back();
+                                                                                                                                   return;
+                                                                                                                                 }
+                                                                                                                                 _self._verifyData.call(_self);
+                                                                                                                               }, null);
   } else {
     this._visitor = pz_visitor.instance();
     this._visitor.weddingDay = '';
