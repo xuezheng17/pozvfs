@@ -67,7 +67,12 @@ HandleUsers.prototype._updateElements = function() {
     td.align = 'left';
     td.style.height = '24px';
     td.style.padding = '0 0 0 20px';
-    td.appendChild(document.createTextNode(object.password));
+    
+    var str = '';
+    for (var j = 0, jl = object.password.length; j < jl; j++) {
+      str += '*';
+    }
+    td.appendChild(document.createTextNode(str));
     
     td = tr.insertCell(-1);
     td.align = 'center';

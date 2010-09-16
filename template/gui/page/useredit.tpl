@@ -81,7 +81,7 @@
   </tr>
     <td class="{{$template|escape:'html'}}_td2">Password:</td>
     <td class="{{$template|escape:'html'}}_td3">
-      <input type="text" id="{{$template|escape:'html'}}_password_input" class="{{$template|escape:'html'}}_inputText"></input>
+      <input type="password" id="{{$template|escape:'html'}}_password_input" class="{{$template|escape:'html'}}_inputText"></input>
     </td>
     <td class="{{$template|escape:'html'}}_td4"></td>
   </tr>
