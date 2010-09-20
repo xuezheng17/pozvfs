@@ -67,7 +67,7 @@
   }
   .{{$template|escape:'html'}}_inputText{
     width: 670px;
-    height: 17px;
+    height: 16px;
   }
   .{{$template|escape:'html'}}_textarea{
     width: 670px;

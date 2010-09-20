@@ -44,7 +44,7 @@
   }
   .{{$template|escape:'html'}}_inputText{
     width: 210px;
-    height: 17px;
+    height: 16px;
   }
 </style>
 

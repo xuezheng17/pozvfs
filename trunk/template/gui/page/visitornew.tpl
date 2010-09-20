@@ -6,7 +6,7 @@
   }
   .{{$template|escape:'html'}}_table2 {
     width: 310px;
-    height: 27px;
+    height: 23px;
   }
   .{{$template|escape:'html'}}_td1 {
     width: 980px;
@@ -18,7 +18,7 @@
   }
   .{{$template|escape:'html'}}_td3 {
     width: 157px;
-    height: 27px;
+    height: 25px;
     text-align: right;
     vertical-align: middle;
     font-size: 10pt;
@@ -29,13 +29,13 @@
   }
   .{{$template|escape:'html'}}_td4 {
     width: 310px;
-    height: 27px;
+    height: 25px;
     text-align: left;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td5 {
     width: 179px;
-    height: 27px;
+    height: 25px;
     text-align: right;
     vertical-align: middle;
     font-size: 10pt;
@@ -55,13 +55,13 @@
   }
   .{{$template|escape:'html'}}_td8 {
     width: 291px;
-    height: 27px;
+    height: 23px;
     text-align: left;
     vertical-align: bottom;
   }
   .{{$template|escape:'html'}}_td9 {
     width: 19px;
-    height: 27px;
+    height: 23px;
     text-align: left;
     vertical-align: bottom;
     cursor: pointer;
