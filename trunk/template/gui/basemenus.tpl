@@ -240,7 +240,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p">
-                <a  href = "?t=processing&m={%22a%22:2}&opts={%22follow%22:1}">Processing</a>
+                <a  href = "?t=processing&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}">Processing</a>
               </td>
             </tr>
           </table>
@@ -256,7 +256,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href = "?t=processing&m={%22a%22:2}&opts={%22follow%22:1}">Processing</a>
+                <a  href = "?t=processing&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}">Processing</a>
               </td>
             </tr>
           </table>
