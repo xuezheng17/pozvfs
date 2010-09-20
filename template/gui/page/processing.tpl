@@ -15,7 +15,7 @@
     border-right: 1px solid #ccc;
     }
   .{{$template|escape:'html'}}_td1,.{{$template|escape:'html'}}_td3,
-  .{{$template|escape:'html'}}_td5,.{{$template|escape:'html'}}_td6 {
+  .{{$template|escape:'html'}}_td6 {
     height: 24px;
     background-color: #E5ECF9;
     padding-left: 5px;
@@ -46,10 +46,12 @@
     background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td5 {
+    background-color: #E5ECF9;
+    text-align: center;
     width: 45px;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 600px;
+    width: 555px;
     font-weight: bold;
     font-size: 12px;
   }
