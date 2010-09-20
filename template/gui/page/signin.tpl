@@ -30,7 +30,7 @@
   }
   .{{$template|escape:'html'}}_Text{
     width: 372px;
-    height: 17px;
+    height: 16px;
   }
   .{{$template|escape:'html'}}_btn{
     text-align:center;

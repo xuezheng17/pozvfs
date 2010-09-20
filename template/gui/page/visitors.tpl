@@ -132,7 +132,7 @@
   }
   .{{$template|escape:'html'}}_inputText {
     width: 200px;
-    height: 15px;
+    height: 16px;
   }
 </style>
 
