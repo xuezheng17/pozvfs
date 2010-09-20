@@ -131,6 +131,7 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.whiteSpace = 'nowrap';
     td.appendChild(document.createTextNode(tmp.brideName));
     td = tr.insertCell(-1);
+    td.style.whiteSpace = 'nowrap';
     td.style.padding = '0 0 0 5px';
     td.style.textAlign = 'left';
     td.style.whiteSpace = 'nowrap';
@@ -149,6 +150,7 @@ HandleProcessing.prototype._updateElements = function() {
     
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
+    td.style.whiteSpace = 'nowrap';
     var span = document.createElement('span');
     if (tmp.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
       if (tmp.operations.length - noExist == 0) {
@@ -191,7 +193,8 @@ HandleProcessing.prototype._updateElements = function() {
       }
     }
     td = tr.insertCell(-1);
-    td.style.padding = '0 0 0 15px';
+    td.style.padding = '0 0 0 5px';
+    td.style.whiteSpace = 'nowrap';
     td.style.textAlign = 'left';
     td.appendChild(document.createTextNode(((tmp.note && tmp.note.length > 30) ? tmp.note.substring(0, 30) + '...' : tmp.note)));
     if (tmp.note && tmp.note.length > 30) {
