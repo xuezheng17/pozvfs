@@ -18,7 +18,7 @@ DialogResult.prototype._createElements = function() {
   DOMUtils.removeChildElements(this._container);
   
   table = document.createElement('table');
-  table.style.width = this._width + 'px';
+  table.style.minWidth = this._width + 'px';
   table.style.height = this._height + 'px';
   table.cellPadding = 0;
   table.cellSpacing = 0;
