@@ -345,7 +345,7 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td30"> Officer Note: </td>
+    <td class="{{$template|escape:'html'}}_td30"> Office Note: </td>
     <td colspan="4">
       <textarea id="{{$template|escape:'html'}}_officerNote_input" class="{{$template|escape:'html'}}_textArea"></textarea>
     </td>
