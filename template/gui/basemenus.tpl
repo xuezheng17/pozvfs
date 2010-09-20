@@ -403,7 +403,7 @@
             <tr>
               <td>
                 <div {{if $menu->b == 1}}class="basemenus_td31Hilight"{{else}}class="basemenus_td31"{{/if}}>
-                  <a href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Search</a>
+                  <a href = "?t=visitornew&m={%22a%22:1,%22b%22:1}">New Enquiry</a>
                 </div>
               </td>
               <td class="basemenus_td5">
@@ -411,7 +411,7 @@
               </td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=visitornew&m={%22a%22:1,%22b%22:2}">New Enquiry</a>
+                  <a href = "?t=visitors&m={%22a%22:1,%22b%22:2}">Search</a>
                 </div>
               <td class="basemenus_td4"></td>
             </tr>
