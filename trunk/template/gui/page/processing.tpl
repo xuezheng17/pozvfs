@@ -18,7 +18,7 @@
   .{{$template|escape:'html'}}_td5,.{{$template|escape:'html'}}_td6 {
     height: 24px;
     background-color: #E5ECF9;
-    padding-left: 15px;
+    padding-left: 5px;
   }
   .{{$template|escape:'html'}}_td1 a,.{{$template|escape:'html'}}_td2 a,.{{$template|escape:'html'}}_td3 a,
   .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a,.{{$template|escape:'html'}}_td6 a{
@@ -27,23 +27,27 @@
     color: #0000cc;
   }
   .{{$template|escape:'html'}}_td1 {
-    width:100px;
+    width:80px;
+  }
+  .{{$template|escape:'html'}}_td3 {
+    width:85px;
   }
   .{{$template|escape:'html'}}_td2 {
-    width:75px;
+    width: 35px;
     text-align: center;
     background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td4 {
-    width:90px;
+    width: 80px;
+    white-space: nowrap;
     text-align: center;
     background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td5 {
-    width:160px;
+    width: 45px;
   }
   .{{$template|escape:'html'}}_td6 {
-    width:230px;
+    width: 600px;
     font-weight: bold;
     font-size: 12px;
   }
@@ -80,15 +84,15 @@
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" id = "{{$template|escape:'html'}}_main_table">
   <tr>
     <td class="{{$template|escape:'html'}}_td2">
-      <a href="#" id = "{{$template|escape:'html'}}_visitNo_button">Visit No.
+      <a href="#" id = "{{$template|escape:'html'}}_visitNo_button"> No.
     </td>
     <td class="{{$template|escape:'html'}}_td1">
       <a href="#" id = "{{$template|escape:'html'}}_brideName_button">Bride Name
     </td>
-    <td class="{{$template|escape:'html'}}_td1">
+    <td class="{{$template|escape:'html'}}_td3">
       <a href="#" id = "{{$template|escape:'html'}}_groomName_button">Groom Name
     </td>
-    <td class="{{$template|escape:'html'}}_td2"> 
+    <td class="{{$template|escape:'html'}}_td5"> 
       <a href="#" id = "{{$template|escape:'html'}}_visited_button">Visited
     </td>
     <td class="{{$template|escape:'html'}}_td4">
@@ -98,7 +102,7 @@
       <a href="#" id = "{{$template|escape:'html'}}_lastUpdated_button">Last Updated
     </td>
     <td class="{{$template|escape:'html'}}_td5">
-      <a href="#" id = "{{$template|escape:'html'}}_number_button">No. of Follow Up Actions
+      <a href="#" id = "{{$template|escape:'html'}}_number_button">Actions
     </td>
     <td class="{{$template|escape:'html'}}_td6">Office Note</td>
   <tr>
