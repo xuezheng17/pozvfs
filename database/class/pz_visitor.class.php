@@ -112,5 +112,9 @@ class pz_visitor {
    * @orm has many pz_ireverse
    */
   public $reverses;
+  /**
+   * @orm char(1024)
+   */
+  public $note;
 }
 ?>

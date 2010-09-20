@@ -39,6 +39,7 @@ class ORMpz_visitor extends ORMBase {
         $epObject->reverses[] = $this->__getEpObject_4_lvl_1_object($myManager, $item, new ORMpz_ireverse(), 'pz_ireverse');
       }
     }
+    $epObject->note = isset($object->note) ? $object->note : '';
     return $epObject;
   }
 
@@ -78,6 +79,7 @@ class ORMpz_visitor extends ORMBase {
         $object->reverses[] = $this->__getObject_4_lvl_1_ep_object($myManager, $item, new ORMpz_ireverse());
       }
     }
+    $object->note = $epObject->note;
     return $object;
   }
 }
