@@ -9,11 +9,13 @@ function DialogResult(doc, container, width, height, operator, now, options) {
   this._unique = MiscUtils.unique();
   
   this._createElements();
-  this._gui = AbstractDialogInput.gui(this._unique, this._doc);
+  this._gui = AbstractDialogResult.gui(this._unique, this._doc);
 };
 
 DialogResult.prototype._createElements = function() {
   var gui, input, table, tr, td, _self = this;
+  
+  DOMUtils.removeChildElements(this._container);
   
   table = document.createElement('table');
   table.style.width = this._width + 'px';
