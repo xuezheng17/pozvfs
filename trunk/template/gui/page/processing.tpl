@@ -52,7 +52,7 @@
       arguments.callee._loaded = true;
       
       var gui = AbstractProcessing.gui('{{$template|escape:javascript}}');
-      //new HandleProcessing(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
+      new HandleProcessing(gui, MiscUtils.decode('{{$operator|escape:javascript}}'), MiscUtils.decode('{{$now|escape:javascript}}'), MiscUtils.decode('{{$options|escape:javascript}}'));
     }
   //-->
 </script>
