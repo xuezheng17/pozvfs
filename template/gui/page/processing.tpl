@@ -24,8 +24,6 @@
   .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a,.{{$template|escape:'html'}}_td6 a{
     font-weight: bold;
     font-size: 12px;
-    text-decoration:none;
-    outline: none;
     color: #0000cc;
   }
   .{{$template|escape:'html'}}_td1 {
@@ -102,6 +100,6 @@
     <td class="{{$template|escape:'html'}}_td5">
       <a href="#" id = "{{$template|escape:'html'}}_number_button">No. of Follow Up Actions
     </td>
-    <td class="{{$template|escape:'html'}}_td6">Officer Note</td>
+    <td class="{{$template|escape:'html'}}_td6">Office Note</td>
   <tr>
 </table>
