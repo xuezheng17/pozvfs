@@ -286,7 +286,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.groomPhone.value = this._visitor.groomPhone;
   this._gui.groomMobile.value = this._visitor.groomMobile;
   this._gui.groomEmail.value = this._visitor.groomEmail;
-  this._gui.officerNote.value = this._visitor.note;
+  this._gui.officeNote.value = this._visitor.note;
   
   /* 设置Visitor的联系方式Event */
   this._gui.brideName.onchange = function() { _self._visitor.brideName = this.value; };
@@ -299,7 +299,7 @@ HandleVisitorExist.prototype._updateElements = function() {
   this._gui.groomPhone.onchange = function() { _self._visitor.groomPhone = this.value; };
   this._gui.groomMobile.onchange = function() { _self._visitor.groomMobile = this.value; };
   this._gui.groomEmail.onchange = function() { _self._visitor.groomEmail = this.value; };
-  this._gui.officerNote.onchange = function() { _self._visitor.note = this.value; };
+  this._gui.officeNote.onchange = function() { _self._visitor.note = this.value; };
   
   /* visitor method */
   this._gui.firstVisitingMethod.options[this._gui.firstVisitingMethod.options.length] = new Option('');
