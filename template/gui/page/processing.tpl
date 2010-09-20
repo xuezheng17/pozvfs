@@ -3,12 +3,12 @@
     margin-top: 20px;
     width: 980px;
     text-align: left;
-    border-top: 1px solid #E5ECF9;
-    border-left: 1px solid #E5ECF9;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
   }
   .{{$template|escape:'html'}}_table1 td{
-    border-bottom: 1px solid #E5ECF9;
-    border-right: 1px solid #E5ECF9;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     }
   .{{$template|escape:'html'}}_td1,.{{$template|escape:'html'}}_td2,.{{$template|escape:'html'}}_td3,
   .{{$template|escape:'html'}}_td4 {
@@ -20,6 +20,9 @@
   .{{$template|escape:'html'}}_td4 a{
     font-weight: bold;
     font-size: 12px;
+    text-decoration:none;
+    outline: none;
+    color: #0000cc;
   }
   .{{$template|escape:'html'}}_td1 {
     width:160px;

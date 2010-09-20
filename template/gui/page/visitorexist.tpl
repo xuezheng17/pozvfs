@@ -51,9 +51,17 @@
     vertical-align: middle;
     font-size: 10pt;
     font-weight: bold;
-    color: #000000; 
     font-family: Arial;
     padding: 1px 5px 0 0;
+  }
+  .{{$template|escape:'html'}}_td30 {
+    width: 157px;
+    text-align: right;
+    vertical-align: top;
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: Arial;
+    padding: 5px 5px 0 0;
   }
   .{{$template|escape:'html'}}_td4 {
      width: 310px;
@@ -144,12 +152,10 @@
   }
   .{{$template|escape:'html'}}_td17 {
     width: 980px;
-    height: 45px;
-    padding-bottom:9px;
-    font-size: 13pt;
+    height: 25px;
+    padding-bottom:8px;
+    font-size: 12pt;
     font-weight: bold;
-    color: #000000; 
-    font-family: Arial;
     text-align: left;
     vertical-align: bottom;
   }
@@ -232,6 +238,11 @@
 	    width: 24px;
 	    height: 1px;
 	  }
+  .{{$template|escape:'html'}}_textArea{
+    vertical-align: top;
+    width: 810px;
+    height: 90px;
+  }
   .{{$template|escape:'html'}}_inputText1{
     width: 310px;
     height: 16px;
@@ -490,10 +501,24 @@
     </td>
   </tr>
   <tr>
+    <td class="{{$template|escape:'html'}}_td30"> Officer Note: </td>
+    <td  colspan="3">
+      <textarea id="{{$template|escape:'html'}}_officerNote_input" class="{{$template|escape:'html'}}_textArea"></textarea>
+    </td>
+  </tr>
+  <tr>
     <td class="{{$template|escape:'html'}}_td11" colspan="4">
       <input type="button" id="{{$template|escape:'html'}}_update_button" class="{{$template|escape:'html'}}_btn" value = "Update"></input>
       <input type="button" id="{{$template|escape:'html'}}_delete_button" class="{{$template|escape:'html'}}_btn" value = "Delete"></input>
       </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6" colspan="5">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td6" colspan="5">
+    </td>
   </tr>
 </table>
 
@@ -514,7 +539,6 @@
       </table>
     </td>
   </tr>
-  
   <tr>
     <td class="{{$template|escape:'html'}}_td19" align="right">
     <table cellPadding="0" cellSpacing="0" class="{{$template|escape:'html'}}_table6" align="right" border=0>

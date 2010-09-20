@@ -74,13 +74,31 @@
   }
   .{{$template|escape:'html'}}_td11 {
     width: 291px;
-    height: 55px;
+    height: 25px;
     text-align: right;
-    vertical-align: bottom;
+    vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td12 {
     width: 24px;
     height: 1px;
+  }
+  .{{$template|escape:'html'}}_td13 {
+    width: 980px;
+    height: 25px;
+    padding-bottom:8px;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+  }
+  .{{$template|escape:'html'}}_td30 {
+    width: 157px;
+    text-align: right;
+    vertical-align: top;
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: Arial;
+    padding: 5px 5px 0 0;
   }
   .{{$template|escape:'html'}}_inputText1{
     width: 309px;
@@ -93,6 +111,11 @@
   .{{$template|escape:'html'}}_inputText3{
     width: 172px;
     height: 16px;
+  }
+  .{{$template|escape:'html'}}_textArea{
+    vertical-align: top;
+    width: 810px;
+    height: 90px;
   }
   .{{$template|escape:'html'}}_select{
     width: 291px;
@@ -319,6 +342,12 @@
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td6" colspan="5">
+    </td>
+  </tr>
+  <tr>
+    <td class="{{$template|escape:'html'}}_td30"> Officer Note: </td>
+    <td colspan="4">
+      <textarea id="{{$template|escape:'html'}}_officerNote_input" class="{{$template|escape:'html'}}_textArea"></textarea>
     </td>
   </tr>
   <tr>
