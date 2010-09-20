@@ -134,16 +134,16 @@ a.progressCancel:hover {
 }
 .popupSimpleBase {
   position: absolute;
-  border: 1px solid 000;
+  border: 1px solid #8c0978;
   background-color: #fff;
 }
 .popupSimpleBase1 {
   position: absolute;
-  border: 1px solid 716f64;
+  border: 1px solid #716f64;
   background-color: #fff;
 }
 .popupSimpleWhite {
-  background-color: #fff;
+  background-image: url(image/common/back.png);
   position: absolute !important;
   display: block !important;
   top: 0px;
