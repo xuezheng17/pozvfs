@@ -8,7 +8,8 @@ function ModulePopupBoxSimple(doc, container, width, height, operator, now, opti
   this._options = options;
   
   this._position = (options && options.pos) ? options.pos : [0, 0];
-
+  this._where = (options && options.where) ? options.where : null;
+  
   this._background = null;
   this._createElements();
 }
@@ -29,6 +30,10 @@ ModulePopupBoxSimple.prototype._createElements = function() {
   this._background.appendChild(this._container2);
   
   this._gui = new PopupBoxSimple(this._doc, this._container2, this._width, this._height, this._operator, this._now, this._options)._gui;
+  
+  if (this._where) {
+    this._background.onclick = function() { _self._close(); };
+  }
 };
 
 
