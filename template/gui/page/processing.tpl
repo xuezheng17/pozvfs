@@ -19,7 +19,7 @@
   .{{$template|escape:'html'}}_td1 a,.{{$template|escape:'html'}}_td2 a,.{{$template|escape:'html'}}_td3 a,
   .{{$template|escape:'html'}}_td4 a{
     font-weight: bold;
-    font-size: 13px;
+    font-size: 12px;
   }
   .{{$template|escape:'html'}}_td1 {
     width:160px;
