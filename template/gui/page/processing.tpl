@@ -28,9 +28,11 @@
   }
   .{{$template|escape:'html'}}_td1 {
     width:80px;
+    white-space: nowrap;
   }
   .{{$template|escape:'html'}}_td3 {
     width:85px;
+    white-space: nowrap;
   }
   .{{$template|escape:'html'}}_td2 {
     width: 35px;
