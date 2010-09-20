@@ -20,6 +20,7 @@ AbstractVisitorNew.gui = function(unique) {
            receptionLocation: document.getElementById(unique + '_receptionLocation_select'),
            receptionLocationAdd: document.getElementById(unique + '_receptionLocationAdd_button'),
            source: document.getElementById(unique + '_source_select'),
+           officerNote: document.getElementById(unique + '_officerNote_input'),
            sourceAdd: document.getElementById(unique + '_sourceAdd_button'),
            firstVisitingMethod: document.getElementById(unique + '_fristVisitingMethod_select'),
            firstVisitingDate: document.getElementById(unique + '_fristVisitingDate_input'),
