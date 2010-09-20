@@ -1,7 +1,7 @@
 function AbstractProcessing() {
 };
 
-AbstractReceptionLocation.gui = function(unique) {
+AbstractProcessing.gui = function(unique) {
   return { page: document.getElementById(unique + '_page_div'),
            groomName: document.getElementById(unique + '_groomName_button'),
            brideName: document.getElementById(unique + '_brideName_button'),
@@ -10,6 +10,6 @@ AbstractReceptionLocation.gui = function(unique) {
            lastUpdated: document.getElementById(unique + '_lastUpdated_button'),
            number: document.getElementById(unique + '_number_button'),
            visitNo: document.getElementById(unique + '_visitNo_button'),
-           table: document.getElementById(unique + '_main_table'),
+           mains: document.getElementById(unique + '_main_table'),
          };
 };

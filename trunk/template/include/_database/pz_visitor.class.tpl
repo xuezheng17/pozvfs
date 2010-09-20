@@ -29,6 +29,7 @@ pz_visitor.instance = function() {
            operator: '',
            operatorMessage: '',
            isVisited: 0,
-           reverses: []
+           reverses: [],
+           note: ''
          }
 };

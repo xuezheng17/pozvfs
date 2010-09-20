@@ -93,6 +93,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.groomPhone.value = this._visitor.groomPhone;
   this._gui.groomMobile.value = this._visitor.groomMobile;
   this._gui.groomEmail.value = this._visitor.groomEmail;
+  this._gui.officerNote.value = this._visitor.note;
   
   /* 设置Visitor的联系方式Event */
   this._gui.brideName.onchange = function() { _self._visitor.brideName = this.value; };
@@ -105,6 +106,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.groomPhone.onchange = function() { _self._visitor.groomPhone = this.value; };
   this._gui.groomMobile.onchange = function() { _self._visitor.groomMobile = this.value; };
   this._gui.groomEmail.onchange = function() { _self._visitor.groomEmail = this.value; };
+  this._gui.officerNote.onchange = function() { _self._visitor.note = this.value; };
   
   /* 联系方式的单词下拉框 */
   
@@ -339,12 +341,11 @@ this._gui.groomEmail.onkeyup = function() { if (_self._gui.groomEmail.value.leng
                                                                       new RequestUtils()._write('pz_isource', [object], [], function() { _self._retrieveSources.call(_self); }, { pos: DOMUtils.findPos(_self._gui.sourceAdd) });
                                                                     };
                                              var func2 = function() { tmp._close();
-               _self._popupSimple                                                  };
+                                                                    };
                                              pos = DOMUtils.findPos(this);
                                              tmp = new ModulePopupBoxSimple(document, document.body, null, null, _self._operator, _self._now, { pos: pos});
                                              var dialog = new ModuleDialogIObject(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { name: 'pz_isource', title: 'Sources', item: object });
                                              MiscUtils.dialog(tmp, null, func1, func2, { ok: 'Add'});
-                                             
                                            };
   this._gui.receptionLocationAdd.onclick = function() { var object = pz_ireception.instance();
                                                         var func1 = function() { tmp._close();
