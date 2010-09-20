@@ -12,6 +12,7 @@
     width: 980px;
     height: 28px;
     background-color:#e5ecf9;
+    margin-bottom:10px;
   }
   .{{$template|escape:'html'}}_table4 {
     width: 980px;
@@ -501,10 +502,8 @@
     </td>
   </tr>
   <tr>
-    <td class="{{$template|escape:'html'}}_td30"> Officer Note: </td>
-    <td  colspan="3">
-      <textarea id="{{$template|escape:'html'}}_officerNote_input" class="{{$template|escape:'html'}}_textArea"></textarea>
-    </td>
+    <td class="{{$template|escape:'html'}}_td30"> Office Note: </td>
+    <td  colspan="3" class="{{$template|escape:'html'}}_textArea" id="{{$template|escape:'html'}}_officeNote_div"></td>
   </tr>
   <tr>
     <td class="{{$template|escape:'html'}}_td11" colspan="4">
