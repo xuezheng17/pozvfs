@@ -125,13 +125,15 @@ HandleProcessing.prototype._updateElements = function() {
     td.appendChild(a);
     
     td = tr.insertCell(-1);
-    td.style.padding = '0 0 0 15px';
+    td.style.padding = '0 0 0 5px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'middle';
+    td.style.whiteSpace = 'nowrap';
     td.appendChild(document.createTextNode(tmp.brideName));
     td = tr.insertCell(-1);
-    td.style.padding = '0 0 0 15px';
+    td.style.padding = '0 0 0 5px';
     td.style.textAlign = 'left';
+    td.style.whiteSpace = 'nowrap';
     td.appendChild(document.createTextNode(tmp.brideName));
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
@@ -146,8 +148,7 @@ HandleProcessing.prototype._updateElements = function() {
     
     
     td = tr.insertCell(-1);
-    td.style.padding = '0 0 0 15px';
-    td.style.textAlign = 'left';
+    td.style.textAlign = 'center';
     var span = document.createElement('span');
     if (tmp.firstVisitMethod == '{{$smarty.const.Visitor_Method_Visitor|escape:'javascript'}}') {
       if (tmp.operations.length - noExist == 0) {
