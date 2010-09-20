@@ -38,6 +38,8 @@
   }
   .{{$template|escape:'html'}}_td5 {
     width:190px;
+    font-weight: bold;
+    font-size: 12px;
   }
 </style>
   
@@ -83,8 +85,6 @@
     <td class="{{$template|escape:'html'}}_td4">
       <a href="#" id = "{{$template|escape:'html'}}_number_button">No. of Follow Up Actions
     </td>
-    <td class="{{$template|escape:'html'}}_td5">
-      <a href="#" id = "{{$template|escape:'html'}}_note_button">Officer Note
-    </td>
+    <td class="{{$template|escape:'html'}}_td5">Officer Note</td>
   <tr>
 </table>
