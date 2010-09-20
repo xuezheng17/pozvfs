@@ -8,6 +8,7 @@ AbstractReceptionLocation.gui = function(unique) {
            weddingDay: document.getElementById(unique + '_weddingDay_button'),
            lastUpdated: document.getElementById(unique + '_lastUpdated_button'),
            number: document.getElementById(unique + '_number_button'),
+           note: document.getElementById(unique + '_note_button'),
            table: document.getElementById(unique + '_main_table'),
          };
 };
