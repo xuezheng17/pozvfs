@@ -106,6 +106,33 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.groomMobile.onchange = function() { _self._visitor.groomMobile = this.value; };
   this._gui.groomEmail.onchange = function() { _self._visitor.groomEmail = this.value; };
   
+  /* 联系方式的单词下拉框 */
+  
+  this._gui.brideName.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                             var pos = [pos1[0], pos1[1] + 82];
+                                             var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + " ";
+                                             var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                             new ModuleDialogResult(document, tmp._gui.panel, 309, 30, _self._operator, _self._now, {item: _self._gui.brideName, query: query, popupBox: tmp});
+                                             return false;
+                                           };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   /* visitor method */
   this._gui.firstVisitingMethod.options[this._gui.firstVisitingMethod.options.length] = new Option('');
   for (var i = 0, il = VisitorMethod.array().length; i < il; i++) {
