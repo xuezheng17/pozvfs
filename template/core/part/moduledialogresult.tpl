@@ -53,10 +53,11 @@ ModuleDialogResult.prototype._updateElements = function() {
       var res = this._results[i];
       tr = this._gui.mains.insertRow(-1);
       td = tr.insertCell(-1);
-      td.style.height = '24px';
+      td.style.height = '30px';
       td.style.textAlign = 'left';
       td.style.cursor = 'default';
-      td.style.padding = (i == this._results.length - 1) ? '0px 2px 3px 3px' : '0px 2px 12px 3px';
+      td.style.verticalAlign = 'middle';
+      td.style.padding = (i == this._results.length - 1) ? '6px 3px' : '6px 3px';
       td._obj = res;
       td.onmouseover = function() {this.style.backgroundColor = '#e2eaff';};
       td.onmouseout = function() {this.style.backgroundColor = '#fff';};
@@ -64,7 +65,6 @@ ModuleDialogResult.prototype._updateElements = function() {
                               };
                               
       div1 = document.createElement('div');
-      div1.style.padding = '3px 0 0 0 ';
       div1.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id)));
       td.appendChild(div1);
       
@@ -230,9 +230,9 @@ ModuleDialogResult.prototype._updateElements = function() {
       
       
       div2 = document.createElement('div');
-      div2.style.padding = '3px 0 3px 0';
+      div2.style.margin = '3px 0 0 0';
       var span = document.createElement('span');
-      span.style.margin = '0 0 0 32px';
+      span.style.margin = '0 0 0 31px';
       span.appendChild(document.createTextNode(' '));
       div2.appendChild(span);
       td.appendChild(div2);

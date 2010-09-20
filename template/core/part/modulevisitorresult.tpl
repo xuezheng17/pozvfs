@@ -22,7 +22,7 @@ ModuleVisitorResult.prototype._createElements = function() {
   this._gui.title.style.fontWeight = 'bold';
   var a = this._doc.createElement('a');
   a.style.fontSize = '13px';
-  a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: (this._menu) ? this._menu : 1, b: (this._cont) ? this._cont : 1}) + '&opts=' + MiscUtils.encode({id: this._item.id, menu: this._menu, cont: this._cont});
+  a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: (this._menu) ? this._menu : 1, b: (this._cont) ? this._cont : 2}) + '&opts=' + MiscUtils.encode({id: this._item.id, menu: this._menu, cont: this._cont});
   a.appendChild(this._doc.createTextNode('No. ' + POZVFSUtils.visitorId(this._item.id)));
   this._gui.title.appendChild(a);
   
