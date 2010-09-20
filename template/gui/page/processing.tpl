@@ -11,13 +11,13 @@
     border-right: 1px solid #ccc;
     }
   .{{$template|escape:'html'}}_td1,.{{$template|escape:'html'}}_td2,.{{$template|escape:'html'}}_td3,
-  .{{$template|escape:'html'}}_td4 {
+  .{{$template|escape:'html'}}_td4,.{{$template|escape:'html'}}_td5 {
     height: 24px;
     background-color: #E5ECF9;
     padding-left: 15px;
   }
   .{{$template|escape:'html'}}_td1 a,.{{$template|escape:'html'}}_td2 a,.{{$template|escape:'html'}}_td3 a,
-  .{{$template|escape:'html'}}_td4 a{
+  .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a{
     font-weight: bold;
     font-size: 12px;
     text-decoration:none;
@@ -25,16 +25,19 @@
     color: #0000cc;
   }
   .{{$template|escape:'html'}}_td1 {
-    width:160px;
+    width:100px;
   }
   .{{$template|escape:'html'}}_td2 {
-    width:90px;
+    width:80px;
   }
   .{{$template|escape:'html'}}_td3 {
-    width:150px;
+    width:100px;
   }
   .{{$template|escape:'html'}}_td4 {
-    width:180px;
+    width:150px;
+  }
+  .{{$template|escape:'html'}}_td5 {
+    width:190px;
   }
 </style>
   
@@ -79,6 +82,9 @@
     </td>
     <td class="{{$template|escape:'html'}}_td4">
       <a href="#" id = "{{$template|escape:'html'}}_number_button">No. of Follow Up Actions
+    </td>
+    <td class="{{$template|escape:'html'}}_td5">
+      <a href="#" id = "{{$template|escape:'html'}}_note_button">Officer Note
     </td>
   <tr>
 </table>
