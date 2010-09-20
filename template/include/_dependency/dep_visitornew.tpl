@@ -1,5 +1,5 @@
 {{include file='api/page/abstractvisitornew.tpl'}}
-{{include file='api/part/abstractdialoginput.tpl'}}
+{{include file='api/part/abstractdialogresult.tpl'}}
 {{include file='include/common/domutils.tpl'}}
 {{include file='include/library/json/json2.tpl'}}
 {{include file='include/common/miscutils.tpl'}}

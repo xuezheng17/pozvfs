@@ -24,7 +24,7 @@ ModulePopupBoxSimple.prototype._createElements = function() {
   this._container.appendChild(this._background);
   
   this._container2 = this._doc.createElement('div');
-  this._container2.className = (this._where)? 'popupSimpleBase1' : 'popupSimpleBase';
+  this._container2.className = (this._where) ? 'popupSimpleBase1' : 'popupSimpleBase';
   this._container2.style.top = ((this._position[1] - 60) > 0) ? (this._position[1] - 60) + 'px' : '0px';
   this._container2.style.left = ((this._position[0] + 200) > window.screen.width) ? (window.screen.width - 200) + 'px' : this._position[0] + 'px';
   this._background.appendChild(this._container2);

@@ -9,13 +9,15 @@ function ModuleDialogResult(doc, container, width, height, operator, now, option
 
   this._query = (options && options.query) ? options.query : '';
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
-  
+  this._item = (options && options.item) ? options.item : null;
+
   this._createElements();
 };
 
 ModuleDialogResult.prototype._createElements = function() {
   var _self = this;
   this._gui = new DialogResult(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
+  
   this._loadData();
 };
 
@@ -50,132 +52,274 @@ ModuleDialogResult.prototype._updateElements = function() {
       var res = this._results[i];
       tr = this._gui.mains.insertRow(-1);
       td = tr.insertCell(-1);
+      td.style.height = '24px';
       td.style.textAlign = 'left';
-      td.style.padding = '0 0 0 5px';
+      td.style.padding = '0 0 0 3px';
+      td._obj = res;
+      td.onmouseover = function() {this.style.backgroundColor = '#e2eaff';};
+      td.onmouseout = function() {this.style.backgroundColor = '#fff';};
+      td.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: this._obj.id});
+                              };
+                              
       div1 = document.createElement('div');
-      div1.appendChild(document.createTextNode(res.id));
+      div1.style.width = '10px';
+      div1.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id)));
       td.appendChild(div1);
-      span1 = document.createElement('span');
-      div1.appendChild(span1);
-      strs = res.brideName.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span1.style.fontWeight = 'bold';
-        }
-        span1.appendChild(document.createTextNode(str));
-      }
-      span1.appendChild(document.createTextNode(','));
       
-      span2 = document.createElement('span');
-      span2.style.margin = '0 0 0 3px';
-      div1.appendChild(span2);
-      strs = res.brideAddress.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span2.style.fontWeight = 'bold';
-        }
-        span2.appendChild(document.createTextNode(str));
-      }
+      if (res.brideName == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(' - ,'));
+        div1.appendChild(span0);
+      } else {
+        str0 = res.brideName.substring(0, res.brideName.indexOf(this._item.value));
+        str1 = res.brideName.substring(res.brideName.indexOf(this._item.value), res.brideName.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.brideName.substring(res.brideName.indexOf(this._item.value) + this._item.value.length);
+  
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
       
-      span3 = document.createElement('span');
-      span3.style.margin = '0 0 0 3px';
-      div1.appendChild(span3);
-      strs = res.bridePhone.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span3.style.fontWeight = 'bold';
-        }
-        span3.appendChild(document.createTextNode(str));
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
       
-      span4 = document.createElement('span');
-      span4.style.margin = '0 0 0 3px';
-      div1.appendChild(span4);
-      strs = res.brideMobile.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span4.style.fontWeight = 'bold';
-        }
-        span4.appendChild(document.createTextNode(str));
+      if (res.brideAddress == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(' - ,'));
+        div1.appendChild(span0);
+      } else {
+        str0 = res.brideAddress.substring(0, res.brideAddress.indexOf(this._item.value));
+        str1 = res.brideAddress.substring(res.brideAddress.indexOf(this._item.value), res.brideAddress.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.brideAddress.substring(res.brideAddress.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
       
-      span5 = document.createElement('span');
-      span5.style.margin = '0 0 0 3px';
-      div1.appendChild(span5);
-      strs = res.brideEmail.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span5.style.fontWeight = 'bold';
-        }
-        span5.appendChild(document.createTextNode(str));
+      if (res.bridePhone == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div1.appendChild(span0);
+      } else {
+        str0 = res.bridePhone.substring(0, res.bridePhone.indexOf(this._item.value));
+        str1 = res.bridePhone.substring(res.bridePhone.indexOf(this._item.value), res.bridePhone.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.bridePhone.substring(res.bridePhone.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
+      
+      if (res.brideMobile == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div1.appendChild(span0);
+      } else {
+        str0 = res.brideMobile.substring(0, res.brideMobile.indexOf(this._item.value));
+        str1 = res.brideMobile.substring(res.brideMobile.indexOf(this._item.value), res.brideMobile.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.brideMobile.substring(res.brideMobile.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
+      }
+      
+      if (res.brideEmail == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div1.appendChild(span0);
+      } else {
+        str0 = res.brideEmail.substring(0, res.brideEmail.indexOf(this._item.value));
+        str1 = res.brideEmail.substring(res.brideEmail.indexOf(this._item.value), res.brideEmail.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.brideEmail.substring(res.brideEmail.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
+      }
+      
       
       div2 = document.createElement('div');
+      div2.style.width = '10px';
       div2.appendChild(document.createTextNode(''));
       td.appendChild(div2);
       
-      span6 = document.createElement('span');
-      div2.appendChild(span6);
-      strs = res.groomName.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span6.style.fontWeight = 'bold';
-        }
-        span6.appendChild(document.createTextNode(str));
+      if (res.groomName == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div2.appendChild(span0);
+      } else {
+        str0 = res.groomName.substring(0, res.groomName.indexOf(this._item.value));
+        str1 = res.groomName.substring(res.groomName.indexOf(this._item.value), res.groomName.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.groomName.substring(res.groomName.indexOf(this._item.value) + this._item.value.length);
+  
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
+      
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
-      span7 = document.createElement('span');
-      span7.style.margin = '0 0 0 3px';
-      div2.appendChild(span7);
-      strs = res.groomAddress.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span7.style.fontWeight = 'bold';
-        }
-        span7.appendChild(document.createTextNode(str));
+      if (res.groomAddress == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div2.appendChild(span0);
+      } else {
+        str0 = res.groomAddress.substring(0, res.groomAddress.indexOf(this._item.value));
+        str1 = res.groomAddress.substring(res.groomAddress.indexOf(this._item.value), res.groomAddress.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.groomAddress.substring(res.groomAddress.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
-      span8 = document.createElement('span');
-      span8.style.margin = '0 0 0 3px';
-      div2.appendChild(span8);
-      strs = res.groomPhone.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span8.style.fontWeight = 'bold';
-        }
-        span8.appendChild(document.createTextNode(str));
+      if (res.groomPhone == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div2.appendChild(span0);
+      } else {
+        str0 = res.groomPhone.substring(0, res.groomPhone.indexOf(this._item.value));
+        str1 = res.groomPhone.substring(res.groomPhone.indexOf(this._item.value), res.groomPhone.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.groomPhone.substring(res.groomPhone.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
-      span9 = document.createElement('span');
-      span2.style.margin = '0 0 0 9px';
-      div2.appendChild(span9);
-      strs = res.groomMobile.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span9.style.fontWeight = 'bold';
-        }
-        span9.appendChild(document.createTextNode(str));
+      if (res.groomMobile == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div2.appendChild(span0);
+      } else {
+        str0 = res.groomMobile.substring(0, res.groomMobile.indexOf(this._item.value));
+        str1 = res.groomMobile.substring(res.groomMobile.indexOf(this._item.value), res.groomMobile.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.groomMobile.substring(res.groomMobile.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
-      span10 = document.createElement('span');
-      span10.style.margin = '0 0 0 3px';
-      div2.appendChild(span10);
-      strs = res.groomEmail.split(this._item.value);
-      for (var i=0; i < strs.length; i++) {
-        var str = strs[i];
-        if (str == this._item.value) {
-          span10.style.fontWeight = 'bold';
-        }
-        span10.appendChild(document.createTextNode(str));
+      if (res.groomEmail == '') {
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode('-'));
+        div2.appendChild(span0);
+      } else {
+        str0 = res.groomEmail.substring(0, res.groomEmail.indexOf(this._item.value));
+        str1 = res.groomEmail.substring(res.groomEmail.indexOf(this._item.value), res.groomEmail.indexOf(this._item.value) + this._item.value.length);
+        str2 = res.groomEmail.substring(res.groomEmail.indexOf(this._item.value) + this._item.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
     }
   }

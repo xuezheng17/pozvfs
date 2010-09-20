@@ -109,28 +109,84 @@ HandleVisitorNew.prototype._updateElements = function() {
   /* 联系方式的单词下拉框 */
   
   this._gui.brideName.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
-                                             var pos = [pos1[0], pos1[1] + 82];
-                                             var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + " ";
+                                             var pos = [pos1[0] - 1, pos1[1] + 82];
                                              var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
-                                             new ModuleDialogResult(document, tmp._gui.panel, 309, 30, _self._operator, _self._now, {item: _self._gui.brideName, query: query, popupBox: tmp});
+                                             var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                             new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.brideName, query: query, popupBox: tmp});
                                              return false;
                                            };
   
+  this._gui.groomName.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                             var pos = [pos1[0] - 1, pos1[1] + 82];
+                                             var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                             var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                             new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.groomName, query: query, popupBox: tmp});
+                                             return false;
+                                           };
   
+  this._gui.brideAddress.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                                var pos = [pos1[0] - 1, pos1[1] + 82];
+                                                var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.brideAddress, query: query, popupBox: tmp});
+                                                return false;
+                                              };
   
+  this._gui.groomAddress.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                                var pos = [pos1[0] - 1, pos1[1] + 82];
+                                                var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.groomAddress, query: query, popupBox: tmp});
+                                                return false;
+                                              };
   
+  this._gui.bridePhone.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                              var pos = [pos1[0] - 1, pos1[1] + 82];
+                                              var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                              new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.bridePhone, query: query, popupBox: tmp});
+                                              return false;
+                                            };
   
+  this._gui.groomPhone.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                              var pos = [pos1[0] - 1, pos1[1] + 82];
+                                              var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                              new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.groomPhone, query: query, popupBox: tmp});
+                                              return false;
+                                            };
   
+  this._gui.brideMobile.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                               var pos = [pos1[0] - 1, pos1[1] + 82];
+                                               var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                               new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.brideMobile, query: query, popupBox: tmp});
+                                               return false;
+                                             };
+ 
+  this._gui.groomMobile.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                               var pos = [pos1[0] - 1, pos1[1] + 82];
+                                               var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                               new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.groomMobile, query: query, popupBox: tmp});
+                                               return false;
+                                             };
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  this._gui.brideEmail.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                              var pos = [pos1[0] - 1, pos1[1] + 82];
+                                              var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                              new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.brideEmail, query: query, popupBox: tmp});
+                                              return false;
+                                            };
+
+this._gui.groomEmail.onkeyup = function() { var pos1 = DOMUtils.findPos(this);
+                                            var pos = [pos1[0] - 1, pos1[1] + 82];
+                                            var tmp = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: pos, where: 1});
+                                            var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                            new ModuleDialogResult(document, tmp._gui.panel, 311, 30, _self._operator, _self._now, {item: _self._gui.groomEmail, query: query, popupBox: tmp});
+                                            return false;
+                                          };
   
   
   /* visitor method */

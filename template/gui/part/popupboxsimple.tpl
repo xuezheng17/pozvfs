@@ -14,6 +14,9 @@ function PopupBoxSimple(doc, container, width, height, operator, now, options) {
 
 PopupBoxSimple.prototype._createElements = function() {
   var table, tr, td;
+  
+  DOMUtils.removeChildElements(this._container2);
+  
   table = this._doc.createElement('table');
   table.cellPadding = 0;
   table.cellSpacing = 0;
@@ -22,6 +25,6 @@ PopupBoxSimple.prototype._createElements = function() {
   tr = table.insertRow(-1);
   td = tr.insertCell(-1);
   td.align = 'center';
-  td.style.padding = '10px';
+  td.style.padding = (this._options.where) ? '0px' : '10px';
   td.id = this._unique + '_panel_div';
 };
