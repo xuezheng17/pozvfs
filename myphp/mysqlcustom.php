@@ -50,6 +50,9 @@ try {
     case 'performanceSales': 
       performanceSales($myPdo);
       break;
+    case 'findByRequest': 
+      findByRequest($myPdo);
+      break;
     default:
       break;
   }
@@ -558,4 +561,27 @@ function performanceSales($myPdo) {
   echo json_encode($result);
 }
 
+function findByRequest($myPdo) {
+  global $tableVisitor;
+  
+  $result = new stdClass();
+  $result->data = array();
+  
+  $sql = MiscUtils::getParam('sql', '');
+  if ($sql) {
+    try {
+      $stmt = $myPdo->prepare($sql);
+      $stmt->execute();
+      $i = 0; $count = 0;
+      while ($i < $stmt->rowCount()) {
+        $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+        $result->data[] = $tmp;
+        $i++;
+      }
+      echo json_encode($result);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
 ?>
