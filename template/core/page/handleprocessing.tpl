@@ -4,6 +4,13 @@ function HandleProcessing(gui, operator, now, options) {
   this._now = now;
   this._options = options;
   
+  this._cont = (options && options.follow) ? options.follow : 0;
+  if (this._cont == 1) {
+    this._conc = ' AND v.isVisited = 1';
+  } else if (this._cont == 2) {
+    this._conc = ' AND v.isVisited = 0' ;
+  }
+  
   this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, null);
   this._popupBox._close();
   
@@ -39,7 +46,7 @@ HandleProcessing.prototype._retrieveVisitors = function(page, order, queue, cond
     var tmp = condition.indexOf('WHERE');
     condition = condition.substr((tmp != -1) ? tmp + 6 : 0);
   }
-  var args = 'c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + ((condition) ? ' AND ' + condition : '') + '&p=' + page + '&s=20' + '&o=' + ((order) ? order : 'v.e_oid' ) + '&q=' + ((queue) ? queue : 'DESC') + '&con=' + ((cond) ? cond : '');
+  var args = 'c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + this._conc + ((condition) ? ' AND ' + condition : '') + '&p=' + page + '&s=20' + '&o=' + ((order) ? order : 'v.e_oid' ) + '&q=' + ((queue) ? queue : 'DESC') + '&con=' + ((cond) ? cond : '');
   new RequestUtils()._mysql('processing', args, function(result, params) { _self._visitors = result.data;
                                                                            _self._parameters = result;
                                                                            _self._verifyData.call(_self);
@@ -113,7 +120,7 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.textAlign = 'center';
     td.style.verticalAlign = 'middle';
     var a = document.createElement('a');
-    a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2}) + '&opts=' + MiscUtils.encode({id: tmp.id, menu: 2});
+    a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2}) + '&opts=' + MiscUtils.encode({id: tmp.id, menu: 2, cont: this._cont});
     a.appendChild(document.createTextNode(POZVFSUtils.visitorId(tmp.id)));
     td.appendChild(a);
     
@@ -151,10 +158,6 @@ HandleProcessing.prototype._updateElements = function() {
         span.style.color = '#cc66cc';
         span.appendChild(document.createTextNode(' ( 0 ) '));
         td.appendChild(span);
-        span = document.createElement('span');
-        span.style.color = '#ff0000';
-        span.appendChild(document.createTextNode('Follow up actions'));
-        td.appendChild(span);
       } else {
         span.style.color = '#009900';
         span.appendChild(document.createTextNode((tmp.operations.length - noExist)));
@@ -163,16 +166,12 @@ HandleProcessing.prototype._updateElements = function() {
         span.style.color = '#66cc66';
         span.appendChild(document.createTextNode(' ( 0 ) '));
         td.appendChild(span);
-        span = document.createElement('span');
-        span.style.color = '#009900';
-        span.appendChild(document.createTextNode('Follow up actions'));
-        td.appendChild(span);
       }
     } else {
       if (tmp.operations.length == 0) {
         span = document.createElement('span');
         span.style.color = '#FF0000';
-        span.appendChild(document.createTextNode('No Follow up actions'));
+        span.appendChild(document.createTextNode('None'));
         td.appendChild(span);
       } else {
         if (tmp.isVisited) {
@@ -183,13 +182,9 @@ HandleProcessing.prototype._updateElements = function() {
           span.style.color = (after.length == 0) ? '#cc66cc' : '#66cc66';
           span.appendChild(document.createTextNode(' ( ' + before.length + ' ) '));
           td.appendChild(span);
-          span = document.createElement('span');
-          span.style.color = (after.length == 0) ? '#ff0000' : '#009900';
-          span.appendChild(document.createTextNode('Follow up actions'));
-          td.appendChild(span);
         } else {
           span.style.color = '#009900';
-          span.appendChild(document.createTextNode((tmp.operations.length + ' Follow up actions')));
+          span.appendChild(document.createTextNode((tmp.operations.length)));
           td.appendChild(span);
         }
       }
