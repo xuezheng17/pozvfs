@@ -60,7 +60,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       td._obj = res;
       td.onmouseover = function() {this.style.backgroundColor = '#e2eaff';};
       td.onmouseout = function() {this.style.backgroundColor = '#fff';};
-      td.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 1 }) + '&opts=' + MiscUtils.encode({id: this._obj.id});
+      td.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 2}) + '&opts=' + MiscUtils.encode({id: this._obj.id});
                               };
                               
       div1 = document.createElement('div');
