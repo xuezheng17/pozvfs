@@ -29,6 +29,9 @@ try {
     case 'followUp':
       followUp($myPdo);
       break;
+    case 'processing':
+      processing($myPdo);
+      break;
     case 'statAdvanced':
       statAdvanced($myPdo);
       break;
@@ -188,6 +191,64 @@ function followUp($myPdo) {
   }
   echo json_encode($result);
 }
+
+function processing($myPdo) {
+  global $tableVisitor, $tableOperation;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $cond = MiscUtils::getParam('con', NULL);
+  
+  $sql = "SELECT DISTINCT v.e_oid AS total FROM $tableVisitor AS v $condition";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $result->total = $stmt->rowCount();
+  
+  $sql = "SELECT DISTINCT v.e_oid AS id, v.createdDate AS createdDate, v.weddingDay AS weddingDay, v.brideName AS brideName, v.groomName AS groomName, v.creator AS creator, v.firstVisitDate AS firstVisitDate, v.firstVisitMethod AS firstVisitMethod, v.status AS status, v.isVisited as isVisited, v.note as note FROM $tableVisitor AS v $condition $cond ORDER BY $order $queue LIMIT $pageSkip, $size";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $tmp->createdDate = ($tmp->createdDate) ? SimpleDate::fromStamp($tmp->createdDate) : NULL;
+    $tmp->weddingDay = ($tmp->weddingDay) ? SimpleDate::fromStamp($tmp->weddingDay) : NULL;
+    $tmp->firstVisitDate = ($tmp->firstVisitDate) ? SimpleDate::fromStamp($tmp->firstVisitDate) : NULL;
+    $tmp->isVisited = ($tmp->isVisited == 1) ? true : false;
+    $tmp->operations = array();
+    
+    $sql2 = "SELECT DISTINCT o.e_oid AS id, o.cancelled AS cancelled, o.operateType AS operateType, o.operatedDate AS operatedDate, o.visitId as visitId, o.firstVisited as firstVisited FROM $tableOperation AS o WHERE o.visitId = $tmp->id AND o.cancelled = 0 AND o.operateType != 'Custom Note' ORDER BY 'o.e_oid' $queue";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    
+    $j = 0;
+    while ($j < $stmt2->rowCount()) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp2->operatedDate = ($tmp2->operatedDate) ? SimpleDate::fromStamp($tmp2->operatedDate) : NULL;
+      $tmp2->cancelled = ($tmp2->cancelled == 1) ? true : false;
+      $tmp2->firstVisited = ($tmp2->firstVisited == 1) ? true : false;
+      $tmp->operations[] = $tmp2;
+      $j++;
+    }
+    $result->data[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
 
 function statAdvanced($myPdo) {
   global $tableVisitor;
