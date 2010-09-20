@@ -120,7 +120,7 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.textAlign = 'center';
     td.style.verticalAlign = 'middle';
     var a = document.createElement('a');
-    a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2}) + '&opts=' + MiscUtils.encode({id: tmp.id, menu: 2, cont: this._cont});
+    a.href = '?t=visitorexist&m=' + MiscUtils.encode({a: 2, b: this._cont}) + '&opts=' + MiscUtils.encode({id: tmp.id, menu: 2, cont: this._cont});
     a.appendChild(document.createTextNode(POZVFSUtils.visitorId(tmp.id)));
     td.appendChild(a);
     
@@ -196,8 +196,8 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.padding = '0 0 0 5px';
     td.style.whiteSpace = 'nowrap';
     td.style.textAlign = 'left';
-    td.appendChild(document.createTextNode(((tmp.note && tmp.note.length > 30) ? tmp.note.substring(0, 30) + '...' : tmp.note)));
-    if (tmp.note && tmp.note.length > 30) {
+    td.appendChild(document.createTextNode(((tmp.note && tmp.note.length > 80) ? tmp.note.substring(0, 80) + '...' : tmp.note)));
+    if (tmp.note && tmp.note.length > 80) {
       var a = document.createElement('a');
       a.href = '#';
       a.appendChild(document.createTextNode('more'));
