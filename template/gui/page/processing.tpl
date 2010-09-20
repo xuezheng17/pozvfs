@@ -1,6 +1,10 @@
 <style>
-  .{{$template|escape:'html'}}_table1 {
+  .{{$template|escape:'html'}}_table0 {
     margin-top: 20px;
+    width: 980px;
+    text-align: left;
+  }
+  .{{$template|escape:'html'}}_table1 {
     width: 980px;
     text-align: left;
     border-top: 1px solid #ccc;
@@ -10,14 +14,14 @@
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
     }
-  .{{$template|escape:'html'}}_td1,.{{$template|escape:'html'}}_td2,.{{$template|escape:'html'}}_td3,
-  .{{$template|escape:'html'}}_td4,.{{$template|escape:'html'}}_td5 {
+  .{{$template|escape:'html'}}_td1,.{{$template|escape:'html'}}_td3,
+  .{{$template|escape:'html'}}_td5,.{{$template|escape:'html'}}_td6 {
     height: 24px;
     background-color: #E5ECF9;
     padding-left: 15px;
   }
   .{{$template|escape:'html'}}_td1 a,.{{$template|escape:'html'}}_td2 a,.{{$template|escape:'html'}}_td3 a,
-  .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a{
+  .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a,.{{$template|escape:'html'}}_td6 a{
     font-weight: bold;
     font-size: 12px;
     text-decoration:none;
@@ -28,16 +32,20 @@
     width:100px;
   }
   .{{$template|escape:'html'}}_td2 {
-    width:80px;
-  }
-  .{{$template|escape:'html'}}_td3 {
-    width:100px;
+    width:75px;
+    text-align: center;
+    background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td4 {
-    width:150px;
+    width:90px;
+    text-align: center;
+    background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td5 {
-    width:190px;
+    width:150px;
+  }
+  .{{$template|escape:'html'}}_td6 {
+    width:240px;
     font-weight: bold;
     font-size: 12px;
   }
@@ -65,8 +73,17 @@
   //-->
 </script>
 
+<table class="{{$template|escape:'html'}}_table0" cellPaddiing="0" cellSpacing="0" border=0>
+  <tr>
+    <td id="{{$template|escape:'html'}}_page_div">
+  </tr>
+</table>
+
 <table class="{{$template|escape:'html'}}_table1" cellPaddiing="0" cellSpacing="0" id = "{{$template|escape:'html'}}_main_table">
   <tr>
+    <td class="{{$template|escape:'html'}}_td2">
+      <a href="#" id = "{{$template|escape:'html'}}_visitNo_button">Visit No.
+    </td>
     <td class="{{$template|escape:'html'}}_td1">
       <a href="#" id = "{{$template|escape:'html'}}_brideName_button">Bride Name
     </td>
@@ -76,15 +93,15 @@
     <td class="{{$template|escape:'html'}}_td2"> 
       <a href="#" id = "{{$template|escape:'html'}}_visited_button">Visited
     </td>
-    <td class="{{$template|escape:'html'}}_td3">
+    <td class="{{$template|escape:'html'}}_td4">
       <a href="#" id = "{{$template|escape:'html'}}_weddingDay_button">Wedding Day
     </td>
-    <td class="{{$template|escape:'html'}}_td3">
+    <td class="{{$template|escape:'html'}}_td4">
       <a href="#" id = "{{$template|escape:'html'}}_lastUpdated_button">Last Updated
     </td>
-    <td class="{{$template|escape:'html'}}_td4">
+    <td class="{{$template|escape:'html'}}_td5">
       <a href="#" id = "{{$template|escape:'html'}}_number_button">No. of Follow Up Actions
     </td>
-    <td class="{{$template|escape:'html'}}_td5">Officer Note</td>
+    <td class="{{$template|escape:'html'}}_td6">Officer Note</td>
   <tr>
 </table>
