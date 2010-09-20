@@ -204,7 +204,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_p" >
-                <a  href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Enquiry</a>
+                <a  href = "?t=visitornew&m={%22a%22:1,%22b%22:1}">Enquiry</a>
               </td>
             </tr>
           </table>
@@ -220,7 +220,7 @@
           <table cellPadding="0" cellSpacing="0">
             <tr>
               <td class="basemenus_ph" >
-                <a  href = "?t=visitors&m={%22a%22:1,%22b%22:1}">Enquiry</a>
+                <a  href = "?t=visitornew&m={%22a%22:1,%22b%22:1}">Enquiry</a>
               </td>
             </tr>
           </table>
@@ -422,7 +422,9 @@
   </div>
 {{/if}}
 
-
+{{if $menu->a == 2}}
+    <table class="basemenus_table2" cellPadding="0" cellSpacing="0" border=0></table>
+{{/if}}
 
 {{if $menu->a == 3}}
   <div align="center">
