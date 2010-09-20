@@ -196,8 +196,8 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.padding = '0 0 0 5px';
     td.style.whiteSpace = 'nowrap';
     td.style.textAlign = 'left';
-    td.appendChild(document.createTextNode(((tmp.note && tmp.note.length > 80) ? tmp.note.substring(0, 80) + '...' : tmp.note)));
-    if (tmp.note && tmp.note.length > 80) {
+    td.appendChild(document.createTextNode(((tmp.note && tmp.note.length > 75) ? tmp.note.substring(0,75) + '...' : tmp.note)));
+    if (tmp.note && tmp.note.length > 75) {
       var a = document.createElement('a');
       a.href = '#';
       a.appendChild(document.createTextNode('more'));
