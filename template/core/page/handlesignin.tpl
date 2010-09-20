@@ -11,8 +11,8 @@ HandleSignIn.prototype._createElements = function() {
   var _self = this;
   this._gui.password.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                                 if (code == 13) {
-                                                  new RequestUtils()._custom('login', { account: _self._gui.account.value, password: _self._gui.password.value }, function(result, params) { if (result) { location.href = '?t=visitors&m=' + MiscUtils.encode({a:1, b:1}); } }, { pos: DOMUtils.findPos(this) }); 
+                                                  new RequestUtils()._custom('login', { account: _self._gui.account.value, password: _self._gui.password.value }, function(result, params) { if (result) { location.href = '?t=visitornew&m=' + MiscUtils.encode({a:1, b:1}); } }, { pos: DOMUtils.findPos(this) }); 
                                                 }
                                               };
-  this._gui.login.onclick = function () { new RequestUtils()._custom('login', { account: _self._gui.account.value, password: _self._gui.password.value }, function(result, params) { if (result) { location.href = '?t=visitors&m=' + MiscUtils.encode({a:1, b:1}); } }, { pos: DOMUtils.findPos(this) }); };
+  this._gui.login.onclick = function () { new RequestUtils()._custom('login', { account: _self._gui.account.value, password: _self._gui.password.value }, function(result, params) { if (result) { location.href = '?t=visitornew&m=' + MiscUtils.encode({a:1, b:1}); } }, { pos: DOMUtils.findPos(this) }); };
 };
