@@ -42,10 +42,10 @@
     background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td5 {
-    width:150px;
+    width:160px;
   }
   .{{$template|escape:'html'}}_td6 {
-    width:240px;
+    width:230px;
     font-weight: bold;
     font-size: 12px;
   }
