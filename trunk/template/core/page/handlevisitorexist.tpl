@@ -39,6 +39,7 @@ function HandleVisitorExist(gui, operator, now, options) {
   this._gui.firstVisitingMethod.disabled = true;
   this._gui.firstVisitingDate.disabled = true;
   this._gui.update.disabled = true;
+  this._gui.officeNote.disabled = true;
   
   this._createElements();
 };
@@ -198,6 +199,7 @@ HandleVisitorExist.prototype._updateElements = function() {
     this._gui.firstVisitingMethod.disabled = false;
     this._gui.firstVisitingDate.disabled = false;
     this._gui.update.disabled = false;
+    this._gui.officeNote.disabled = false;
     this._gui.email.disabled = false;
     this._gui.call.disabled = false;
     this._gui.visit.disabled = false;
