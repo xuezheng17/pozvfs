@@ -22,7 +22,7 @@ HandleProcessing.prototype._createElements = function() {
   
   tr = this._gui.mains.insertRow(-1);
   td = tr.insertCell(-1);
-  td.colSpan = 7;
+  td.colSpan = 8;
   td.appendChild(DOMUtils.getLoadingImage());
  
   this._loadData();
@@ -46,7 +46,7 @@ HandleProcessing.prototype._retrieveVisitors = function(page, order, queue, cond
     var tmp = condition.indexOf('WHERE');
     condition = condition.substr((tmp != -1) ? tmp + 6 : 0);
   }
-  var args = 'c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + this._conc + ((condition) ? ' AND ' + condition : '') + '&p=' + page + '&s=20' + '&o=' + ((order) ? order : 'v.e_oid' ) + '&q=' + ((queue) ? queue : 'DESC') + '&con=' + ((cond) ? cond : '');
+  var args = 'c=LEFT JOIN np_pz_operation AS o ON o.visitId = v.e_oid WHERE v.status = 0' + this._conc + ((condition) ? ' AND ' + condition : '') + '&p=' + page + '&s=50' + '&o=' + ((order) ? order : 'v.e_oid' ) + '&q=' + ((queue) ? queue : 'DESC') + '&con=' + ((cond) ? cond : '');
   new RequestUtils()._mysql('processing', args, function(result, params) { _self._visitors = result.data;
                                                                            _self._parameters = result;
                                                                            _self._verifyData.call(_self);
@@ -74,7 +74,7 @@ HandleProcessing.prototype._updateElements = function() {
   if (this._visitors.length == 0) {
     tr = this._gui.mains.insertRow(-1);
     td = tr.insertCell(-1);
-    td.colSpan = 7;
+    td.colSpan = 8;
     td.style.textAlign = 'center';
     td.style.fontWeight = 'bold';
     td.appendChild(document.createTextNode('No Result Matches'));
