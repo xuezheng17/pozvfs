@@ -3,7 +3,7 @@ function HandleVisitorNew(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
-
+  
   this._createElements();
 };
 
@@ -112,7 +112,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   
   this._popupSimple = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { where: 1});
   this._popupSimple._close();
-  
+
   this._gui.brideName.onkeyup = function() { if (_self._gui.brideName.value.length == 0) {
                                                _self._popupSimple._close();
                                              } else {
@@ -122,7 +122,105 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                _self._popupSimple._position = pos;
                                                _self._popupSimple._container = document.body;
                                                _self._popupSimple._createElements();
-                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                               var str = '';
+                                               if (str != '') {
+                                                 if (_self._gui.brideName.value != '') {
+                                                   str += ' OR ' + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.brideName.value != '') {
+                                                   str += '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')';
+                                                 }
+                                               }
+                                               if (str != '') {
+                                                 if (_self._gui.brideAddress.value != '') {
+                                                   str += ' OR ' + '(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.brideAddress.value != '') {
+                                                   str += '(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.bridePhone.value != '') {
+                                                   str += ' OR ' + '(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.bridePhone.value != '') {
+                                                   str += '(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.brideMobile.value != '') {
+                                                   str += ' OR ' + '(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.brideMobile.value != '') {
+                                                   str += '(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.brideEmail.value != '') {
+                                                   str += ' OR ' + '(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.brideEmail.value != '') {
+                                                   str += '(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.groomName.value != '') {
+                                                   str += ' OR ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.groomName.value != '') {
+                                                   str += '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')';
+                                                 }
+                                               }
+                                               if (str != '') {
+                                                 if (_self._gui.groomAddress.value != '') {
+                                                   str += ' OR ' + '(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.groomAddress.value != '') {
+                                                   str += '(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.groomPhone.value != '') {
+                                                   str += ' OR ' + '(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.groomPhone.value != '') {
+                                                   str += '(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.groomMobile.value != '') {
+                                                   str += ' OR ' + '(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.groomMobile.value != '') {
+                                                   str += '(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')';
+                                                 }
+                                               }
+                                               
+                                               if (str != '') {
+                                                 if (_self._gui.groomEmail.value != '') {
+                                                   str += ' OR ' + '(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')';
+                                                 }
+                                               } else {
+                                                 if (_self._gui.groomEmail.value != '') {
+                                                   str += '(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')';
+                                                 }
+                                               }
+                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                return false;
                                              }
@@ -137,7 +235,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                _self._popupSimple._position = pos;
                                                _self._popupSimple._container = document.body;
                                                _self._popupSimple._createElements();
-                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                               var str = _self._queryString();
+                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                return false;
                                              }
@@ -152,7 +251,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                   _self._popupSimple._position = pos;
                                                   _self._popupSimple._container = document.body;
                                                   _self._popupSimple._createElements();
-                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                  var str = _self._queryString();
+                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                   new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                   return false;
                                                 }
@@ -167,7 +267,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                   _self._popupSimple._position = pos;
                                                   _self._popupSimple._container = document.body;
                                                   _self._popupSimple._createElements();
-                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                  var str = _self._queryString();
+                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                   new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                   return false;
                                                 }
@@ -182,7 +283,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                 _self._popupSimple._position = pos;
                                                 _self._popupSimple._container = document.body;
                                                 _self._popupSimple._createElements();
-                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                var str = _self._queryString();
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                 return false;
                                               }
@@ -197,7 +299,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                 _self._popupSimple._position = pos;
                                                 _self._popupSimple._container = document.body;
                                                 _self._popupSimple._createElements();
-                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                var str = _self._queryString();
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                 return false;
                                               }
@@ -212,7 +315,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                  _self._popupSimple._position = pos;
                                                  _self._popupSimple._container = document.body;
                                                  _self._popupSimple._createElements();
-                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                 var str = _self._queryString();
+                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                  new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                  return false;
                                                }
@@ -227,7 +331,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                  _self._popupSimple._position = pos;
                                                  _self._popupSimple._container = document.body;
                                                  _self._popupSimple._createElements();
-                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                 var str = _self._queryString();
+                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                  new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                  return false;
                                                }
@@ -242,7 +347,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                 _self._popupSimple._position = pos;
                                                 _self._popupSimple._container = document.body;
                                                 _self._popupSimple._createElements();
-                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                                var str = _self._queryString();
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                 return false;
                                               }
@@ -257,7 +363,8 @@ this._gui.groomEmail.onkeyup = function() { if (_self._gui.groomEmail.value.leng
                                               _self._popupSimple._position = pos;
                                               _self._popupSimple._container = document.body;
                                               _self._popupSimple._createElements();
-                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE 1 = 1 AND " + '(v.brideName LIKE \'%' + _self._gui.brideName.value + '%\')' + ' AND ' + '(v.groomName LIKE \'%' + _self._gui.groomName.value + '%\')' + ' AND ' +'(v.brideAddress LIKE \'%' + _self._gui.brideAddress.value + '%\')' + ' AND ' +'(v.groomAddress LIKE \'%' + _self._gui.groomAddress.value + '%\')' + ' AND ' +'(v.bridePhone LIKE \'%' + _self._gui.bridePhone.value + '%\')' + ' AND ' +'(v.groomPhone LIKE \'%' + _self._gui.groomPhone.value + '%\')' + ' AND ' +'(v.brideMobile LIKE \'%' + _self._gui.brideMobile.value + '%\')' + ' AND ' +'(v.groomMobile LIKE \'%' + _self._gui.groomMobile.value + '%\')' + ' AND ' +'(v.brideEmail LIKE \'%' + _self._gui.brideEmail.value + '%\')' + ' AND ' +'(v.groomEmail LIKE \'%' + _self._gui.groomEmail.value + '%\')' + " ";
+                                              var str = _self._queryString();
+                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
                                               new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                               return false;
                                             }
@@ -414,6 +521,108 @@ this._gui.groomEmail.onkeyup = function() { if (_self._gui.groomEmail.value.leng
                                       };
 };
 
+HandleVisitorNew.prototype._queryString = function() {
+  var str = '';
+  if (str != '') {
+    if (this._gui.brideName.value != '') {
+      str += ' OR ' + '(v.brideName LIKE \'%' + this._gui.brideName.value + '%\')';
+    }
+  } else {
+    if (this._gui.brideName.value != '') {
+      str += '(v.brideName LIKE \'%' + this._gui.brideName.value + '%\')';
+    }
+  }
+  if (str != '') {
+    if (this._gui.brideAddress.value != '') {
+      str += ' OR ' + '(v.brideAddress LIKE \'%' + this._gui.brideAddress.value + '%\')';
+    }
+  } else {
+    if (this._gui.brideAddress.value != '') {
+      str += '(v.brideAddress LIKE \'%' + this._gui.brideAddress.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.bridePhone.value != '') {
+      str += ' OR ' + '(v.bridePhone LIKE \'%' + this._gui.bridePhone.value + '%\')';
+    }
+  } else {
+    if (this._gui.bridePhone.value != '') {
+      str += '(v.bridePhone LIKE \'%' + this._gui.bridePhone.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.brideMobile.value != '') {
+      str += ' OR ' + '(v.brideMobile LIKE \'%' + this._gui.brideMobile.value + '%\')';
+    }
+  } else {
+    if (this._gui.brideMobile.value != '') {
+      str += '(v.brideMobile LIKE \'%' + this._gui.brideMobile.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.brideEmail.value != '') {
+      str += ' OR ' + '(v.brideEmail LIKE \'%' + this._gui.brideEmail.value + '%\')';
+    }
+  } else {
+    if (this._gui.brideEmail.value != '') {
+      str += '(v.brideEmail LIKE \'%' + this._gui.brideEmail.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.groomName.value != '') {
+      str += ' OR ' + '(v.groomName LIKE \'%' + this._gui.groomName.value + '%\')';
+    }
+  } else {
+    if (this._gui.groomName.value != '') {
+      str += '(v.groomName LIKE \'%' + this._gui.groomName.value + '%\')';
+    }
+  }
+  if (str != '') {
+    if (this._gui.groomAddress.value != '') {
+      str += ' OR ' + '(v.groomAddress LIKE \'%' + this._gui.groomAddress.value + '%\')';
+    }
+  } else {
+    if (this._gui.groomAddress.value != '') {
+      str += '(v.groomAddress LIKE \'%' + this._gui.groomAddress.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.groomPhone.value != '') {
+      str += ' OR ' + '(v.groomPhone LIKE \'%' + this._gui.groomPhone.value + '%\')';
+    }
+  } else {
+    if (this._gui.groomPhone.value != '') {
+      str += '(v.groomPhone LIKE \'%' + this._gui.groomPhone.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.groomMobile.value != '') {
+      str += ' OR ' + '(v.groomMobile LIKE \'%' + this._gui.groomMobile.value + '%\')';
+    }
+  } else {
+    if (this._gui.groomMobile.value != '') {
+      str += '(v.groomMobile LIKE \'%' + this._gui.groomMobile.value + '%\')';
+    }
+  }
+  
+  if (str != '') {
+    if (this._gui.groomEmail.value != '') {
+      str += ' OR ' + '(v.groomEmail LIKE \'%' + this._gui.groomEmail.value + '%\')';
+    }
+  } else {
+    if (this._gui.groomEmail.value != '') {
+      str += '(v.groomEmail LIKE \'%' + this._gui.groomEmail.value + '%\')';
+    }
+  }
+  return str;
+}
+
 /* 
  * 修改日期1Change
  */
@@ -436,6 +645,3 @@ HandleVisitorNew.prototype._selectDate = function(sd, label, onChangeFunc, showT
   this._showDate(sd, label, showTime);
   this._popupBox._close();
 };
-/* 
- * 修改日期3Show
- */
