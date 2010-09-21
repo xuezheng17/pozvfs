@@ -645,3 +645,14 @@ HandleVisitorNew.prototype._selectDate = function(sd, label, onChangeFunc, showT
   this._showDate(sd, label, showTime);
   this._popupBox._close();
 };
+
+/* 
+ * 修改日期3Show
+ */
+HandleVisitorNew.prototype._showDate = function(sd, label, showTime) {
+  if (sd) { 
+    label.value = SimpleDate.format(sd, showTime);
+  } else {
+    label.value = '';
+  }
+};
