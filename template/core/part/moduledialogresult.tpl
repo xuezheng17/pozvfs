@@ -89,15 +89,10 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
       } else {
         var index = -1;
-        if (res.brideName.indexOf(this._brideName.value) != -1) {
-          index = res.brideName.indexOf(this._brideName.value);
-        } else {
-          if (res.brideName.indexOf(this._brideName.value.toUpperCase()) != -1) {
-            index = res.brideName.indexOf(this._brideName.value.toUpperCase());
-          }else if (res.brideName.indexOf(this._brideName.value.toLowerCase()) != -1) {
-            index = res.brideName.indexOf(this._brideName.value.toLowerCase());
-          }
+        if (res.brideName.toLowerCase().indexOf(this._brideName.value.toLowerCase()) != -1) {
+          index = res.brideName.toLowerCase().indexOf(this._brideName.value.toLowerCase());
         }
+        
         str0 = res.brideName.substring(0, index);
         str1 = res.brideName.substring(index, index + this._brideName.value.length);
         str2 = res.brideName.substring(index + this._brideName.value.length);
@@ -126,15 +121,10 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
       } else {
         var index = -1;
-        if (res.brideAddress.indexOf(this._brideAddress.value) != -1) {
-          index = res.brideAddress.indexOf(this._brideAddress.value);
-        } else {
-          if (res.brideAddress.indexOf(this._brideAddress.value.toUpperCase()) != -1) {
-            index = res.brideAddress.indexOf(this._brideAddress.value.toUpperCase());
-          } else if (res.brideAddress.indexOf(this._brideAddress.value.toLowerCase()) != -1) {
-            index = res.brideAddress.indexOf(this._brideAddress.value.toLowerCase());
-          }
+        if (res.brideAddress.toLowerCase().indexOf(this._brideAddress.value.toLowerCase()) != -1) {
+          index = res.brideAddress.toLowerCase().indexOf(this._brideAddress.value.toLowerCase());
         }
+        
         str0 = res.brideAddress.substring(0, index);
         str1 = res.brideAddress.substring(index, index + this._brideAddress.value.length);
         str2 = res.brideAddress.substring(index + this._brideAddress.value.length);
@@ -163,14 +153,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
       } else {
         var index = -1;
-        if (res.bridePhone.indexOf(this._bridePhone.value) != -1) {
-          index = res.bridePhone.indexOf(this._bridePhone.value);
-        } else {
-          if (res.bridePhone.indexOf(this._bridePhone.value.toUpperCase()) != -1) {
-            index = res.bridePhone.indexOf(this._bridePhone.value.toUpperCase());
-          } else if (res.bridePhone.indexOf(this._bridePhone.value.toLowerCase()) != -1) {
-            index = res.bridePhone.indexOf(this._bridePhone.value.toLowerCase());
-          }
+        if (res.bridePhone.toLowerCase().indexOf(this._bridePhone.value.toLowerCase()) != -1) {
+          index = res.bridePhone.toLowerCase().indexOf(this._bridePhone.value.toLowerCase());
         }
         str0 = res.bridePhone.substring(0, index);
         str1 = res.bridePhone.substring(index, index + this._bridePhone.value.length);
@@ -200,15 +184,10 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
       } else {
         var index = -1;
-        if (res.brideMobile.indexOf(this._brideMobile.value) != -1) {
-          index = res.brideMobile.indexOf(this._brideMobile.value);
-        } else {
-          if (res.brideMobile.indexOf(this._brideMobile.value.toUpperCase()) != -1) {
-            index = res.brideMobile.indexOf(this._brideMobile.value.toUpperCase());
-          } else if (res.brideMobile.indexOf(this._brideMobile.value.toLowerCase()) != -1) {
-            index = res.brideMobile.indexOf(this._brideMobile.value.toLowerCase());
-          }
+        if (res.brideMobile.toLowerCase().indexOf(this._brideMobile.value.toLowerCase()) != -1) {
+          index = res.brideMobile.toLowerCase().indexOf(this._brideMobile.value.toLowerCase());
         }
+        
         str0 = res.brideMobile.substring(0, index);
         str1 = res.brideMobile.substring(index, index + this._brideMobile.value.length);
         str2 = res.brideMobile.substring(index + this._brideMobile.value.length);
@@ -237,14 +216,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
       } else {
         var index = -1;
-        if (res.brideEmail.indexOf(this._brideEmail.value) != -1) {
-          index = res.brideEmail.indexOf(this._brideEmail.value);
-        } else {
-          if (res.brideEmail.indexOf(this._brideEmail.value.toUpperCase()) != -1) {
-            index = res.brideEmail.indexOf(this._brideEmail.value.toUpperCase());
-          } else if (res.brideEmail.indexOf(this._brideEmail.value.toLowerCase()) != -1) {
-            index = res.brideEmail.indexOf(this._brideEmail.value.toLowerCase());
-          }
+        if (res.brideEmail.toLowerCase().indexOf(this._brideEmail.value.toLowerCase()) != -1) {
+          index = res.brideEmail.toLowerCase().indexOf(this._brideEmail.value.toLowerCase());
         }
         str0 = res.brideEmail.substring(0, index);
         str1 = res.brideEmail.substring(index, index + this._brideEmail.value.length);
@@ -283,14 +256,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
       } else {
         var index = -1;
-        if (res.groomName.indexOf(this._groomName.value) != -1) {
-          index = res.groomName.indexOf(this._groomName.value);
-        } else {
-          if (res.groomName.indexOf(this._groomName.value.toUpperCase()) != -1) {
-            index = res.groomName.indexOf(this._groomName.value.toUpperCase());
-          } else if (res.groomName.indexOf(this._groomName.value.toLowerCase()) != -1) {
-            index = res.groomName.indexOf(this._groomName.value.toLowerCase());
-          }
+        if (res.groomName.toLowerCase().indexOf(this._groomName.value.toLowerCase()) != -1) {
+          index = res.groomName.toLowerCase().indexOf(this._groomName.value.toLowerCase());
         }
         str0 = res.groomName.substring(0, index);
         str1 = res.groomName.substring(index, index + this._groomName.value.length);
@@ -320,14 +287,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
       } else {
         var index = -1;
-        if (res.groomAddress.indexOf(this._groomAddress.value) != -1) {
-          index = res.groomAddress.indexOf(this._groomAddress.value);
-        } else {
-          if (res.groomAddress.indexOf(this._groomAddress.value.toUpperCase()) != -1) {
-            index = res.groomAddress.indexOf(this._groomAddress.value.toUpperCase());
-          } else if (res.groomAddress.indexOf(this._groomAddress.value.toLowerCase()) != -1) {
-            index = res.groomAddress.indexOf(this._groomAddress.value.toLowerCase());
-          }
+        if (res.groomAddress.toLowerCase().indexOf(this._groomAddress.value.toLowerCase()) != -1) {
+          index = res.groomAddress.toLowerCase().indexOf(this._groomAddress.value.toLowerCase());
         }
         str0 = res.groomAddress.substring(0, index);
         str1 = res.groomAddress.substring(index, index + this._groomAddress.value.length);
@@ -357,15 +318,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
       } else {
         var index = -1;
-        if (res.groomPhone.indexOf(this._groomPhone.value) != -1) {
-          index = res.groomPhone.indexOf(this._groomPhone.value);
-        } else {
-          if (res.groomPhone.indexOf(this._groomPhone.value.toUpperCase()) != -1) {
-            index = res.groomPhone.indexOf(this._groomPhone.value.toUpperCase());
-          }
-          if (res.groomPhone.indexOf(this._groomPhone.value.toLowerCase()) != -1) {
-            index = res.groomPhone.indexOf(this._groomPhone.value.toLowerCase());
-          }
+        if (res.groomPhone.toLowerCase().indexOf(this._groomPhone.value.toLowerCase()) != -1) {
+          index = res.groomPhone.toLowerCase().indexOf(this._groomPhone.value.toLowerCase());
         }
         str0 = res.groomPhone.substring(0, index);
         str1 = res.groomPhone.substring(index, index + this._groomPhone.value.length);
@@ -395,14 +349,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
       } else {
         var index = -1;
-        if (res.groomMobile.indexOf(this._groomMobile.value) != -1) {
-          index = res.groomMobile.indexOf(this._groomMobile.value);
-        } else {
-          if (res.groomMobile.indexOf(this._groomMobile.value.toUpperCase()) != -1) {
-            index = res.groomMobile.indexOf(this._groomMobile.value.toUpperCase());
-          } else if (res.groomMobile.indexOf(this._groomMobile.value.toLowerCase()) != -1) {
-            index = res.groomMobile.indexOf(this._groomMobile.value.toLowerCase());
-          }
+        if (res.groomMobile.toLowerCase().indexOf(this._groomMobile.value.toLowerCase()) != -1) {
+          index = res.groomMobile.toLowerCase().indexOf(this._groomMobile.value.toLowerCase());
         }
         
         str0 = res.groomMobile.substring(0, index);
@@ -433,14 +381,8 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
       } else {
         var index = -1;
-        if (res.groomEmail.indexOf(this._groomEmail.value) != -1) {
-          index = res.groomEmail.indexOf(this._groomEmail.value);
-        } else {
-          if (res.groomEmail.indexOf(this._groomEmail.value.toUpperCase()) != -1) {
-            index = res.groomEmail.indexOf(this._groomEmail.value.toUpperCase());
-          } else if (res.groomEmail.indexOf(this._groomEmail.value.toLowerCase()) != -1) {
-            index = res.groomEmail.indexOf(this._groomEmail.value.toLowerCase());
-          }
+        if (res.groomEmail.toLowerCase().indexOf(this._groomEmail.value.toLowerCase()) != -1) {
+          index = res.groomEmail.toLowerCase().indexOf(this._groomEmail.value.toLowerCase());
         }
         str0 = res.groomEmail.substring(0, index);
         str1 = res.groomEmail.substring(index, index + this._groomEmail.value.length);
