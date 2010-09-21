@@ -9,9 +9,17 @@ function ModuleDialogResult(doc, container, width, height, operator, now, option
 
   this._query = (options && options.query) ? options.query : '';
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
-  this._item = (options && options.item) ? options.item : null;
-  this._number = (options && options.number) ? options.number : null;
-    
+  this._brideName = (options && options.brideName) ? options.brideName : null;
+  this._brideAddress = (options && options.brideAddress) ? options.brideAddress : null;
+  this._bridePhone = (options && options.bridePhone) ? options.bridePhone : null;
+  this._brideMobile = (options && options.brideMobile) ? options.brideMobile : null;
+  this._brideEmail = (options && options.brideEmail) ? options.brideEmail : null;
+  this._groomName = (options && options.groomName) ? options.groomName : null;
+  this._groomAddress = (options && options.groomAddress) ? options.groomAddress : null;
+  this._groomPhone = (options && options.groomPhone) ? options.groomPhone : null;
+  this._groomMobile = (options && options.groomMobile) ? options.groomMobile : null;
+  this._groomEmail = (options && options.groomEmail) ? options.groomEmail : null;
+  
   this._createElements();
 };
 
@@ -57,7 +65,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       td.style.textAlign = 'left';
       td.style.cursor = 'default';
       td.style.verticalAlign = 'middle';
-      td.style.padding = (i == this._results.length - 1) ? '6px 3px' : '6px 3px';
+      td.style.padding = '6px 3px';
       td._obj = res;
       td.onmouseover = function() {this.style.backgroundColor = '#e2eaff';};
       td.onmouseout = function() {this.style.backgroundColor = '#fff';};
@@ -79,30 +87,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -,'));
         div1.appendChild(span0);
       } else {
-        if (this._number == 1) {
-          str0 = res.brideName.substring(0, res.brideName.indexOf(this._item.value));
-          str1 = res.brideName.substring(res.brideName.indexOf(this._item.value), res.brideName.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.brideName.substring(res.brideName.indexOf(this._item.value) + this._item.value.length);
-          
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div1.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div1.appendChild(span1);
+        str0 = res.brideName.substring(0, res.brideName.indexOf(this._brideName.value));
+        str1 = res.brideName.substring(res.brideName.indexOf(this._brideName.value), res.brideName.indexOf(this._brideName.value) + this._brideName.value.length);
+        str2 = res.brideName.substring(res.brideName.indexOf(this._brideName.value) + this._brideName.value.length);
         
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div1.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.brideName + ', '));
-          div1.appendChild(span0);
-        }
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+      
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
       
       if (res.brideAddress == '') {
@@ -111,30 +113,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -,'));
         div1.appendChild(span0);
       } else {
-        if (this._number == 2) {
-          str0 = res.brideAddress.substring(0, res.brideAddress.indexOf(this._item.value));
-          str1 = res.brideAddress.substring(res.brideAddress.indexOf(this._item.value), res.brideAddress.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.brideAddress.substring(res.brideAddress.indexOf(this._item.value) + this._item.value.length);
-          
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div1.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div1.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div1.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.brideAddress + ', '));
-          div1.appendChild(span0);
-        }
+        str0 = res.brideAddress.substring(0, res.brideAddress.indexOf(this._brideAddress.value));
+        str1 = res.brideAddress.substring(res.brideAddress.indexOf(this._brideAddress.value), res.brideAddress.indexOf(this._brideAddress.value) + this._brideAddress.value.length);
+        str2 = res.brideAddress.substring(res.brideAddress.indexOf(this._brideAddress.value) + this._brideAddress.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
       
       if (res.bridePhone == '') {
@@ -143,30 +139,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -,'));
         div1.appendChild(span0);
       } else {
-        if (this._number == 3) {
-          str0 = res.bridePhone.substring(0, res.bridePhone.indexOf(this._item.value));
-          str1 = res.bridePhone.substring(res.bridePhone.indexOf(this._item.value), res.bridePhone.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.bridePhone.substring(res.bridePhone.indexOf(this._item.value) + this._item.value.length);
-          
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div1.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div1.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div1.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.bridePhone + ', '));
-          div1.appendChild(span0);
-        }
+        str0 = res.bridePhone.substring(0, res.bridePhone.indexOf(this._bridePhone.value));
+        str1 = res.bridePhone.substring(res.bridePhone.indexOf(this._bridePhone.value), res.bridePhone.indexOf(this._bridePhone.value) + this._bridePhone.value.length);
+        str2 = res.bridePhone.substring(res.bridePhone.indexOf(this._bridePhone.value) + this._bridePhone.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
       
       if (res.brideMobile == '') {
@@ -175,30 +165,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -, '));
         div1.appendChild(span0);
       } else {
-        if (this._number == 4) {
-          str0 = res.brideMobile.substring(0, res.brideMobile.indexOf(this._item.value));
-          str1 = res.brideMobile.substring(res.brideMobile.indexOf(this._item.value), res.brideMobile.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.brideMobile.substring(res.brideMobile.indexOf(this._item.value) + this._item.value.length);
-          
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div1.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div1.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div1.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.brideMobile + ', '));
-          div1.appendChild(span0);
-        }
+        str0 = res.brideMobile.substring(0, res.brideMobile.indexOf(this._brideMobile.value));
+        str1 = res.brideMobile.substring(res.brideMobile.indexOf(this._brideMobile.value), res.brideMobile.indexOf(this._brideMobile.value) + this._brideMobile.value.length);
+        str2 = res.brideMobile.substring(res.brideMobile.indexOf(this._brideMobile.value) + this._brideMobile.value.length);
+        
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
+        
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div1.appendChild(span2);
       }
       
       if (res.brideEmail == '') {
@@ -207,30 +191,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' - '));
         div1.appendChild(span0);
       } else {
-        if (this._number == 5) {
-          str0 = res.brideEmail.substring(0, res.brideEmail.indexOf(this._item.value));
-          str1 = res.brideEmail.substring(res.brideEmail.indexOf(this._item.value), res.brideEmail.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.brideEmail.substring(res.brideEmail.indexOf(this._item.value) + this._item.value.length);
+        str0 = res.brideEmail.substring(0, res.brideEmail.indexOf(this._brideEmail.value));
+        str1 = res.brideEmail.substring(res.brideEmail.indexOf(this._brideEmail.value), res.brideEmail.indexOf(this._brideEmail.value) + this._brideEmail.value.length);
+        str2 = res.brideEmail.substring(res.brideEmail.indexOf(this._brideEmail.value) + this._brideEmail.value.length);
+      
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div1.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div1.appendChild(span1);
         
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div1.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div1.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2));
-          div1.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.brideEmail));
-          div1.appendChild(span0);
-        }
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2));
+        div1.appendChild(span2);
       }
       
       
@@ -248,30 +226,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -, '));
         div2.appendChild(span0);
       } else {
-        if (this._number == 6) {
-          str0 = res.groomName.substring(0, res.groomName.indexOf(this._item.value));
-          str1 = res.groomName.substring(res.groomName.indexOf(this._item.value), res.groomName.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.groomName.substring(res.groomName.indexOf(this._item.value) + this._item.value.length);
-        
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div2.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div2.appendChild(span1);
-        
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div2.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.groomName + ', '));
-          div2.appendChild(span0);
-        }
+        str0 = res.groomName.substring(0, res.groomName.indexOf(this._groomName.value));
+        str1 = res.groomName.substring(res.groomName.indexOf(this._groomName.value), res.groomName.indexOf(this._groomName.value) + this._groomName.value.length);
+        str2 = res.groomName.substring(res.groomName.indexOf(this._groomName.value) + this._groomName.value.length);
+      
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
+      
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
       if (res.groomAddress == '') {
@@ -280,30 +252,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -, '));
         div2.appendChild(span0);
       } else {
-        if (this._number == 7) {
-          str0 = res.groomAddress.substring(0, res.groomAddress.indexOf(this._item.value));
-          str1 = res.groomAddress.substring(res.groomAddress.indexOf(this._item.value), res.groomAddress.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.groomAddress.substring(res.groomAddress.indexOf(this._item.value) + this._item.value.length);
+        str0 = res.groomAddress.substring(0, res.groomAddress.indexOf(this._groomAddress.value));
+        str1 = res.groomAddress.substring(res.groomAddress.indexOf(this._groomAddress.value), res.groomAddress.indexOf(this._groomAddress.value) + this._groomAddress.value.length);
+        str2 = res.groomAddress.substring(res.groomAddress.indexOf(this._groomAddress.value) + this._groomAddress.value.length);
+      
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
         
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div2.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div2.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div2.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.groomAddress + ', '));
-          div2.appendChild(span0);
-        }
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
       if (res.groomPhone == '') {
@@ -312,30 +278,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -, '));
         div2.appendChild(span0);
       } else {
-        if (this._number == 8) {
-          str0 = res.groomPhone.substring(0, res.groomPhone.indexOf(this._item.value));
-          str1 = res.groomPhone.substring(res.groomPhone.indexOf(this._item.value), res.groomPhone.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.groomPhone.substring(res.groomPhone.indexOf(this._item.value) + this._item.value.length);
+        str0 = res.groomPhone.substring(0, res.groomPhone.indexOf(this._groomPhone.value));
+        str1 = res.groomPhone.substring(res.groomPhone.indexOf(this._groomPhone.value), res.groomPhone.indexOf(this._groomPhone.value) + this._groomPhone.value.length);
+        str2 = res.groomPhone.substring(res.groomPhone.indexOf(this._groomPhone.value) + this._groomPhone.value.length);
+      
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
         
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div2.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div2.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div2.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.groomPhone + ', '));
-          div2.appendChild(span0);
-        }
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
       if (res.groomMobile == '') {
@@ -344,30 +304,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' -, '));
         div2.appendChild(span0);
       } else {
-        if (this._number == 9) {
-          str0 = res.groomMobile.substring(0, res.groomMobile.indexOf(this._item.value));
-          str1 = res.groomMobile.substring(res.groomMobile.indexOf(this._item.value), res.groomMobile.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.groomMobile.substring(res.groomMobile.indexOf(this._item.value) + this._item.value.length);
+        str0 = res.groomMobile.substring(0, res.groomMobile.indexOf(this._groomMobile.value));
+        str1 = res.groomMobile.substring(res.groomMobile.indexOf(this._groomMobile.value), res.groomMobile.indexOf(this._groomMobile.value) + this._groomMobile.value.length);
+        str2 = res.groomMobile.substring(res.groomMobile.indexOf(this._groomMobile.value) + this._groomMobile.value.length);
+      
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
         
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div2.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div2.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2 + ', '));
-          div2.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.groomMobile + ', '));
-          div2.appendChild(span0);
-        }
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2 + ', '));
+        div2.appendChild(span2);
       }
       
       if (res.groomEmail == '') {
@@ -376,30 +330,24 @@ ModuleDialogResult.prototype._updateElements = function() {
         span0.appendChild(document.createTextNode(' - '));
         div2.appendChild(span0);
       } else {
-        if (this._number == 10) {
-          str0 = res.groomEmail.substring(0, res.groomEmail.indexOf(this._item.value));
-          str1 = res.groomEmail.substring(res.groomEmail.indexOf(this._item.value), res.groomEmail.indexOf(this._item.value) + this._item.value.length);
-          str2 = res.groomEmail.substring(res.groomEmail.indexOf(this._item.value) + this._item.value.length);
+        str0 = res.groomEmail.substring(0, res.groomEmail.indexOf(this._groomEmail.value));
+        str1 = res.groomEmail.substring(res.groomEmail.indexOf(this._groomEmail.value), res.groomEmail.indexOf(this._groomEmail.value) + this._groomEmail.value.length);
+        str2 = res.groomEmail.substring(res.groomEmail.indexOf(this._groomEmail.value) + this._groomEmail.value.length);
+      
+        span0 = document.createElement('span');
+        span0.style.margin = '0 0 0 8px';
+        span0.appendChild(document.createTextNode(str0));
+        div2.appendChild(span0);
+  
+        span1= document.createElement('span');
+        span1.style.fontWeight = 'bold';
+        span1.style.color = '';
+        span1.appendChild(document.createTextNode(str1));
+        div2.appendChild(span1);
         
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(str0));
-          div2.appendChild(span0);
-    
-          span1= document.createElement('span');
-          span1.style.fontWeight = 'bold';
-          span1.appendChild(document.createTextNode(str1));
-          div2.appendChild(span1);
-          
-          span2= document.createElement('span');
-          span2.appendChild(document.createTextNode(str2));
-          div2.appendChild(span2);
-        } else {
-          span0 = document.createElement('span');
-          span0.style.margin = '0 0 0 8px';
-          span0.appendChild(document.createTextNode(res.groomEmail));
-          div2.appendChild(span0);
-        }
+        span2= document.createElement('span');
+        span2.appendChild(document.createTextNode(str2));
+        div2.appendChild(span2);
       }
     }
   }
