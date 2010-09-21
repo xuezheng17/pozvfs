@@ -64,8 +64,13 @@ ModuleDialogResult.prototype._updateElements = function() {
       td.onclick = function() { location.href = '?t=visitorexist&m=' + MiscUtils.encode({ a: 1, b: 2}) + '&opts=' + MiscUtils.encode({id: this._obj.id});
                               };
                               
+      var tmp = document.createElement('span');
+      tmp.style.color = '#0000CC';
+      tmp.style.fontWeight = 'bold';
+      tmp.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id)));
+      
       div1 = document.createElement('div');
-      div1.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id)));
+      div1.appendChild(tmp);
       td.appendChild(div1);
       
       if (res.brideName == '') {

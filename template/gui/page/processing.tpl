@@ -23,7 +23,7 @@
   .{{$template|escape:'html'}}_td1 a,.{{$template|escape:'html'}}_td2 a,.{{$template|escape:'html'}}_td3 a,
   .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a,.{{$template|escape:'html'}}_td6 a{
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     color: #0000cc;
   }
   .{{$template|escape:'html'}}_td1 {
@@ -40,7 +40,7 @@
     background-color: #E5ECF9;
   }
   .{{$template|escape:'html'}}_td4 {
-    width: 80px;
+    width: 90px;
     white-space: nowrap;
     text-align: center;
     background-color: #E5ECF9;
@@ -48,12 +48,12 @@
   .{{$template|escape:'html'}}_td5 {
     background-color: #E5ECF9;
     text-align: center;
-    width: 45px;
+    width: 50px;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 555px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
+    color: #0000cc;
   }
 </style>
   
