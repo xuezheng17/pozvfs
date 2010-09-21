@@ -84,8 +84,8 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideName == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
-        span0.appendChild(document.createTextNode('no name, '));
+        span0.style.color = '#666666';
+        span0.appendChild(document.createTextNode('no bride, '));
         div1.appendChild(span0);
       } else {
         var index = -1;
@@ -116,7 +116,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideAddress == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no address, '));
         div1.appendChild(span0);
       } else {
@@ -148,7 +148,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.bridePhone == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no phone, '));
         div1.appendChild(span0);
       } else {
@@ -179,7 +179,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideMobile == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no mobile, '));
         div1.appendChild(span0);
       } else {
@@ -211,7 +211,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideEmail == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no email'));
         div1.appendChild(span0);
       } else {
@@ -251,8 +251,8 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomName == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
-        span0.appendChild(document.createTextNode('no name, '));
+        span0.style.color = '#666666';
+        span0.appendChild(document.createTextNode('no groom, '));
         div2.appendChild(span0);
       } else {
         var index = -1;
@@ -282,7 +282,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomAddress == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no address, '));
         div2.appendChild(span0);
       } else {
@@ -313,7 +313,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomPhone == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no phone, '));
         div2.appendChild(span0);
       } else {
@@ -344,7 +344,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomMobile == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no mobile, '));
         div2.appendChild(span0);
       } else {
@@ -376,7 +376,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomEmail == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.style.color = '#cccccc';
+        span0.style.color = '#666666';
         span0.appendChild(document.createTextNode('no email'));
         div2.appendChild(span0);
       } else {
