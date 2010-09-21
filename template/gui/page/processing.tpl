@@ -24,7 +24,7 @@
   .{{$template|escape:'html'}}_td4 a,.{{$template|escape:'html'}}_td5 a,.{{$template|escape:'html'}}_td6 a{
     font-weight: bold;
     font-size: 13px;
-    color: #0000cc;
+    color: #0000ff;
   }
   .{{$template|escape:'html'}}_td1 {
     width:80px;
@@ -53,7 +53,7 @@
   .{{$template|escape:'html'}}_td6 {
     font-weight: bold;
     font-size: 13px;
-    color: #0000cc;
+    color: #0000ff;
   }
 </style>
   
