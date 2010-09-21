@@ -84,13 +84,24 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideName == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -,'));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Name, '));
         div1.appendChild(span0);
       } else {
-        str0 = res.brideName.substring(0, res.brideName.indexOf(this._brideName.value));
-        str1 = res.brideName.substring(res.brideName.indexOf(this._brideName.value), res.brideName.indexOf(this._brideName.value) + this._brideName.value.length);
-        str2 = res.brideName.substring(res.brideName.indexOf(this._brideName.value) + this._brideName.value.length);
-        
+        var index = -1;
+        if (res.brideName.indexOf(this._brideName.value) != -1) {
+          index = res.brideName.indexOf(this._brideName.value);
+        } else {
+          if (res.brideName.indexOf(this._brideName.value.toUpperCase()) != -1) {
+            index = res.brideName.indexOf(this._brideName.value.toUpperCase());
+          }else if (res.brideName.indexOf(this._brideName.value.toLowerCase()) != -1) {
+            index = res.brideName.indexOf(this._brideName.value.toLowerCase());
+          }
+        }
+        str0 = res.brideName.substring(0, index);
+        str1 = res.brideName.substring(index, index + this._brideName.value.length);
+        str2 = res.brideName.substring(index + this._brideName.value.length);
+      
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
         span0.appendChild(document.createTextNode(str0));
@@ -110,12 +121,23 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideAddress == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -,'));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Address, '));
         div1.appendChild(span0);
       } else {
-        str0 = res.brideAddress.substring(0, res.brideAddress.indexOf(this._brideAddress.value));
-        str1 = res.brideAddress.substring(res.brideAddress.indexOf(this._brideAddress.value), res.brideAddress.indexOf(this._brideAddress.value) + this._brideAddress.value.length);
-        str2 = res.brideAddress.substring(res.brideAddress.indexOf(this._brideAddress.value) + this._brideAddress.value.length);
+        var index = -1;
+        if (res.brideAddress.indexOf(this._brideAddress.value) != -1) {
+          index = res.brideAddress.indexOf(this._brideAddress.value);
+        } else {
+          if (res.brideAddress.indexOf(this._brideAddress.value.toUpperCase()) != -1) {
+            index = res.brideAddress.indexOf(this._brideAddress.value.toUpperCase());
+          } else if (res.brideAddress.indexOf(this._brideAddress.value.toLowerCase()) != -1) {
+            index = res.brideAddress.indexOf(this._brideAddress.value.toLowerCase());
+          }
+        }
+        str0 = res.brideAddress.substring(0, index);
+        str1 = res.brideAddress.substring(index, index + this._brideAddress.value.length);
+        str2 = res.brideAddress.substring(index + this._brideAddress.value.length);
         
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
@@ -136,12 +158,23 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.bridePhone == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -,'));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Phone, '));
         div1.appendChild(span0);
       } else {
-        str0 = res.bridePhone.substring(0, res.bridePhone.indexOf(this._bridePhone.value));
-        str1 = res.bridePhone.substring(res.bridePhone.indexOf(this._bridePhone.value), res.bridePhone.indexOf(this._bridePhone.value) + this._bridePhone.value.length);
-        str2 = res.bridePhone.substring(res.bridePhone.indexOf(this._bridePhone.value) + this._bridePhone.value.length);
+        var index = -1;
+        if (res.bridePhone.indexOf(this._bridePhone.value) != -1) {
+          index = res.bridePhone.indexOf(this._bridePhone.value);
+        } else {
+          if (res.bridePhone.indexOf(this._bridePhone.value.toUpperCase()) != -1) {
+            index = res.bridePhone.indexOf(this._bridePhone.value.toUpperCase());
+          } else if (res.bridePhone.indexOf(this._bridePhone.value.toLowerCase()) != -1) {
+            index = res.bridePhone.indexOf(this._bridePhone.value.toLowerCase());
+          }
+        }
+        str0 = res.bridePhone.substring(0, index);
+        str1 = res.bridePhone.substring(index, index + this._bridePhone.value.length);
+        str2 = res.bridePhone.substring(index + this._bridePhone.value.length);
         
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
@@ -162,12 +195,23 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideMobile == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -, '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Mobile, '));
         div1.appendChild(span0);
       } else {
-        str0 = res.brideMobile.substring(0, res.brideMobile.indexOf(this._brideMobile.value));
-        str1 = res.brideMobile.substring(res.brideMobile.indexOf(this._brideMobile.value), res.brideMobile.indexOf(this._brideMobile.value) + this._brideMobile.value.length);
-        str2 = res.brideMobile.substring(res.brideMobile.indexOf(this._brideMobile.value) + this._brideMobile.value.length);
+        var index = -1;
+        if (res.brideMobile.indexOf(this._brideMobile.value) != -1) {
+          index = res.brideMobile.indexOf(this._brideMobile.value);
+        } else {
+          if (res.brideMobile.indexOf(this._brideMobile.value.toUpperCase()) != -1) {
+            index = res.brideMobile.indexOf(this._brideMobile.value.toUpperCase());
+          } else if (res.brideMobile.indexOf(this._brideMobile.value.toLowerCase()) != -1) {
+            index = res.brideMobile.indexOf(this._brideMobile.value.toLowerCase());
+          }
+        }
+        str0 = res.brideMobile.substring(0, index);
+        str1 = res.brideMobile.substring(index, index + this._brideMobile.value.length);
+        str2 = res.brideMobile.substring(index + this._brideMobile.value.length);
         
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
@@ -188,12 +232,23 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.brideEmail == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' - '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Email'));
         div1.appendChild(span0);
       } else {
-        str0 = res.brideEmail.substring(0, res.brideEmail.indexOf(this._brideEmail.value));
-        str1 = res.brideEmail.substring(res.brideEmail.indexOf(this._brideEmail.value), res.brideEmail.indexOf(this._brideEmail.value) + this._brideEmail.value.length);
-        str2 = res.brideEmail.substring(res.brideEmail.indexOf(this._brideEmail.value) + this._brideEmail.value.length);
+        var index = -1;
+        if (res.brideEmail.indexOf(this._brideEmail.value) != -1) {
+          index = res.brideEmail.indexOf(this._brideEmail.value);
+        } else {
+          if (res.brideEmail.indexOf(this._brideEmail.value.toUpperCase()) != -1) {
+            index = res.brideEmail.indexOf(this._brideEmail.value.toUpperCase());
+          } else if (res.brideEmail.indexOf(this._brideEmail.value.toLowerCase()) != -1) {
+            index = res.brideEmail.indexOf(this._brideEmail.value.toLowerCase());
+          }
+        }
+        str0 = res.brideEmail.substring(0, index);
+        str1 = res.brideEmail.substring(index, index + this._brideEmail.value.length);
+        str2 = res.brideEmail.substring(index + this._brideEmail.value.length);
       
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
@@ -223,13 +278,24 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomName == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -, '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Name, '));
         div2.appendChild(span0);
       } else {
-        str0 = res.groomName.substring(0, res.groomName.indexOf(this._groomName.value));
-        str1 = res.groomName.substring(res.groomName.indexOf(this._groomName.value), res.groomName.indexOf(this._groomName.value) + this._groomName.value.length);
-        str2 = res.groomName.substring(res.groomName.indexOf(this._groomName.value) + this._groomName.value.length);
-      
+        var index = -1;
+        if (res.groomName.indexOf(this._groomName.value) != -1) {
+          index = res.groomName.indexOf(this._groomName.value);
+        } else {
+          if (res.groomName.indexOf(this._groomName.value.toUpperCase()) != -1) {
+            index = res.groomName.indexOf(this._groomName.value.toUpperCase());
+          } else if (res.groomName.indexOf(this._groomName.value.toLowerCase()) != -1) {
+            index = res.groomName.indexOf(this._groomName.value.toLowerCase());
+          }
+        }
+        str0 = res.groomName.substring(0, index);
+        str1 = res.groomName.substring(index, index + this._groomName.value.length);
+        str2 = res.groomName.substring(index + this._groomName.value.length);
+        
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
         span0.appendChild(document.createTextNode(str0));
@@ -249,13 +315,24 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomAddress == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -, '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Address, '));
         div2.appendChild(span0);
       } else {
-        str0 = res.groomAddress.substring(0, res.groomAddress.indexOf(this._groomAddress.value));
-        str1 = res.groomAddress.substring(res.groomAddress.indexOf(this._groomAddress.value), res.groomAddress.indexOf(this._groomAddress.value) + this._groomAddress.value.length);
-        str2 = res.groomAddress.substring(res.groomAddress.indexOf(this._groomAddress.value) + this._groomAddress.value.length);
-      
+        var index = -1;
+        if (res.groomAddress.indexOf(this._groomAddress.value) != -1) {
+          index = res.groomAddress.indexOf(this._groomAddress.value);
+        } else {
+          if (res.groomAddress.indexOf(this._groomAddress.value.toUpperCase()) != -1) {
+            index = res.groomAddress.indexOf(this._groomAddress.value.toUpperCase());
+          } else if (res.groomAddress.indexOf(this._groomAddress.value.toLowerCase()) != -1) {
+            index = res.groomAddress.indexOf(this._groomAddress.value.toLowerCase());
+          }
+        }
+        str0 = res.groomAddress.substring(0, index);
+        str1 = res.groomAddress.substring(index, index + this._groomAddress.value.length);
+        str2 = res.groomAddress.substring(index + this._groomAddress.value.length);
+        
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
         span0.appendChild(document.createTextNode(str0));
@@ -275,12 +352,24 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomPhone == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -, '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Phone, '));
         div2.appendChild(span0);
       } else {
-        str0 = res.groomPhone.substring(0, res.groomPhone.indexOf(this._groomPhone.value));
-        str1 = res.groomPhone.substring(res.groomPhone.indexOf(this._groomPhone.value), res.groomPhone.indexOf(this._groomPhone.value) + this._groomPhone.value.length);
-        str2 = res.groomPhone.substring(res.groomPhone.indexOf(this._groomPhone.value) + this._groomPhone.value.length);
+        var index = -1;
+        if (res.groomPhone.indexOf(this._groomPhone.value) != -1) {
+          index = res.groomPhone.indexOf(this._groomPhone.value);
+        } else {
+          if (res.groomPhone.indexOf(this._groomPhone.value.toUpperCase()) != -1) {
+            index = res.groomPhone.indexOf(this._groomPhone.value.toUpperCase());
+          }
+          if (res.groomPhone.indexOf(this._groomPhone.value.toLowerCase()) != -1) {
+            index = res.groomPhone.indexOf(this._groomPhone.value.toLowerCase());
+          }
+        }
+        str0 = res.groomPhone.substring(0, index);
+        str1 = res.groomPhone.substring(index, index + this._groomPhone.value.length);
+        str2 = res.groomPhone.substring(index + this._groomPhone.value.length);
       
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
@@ -301,12 +390,24 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomMobile == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' -, '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Mobile, '));
         div2.appendChild(span0);
       } else {
-        str0 = res.groomMobile.substring(0, res.groomMobile.indexOf(this._groomMobile.value));
-        str1 = res.groomMobile.substring(res.groomMobile.indexOf(this._groomMobile.value), res.groomMobile.indexOf(this._groomMobile.value) + this._groomMobile.value.length);
-        str2 = res.groomMobile.substring(res.groomMobile.indexOf(this._groomMobile.value) + this._groomMobile.value.length);
+        var index = -1;
+        if (res.groomMobile.indexOf(this._groomMobile.value) != -1) {
+          index = res.groomMobile.indexOf(this._groomMobile.value);
+        } else {
+          if (res.groomMobile.indexOf(this._groomMobile.value.toUpperCase()) != -1) {
+            index = res.groomMobile.indexOf(this._groomMobile.value.toUpperCase());
+          } else if (res.groomMobile.indexOf(this._groomMobile.value.toLowerCase()) != -1) {
+            index = res.groomMobile.indexOf(this._groomMobile.value.toLowerCase());
+          }
+        }
+        
+        str0 = res.groomMobile.substring(0, index);
+        str1 = res.groomMobile.substring(index, index + this._groomMobile.value.length);
+        str2 = res.groomMobile.substring(index + this._groomMobile.value.length);
       
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
@@ -327,12 +428,23 @@ ModuleDialogResult.prototype._updateElements = function() {
       if (res.groomEmail == '') {
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
-        span0.appendChild(document.createTextNode(' - '));
+        span0.style.color = '#ff0000';
+        span0.appendChild(document.createTextNode('No Email'));
         div2.appendChild(span0);
       } else {
-        str0 = res.groomEmail.substring(0, res.groomEmail.indexOf(this._groomEmail.value));
-        str1 = res.groomEmail.substring(res.groomEmail.indexOf(this._groomEmail.value), res.groomEmail.indexOf(this._groomEmail.value) + this._groomEmail.value.length);
-        str2 = res.groomEmail.substring(res.groomEmail.indexOf(this._groomEmail.value) + this._groomEmail.value.length);
+        var index = -1;
+        if (res.groomEmail.indexOf(this._groomEmail.value) != -1) {
+          index = res.groomEmail.indexOf(this._groomEmail.value);
+        } else {
+          if (res.groomEmail.indexOf(this._groomEmail.value.toUpperCase()) != -1) {
+            index = res.groomEmail.indexOf(this._groomEmail.value.toUpperCase());
+          } else if (res.groomEmail.indexOf(this._groomEmail.value.toLowerCase()) != -1) {
+            index = res.groomEmail.indexOf(this._groomEmail.value.toLowerCase());
+          }
+        }
+        str0 = res.groomEmail.substring(0, index);
+        str1 = res.groomEmail.substring(index, index + this._groomEmail.value.length);
+        str2 = res.groomEmail.substring(index + this._groomEmail.value.length);
       
         span0 = document.createElement('span');
         span0.style.margin = '0 0 0 8px';
