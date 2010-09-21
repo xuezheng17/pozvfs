@@ -135,10 +135,10 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.padding = '0 0 0 5px';
     td.style.textAlign = 'left';
     td.style.whiteSpace = 'nowrap';
-    td.appendChild(document.createTextNode(tmp.brideName));
+    td.appendChild(document.createTextNode(tmp.groomName));
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
-    td.appendChild(document.createTextNode((tmp.isVisited) ? 'YES' : 'NO'));
+    td.appendChild(document.createTextNode((tmp.isVisited) ? 'Y' : 'N'));
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
     td.appendChild(document.createTextNode((tmp.weddingDay) ? SimpleDate.format(tmp.weddingDay) : 'Unknow'));
@@ -174,7 +174,7 @@ HandleProcessing.prototype._updateElements = function() {
       if (tmp.operations.length == 0) {
         span = document.createElement('span');
         span.style.color = '#FF0000';
-        span.appendChild(document.createTextNode('None'));
+        span.appendChild(document.createTextNode('0'));
         td.appendChild(span);
       } else {
         if (tmp.isVisited) {
