@@ -108,7 +108,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div1.appendChild(span1);
@@ -145,7 +145,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div1.appendChild(span1);
@@ -182,7 +182,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div1.appendChild(span1);
@@ -219,7 +219,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div1.appendChild(span1);
@@ -256,7 +256,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div1.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div1.appendChild(span1);
@@ -302,7 +302,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div2.appendChild(span1);
@@ -339,7 +339,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div2.appendChild(span1);
@@ -377,7 +377,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div2.appendChild(span1);
@@ -415,7 +415,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div2.appendChild(span1);
@@ -452,7 +452,7 @@ ModuleDialogResult.prototype._updateElements = function() {
         div2.appendChild(span0);
   
         span1= document.createElement('span');
-        span1.style.fontWeight = 'bold';
+        span1.style.fontWeight = (index == -1) ? 'regular' : 'bold';
         span1.style.color = '';
         span1.appendChild(document.createTextNode(str1));
         div2.appendChild(span1);
