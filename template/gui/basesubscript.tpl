@@ -1,9 +1,5 @@
 <style>
-.basesubscript_table1 {
-    width: 980px;
-    height: 45px;
-    text-align: center;
-    vertical-align: middle;
+  .basesubscript_div1 {
     margin: 30px 0 0 0;
   }
   .basesubscript_td1 {
@@ -29,6 +25,6 @@
   }
 </style>
 
-<div>Powered by <a href='#' style="font-family:arial, sans-serif;font-size:13px;">Dreamlife Project Developing Team</a></div>  
+<div class="basesubscript_div1">Powered by <a href='#' style="font-family:arial, sans-serif;font-size:13px;">Dreamlife Project Developing Team</a></div>  
   
 
