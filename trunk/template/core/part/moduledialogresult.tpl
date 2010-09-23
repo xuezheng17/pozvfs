@@ -9,6 +9,7 @@ function ModuleDialogResult(doc, container, width, height, operator, now, option
 
   this._query = (options && options.query) ? options.query : '';
   this._popupBox = (options && options.popupBox) ? options.popupBox : null;
+  this._weddingDay = (options && options.weddingDay) ? options.weddingDay : null;
   this._brideName = (options && options.brideName) ? options.brideName : null;
   this._brideAddress = (options && options.brideAddress) ? options.brideAddress : null;
   this._bridePhone = (options && options.bridePhone) ? options.bridePhone : null;
@@ -26,7 +27,7 @@ function ModuleDialogResult(doc, container, width, height, operator, now, option
 ModuleDialogResult.prototype._createElements = function() {
   var _self = this;
   this._gui = new DialogResult(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
-  
+
   this._loadData();
 };
 
@@ -43,7 +44,7 @@ ModuleDialogResult.prototype._verifyData = function() {
 
 ModuleDialogResult.prototype._retrieveUsers = function() {
   var _self = this;
-  var args = '&sql=' + encodeURIComponent(this._query);
+  var args = '&sql=' + encodeURIComponent(this._query) + ((this._weddingDay) ? '&date=' + JSON.stringify(this._weddingDay) : '');
   new RequestUtils()._mysql('findByRequest', args, function(result, params) { _self._results = result.data;
                                                                               _self._verifyData.call(_self);
                                                                             }, null);
@@ -76,9 +77,22 @@ ModuleDialogResult.prototype._updateElements = function() {
       tmp.style.color = '#0000CC';
       tmp.style.fontWeight = 'bold';
       tmp.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id)));
+      div0 = document.createElement('div');
+      div0.appendChild(tmp);
+      span0 = document.createElement('span');
+      span0.style.margin = '0 0 0 8px';
+      span0.style.fontWeight = 'bold';
+      span0.style.color = (SimpleDate.toStamp(this._weddingDay) == SimpleDate.toStamp(res.weddingDay)) ? '#0000cc' : '#ff0000';
+      span0.appendChild(document.createTextNode((res.weddingDay) ? SimpleDate.format(res.weddingDay) : 'no wedding day'));
+      div0.appendChild(span0);
+      td.appendChild(div0);
       
       div1 = document.createElement('div');
-      div1.appendChild(tmp);
+      div1.style.margin = '3px 0 0 0';
+      var span = document.createElement('span');
+      span.style.margin = '0 0 0 31px';
+      span.appendChild(document.createTextNode(' '));
+      div1.appendChild(span);
       td.appendChild(div1);
       
       if (res.brideName == '') {

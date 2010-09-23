@@ -109,7 +109,7 @@ HandleVisitorNew.prototype._updateElements = function() {
   this._gui.officeNote.onchange = function() { _self._visitor.note = this.value; };
   
   /* 联系方式的单词下拉框 */
-  
+
   this._popupSimple = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { where: 1});
   this._popupSimple._close();
 
@@ -123,8 +123,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                _self._popupSimple._container = document.body;
                                                _self._popupSimple._createElements();
                                                var str = _self._queryString();
-                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                               new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                               new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                return false;
                                              }
                                            };
@@ -139,8 +139,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                _self._popupSimple._container = document.body;
                                                _self._popupSimple._createElements();
                                                var str = _self._queryString();
-                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                               new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                               var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                               new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                return false;
                                              }
                                            };
@@ -155,8 +155,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                   _self._popupSimple._container = document.body;
                                                   _self._popupSimple._createElements();
                                                   var str = _self._queryString();
-                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                  new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                  new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                   return false;
                                                 }
                                               };
@@ -171,8 +171,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                   _self._popupSimple._container = document.body;
                                                   _self._popupSimple._createElements();
                                                   var str = _self._queryString();
-                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                  new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                  var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                  new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                   return false;
                                                 }
                                               };
@@ -187,8 +187,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                 _self._popupSimple._container = document.body;
                                                 _self._popupSimple._createElements();
                                                 var str = _self._queryString();
-                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                 return false;
                                               }
                                             };
@@ -203,8 +203,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                 _self._popupSimple._container = document.body;
                                                 _self._popupSimple._createElements();
                                                 var str = _self._queryString();
-                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                 return false;
                                               }
                                             };
@@ -219,8 +219,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                  _self._popupSimple._container = document.body;
                                                  _self._popupSimple._createElements();
                                                  var str = _self._queryString();
-                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                  return false;
                                                }
                                              };
@@ -235,8 +235,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                  _self._popupSimple._container = document.body;
                                                  _self._popupSimple._createElements();
                                                  var str = _self._queryString();
-                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                 var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                 new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                  return false;
                                                }
                                              };
@@ -251,8 +251,8 @@ HandleVisitorNew.prototype._updateElements = function() {
                                                 _self._popupSimple._container = document.body;
                                                 _self._popupSimple._createElements();
                                                 var str = _self._queryString();
-                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                                var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                                new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                                 return false;
                                               }
                                             };
@@ -267,8 +267,8 @@ this._gui.groomEmail.onkeyup = function() { if (_self._gui.groomEmail.value.leng
                                               _self._popupSimple._container = document.body;
                                               _self._popupSimple._createElements();
                                               var str = _self._queryString();
-                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail FROM np_pz_visitor as v WHERE " + str + " ";
-                                              new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
+                                              var query = "SELECT v.e_oid as id, v.brideName, v.brideAddress, v.bridePhone, v.brideMobile, v.brideEmail, v.groomName, v.groomAddress, v.groomPhone, v.groomMobile, v.groomEmail, v.weddingDay FROM np_pz_visitor as v WHERE " + str + " ";
+                                              new ModuleDialogResult(document, _self._popupSimple._gui.panel, 311, 30, _self._operator, _self._now, { weddingDay: _self._visitor.weddingDay, brideName: _self._gui.brideName, brideAddress: _self._gui.brideAddress, bridePhone: _self._gui.bridePhone, brideMobile: _self._gui.brideMobile, brideEmail: _self._gui.brideEmail, groomName: _self._gui.groomName, groomAddress: _self._gui.groomAddress, groomPhone: _self._gui.groomPhone, groomMobile: _self._gui.groomMobile, groomEmail: _self._gui.groomEmail, query: query, popupBox: _self._popupSimple });
                                               return false;
                                             }
                                           };
@@ -426,6 +426,7 @@ this._gui.groomEmail.onkeyup = function() { if (_self._gui.groomEmail.value.leng
 
 HandleVisitorNew.prototype._queryString = function() {
   var str = '';
+  
   if (str != '') {
     if (this._gui.brideName.value != '') {
       str += ' OR ' + '(v.brideName LIKE \'%' + this._gui.brideName.value + '%\')';
