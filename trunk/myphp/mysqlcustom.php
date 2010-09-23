@@ -629,6 +629,8 @@ function findByRequest($myPdo) {
   $result->data = array();
   
   $sql = MiscUtils::getParam('sql', '');
+  $date = MiscUtils::getParam('date', NULL);
+  $sql .= ($date) ? ' OR (v.weddingDay = \'' . SimpleDate::toStamp(json_decode($date)) . '\')' : '';
   if ($sql) {
     try {
       $stmt = $myPdo->prepare($sql);
@@ -636,6 +638,7 @@ function findByRequest($myPdo) {
       $i = 0; $count = 0;
       while ($i < $stmt->rowCount()) {
         $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+        $tmp->weddingDay = ($tmp->weddingDay) ? SimpleDate::fromStamp($tmp->weddingDay) : NULL;
         $result->data[] = $tmp;
         $i++;
       }
