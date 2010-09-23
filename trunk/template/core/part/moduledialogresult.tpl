@@ -78,7 +78,7 @@ ModuleDialogResult.prototype._updateElements = function() {
       var tmp = document.createElement('span');
       tmp.style.color = '#0000CC';
       tmp.style.fontWeight = 'bold';
-      tmp.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id)));
+      tmp.appendChild(document.createTextNode(POZVFSUtils.visitorId(res.id) + ', '));
       div0 = document.createElement('div');
       div0.appendChild(tmp);
       span0 = document.createElement('span');
