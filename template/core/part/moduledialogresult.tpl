@@ -27,7 +27,9 @@ function ModuleDialogResult(doc, container, width, height, operator, now, option
 ModuleDialogResult.prototype._createElements = function() {
   var _self = this;
   this._gui = new DialogResult(this._doc, this._container, this._width, this._height, this._operator, this._now, this._options)._gui;
-
+  tr = this._gui.mains.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.appendChild(document.createTextNode('Loading...'));
   this._loadData();
 };
 
