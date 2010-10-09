@@ -49,9 +49,9 @@ SimpleDate.format = function(sd, showTime) {
     return 'Unknown';
   }
   if (!showTime) {
-    return SimpleDate.fmtDigits(sd.month) + '/' + SimpleDate.fmtDigits(sd.date) + '/' + sd.year;
+    return SimpleDate.fmtDigits(sd.date) + '/' + SimpleDate.fmtDigits(sd.month) + '/' + sd.year;
   }
-  return SimpleDate.fmtDigits(sd.month) + '/' + SimpleDate.fmtDigits(sd.date) + '/' + sd.year + ' ' + SimpleDate.fmtDigits(sd.hours) + ':' + SimpleDate.fmtDigits(sd.minutes);
+  return SimpleDate.fmtDigits(sd.date) + '/' + SimpleDate.fmtDigits(sd.month) + '/' + sd.year + ' ' + SimpleDate.fmtDigits(sd.hours) + ':' + SimpleDate.fmtDigits(sd.minutes);
 };
 
 SimpleDate.clone = function(sd) {
