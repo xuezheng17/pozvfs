@@ -22,7 +22,7 @@ MiscUtils.encrypt = function(str) {/**
   for (i = 0, il = str.length; i < il; i++) {
     result += this.digits(str.charCodeAt(i).toString(16), 2);
   }
-  return result;*/return str;
+  return result;*/return encodeURIComponent(str);
 };
 
 MiscUtils.decrypt = function(str) {/**
@@ -107,7 +107,7 @@ MiscUtils.load = function(popupBox, text) {
 };
 
 /**
- * 找出数组中的某些元素
+ * æ‰¾å‡ºæ•°ç»„ä¸­çš„æŸ�äº›å…ƒç´ 
  */
 MiscUtils.find = function(array, conditions, mode) {
   mode = (mode) ? mode : MiscUtils.conjunction;
@@ -122,7 +122,7 @@ MiscUtils.find = function(array, conditions, mode) {
 };
 
 /**
- * 找出数组中符合所有条件的元素
+ * æ‰¾å‡ºæ•°ç»„ä¸­ç¬¦å�ˆæ‰€æœ‰æ�¡ä»¶çš„å…ƒç´ 
  */
 MiscUtils.conjoin = function(array, conditions) {
   var result = [];
@@ -154,7 +154,7 @@ MiscUtils.conjoin = function(array, conditions) {
 };
 
 /**
- * 找出数组中符合任一条件的元素
+ * æ‰¾å‡ºæ•°ç»„ä¸­ç¬¦å�ˆä»»ä¸€æ�¡ä»¶çš„å…ƒç´ 
  */
 MiscUtils.disjoin = function(array, conditions) {
   var result = [];
@@ -182,7 +182,7 @@ MiscUtils.disjoin = function(array, conditions) {
 };
 
 /**
- * 删除数组中的某个元素
+ * åˆ é™¤æ•°ç»„ä¸­çš„æŸ�ä¸ªå…ƒç´ 
  */
 MiscUtils.remove = function(array, elem, attr) {
   for (var i = 0, il = array.length; i < il; i++) {
@@ -196,7 +196,7 @@ MiscUtils.remove = function(array, elem, attr) {
 };
 
 /**
- * 为一个数组排序（按照某个属性的名字顺序）。
+ * ä¸ºä¸€ä¸ªæ•°ç»„æŽ’åº�ï¼ˆæŒ‰ç…§æŸ�ä¸ªå±žæ€§çš„å��å­—é¡ºåº�ï¼‰ã€‚
  */
 MiscUtils.sort = function(array, attrs) {
   var func = function(a, b) { var v1 = a, v2 = b;
