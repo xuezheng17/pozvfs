@@ -461,20 +461,40 @@
                   <a href = "?t=statbasic&m={%22a%22:3,%22b%22:1}">Basic</a>
                 </div>
               </td>
-              <td class="basemenus_td5">
-                |
-              </td>
+              <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 2}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
                   <a href = "?t=statistics&m={%22a%22:3,%22b%22:2}">Visit</a>
                 </div>
               </td>
-              <td class="basemenus_td5">
-                |
-              </td>
+              <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=statadvanced&m={%22a%22:3,%22b%22:3}">More info</a>
+                  <a href = "?t=pagestatsource&m={%22a%22:3,%22b%22:3}">Source</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">|</td>
+              <td>
+                <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=pagestatcultural&m={%22a%22:3,%22b%22:4}">Cultural Background</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">|</td>
+              <td>
+                <div {{if $menu->b == 5}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=pagestatreception&m={%22a%22:3,%22b%22:5}">Reception</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">|</td>
+              <td>
+                <div {{if $menu->b == 6}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=pagestatceremony&m={%22a%22:3,%22b%22:6}">Ceremony</a>
+                </div>
+              </td>
+              <td class="basemenus_td5">|</td>
+              <td>
+                <div {{if $menu->b == 7}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=statadvanced&m={%22a%22:3,%22b%22:7}">More info</a>
                 </div>
               </td>
               <td class="basemenus_td4"></td>
