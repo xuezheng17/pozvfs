@@ -128,13 +128,12 @@ HandleProcessing.prototype._updateElements = function() {
     td.style.padding = '0 0 0 5px';
     td.style.textAlign = 'left';
     td.style.verticalAlign = 'middle';
-    td.style.whiteSpace = 'nowrap';
+    td.style.wordWrap = 'break-word';
     td.appendChild(document.createTextNode(tmp.brideName));
     td = tr.insertCell(-1);
-    td.style.whiteSpace = 'nowrap';
     td.style.padding = '0 0 0 5px';
     td.style.textAlign = 'left';
-    td.style.whiteSpace = 'nowrap';
+    td.style.wordWrap = 'break-word';
     td.appendChild(document.createTextNode(tmp.groomName));
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
