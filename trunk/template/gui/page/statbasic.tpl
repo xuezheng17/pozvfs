@@ -199,9 +199,15 @@
             <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0">
               <tr>
                 <td class="{{$template|escape:'html'}}_td8">Total</td>
-                <td class="{{$template|escape:'html'}}_td8">In processing </td>
-                <td class="{{$template|escape:'html'}}_td8">Booked Customer</td>
-                <td class="{{$template|escape:'html'}}_td8">Failed</td>
+                <td class="{{$template|escape:'html'}}_td8">
+                  <a href="?t=visitors&m={%22a%22:1,%22b%22:2}&opts={%22s%22:1}">In processing </a>
+                </td>
+                <td class="{{$template|escape:'html'}}_td8">
+                  <a href="?t=visitors&m={%22a%22:1,%22b%22:2}&opts={%22s%22:2}">Booked Customer</a>
+                </td>
+                <td class="{{$template|escape:'html'}}_td8">
+                  <a href="?t=visitors&m={%22a%22:1,%22b%22:2}&opts={%22s%22:3}">Failed </a>
+                </td>
               </tr>
               <tr>
                 <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_visitors_div"></td>
