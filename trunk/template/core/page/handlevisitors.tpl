@@ -3,7 +3,7 @@ function HandleVisitors(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options;
-  
+  this._cont = (options && options.s) ? options.s : 0;
   this._search = POZVFSUtils.search();
   
   this._createElements();
@@ -31,6 +31,29 @@ HandleVisitors.prototype._createElements = function() {
   a.href = '?t=visitornew&m={\"a\":1,\"b\":1}';
   a.appendChild(document.createTextNode('New Visitor'));
   td.appendChild(a);
+  
+  if (this._cont == 1) {
+    this._search.inProgressingOnly = true;
+    this._search.succeeded = false,
+    this._search.failed = false,
+    this._search.deleted = false
+    var condition = '(v.status = 0)';
+    this._retrieveVisitors(1, condition, null,null,null,null,null);
+  } else if (this._cont == 2) {
+    this._search.inProgressingOnly = false,
+    this._search.succeeded = true,
+    this._search.failed = false,
+    this._search.deleted = false
+    var condition = '(v.status = 1)';
+    this._retrieveVisitors(1, condition, null,null,null,null,null);
+  } else if (this._cont == 3) {
+    this._search.inProgressingOnly = false,
+    this._search.succeeded = false,
+    this._search.failed = true,
+    this._search.deleted = false
+    var condition = '(v.status = -1)';
+    this._retrieveVisitors(1, condition, null,null,null,null,null);
+  }
   
   this._visitorSearch(this._gui, function(condition, datefrom, dateto, from, to, pos) { _self._retrieveVisitors.call(_self, 1, condition, datefrom, dateto, from, to, pos); });
 };
