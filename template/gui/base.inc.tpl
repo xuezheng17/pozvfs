@@ -1,4 +1,4 @@
-<title>{{#applicationName#|escape:'html'}} - Prozzolana Web Development</title>
+<title>{{#applicationName#|escape:'html'}} - Pozzolana Web Development</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="description" content="We provide high quality website design, hosting, maintenance, promotion and e-commerce services to business throughout the worldwide. ">
 <meta name="keywords" content="pozzoalana, pozzoalana website design, pozzoalana web, pozzoalana design, web, design, website design, hosting, maintance, web site, designing, designer, developer, macromedia flash, e-shop, e-commerce, e commerce, online, store, shop">
