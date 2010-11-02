@@ -1,10 +1,12 @@
 <?php
+/**
 $ip = $_SERVER['REMOTE_ADDR'];
-if ($ip != '219.89.180.81' &&
+if ($ip != '219.89.163.221' &&
     $ip != '60.190.131.94') {
-  header( 'Location: ../maintentce.html');
+  header( 'Location: ../../maintenance.html');
   return;
 }
+*/
 
 require_once dirname(__FILE__) . '/common/common.inc.php';
 
