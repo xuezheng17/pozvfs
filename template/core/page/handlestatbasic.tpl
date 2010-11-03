@@ -86,6 +86,7 @@ HandleStatBasic.prototype._updateElements = function() {
     td.style.textAlign = 'center';
     td.appendChild(document.createTextNode('Empty'));
   }
+  
   for (var i = 0, il = this._dateZones.length; i < il; i++) {
     var date = this._dateZones[i];
     tr = this._gui.dateZone.result.insertRow(-1);

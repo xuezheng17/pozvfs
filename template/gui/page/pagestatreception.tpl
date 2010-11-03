@@ -1,36 +1,33 @@
 <style>
   .{{$template|escape:'html'}}_table1 {
-    width: 900px;
+    width: 980px;
     height: 25px;
+    margin-top:20px;
+    border:solid 1px #ccc;
   }
   .{{$template|escape:'html'}}_table2 {
-    width: 900px;
+    width: 980px;
   }
   .{{$template|escape:'html'}}_table3 {
-    width: 870px;
-    border-bottom: 1px solid #694247;
-    border-right: 1px solid #694247;
+    width: 950px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
   }
   .{{$template|escape:'html'}}_table3 td{
-    border-top: 1px solid #694247;
-    border-left: 1px solid #694247;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
   }
   .{{$template|escape:'html'}}_td1 {
-    background-color: #885B5D;
-    width: 900px;
+    border-bottom:solid 1px #ccc;
+    background-color: #E5ECF9;
+    width: 980px;
     font-size: 11pt;
     font-weight: bold;
-    color: white;
     height: 25px;
     padding: 0 0 0 15px;
   }
   .{{$template|escape:'html'}}_td3 {
-    background-color: #ebebe3;
-    border-right:solid 1px #8f8f8a;
-    border-bottom:solid 1px #8f8f8a;
-    border-left:solid 1px #ffffff;
-    border-top:solid 1px #ffffff;
-    width: 900px;
+    width: 980px;
     height: 5px;
   }
   .{{$template|escape:'html'}}_td5 {
@@ -38,38 +35,35 @@
     height: 30px;
     font-size: 10pt;
     font-weight: bold;
-    color: #694247;
     padding-left: 15px;
     text-align: left;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td6 {
-    width: 830px;
+    width: 910px;
     height: 30px;
     text-align: left;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td7 {
-    width: 900px;
+    width: 980px;
     height: 40px;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td8 {
-    width: 615px;
+    width: 550px;
     height: 25px;
     padding-left: 15px;
     font-size: 10pt;
     font-weight: bold;
-    color: #694247;
     text-align: left;
     vertical-align: middle;
   }
   .{{$template|escape:'html'}}_td9 {
-    width: 240px;
+    width: 400px;
     height: 25px;
     font-size: 10pt;
     font-weight: bold;
-    color: #694247;
     text-align: center;
     vertical-align: middle;
   }

@@ -11,8 +11,6 @@ function HandlePageStatSource(gui, operator, now, options) {
 
 HandlePageStatSource.prototype._createElements = function() {
   var _self = this;
-  this._popupBox = new PopupBox();
-  this._search = DlmanageUtils.search();
   
   tr = this._gui.detail.sourceTable.insertRow(-1);
   td = tr.insertCell(-1);
@@ -39,24 +37,24 @@ HandlePageStatSource.prototype._verifyData = function() {
 HandlePageStatSource.prototype._retrieveResults = function(page, condition, from, to) {
   var _self = this;
   var args = ((condition) ?  '&c=' + condition : '') + '&p=' + page + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
-  new RequestUtils()._mysql('iestatssource', args, function(result, params) { _self._results = result;
+  new RequestUtils()._mysql('statssource', args, function(result, params) { _self._results = result;
                                                                               _self._verifyData.call(_self);
                                                                             }, null);
 };
 
 HandlePageStatSource.prototype._retrieveDateZones = function() {
   var _self = this;
-  new RequestUtils()._read('datezone', null, 'd.page=\'' + this._options.template + '\'', null, null, null, null, function(result, params) { _self._dateZones = result.data;
+  new RequestUtils()._read('pz_datezone', null, 'd.page=\'' + this._options.template + '\'', null, null, null, null, function(result, params) { _self._dateZones = result.data;
                                                                                                                                             _self._verifyData.call(_self);
                                                                                                                                           }, null);
 };
 
 HandlePageStatSource.prototype._updateElements = function() {
   var _self = this;
-  DlmanageUtils.clear(this._gui.dateZone);
+//  POZVFSUtils.clear(this._gui.dateZone);
   DOMUtils.removeChildElements(this._gui.detail.total);
   DOMUtils.removeTableRows(this._gui.detail.sourceTable, 1);
-  ChartUtils.source(this._gui.detail.graph, this._results);
+//  ChartUtils.source(this._gui.detail.graph, this._results);
   
   var total = 0;
   /*--main table--*/
@@ -78,9 +76,6 @@ HandlePageStatSource.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.className = 'elemstatsource_td13';
     td.appendChild(document.createTextNode(result.value));
-    td = tr.insertCell(-1);
-    td.className = 'elemstatsource_td15';
-    td.appendChild(document.createTextNode('$' + parseFloat(result.revenue).toFixed(2)));
   }
   this._gui.detail.total.appendChild(document.createTextNode(total));
   
@@ -150,7 +145,7 @@ HandlePageStatSource.prototype._updateElements = function() {
 HandlePageStatSource.prototype._customerSearch = function(gui, callbackFunc) {
   var _self = this;
   this._callbackFunc = callbackFunc;
-
+  
   gui.search.dateCreated.value = (this._search.dateFrom) ? SimpleDate.format(this._search.dateFrom) : '';
   gui.search.dateCreated.onclick = function() { var context = this;
                                                 _self._changeDate.call(_self, this, _self._search.dateFrom, function(sd) { _self._search.dateFrom = sd; context.focus(); }, false);
@@ -158,7 +153,7 @@ HandlePageStatSource.prototype._customerSearch = function(gui, callbackFunc) {
                                               };
   gui.search.dateCreated.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                                     if (code == 13) {
-                                                      _self._callbackFunc.call(_self, '1=1', (_self._search.dateFrom) ? JSON.stringify(_self._search.dateFrom) : null, (_self._search.dateTo) ? JSON.stringify(_self._search.dateTo) : null);
+                                                      _self._callbackFunc.call(_self, '', (_self._search.dateFrom) ? JSON.stringify(_self._search.dateFrom) : null, (_self._search.dateTo) ? JSON.stringify(_self._search.dateTo) : null);
                                                     }
                                                   };
   gui.search.dateTo.value = (this._search.dateTo) ? SimpleDate.format(this._search.dateTo) : '';
@@ -168,25 +163,25 @@ HandlePageStatSource.prototype._customerSearch = function(gui, callbackFunc) {
                                          };
   gui.search.dateTo.onkeypress = function(e) { var code = DOMUtils.getEventCode(e);
                                                if (code == 13) {
-                                                 _self._callbackFunc.call(_self, '1=1', (_self._search.dateFrom) ? JSON.stringify(_self._search.dateFrom) : null, (_self._search.dateTo) ? JSON.stringify(_self._search.dateTo) : null);
+                                                 _self._callbackFunc.call(_self, '', (_self._search.dateFrom) ? JSON.stringify(_self._search.dateFrom) : null, (_self._search.dateTo) ? JSON.stringify(_self._search.dateTo) : null);
                                                }
                                              };
- gui.search.search.onclick = function() { _self._callbackFunc.call(_self, '1=1', (_self._search.dateFrom) ? JSON.stringify(_self._search.dateFrom) : null, (_self._search.dateTo) ? JSON.stringify(_self._search.dateTo) : null); };
+ gui.search.search.onclick = function() { _self._callbackFunc.call(_self, '', (_self._search.dateFrom) ? JSON.stringify(_self._search.dateFrom) : null, (_self._search.dateTo) ? JSON.stringify(_self._search.dateTo) : null); };
 };
 
 HandlePageStatSource.prototype._changeDate = function(label, currentDate, onChangeFunc, showTime) {
-  var _self = this;
-  this._wContainer = document.createElement('div');
-  this._wContainer.style.left = DOMUtils.findPos(label)[0] + 'px';
-  this._wContainer.style.top = DOMUtils.findPos(label)[1] + 'px';
-  this._popupBox._open(this._wContainer, { pos: DOMUtils.findPos(label) });
+  var div, _self = this;
+  div = document.createElement('div');
+  div.style.left = DOMUtils.findPos(label)[0] + 'px';
+  div.style.top = DOMUtils.findPos(label)[1] + 'px';
+  this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: DOMUtils.findPos(label)});
+  this._popupBox._gui.panel.appendChild(div);
   
-  var ds = new DateSelect(currentDate, null, { container: this._wContainer, showTime: showTime });
+  var ds = new DateSelect(currentDate, null, { container: div, showTime: showTime });
   ds._selectFunc = function(sd) { _self._selectDate.call(_self, sd, label, onChangeFunc, showTime); };
 };
 
 HandlePageStatSource.prototype._selectDate = function(sd, label, onChangeFunc, showTime) {
-  
   onChangeFunc(sd);
   this._showDate(sd, label, showTime);
   this._popupBox._close();
