@@ -6,6 +6,10 @@ header('Content-Type: text/plain');
 $tableUser = 'np_pz_user';
 $tableVisitor = 'np_pz_visitor';
 $tableOperation = 'np_pz_operation';
+$tableSource = 'np_pz_isource';
+$tableCulture = 'np_pz_iculture';
+$tableCeremony = 'np_pz_iceremony';
+$tableReception = 'np_pz_ireception';
 
 try {
   $hostname = 'localhost';
@@ -52,6 +56,18 @@ try {
       break;
     case 'performanceSales': 
       performanceSales($myPdo);
+      break;
+    case 'statssource':
+      statssource($myPdo);
+      break;
+    case 'statsculture':
+      statsculture($myPdo);
+      break;
+    case 'statsreception':
+      statsreception($myPdo);
+      break;
+    case 'statsceremony':
+      statsceremony($myPdo);
       break;
     case 'findByRequest': 
       findByRequest($myPdo);
@@ -132,6 +148,213 @@ function visitors($myPdo) {
       $j++;
     }
     $result->data[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
+function statssource($myPdo) {
+  global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', '1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $sql = "SELECT s.name AS name FROM $tableSource AS s";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
+  $result = array();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $name = addslashes($tmp->name);
+    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v WHERE v.source = '$name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->value = $tmp2->total;
+    }
+    $result[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
+function statsculture($myPdo) {
+  global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
+  
+ $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+
+  $result = array();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $sql2 = "SELECT COUNT(c.e_oid) AS total FROM $tableCustomer AS c WHERE c.culture = '$tmp->name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->value = $tmp2->total;
+    }
+    $sql2 = "SELECT SUM(o.price) AS total FROM $tableMyOrder AS o LEFT JOIN ns__ez_relation_customer_myorder AS co ON o.e_oid = co.oid_b LEFT JOIN $tableCustomer AS c ON co.oid_a = c.e_oid WHERE c.culture = '$tmp->name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->revenue = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->revenue = ($tmp2->total) ? $tmp2->total : 0;
+    }
+    $result[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
+function statsreception($myPdo) {
+  global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+  
+  $result = array();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $name = addslashes($tmp->name);
+    $sql2 = "SELECT COUNT(c.e_oid) AS total FROM $tableCustomer AS c WHERE c.reception = '$name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->value = $tmp2->total;
+    }
+    $sql2 = "SELECT SUM(o.price) AS total FROM $tableMyOrder AS o LEFT JOIN ns__ez_relation_customer_myorder AS co ON o.e_oid = co.oid_b LEFT JOIN $tableCustomer AS c ON co.oid_a = c.e_oid WHERE c.reception = '$name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->revenue = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->revenue = ($tmp2->total) ? $tmp2->total : 0;
+    }
+    $result[] = $tmp;
+    $i++;
+  }
+  echo json_encode($result);
+}
+
+function iestatsreceptioncustomers($myPdo) {
+}
+
+function statsceremony($myPdo) {
+  global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $order = MiscUtils::getParam('o', 'v.e_oid');
+  $queue = MiscUtils::getParam('q', 'DESC');
+  $page = MiscUtils::getParam('p', START);
+  $size = MiscUtils::getParam('s', 8);
+  $pageSkip = ($page - 1) * $size;
+  
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+
+  $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $result = new stdClass();
+  $result->data = array();
+  $result->page = $page;
+  $result->size = $size;
+  $result->order = $order;
+  $result->queue = $queue;
+  $result->condition = $condition;
+
+  $result = array();
+  $i = 0;
+  while ($i < $stmt->rowCount()) {
+    $tmp = $stmt->fetch(PDO::FETCH_OBJ);
+    $name = addslashes($tmp->name);
+    $sql2 = "SELECT COUNT(c.e_oid) AS total FROM $tableCustomer AS c WHERE c.ceremony = '$name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->value = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->value = $tmp2->total;
+    }
+    $sql2 = "SELECT SUM(o.price) AS total FROM $tableMyOrder AS o LEFT JOIN ns__ez_relation_customer_myorder AS co ON o.e_oid = co.oid_b LEFT JOIN $tableCustomer AS c ON co.oid_a = c.e_oid WHERE c.ceremony = '$name' AND $condition";
+    $stmt2 = $myPdo->prepare($sql2);
+    $stmt2->execute();
+    $tmp->revenue = 0;
+    if ($stmt2->rowCount() == 1) {
+      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
+      $tmp->revenue = ($tmp2->total) ? $tmp2->total : 0;
+    }
+    $result[] = $tmp;
     $i++;
   }
   echo json_encode($result);
@@ -324,7 +547,6 @@ function statBasic($myPdo) {
   $condition .= ($createdFrom) ? ' AND (v.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
   $condition .= ($createdTo) ? ' AND (v.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
   
-  
   $result = new stdClass();
   $result->data = array();
   $result->page = $page;
@@ -332,6 +554,7 @@ function statBasic($myPdo) {
   $result->order = $order;
   $result->queue = $queue;
   $result->condition = $condition;
+  
   
   $sql = "SELECT DISTINCT v.e_oid AS id FROM $tableVisitor AS v $condition";
   $stmt = $myPdo->prepare($sql);
