@@ -65,6 +65,7 @@ HandlePageStatCeremony.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.className = 'elemstatreception_td9';
     td.appendChild(document.createTextNode(result.value));
+    /*
     var a = document.createElement('a');
     a.href = '#';
     a._name = result.name;
@@ -73,6 +74,7 @@ HandlePageStatCeremony.prototype._updateElements = function() {
                              w.focus();
                            };
     td.appendChild(a);
+    */
   }
   this._gui.ceremony.total.appendChild(document.createTextNode(total));
 };

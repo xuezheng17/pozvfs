@@ -151,6 +151,140 @@
     width:170px;
     height:16px;
   }
+  .elemstatsource_table1 {
+    width: 712px;
+    height: 24px;
+    margin: 20px 0 0 0;
+    border:solid 1px #ccc;
+  }
+  .elemstatsource_table2 {
+    width: 712px;
+    height: 50px;
+  }
+  .elemstatsource_table3 {
+    width: 695px;
+    height: 15px;
+    margin: 0 0 0 15px;
+  }
+  .elemstatsource_table4 {
+    width: 400px;
+  }
+  .elemstatsource_table5 {
+    width: 400px;
+    height: 24px;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+  .elemstatsource_table5 td {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+  }
+  .elemstatsource_table6 {
+    width: 278px;
+    height: 15px;
+  }
+  .elemstatsource_td1 {
+    width: 712px;
+    background-color:#E5ECF9;
+    height: 24px;
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 0 0 0 15px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom:solid 1px #ccc;
+  }
+  .elemstatsource_td3 {
+    width: 712px;
+    height: 5px;
+  }
+  .elemstatsource_td5 {
+    width: 695px;
+    height: 35px;
+    vertical-align: top;
+  }
+  .elemstatsource_td6 {
+    width: 670px;
+    height: 20px;
+    vertical-align: top;
+  }
+  .elemstatsource_td7 {
+    height: 17px;
+  }
+  .elemstatsource_td8 {
+    width: 55px;
+    height: 24px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: top;
+  }
+  .elemstatsource_td9 {
+    height: 24px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .elemstatsource_td10 {
+    width: 150px;
+    height: 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .elemstatsource_td11 {
+    width: 329px;
+    height: 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .elemstatsource_td12 {
+    width: 215px;
+    height: 24px;
+    padding-left: 15px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+  }
+  .elemstatsource_td13 {
+    width: 80px;
+    height: 24px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .elemstatsource_td14 {
+    width: 270px;
+    height: 700px;
+    text-align: center;
+    vertical-align: top;
+  }
+  .elemstatsource_td15 {
+    width: 80px;
+    height: 24px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .elemstatsource_td150 {
+    width: 80px;
+    height: 24px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .elemstatsource_td16 {
+    width: 230px;
+    height: 24px;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: Bold;
+    font-size: 12px;
+    padding: 0 0 0 15px;
+  }
+  .elemstatsource_margin {
+    margin: 0 0 0 15px;
+  }
 </style>
 
 <script src="jsrequest.php?script={{$template|escape:'html'}}" type="text/javascript"></script>
@@ -199,7 +333,70 @@
           </td>
         </tr>
         <tr>
-          <td style="height:585px;vertical-align:top" id="{{$template|escape:'html'}}_graphy_div" colSpan="6"></td>
+          <td style="width:755px" colSpan="6">
+            <table class="elemstatsource_table1" cellPadding="0" cellSpacing="0">
+              <tr>
+                <td class="elemstatsource_td1">
+                  Detail
+                </td>
+              </tr>
+              <tr>
+                <td class="elemstatsource_td3" align="center">
+                  <table class="elemstatsource_table2" cellPadding="0" cellSpacing="0">
+                    <tr>
+                      <td class="elemstatsource_td7"></td>
+                    </tr>
+                    <tr>
+                      <td class="elemstatsource_td5" align="left">
+                        <table class="elemstatsource_table3" cellPadding="0" cellSpacing="0">
+                          <tr>
+                            <td class="elemstatsource_td6" align="left">
+                              <table class="elemstatsource_table4"  cellPadding="0" cellSpacing="0">
+                                <tr>
+                                  <td class="elemstatsource_td8">
+                                    Total:
+                                  </td>
+                                  <td class="elemstatsource_td9" id="{{$template|escape:'html'}}_total_div"></td>
+                                </tr>
+                                <tr>
+                                  <td colSpan="2" class="elemstatsource_td10">
+                                    <table class="elemstatsource_table5" cellPadding="0" cellSpacing="0" id="{{$template|escape:'html'}}_main_table">
+                                      <tr>
+                                        <td class="elemstatsource_td12">
+                                           {{if $template == 'pagestatsource' }} Source {{else if $template == 'pagestatcultural'}} Cultural {{/if}}
+                                        </td>
+                                        <td class="elemstatsource_td13">
+                                          No.of CUS
+                                        </td>
+                                        <td class="elemstatsource_td150">
+                                          Revenue
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                            <td class="elemstatsource_td14" align="left">
+                              <table class="elemstatsource_table6"  cellPadding="0" cellSpacing="0">
+                                <tr>
+                                  <td class="elemstatsource_td14" id="{{$template|escape:'html'}}_graph_div"></td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="elemstatsource_td7"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
       </table>
     </td>
     <td class="{{$template|escape:'html'}}_td7">
