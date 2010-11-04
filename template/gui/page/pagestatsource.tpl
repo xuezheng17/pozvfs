@@ -368,9 +368,6 @@
                                         <td class="elemstatsource_td13">
                                           No.of CUS
                                         </td>
-                                        <td class="elemstatsource_td150">
-                                          Revenue
-                                        </td>
                                       </tr>
                                     </table>
                                   </td>

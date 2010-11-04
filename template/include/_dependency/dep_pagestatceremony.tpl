@@ -1,12 +1,11 @@
-{{include file='api/page/abstractceremonylocation.tpl'}}
+{{include file='api/page/abstractpagestatceremony.tpl'}}
 {{include file='include/common/domutils.tpl'}}
+{{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='include/library/json/json2.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
-{{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='gui/part/popupboxsimple.tpl'}}
 {{include file='core/part/modulepopupboxsimple.tpl'}}
 {{include file='include/_constant/constant.tpl'}}
 {{include file='include/library/request/request.tpl'}}
 {{include file='include/common/requestutils.tpl'}}
-{{include file='include/_database/pz_iceremony.class.tpl'}}
-{{include file='core/page/handleceremonylocation.tpl'}}
+{{include file='core/page/handlepagestatceremony.tpl'}}

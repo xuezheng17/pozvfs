@@ -3,14 +3,14 @@ function HandlePageStatCultural(gui, operator, now, options) {
   this._operator = operator;
   this._now = now;
   this._options = options
-
+  this._search = { dateFrom: '',
+                   dateTo: ''
+                 };
   this._createElements();
 };
 
 HandlePageStatCultural.prototype._createElements = function() {
   var _self = this;
-  this._popupBox = new PopupBox();
-  this._search = DlmanageUtils.search();
   
   tr = this._gui.detail.cultureTable.insertRow(-1);
   td = tr.insertCell(-1);
@@ -37,24 +37,24 @@ HandlePageStatCultural.prototype._verifyData = function() {
 HandlePageStatCultural.prototype._retrieveResults = function(page, condition, from, to) {
   var _self = this;
   var args = ((condition) ?  '&c=' + condition : '') + '&p=' + page + ((from) ?  '&from=' + from : '') + ((to) ?  '&to=' + to : '');
-  new RequestUtils()._mysql('iestatsculture', args, function(result, params) { _self._results = result;
+  new RequestUtils()._mysql('statsculture', args, function(result, params) { _self._results = result;
                                                                                _self._verifyData.call(_self);
                                                                              }, null);
 };
 
 HandlePageStatCultural.prototype._retrieveDateZones = function() {
   var _self = this;
-  new RequestUtils()._read('datezone', null, 'd.page=\'' + this._options.template + '\'', null, null, null, null, function(result, params) { _self._dateZones = result.data;
+  new RequestUtils()._read('pz_datezone', null, 'd.page=\'' + this._options.template + '\'', null, null, null, null, function(result, params) { _self._dateZones = result.data;
                                                                                                                                             _self._verifyData.call(_self);
                                                                                                                                           }, null);
 };
 
 HandlePageStatCultural.prototype._updateElements = function() {
   var _self = this;
-  DlmanageUtils.clear(this._gui.dateZone);
+//  POZVFSUtils.clear(this._gui.dateZone);
   DOMUtils.removeChildElements(this._gui.detail.total);
   DOMUtils.removeTableRows(this._gui.detail.cultureTable, 1);
-  ChartUtils.source(this._gui.detail.graph, this._results);
+//  ChartUtils.source(this._gui.detail.graph, this._results);
   
   var total = 0;
   /*--main table--*/
@@ -76,9 +76,6 @@ HandlePageStatCultural.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.className = 'elemstatsource_td13';
     td.appendChild(document.createTextNode(result.value));
-    td = tr.insertCell(-1);
-    td.className = 'elemstatsource_td15';
-    td.appendChild(document.createTextNode('$' + parseFloat(result.revenue).toFixed(2)));
   }
   this._gui.detail.total.appendChild(document.createTextNode(total));
   
@@ -89,21 +86,21 @@ HandlePageStatCultural.prototype._updateElements = function() {
   this._gui.dateZone.dateCreated.value = (this._dateZone.created) ? SimpleDate.format(this._dateZone.created) : '';
   this._gui.dateZone.dateCreated.onclick = function() { var context = this;
                                                         _self._changeDate.call(_self, this, _self._dateZone.created, function(sd) { _self._dateZone.created = sd; context.focus(); }, false);
-                                                        return false;
-                                                      };
+                                                   return false;
+                                                 };
   this._gui.dateZone.dateTo.value = (this._dateZone.to) ? SimpleDate.format(this._dateZone.to) : '';
   this._gui.dateZone.dateTo.onclick = function() { var context = this;
                                                    _self._changeDate.call(_self, this, _self._dateZone.to, function(sd) { _self._dateZone.to = sd; context.focus(); }, false);
                                                    return false;
-                                                 };
+                                                   };
   this._gui.dateZone.create.onclick = function() { if (_self._dateZone.created &&_self._dateZone.to) {
-                                                     var date = DateZone.instance();
+                                                     var date = pz_datezone.instance();
                                                      date.start = _self._dateZone.created;
                                                      date.end = _self._dateZone.to;
                                                      date.page = _self._options.template;
-                                                     new RequestUtils()._write('datezone', [date], [], function(date, params) { _self._retrieveDateZones.call(_self);}, DOMUtils.findPos(this));
+                                                     new RequestUtils()._write('pz_datezone', [date], [], function(date, params) { _self._retrieveDateZones.call(_self);}, DOMUtils.findPos(this));
                                                    } else {
-                                                     window.alert('DATE NOT BE EMPTY');
+                                                     window.alert('DATE CAN NOT BE EMPTY');
                                                    }
                                                  };
   var table = document.createElement('table');
