@@ -205,7 +205,7 @@ function statsculture($myPdo) {
   global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
   
  $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $condition = MiscUtils::getParam('c', ' 1 = 1');
   $order = MiscUtils::getParam('o', 'v.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -226,26 +226,22 @@ function statsculture($myPdo) {
   $result->queue = $queue;
   $result->condition = $condition;
   
-
+  $sql = "SELECT u.name AS name FROM $tableCulture AS u";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
   $result = array();
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
-    $sql2 = "SELECT COUNT(c.e_oid) AS total FROM $tableCustomer AS c WHERE c.culture = '$tmp->name' AND $condition";
+    $name = addslashes($tmp->name);
+    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v WHERE v.culturalBackground = '$name' AND $condition";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
     if ($stmt2->rowCount() == 1) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp->value = $tmp2->total;
-    }
-    $sql2 = "SELECT SUM(o.price) AS total FROM $tableMyOrder AS o LEFT JOIN ns__ez_relation_customer_myorder AS co ON o.e_oid = co.oid_b LEFT JOIN $tableCustomer AS c ON co.oid_a = c.e_oid WHERE c.culture = '$tmp->name' AND $condition";
-    $stmt2 = $myPdo->prepare($sql2);
-    $stmt2->execute();
-    $tmp->revenue = 0;
-    if ($stmt2->rowCount() == 1) {
-      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
-      $tmp->revenue = ($tmp2->total) ? $tmp2->total : 0;
     }
     $result[] = $tmp;
     $i++;
@@ -257,7 +253,7 @@ function statsreception($myPdo) {
   global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $condition = MiscUtils::getParam('c', '1 = 1');
   $order = MiscUtils::getParam('o', 'v.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -278,26 +274,22 @@ function statsreception($myPdo) {
   $result->queue = $queue;
   $result->condition = $condition;
   
+  $sql = "SELECT r.name AS name FROM $tableReception AS r";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
   $result = array();
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
     $name = addslashes($tmp->name);
-    $sql2 = "SELECT COUNT(c.e_oid) AS total FROM $tableCustomer AS c WHERE c.reception = '$name' AND $condition";
+    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v WHERE v.receptionLocation = '$name' AND $condition";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
     if ($stmt2->rowCount() == 1) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp->value = $tmp2->total;
-    }
-    $sql2 = "SELECT SUM(o.price) AS total FROM $tableMyOrder AS o LEFT JOIN ns__ez_relation_customer_myorder AS co ON o.e_oid = co.oid_b LEFT JOIN $tableCustomer AS c ON co.oid_a = c.e_oid WHERE c.reception = '$name' AND $condition";
-    $stmt2 = $myPdo->prepare($sql2);
-    $stmt2->execute();
-    $tmp->revenue = 0;
-    if ($stmt2->rowCount() == 1) {
-      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
-      $tmp->revenue = ($tmp2->total) ? $tmp2->total : 0;
     }
     $result[] = $tmp;
     $i++;
@@ -312,7 +304,7 @@ function statsceremony($myPdo) {
   global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
   
   $function = MiscUtils::getParam('f', NULL);
-  $condition = MiscUtils::getParam('c', 'WHERE 1 = 1');
+  $condition = MiscUtils::getParam('c', '1 = 1');
   $order = MiscUtils::getParam('o', 'v.e_oid');
   $queue = MiscUtils::getParam('q', 'DESC');
   $page = MiscUtils::getParam('p', START);
@@ -333,26 +325,22 @@ function statsceremony($myPdo) {
   $result->queue = $queue;
   $result->condition = $condition;
 
+  $sql = "SELECT c.name AS name FROM $tableCeremony AS c";
+  $stmt = $myPdo->prepare($sql);
+  $stmt->execute();
+  
   $result = array();
   $i = 0;
   while ($i < $stmt->rowCount()) {
     $tmp = $stmt->fetch(PDO::FETCH_OBJ);
     $name = addslashes($tmp->name);
-    $sql2 = "SELECT COUNT(c.e_oid) AS total FROM $tableCustomer AS c WHERE c.ceremony = '$name' AND $condition";
+    $sql2 = "SELECT COUNT(v.e_oid) AS total FROM $tableVisitor AS v WHERE v.ceremonyLocation = '$name' AND $condition";
     $stmt2 = $myPdo->prepare($sql2);
     $stmt2->execute();
     $tmp->value = 0;
     if ($stmt2->rowCount() == 1) {
       $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
       $tmp->value = $tmp2->total;
-    }
-    $sql2 = "SELECT SUM(o.price) AS total FROM $tableMyOrder AS o LEFT JOIN ns__ez_relation_customer_myorder AS co ON o.e_oid = co.oid_b LEFT JOIN $tableCustomer AS c ON co.oid_a = c.e_oid WHERE c.ceremony = '$name' AND $condition";
-    $stmt2 = $myPdo->prepare($sql2);
-    $stmt2->execute();
-    $tmp->revenue = 0;
-    if ($stmt2->rowCount() == 1) {
-      $tmp2 = $stmt2->fetch(PDO::FETCH_OBJ);
-      $tmp->revenue = ($tmp2->total) ? $tmp2->total : 0;
     }
     $result[] = $tmp;
     $i++;
