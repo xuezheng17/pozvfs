@@ -2,10 +2,10 @@ function HandlePageStatSource(gui, operator, now, options) {
   this._gui = gui;
   this._operator = operator;
   this._now = now;
-  this._options = options
+  this._options = options;
   this._search = { dateFrom: '',
-      dateTo: ''
-    };
+                   dateTo: ''
+                 };
   this._createElements();
 };
 
