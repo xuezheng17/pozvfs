@@ -1,8 +1,9 @@
 {{include file='api/page/abstractpagestatceremony.tpl'}}
 {{include file='include/common/domutils.tpl'}}
-{{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='include/library/json/json2.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
+{{include file='include/common/pozvfsutils.tpl'}}
+{{include file='api/part/abstractpopupboxsimple.tpl'}}
 {{include file='gui/part/popupboxsimple.tpl'}}
 {{include file='core/part/modulepopupboxsimple.tpl'}}
 {{include file='include/_constant/constant.tpl'}}
