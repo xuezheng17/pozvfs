@@ -21,7 +21,7 @@
       <table class="base_mainBg" cellPadding="0" cellSpacing="0">
         <tr>
           <td class="base_td1" align="center">
-            {{if $template != 'signin'}}
+            {{if $template != 'signin' && $template != 'pagestatreceptiondetail' && $template != 'pagestatceremonydetail'}}
               {{include file="gui/basetoolbar.tpl"}}
               {{if $template != 'home'}}
                 {{include file="gui/basemenus.tpl"}}
@@ -32,9 +32,11 @@
         </tr>
       </table>
     </div>
+    {{if $template != 'pagestatreceptiondetail' && $template != 'pagestatceremonydetail'}}
     <div align="center">
       {{include file="gui/basesubscript.tpl"}}
     </div>
+    {{/if}}
     <div>
       <table>
         <tr>

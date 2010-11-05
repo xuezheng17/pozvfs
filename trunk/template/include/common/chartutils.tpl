@@ -77,5 +77,5 @@ ChartUtils.source = function(div, data) {
     tmp.displayName = tmp.name;
     tmp.name += (total == 0) ? ' 0.00％' : ' ' + parseFloat((tmp.value * 100) / total, 10).toFixed(2) + '％';
   }
-  div.innerHTML = '<OBJECT><EMBED WIDTH=\"95%\" HEIGHT=\"100%\" SRC=\"myswf/source.swf?myData=' + encodeURIComponent(JSON.stringify(data)) + '\"</EMBED></OBJECT>';
+  div.innerHTML = '<OBJECT><EMBED WIDTH=\"100%\" HEIGHT=\"100%\" SRC=\"myswf/source.swf?myData=' + encodeURIComponent(JSON.stringify(data)) + '\"</EMBED></OBJECT>';
 };

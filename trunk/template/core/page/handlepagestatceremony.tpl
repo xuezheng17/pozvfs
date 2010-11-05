@@ -68,7 +68,7 @@ HandlePageStatCeremony.prototype._updateElements = function() {
     a.href = '#';
     a._name = result.name;
     a.appendChild(document.createTextNode(' 详'));
-    a.onclick = function() { var w = window.open('?t=pagestatceremonydetail&opts=' + JSON.stringify({ name: this._name }), 'Ceremony', 'width=1024,height=768,scrollbars=1,location=0', true);
+    a.onclick = function() { var w = window.open('?t=pagestatceremonydetail&opts=' + JSON.stringify({ name: this._name }), 'Ceremony', 'width=800,height=600,scrollbars=1,location=0', true);
                              w.focus();
                            };
     td.appendChild(a);

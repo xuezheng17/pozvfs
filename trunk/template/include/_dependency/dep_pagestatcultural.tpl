@@ -1,8 +1,10 @@
 {{include file='api/page/abstractpagestatcultural.tpl'}}
-{{include file='include/library/json/json2.tpl'}}
-{{include file='include/common/chartutils.tpl'}}
+{{include file='api/part/abstractpopupbox.tpl'}}
 {{include file='include/common/domutils.tpl'}}
+{{include file='include/library/json/json2.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
+{{include file='gui/part/popupbox.tpl'}}
+{{include file='include/common/chartutils.tpl'}}
 {{include file='include/common/pozvfsutils.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
 {{include file='include/common/dateselect.tpl'}}
