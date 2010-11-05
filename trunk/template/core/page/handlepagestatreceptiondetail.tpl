@@ -26,7 +26,7 @@ HandlePageStatReceptionDetail.prototype._verifyData = function() {
 
 HandlePageStatReceptionDetail.prototype._retrieveResults = function() {
   var _self = this;
-  var args = '&c=d.reception=\'' + this._options.name + '\'';
+  var args = {cond: 'd.receptionLocation=\'' + this._options.name + '\''};
   new RequestUtils()._custom('statsreceptioncustomers', args, function(result, params) { _self._results = result;
                                                                                           _self._verifyData.call(_self);
                                                                                         }, null);
