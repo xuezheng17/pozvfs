@@ -2,7 +2,7 @@ function HandlePageStatCultural(gui, operator, now, options) {
   this._gui = gui;
   this._operator = operator;
   this._now = now;
-  this._options = options
+  this._options = options;
   this._search = { dateFrom: '',
                    dateTo: ''
                  };
@@ -170,18 +170,18 @@ HandlePageStatCultural.prototype._customerSearch = function(gui, callbackFunc) {
 };
 
 HandlePageStatCultural.prototype._changeDate = function(label, currentDate, onChangeFunc, showTime) {
-  var _self = this;
-  this._wContainer = document.createElement('div');
-  this._wContainer.style.left = DOMUtils.findPos(label)[0] + 'px';
-  this._wContainer.style.top = DOMUtils.findPos(label)[1] + 'px';
-  this._popupBox._open(this._wContainer, { pos: DOMUtils.findPos(label) });
+  var div, _self = this;
+  div = document.createElement('div');
+  div.style.left = DOMUtils.findPos(label)[0] + 'px';
+  div.style.top = DOMUtils.findPos(label)[1] + 'px';
+  this._popupBox = new ModulePopupBoxSimple(document, document.body, null, null, null, null, { pos: DOMUtils.findPos(label)});
+  this._popupBox._gui.panel.appendChild(div);
   
-  var ds = new DateSelect(currentDate, null, { container: this._wContainer, showTime: showTime });
+  var ds = new DateSelect(currentDate, null, { container: div, showTime: showTime });
   ds._selectFunc = function(sd) { _self._selectDate.call(_self, sd, label, onChangeFunc, showTime); };
 };
 
 HandlePageStatCultural.prototype._selectDate = function(sd, label, onChangeFunc, showTime) {
-  
   onChangeFunc(sd);
   this._showDate(sd, label, showTime);
   this._popupBox._close();
