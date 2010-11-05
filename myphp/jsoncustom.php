@@ -26,6 +26,15 @@ try {
     case 'isLogin':
       isLogin();
       break;
+    case 'statsreceptioncustomers':
+      statsreceptioncustomers($myManager);
+      break;
+    case 'statsceremony':
+      statsceremony($myManager);
+      break;
+    case 'statsceremonycustomers':
+      statsceremonycustomers($myManager);
+      break;
     case 'updateVisitor':
       updateVisitor($myManager);
       break;
@@ -97,6 +106,68 @@ function visitors($myManager) {
       $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
       $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
       echo json_encode($result);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function statsreceptioncustomers($myManager) {
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', NULL);
+  $order = MiscUtils::getParam('o', NULL);
+  $queue = MiscUtils::getParam('q', NULL);
+  $page = MiscUtils::getParam('p', NULL);
+  $size = MiscUtils::getParam('s', NULL);
+
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+  
+  $condition .= ($createdFrom) ? ' AND (d.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (d.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $orm = classToOrm('pz_visitor');
+  if ($orm) {
+    try {
+      $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
+      $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
+      $res = array();
+      for ($i = 0, $il = count($result->data); $i < $il; $i++) {
+        $customer = $result->data[$i];
+        array_push($res, $customer->id);
+      }
+      echo json_encode($res);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function statsceremonycustomers($myManager) {
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', NULL);
+  $order = MiscUtils::getParam('o', NULL);
+  $queue = MiscUtils::getParam('q', NULL);
+  $page = MiscUtils::getParam('p', NULL);
+  $size = MiscUtils::getParam('s', NULL);
+
+  $createdFrom = MiscUtils::getParam('from', NULL);
+  $createdTo = MiscUtils::getParam('to', NULL);
+  
+  $condition .= ($createdFrom) ? ' AND (d.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
+  $condition .= ($createdTo) ? ' AND (d.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
+  
+  $orm = classToOrm('pz_visitor');
+  if ($orm) {
+    try {
+      $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
+      $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
+      $res = array();
+      for ($i = 0, $il = count($result->data); $i < $il; $i++) {
+        $customer = $result->data[$i];
+        array_push($res, $customer->id);
+      }
+      echo json_encode($res);
     } catch (PDOException $e) {
       echo $e->getMessage();
     }
