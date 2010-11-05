@@ -255,7 +255,7 @@
   }
   .elemstatsource_td14 {
     width: 270px;
-    height: 400px;
+    height: 500px;
     text-align: center;
     vertical-align: top;
   }
