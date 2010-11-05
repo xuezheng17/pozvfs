@@ -297,8 +297,6 @@ function statsreception($myPdo) {
   echo json_encode($result);
 }
 
-function iestatsreceptioncustomers($myPdo) {
-}
 
 function statsceremony($myPdo) {
   global $tableUser, $tableVisitor, $tableOpration, $tableSource, $tableCulture, $tableCeremony, $tableReception;
@@ -459,7 +457,6 @@ function processing($myPdo) {
   }
   echo json_encode($result);
 }
-
 
 function statAdvanced($myPdo) {
   global $tableVisitor;
