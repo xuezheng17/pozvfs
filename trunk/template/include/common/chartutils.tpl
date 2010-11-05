@@ -63,3 +63,19 @@ ChartUtils.statistics = function(div, result) {
   }
   div.innerHTML = '<OBJECT><EMBED WIDTH=\"98%\" HEIGHT=\"95%\" SRC=\"myswf/basic.swf?myData=' + encodeURIComponent(JSON.stringify(data)) + '\" bgColor=\"#FFFFFF\"</EMBED></OBJECT>';
 };
+
+ChartUtils.source = function(div, data) {
+  var total = 0;
+  for (var i = 0, il = data.length; i < il; i++) {
+    var tmp = data[i];
+    total += parseFloat(tmp.value, 10);
+  }
+  
+
+  for (var i = 0, il = data.length; i < il; i++) {
+    var tmp = data[i];
+    tmp.displayName = tmp.name;
+    tmp.name += (total == 0) ? ' 0.00％' : ' ' + parseFloat((tmp.value * 100) / total, 10).toFixed(2) + '％';
+  }
+  div.innerHTML = '<OBJECT><EMBED WIDTH=\"95%\" HEIGHT=\"100%\" SRC=\"myswf/source.swf?myData=' + encodeURIComponent(JSON.stringify(data)) + '\"</EMBED></OBJECT>';
+};

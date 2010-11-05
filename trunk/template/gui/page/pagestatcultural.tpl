@@ -255,7 +255,7 @@
   }
   .elemstatsource_td14 {
     width: 270px;
-    height: 700px;
+    height: 400px;
     text-align: center;
     vertical-align: top;
   }
@@ -317,7 +317,7 @@
         <tr>
           <td class="{{$template|escape:'html'}}_td1" >Date From</td>
           <td class="{{$template|escape:'html'}}_td2" >
-            <input type="text" id="{{$template|escape:'html'}}_dateFrom_text" class="{{$template|escape:'html'}}_text"></input>
+            <input type="text" id="{{$template|escape:'html'}}_dateCreated_text" class="{{$template|escape:'html'}}_text"></input>
           </td>
           <td class="{{$template|escape:'html'}}_td13" >To</td>
           <td class="{{$template|escape:'html'}}_td2" >
@@ -403,7 +403,7 @@
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td10">
-            <input type="text" id="{{$template|escape:'html'}}_from_text" class="{{$template|escape:'html'}}_text2"></input>
+            <input type="text" id="{{$template|escape:'html'}}_created_text" class="{{$template|escape:'html'}}_text2"></input>
           </td>
         </tr>
         <tr>
@@ -421,7 +421,7 @@
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td12">
-            <table class="{{$template|escape:'html'}}_table5" id="{{$template|escape:'html'}}_result_table" cellPaddiing="0" cellSpacing="0">
+            <table class="{{$template|escape:'html'}}_table5" id="{{$template|escape:'html'}}_result_div" cellPaddiing="0" cellSpacing="0">
               <tr>
                 <td class="{{$template|escape:'html'}}_td14" >Date Zone</td>
                 <td class="{{$template|escape:'html'}}_td15" ></td>

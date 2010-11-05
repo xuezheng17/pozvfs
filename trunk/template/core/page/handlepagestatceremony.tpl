@@ -39,7 +39,7 @@ HandlePageStatCeremony.prototype._retrieveResults = function(page, condition, fr
 
 HandlePageStatCeremony.prototype._updateElements = function() {
   var _self = this;
-  //DlmanageUtils.clear(this._gui.dateZone);
+  POZVFSUtils.clear(this._gui.dateZone);
   DOMUtils.removeChildElements(this._gui.ceremony.total);
   DOMUtils.removeTableRows(this._gui.ceremony.ceremonyTable, 1);
 
@@ -64,6 +64,14 @@ HandlePageStatCeremony.prototype._updateElements = function() {
     td = tr.insertCell(-1);
     td.style.textAlign = 'center';
     td.appendChild(document.createTextNode(result.value));
+    var a = document.createElement('a');
+    a.href = '#';
+    a._name = result.name;
+    a.appendChild(document.createTextNode(' 详'));
+    a.onclick = function() { var w = window.open('?t=pagestatceremonydetail&opts=' + JSON.stringify({ name: this._name }), 'Ceremony', 'width=1024,height=768,scrollbars=1,location=0', true);
+                             w.focus();
+                           };
+    td.appendChild(a);
   }
   this._gui.ceremony.total.appendChild(document.createTextNode(total));
 };

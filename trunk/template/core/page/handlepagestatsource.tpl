@@ -51,10 +51,10 @@ HandlePageStatSource.prototype._retrieveDateZones = function() {
 
 HandlePageStatSource.prototype._updateElements = function() {
   var _self = this;
-//  POZVFSUtils.clear(this._gui.dateZone);
+  POZVFSUtils.clear(this._gui.dateZone);
   DOMUtils.removeChildElements(this._gui.detail.total);
   DOMUtils.removeTableRows(this._gui.detail.sourceTable, 1);
-//  ChartUtils.source(this._gui.detail.graph, this._results);
+  ChartUtils.source(this._gui.detail.graph, this._results);
   
   var total = 0;
   /*--main table--*/

@@ -1,4 +1,4 @@
-{{include file='api/page/abstractpagestatreception.tpl'}}
+{{include file='api/page/abstractpagestatreceptiondetail.tpl'}}
 {{include file='include/common/domutils.tpl'}}
 {{include file='include/library/json/json2.tpl'}}
 {{include file='include/common/miscutils.tpl'}}
@@ -9,4 +9,4 @@
 {{include file='include/_constant/constant.tpl'}}
 {{include file='include/library/request/request.tpl'}}
 {{include file='include/common/requestutils.tpl'}}
-{{include file='core/page/handlepagestatreception.tpl'}}
+{{include file='core/page/handlepagestatreceptiondetail.tpl'}}

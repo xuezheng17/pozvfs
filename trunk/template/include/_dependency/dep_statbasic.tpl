@@ -5,9 +5,9 @@
 {{include file='include/common/miscutils.tpl'}}
 {{include file='gui/part/popupboxsimple.tpl'}}
 {{include file='core/part/modulepopupboxsimple.tpl'}}
+{{include file='include/common/chartutils.tpl'}}
 {{include file='include/common/pozvfsutils.tpl'}}
 {{include file='include/common/simpledate.tpl'}}
-{{include file='include/common/chartutils.tpl'}}
 {{include file='include/common/dateselect.tpl'}}
 {{include file='include/_constant/constant.tpl'}}
 {{include file='include/library/request/request.tpl'}}
