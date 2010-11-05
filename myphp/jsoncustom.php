@@ -113,19 +113,16 @@ function visitors($myManager) {
 }
 
 function statsreceptioncustomers($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
   $function = MiscUtils::getParam('f', NULL);
   $condition = MiscUtils::getParam('c', NULL);
   $order = MiscUtils::getParam('o', NULL);
   $queue = MiscUtils::getParam('q', NULL);
   $page = MiscUtils::getParam('p', NULL);
   $size = MiscUtils::getParam('s', NULL);
-
-  $createdFrom = MiscUtils::getParam('from', NULL);
-  $createdTo = MiscUtils::getParam('to', NULL);
   
-  $condition .= ($createdFrom) ? ' AND (d.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
-  $condition .= ($createdTo) ? ' AND (d.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
-  
+  $condition = $args->cond;
   $orm = classToOrm('pz_visitor');
   if ($orm) {
     try {
@@ -144,19 +141,16 @@ function statsreceptioncustomers($myManager) {
 }
 
 function statsceremonycustomers($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
   $function = MiscUtils::getParam('f', NULL);
   $condition = MiscUtils::getParam('c', NULL);
   $order = MiscUtils::getParam('o', NULL);
   $queue = MiscUtils::getParam('q', NULL);
   $page = MiscUtils::getParam('p', NULL);
   $size = MiscUtils::getParam('s', NULL);
-
-  $createdFrom = MiscUtils::getParam('from', NULL);
-  $createdTo = MiscUtils::getParam('to', NULL);
   
-  $condition .= ($createdFrom) ? ' AND (d.createdDate >= \'' . SimpleDate::toStamp(json_decode($createdFrom)) . '\')' : '';
-  $condition .= ($createdTo) ? ' AND (d.createdDate <= \'' . SimpleDate::toStamp(json_decode($createdTo)) . '\')' : '';
-  
+  $condition = $args->cond;
   $orm = classToOrm('pz_visitor');
   if ($orm) {
     try {
