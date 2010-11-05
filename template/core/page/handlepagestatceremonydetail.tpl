@@ -26,7 +26,7 @@ HandlePageStatCeremonyDetail.prototype._verifyData = function() {
 
 HandlePageStatCeremonyDetail.prototype._retrieveResults = function() {
   var _self = this;
-  var args = '&c=d.ceremony=\'' + this._options.name + '\'';
+  var args = {cond: 'd.ceremonyLocation=\'' + this._options.name + '\''};
   new RequestUtils()._custom('statsceremonycustomers', args, function(result, params) { _self._results = result;
                                                                                           _self._verifyData.call(_self);
                                                                                         }, null);
