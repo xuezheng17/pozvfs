@@ -54,7 +54,7 @@ HandlePageStatCultural.prototype._updateElements = function() {
   POZVFSUtils.clear(this._gui.dateZone);
   DOMUtils.removeChildElements(this._gui.detail.total);
   DOMUtils.removeTableRows(this._gui.detail.cultureTable, 1);
-  ChartUtils.source(this._gui.detail.graph, this._results);
+//  ChartUtils.source(this._gui.detail.graph, this._results);
   
   var total = 0;
   /*--main table--*/
@@ -66,16 +66,30 @@ HandlePageStatCultural.prototype._updateElements = function() {
     td.colSpan = 3;
     td.appendChild(document.createTextNode('N/A'));
   }
+  for (var j = 0, jl = this._results.length; j < jl; j++) {
+    var result = this._results[j];
+    total += parseFloat(result.value, 10);
+  }
   for (var i = 0, il = this._results.length; i < il; i++) {
     var result = this._results[i];
-    total += parseFloat(result.value, 10);
     tr = this._gui.detail.cultureTable.insertRow(-1);
     td = tr.insertCell(-1);
-    td.className = 'elemstatsource_td16';
+    td.style.paddingLeft = '15px';
+    td.style.height = '24px';
     td.appendChild(document.createTextNode(result.name));
     td = tr.insertCell(-1);
-    td.className = 'elemstatsource_td13';
-    td.appendChild(document.createTextNode(result.value));
+    td.style.textAlign = 'center';
+    var a = document.createElement('a');
+    a.href = '#';
+    a._name = result.name;
+    a.appendChild(document.createTextNode((result.value) + ((result.value != 0) ? ' (' + ((result.value / total) * 100).toFixed(1) + '%)' : ' (0%)')));
+    a.onclick = function() { var pos, func1;
+                             pos = [window.screen.width/3, window.screen.height/3];
+                             tmp = new ModulePopupBox(document, document.body, 500, 200, _self._operator, _self._now, { pos: pos, title: 'Customers'});
+                             new ModuleDialogBackCus(document, tmp._gui.panel, 300, 30, _self._operator, _self._now, { popupBox: tmp, pos: DOMUtils.findPos(this),name:this. _name });
+                             return false;
+                           };
+    td.appendChild(a);
   }
   this._gui.detail.total.appendChild(document.createTextNode(total));
   
