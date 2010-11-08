@@ -200,7 +200,7 @@
               <tr>
                 <td class="{{$template|escape:'html'}}_td8">Total</td>
                 <td class="{{$template|escape:'html'}}_td8">
-                  <a href="?t=visitors&m={%22a%22:1,%22b%22:2}&opts={%22s%22:1}">In processing </a>
+                  <a href="?t=visitors&m={%22a%22:1,%22b%22:2}&opts={%22s%22:1}">In Processing </a>
                 </td>
                 <td class="{{$template|escape:'html'}}_td8">
                   <a href="?t=visitors&m={%22a%22:1,%22b%22:2}&opts={%22s%22:2}">Booked Customer</a>

@@ -302,42 +302,6 @@
   
     <td class="basemenus_td2"></td>
     
-    {{if $menu->a == 4}}
-      <td class="basemenus_td1Hilight" >
-        <div class="basemenus_item">
-        <div class="row1"></div>
-        <div class="row2"></div>
-        <div class="row3"></div>
-        <div class="row4"></div>
-          <table cellPadding="0" cellSpacing="0">
-            <tr>
-              <td class="basemenus_p" >
-                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    {{else}}
-      <td class="basemenus_td1">
-        <div class="basemenus_item1">
-        <div class="row1"></div>
-        <div class="row2"></div>
-        <div class="row3"></div>
-        <div class="row4"></div>
-          <table cellPadding="0" cellSpacing="0">
-            <tr>
-              <td class="basemenus_ph" >
-                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administrator</a>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    {{/if}}
-    
-    <td class="basemenus_td2"></td>
-    
     {{if $menu->a == 5}} 
       <td class="basemenus_td1Hilight">
         <div class="basemenus_item">
@@ -389,7 +353,45 @@
         </div>
       </td>
     {{/if}}
-    <td class="basemenus_td4"></td>
+    
+    
+    <td class="basemenus_td2"></td>
+    
+    
+    {{if $menu->a == 4}}
+      <td class="basemenus_td1Hilight" >
+        <div class="basemenus_item">
+        <div class="row1"></div>
+        <div class="row2"></div>
+        <div class="row3"></div>
+        <div class="row4"></div>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_p" >
+                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administer</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    {{else}}
+      <td class="basemenus_td1">
+        <div class="basemenus_item1">
+        <div class="row1"></div>
+        <div class="row2"></div>
+        <div class="row3"></div>
+        <div class="row4"></div>
+          <table cellPadding="0" cellSpacing="0">
+            <tr>
+              <td class="basemenus_ph" >
+                <a  href="?t=users&m={%22a%22:4,%22b%22:1}" >Administer</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    {{/if}}
+   <td class="basemenus_td4"></td>
   </tr>
 </table>
 
@@ -469,14 +471,14 @@
               </td>
               <td class="basemenus_td5">|</td>
               <td>
-                <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=pagestatsource&m={%22a%22:3,%22b%22:3}">Source</a>
+                <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=pagestatcultural&m={%22a%22:3,%22b%22:4}">Background</a>
                 </div>
               </td>
               <td class="basemenus_td5">|</td>
               <td>
-                <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=pagestatcultural&m={%22a%22:3,%22b%22:4}">Cultural Background</a>
+                <div {{if $menu->b == 6}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=pagestatceremony&m={%22a%22:3,%22b%22:6}">Ceremony</a>
                 </div>
               </td>
               <td class="basemenus_td5">|</td>
@@ -487,8 +489,8 @@
               </td>
               <td class="basemenus_td5">|</td>
               <td>
-                <div {{if $menu->b == 6}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=pagestatceremony&m={%22a%22:3,%22b%22:6}">Ceremony</a>
+                <div {{if $menu->b == 3}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
+                  <a href = "?t=pagestatsource&m={%22a%22:3,%22b%22:3}">Source</a>
                 </div>
               </td>
               <td class="basemenus_td5">|</td>
