@@ -29,11 +29,17 @@ try {
     case 'statsreceptioncustomers':
       statsreceptioncustomers($myManager);
       break;
+    case 'source':
+      source($myManager);
+      break;
     case 'statsceremony':
       statsceremony($myManager);
       break;
     case 'statsceremonycustomers':
       statsceremonycustomers($myManager);
+      break;
+    case 'statculturecustomers':
+      statculturecustomers($myManager);
       break;
     case 'updateVisitor':
       updateVisitor($myManager);
@@ -141,6 +147,62 @@ function statsreceptioncustomers($myManager) {
 }
 
 function statsceremonycustomers($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', NULL);
+  $order = MiscUtils::getParam('o', NULL);
+  $queue = MiscUtils::getParam('q', NULL);
+  $page = MiscUtils::getParam('p', NULL);
+  $size = MiscUtils::getParam('s', NULL);
+  
+  $condition = $args->cond;
+  $orm = classToOrm('pz_visitor');
+  if ($orm) {
+    try {
+      $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
+      $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
+      $res = array();
+      for ($i = 0, $il = count($result->data); $i < $il; $i++) {
+        $customer = $result->data[$i];
+        array_push($res, $customer->id);
+      }
+      echo json_encode($res);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function statculturecustomers($myManager) {
+  $args = json_decode(MiscUtils::decryptParam('a', '[]'));
+  
+  $function = MiscUtils::getParam('f', NULL);
+  $condition = MiscUtils::getParam('c', NULL);
+  $order = MiscUtils::getParam('o', NULL);
+  $queue = MiscUtils::getParam('q', NULL);
+  $page = MiscUtils::getParam('p', NULL);
+  $size = MiscUtils::getParam('s', NULL);
+  
+  $condition = $args->cond;
+  $orm = classToOrm('pz_visitor');
+  if ($orm) {
+    try {
+      $result = $orm->find($myManager, $page, $size, $order, $queue, $condition, $function);
+      $result->total = count($orm->find($myManager, START, INFINITE, NULL, NULL, $condition, NULL)->data);
+      $res = array();
+      for ($i = 0, $il = count($result->data); $i < $il; $i++) {
+        $customer = $result->data[$i];
+        array_push($res, $customer->id);
+      }
+      echo json_encode($res);
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+  }
+}
+
+function source($myManager) {
   $args = json_decode(MiscUtils::decryptParam('a', '[]'));
   
   $function = MiscUtils::getParam('f', NULL);
