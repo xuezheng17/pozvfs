@@ -164,13 +164,12 @@
   .elemstatsource_table3 {
     width: 695px;
     height: 15px;
-    margin: 0 0 0 15px;
   }
   .elemstatsource_table4 {
     width: 400px;
   }
   .elemstatsource_table5 {
-    width: 400px;
+    width: 721px;
     height: 24px;
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
@@ -209,7 +208,7 @@
     vertical-align: top;
   }
   .elemstatsource_td7 {
-    height: 17px;
+    height: 13px;
   }
   .elemstatsource_td8 {
     width: 55px;
@@ -237,7 +236,7 @@
     vertical-align: middle;
   }
   .elemstatsource_td12 {
-    width: 215px;
+    width: 400px;
     height: 24px;
     padding-left: 15px;
     font-size: 10pt;
@@ -246,7 +245,7 @@
     vertical-align: middle;
   }
   .elemstatsource_td13 {
-    width: 80px;
+    width: 320px;
     height: 24px;
     font-size: 10pt;
     font-weight: bold;
@@ -334,12 +333,7 @@
         </tr>
         <tr>
           <td style="width:755px" colSpan="6">
-            <table class="elemstatsource_table1" cellPadding="0" cellSpacing="0">
-              <tr>
-                <td class="elemstatsource_td1">
-                  Detail
-                </td>
-              </tr>
+            <table cellPadding="0" cellSpacing="0">
               <tr>
                 <td class="elemstatsource_td3" align="center">
                   <table class="elemstatsource_table2" cellPadding="0" cellSpacing="0">
@@ -361,23 +355,16 @@
                                 <tr>
                                   <td colSpan="2" class="elemstatsource_td10">
                                     <table class="elemstatsource_table5" cellPadding="0" cellSpacing="0" id="{{$template|escape:'html'}}_main_table">
-                                      <tr>
+                                      <tr style="background-color:#E5ECF9;">
                                         <td class="elemstatsource_td12">
                                            {{if $template == 'pagestatsource' }} Source {{else if $template == 'pagestatcultural'}} Cultural {{/if}}
                                         </td>
                                         <td class="elemstatsource_td13">
-                                          No.of CUS
+                                          No.of Customers
                                         </td>
                                       </tr>
                                     </table>
                                   </td>
-                                </tr>
-                              </table>
-                            </td>
-                            <td class="elemstatsource_td14" align="left">
-                              <table class="elemstatsource_table6"  cellPadding="0" cellSpacing="0">
-                                <tr>
-                                  <td class="elemstatsource_td14" id="{{$template|escape:'html'}}_graph_div"></td>
                                 </tr>
                               </table>
                             </td>

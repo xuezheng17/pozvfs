@@ -199,8 +199,12 @@
             <table class="{{$template|escape:'html'}}_table2" cellPaddiing="0" cellSpacing="0">
               <tr>
                 <td class="{{$template|escape:'html'}}_td8">Total</td>
-                <td class="{{$template|escape:'html'}}_td8">Visited </td>
-                <td class="{{$template|escape:'html'}}_td8">Not visited</td>
+                <td class="{{$template|escape:'html'}}_td8">
+                  <a href="?t=processing&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:1}">Visited</a> 
+                </td>
+                <td class="{{$template|escape:'html'}}_td8">
+                  <a href="?t=processing&m={%22a%22:2,%22b%22:1}&opts={%22follow%22:2}">Not visited</a>
+                </td>
               </tr>
               <tr>
                 <td class="{{$template|escape:'html'}}_td9" id="{{$template|escape:'html'}}_visitors_div"></td>
