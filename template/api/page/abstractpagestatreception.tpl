@@ -9,7 +9,7 @@ AbstractPageStatReception.gui = function(unique) {
            dateZone: { dateCreated: document.getElementById(unique + '_created_text'),
                        dateTo: document.getElementById(unique + '_to_text'),
                        create: document.getElementById(unique + '_create_button'),
-                       result: document.getElementById(unique + '_result_div')
+                       result: document.getElementById(unique + '_result_table')
                      },
            reception: { total: document.getElementById(unique + '_total_div'),
                        receptionTable: document.getElementById(unique + '_main_table'),
