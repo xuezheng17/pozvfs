@@ -50,7 +50,7 @@ HandlePageStatCeremony.prototype._retrieveDateZones = function() {
 
 HandlePageStatCeremony.prototype._updateElements = function() {
   var _self = this;
-  POZVFSUtils.clear(this._gui.dateZone);
+  DOMUtils.removeTableRows(this._gui.dateZone.result, 1);
   DOMUtils.removeChildElements(this._gui.ceremony.total);
   DOMUtils.removeTableRows(this._gui.ceremony.ceremonyTable, 1);
 
@@ -62,7 +62,7 @@ HandlePageStatCeremony.prototype._updateElements = function() {
     td.style.textAlign = 'center';
     td.style.height = '24px';
     td.colSpan = 2;
-    td.appendChild(document.createTextNode('N/A'));
+    td.appendChild(document.createTextNode('EMPTY'));
   }
   for (var j = 0, jl = this._results.length; j < jl; j++) {
     var result = this._results[j];
@@ -93,61 +93,65 @@ td.appendChild(a);
 
 
 /*--DATE ZONE----*/
-this._dateZone = { created: '',
-                   to: ''
-                 };
-this._gui.dateZone.dateCreated.value = (this._dateZone.created) ? SimpleDate.format(this._dateZone.created) : '';
-this._gui.dateZone.dateCreated.onclick = function() { var context = this;
-                                                      _self._changeDate.call(_self, this, _self._dateZone.created, function(sd) { _self._dateZone.created = sd; context.focus(); }, false);
-                                                      return false;
-                                                    };
-this._gui.dateZone.dateTo.value = (this._dateZone.to) ? SimpleDate.format(this._dateZone.to) : '';
-this._gui.dateZone.dateTo.onclick = function() { var context = this;
-                                                 _self._changeDate.call(_self, this, _self._dateZone.to, function(sd) { _self._dateZone.to = sd; context.focus(); }, false);
-                                                 return false;
-                                               };
-this._gui.dateZone.create.onclick = function() { if (_self._dateZone.created &&_self._dateZone.to) {
-                                                   var date = pz_datezone.instance();
-                                                   date.start = _self._dateZone.created;
-                                                   date.end = _self._dateZone.to;
-                                                   date.page = _self._options.template;
-                                                   new RequestUtils()._write('pz_datezone', [date], [], function(date, params) { _self._retrieveDateZones.call(_self);}, DOMUtils.findPos(this));
-                                                 } else {
-                                                   window.alert('DATE CAN NOT BE EMPTY');
-                                                 }
-                                               };
-var table = document.createElement('table');
-table.style.width = '166px';
-table.cellPadding = 0;
-table.cellSpacing = 0;
-this._gui.dateZone.result.appendChild(table);
-for (var i = 0, il = this._dateZones.length; i < il; i++) {
-  var date = this._dateZones[i];
-  tr = table.insertRow(-1);
-  tr.className = (tr.rowIndex % 2 == 0) ? 'rowodd' : 'roweven';
+  this._dateZone = { created: '',
+                     to: ''
+                   };
+  this._gui.dateZone.dateCreated.value = (this._dateZone.created) ? SimpleDate.format(this._dateZone.created) : '';
+  this._gui.dateZone.dateCreated.onclick = function() { var context = this;
+                              _self._changeDate.call(_self, this, _self._dateZone.created, function(sd) { _self._dateZone.created = sd; context.focus(); }, false);
+                              return false;
+                            };
+  this._gui.dateZone.dateTo.value = (this._dateZone.to) ? SimpleDate.format(this._dateZone.to) : '';
+  this._gui.dateZone.dateTo.onclick = function() { var context = this;
+                         _self._changeDate.call(_self, this, _self._dateZone.to, function(sd) { _self._dateZone.to = sd; context.focus(); }, false);
+                         return false;
+                       };
+  this._gui.dateZone.create.onclick = function() { if (_self._dateZone.created &&_self._dateZone.to) {
+                                        var date = pz_datezone.instance();
+                                        date.start = _self._dateZone.created;
+                                        date.end = _self._dateZone.to;
+                                        date.page = _self._options.template;
+                                        new RequestUtils()._write('pz_datezone', [date], [], function(date, params) { _self._retrieveDateZones.call(_self);}, DOMUtils.findPos(this));
+                                      } else {
+                                        window.alert('DATE CAN NOT BE EMPTY');
+                                      }
+                                    };
+
+  if (this._dateZones.length == 0) {
+  tr = this._gui.dateZone.result.insertRow(-1);
   td = tr.insertCell(-1);
-  td.style.width = '146px';
-  td.style.height = '20px';
+  td.colSpan = 2;
+  td.style.height = '24px';
   td.style.textAlign = 'center';
+  td.appendChild(document.createTextNode('Empty'));
+}
+
+  for (var i = 0, il = this._dateZones.length; i < il; i++) {
+  var date = this._dateZones[i];
+  tr = this._gui.dateZone.result.insertRow(-1);
+  tr.style.backgroundColor = (tr.rowIndex % 2 == 0) ? '#f5f5f5' : '#ffffff';
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.textAlign = 'left';
+  td.style.padding = '0 0 0 10px';
   var a = document.createElement('a');
   a.href = '#';
   a._date = date;
   a.appendChild(document.createTextNode(SimpleDate.format(date.start) + ' - ' + SimpleDate.format(date.end)));
   a.onclick = function() { _self._search.dateFrom = this._date.start;
                            _self._search.dateTo = this._date.end;
-                           _self._retrieveResults.call(_self, 1, '1=1', JSON.stringify(this._date.start), JSON.stringify(this._date.end));
+                           _self._retrieveResults.call(_self, 1, '', JSON.stringify(this._date.start), JSON.stringify(this._date.end)); 
                            return false;
                          };
   td.appendChild(a);
   td = tr.insertCell(-1);
-  td.style.width = '20px';
   td.style.textAlign = 'center';
-  var span = document.createElement('span');
-  span.appendChild(document.createTextNode('(x)'));
+  var span = document.createElement('img');
+  span.src = 'image/delete.png';
   span.style.cursor = 'pointer';
   span._date = date;
-  span.onclick = function() { new RequestUtils()._write('datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
-                            };
+  span.onclick = function() { new RequestUtils()._write('pz_datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
+    };
   td.appendChild(span);
 }
 
