@@ -472,19 +472,19 @@
               <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 4}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=pagestatcultural&m={%22a%22:3,%22b%22:4}">Background</a>
+                  <a href = "?t=pagestatcultural&m={%22a%22:3,%22b%22:4}">Cultural Background</a>
                 </div>
               </td>
               <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 6}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=pagestatceremony&m={%22a%22:3,%22b%22:6}">Ceremony</a>
+                  <a href = "?t=pagestatceremony&m={%22a%22:3,%22b%22:6}">Ceremony Location</a>
                 </div>
               </td>
               <td class="basemenus_td5">|</td>
               <td>
                 <div {{if $menu->b == 5}}class="basemenus_td3Hilight"{{else}}class="basemenus_td3"{{/if}}>
-                  <a href = "?t=pagestatreception&m={%22a%22:3,%22b%22:5}">Reception</a>
+                  <a href = "?t=pagestatreception&m={%22a%22:3,%22b%22:5}">Reception Location</a>
                 </div>
               </td>
               <td class="basemenus_td5">|</td>
