@@ -408,7 +408,7 @@
         </tr>
         <tr>
           <td class="{{$template|escape:'html'}}_td12">
-            <table class="{{$template|escape:'html'}}_table5" id="{{$template|escape:'html'}}_result_div" cellPaddiing="0" cellSpacing="0">
+            <table class="{{$template|escape:'html'}}_table5" id="{{$template|escape:'html'}}_result_table" cellPaddiing="0" cellSpacing="0">
               <tr>
                 <td class="{{$template|escape:'html'}}_td14" >Date Zone</td>
                 <td class="{{$template|escape:'html'}}_td15" ></td>
