@@ -51,7 +51,7 @@ HandlePageStatReception.prototype._retrieveDateZones = function() {
 
 HandlePageStatReception.prototype._updateElements = function() {
   var _self = this;
-  POZVFSUtils.clear(this._gui.dateZone);
+  DOMUtils.removeTableRows(this._gui.dateZone.result, 1);
   DOMUtils.removeChildElements(this._gui.reception.total);
   DOMUtils.removeTableRows(this._gui.reception.receptionTable, 1);
   
@@ -62,7 +62,7 @@ HandlePageStatReception.prototype._updateElements = function() {
     td.style.textAlign = 'center';
     td.style.height = '24px';
     td.colSpan = 2;
-    td.appendChild(document.createTextNode('N/A'));
+    td.appendChild(document.createTextNode('EMPTY'));
   }
 
   var total = 0;
@@ -118,40 +118,44 @@ HandlePageStatReception.prototype._updateElements = function() {
                                                      window.alert('DATE CAN NOT BE EMPTY');
                                                    }
                                                  };
-  var table = document.createElement('table');
-  table.style.width = '166px';
-  table.cellPadding = 0;
-  table.cellSpacing = 0;
-  this._gui.dateZone.result.appendChild(table);
+  
+  if (this._dateZones.length == 0) {
+  tr = this._gui.dateZone.result.insertRow(-1);
+  td = tr.insertCell(-1);
+  td.colSpan = 2;
+  td.style.height = '24px';
+  td.style.textAlign = 'center';
+  td.appendChild(document.createTextNode('Empty'));
+}
+
   for (var i = 0, il = this._dateZones.length; i < il; i++) {
-    var date = this._dateZones[i];
-    tr = table.insertRow(-1);
-    tr.className = (tr.rowIndex % 2 == 0) ? 'rowodd' : 'roweven';
-    td = tr.insertCell(-1);
-    td.style.width = '146px';
-    td.style.height = '20px';
-    td.style.textAlign = 'center';
-    var a = document.createElement('a');
-    a.href = '#';
-    a._date = date;
-    a.appendChild(document.createTextNode(SimpleDate.format(date.start) + ' - ' + SimpleDate.format(date.end)));
-    a.onclick = function() { _self._search.dateFrom = this._date.start;
-                             _self._search.dateTo = this._date.end;
-                             _self._retrieveResults.call(_self, 1, '1=1', JSON.stringify(this._date.start), JSON.stringify(this._date.end));
-                             return false;
-                           };
-    td.appendChild(a);
-    td = tr.insertCell(-1);
-    td.style.width = '20px';
-    td.style.textAlign = 'center';
-    var span = document.createElement('span');
-    span.appendChild(document.createTextNode('(x)'));
-    span.style.cursor = 'pointer';
-    span._date = date;
-    span.onclick = function() { new RequestUtils()._write('datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
-                              };
-    td.appendChild(span);
-  }
+  var date = this._dateZones[i];
+  tr = this._gui.dateZone.result.insertRow(-1);
+  tr.style.backgroundColor = (tr.rowIndex % 2 == 0) ? '#f5f5f5' : '#ffffff';
+  td = tr.insertCell(-1);
+  td.style.height = '24px';
+  td.style.textAlign = 'left';
+  td.style.padding = '0 0 0 10px';
+  var a = document.createElement('a');
+  a.href = '#';
+  a._date = date;
+  a.appendChild(document.createTextNode(SimpleDate.format(date.start) + ' - ' + SimpleDate.format(date.end)));
+  a.onclick = function() { _self._search.dateFrom = this._date.start;
+                           _self._search.dateTo = this._date.end;
+                           _self._retrieveResults.call(_self, 1, '', JSON.stringify(this._date.start), JSON.stringify(this._date.end)); 
+                           return false;
+                         };
+  td.appendChild(a);
+  td = tr.insertCell(-1);
+  td.style.textAlign = 'center';
+  var span = document.createElement('img');
+  span.src = 'image/delete.png';
+  span.style.cursor = 'pointer';
+  span._date = date;
+  span.onclick = function() { new RequestUtils()._write('pz_datezone', [], [this._date], function(date, params) { _self._retrieveDateZones.call(_self);}, null);
+    };
+  td.appendChild(span);
+}
   
   this._customerSearch(this._gui, function(condition, from, to) { _self._retrieveResults.call(_self, 1, condition, from, to); });
 };
